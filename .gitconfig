@@ -1,0 +1,16 @@
+[user]
+	name = Faraaz Sareshwala
+	email = fsaresh@ucdavis.edu
+
+[color]
+	diff = auto
+	branch = auto
+	status = auto
+	interactive = auto
+
+[alias]
+	graph = log --graph --pretty=oneline --abbrev-commit
+	ls = ls-files
+	serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"

@@ -1,0 +1,3 @@
+[submodule "prefix/usr/local/vrome"]
+	path = prefix/usr/local/vrome
+	url = https://github.com/jinzhu/vrome.git
