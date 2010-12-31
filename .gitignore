@@ -1,2 +1,6 @@
-# ignore everything unless we specifically add it
-*
+.*
+documents
+downloads
+music
+pictures
+personal
