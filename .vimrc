@@ -106,11 +106,11 @@ nnoremap <C-k> i<CR><ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
-set statusline=%<%{GitBranch()}\ \|\ %F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-map gc :GitCommit<CR>
-map gd :GitDiff<CR>
-map gl :GitLog<CR>
-map gb :GitBlame<CR>
-map gm :GitVimDiffMerge<CR>
+"set laststatus=2
+"set statusline=%<%{GitBranch()}\ \|\ %F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+"
+"map gc :GitCommit<CR>
+"map gd :GitDiff<CR>
+"map gl :GitLog<CR>
+"map gb :GitBlame<CR>
+"map gm :GitVimDiffMerge<CR>
