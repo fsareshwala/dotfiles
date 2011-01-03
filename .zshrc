@@ -10,7 +10,7 @@ export COLORTERM=yes
 export HISTFILE=~/.zshhistory
 export HISTSIZE=3000
 export SAVEHIST=3000
-export PATH=.:~/prefix/bin:$PATH
+export PATH=.:~/prefix/bin:/usr/local/lib/google_appengine:$PATH
 
 export P4USER=fsareshwala
 export P4CLIENT=fsareshwala-linux
