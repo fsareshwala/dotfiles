@@ -62,7 +62,6 @@ bindkey  history-incremental-search-backward
 # -----------------------------------------------
 ## Command Aliases
 alias c=clear
-alias e='smartextract'
 alias gpr='git p4 rebase'
 alias gps='git p4 submit'
 alias gp4='vim ~/prefix/bin/git-p4'
@@ -176,33 +175,6 @@ my_accounts=(
 )
 
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
-
-# -----------------------------------------------
-#  User-defined Functions
-# -----------------------------------------------
-
-# Usage: smartextract <file>
-# Description: extracts archived files / mounts disk images
-# Note: .dmg/hdiutil is Mac OS X-specific.
-smartextract () {
-    if [ -f $1 ]; then
-        case $1 in
-            *.tar.bz2)  tar -jxvf $1        ;;
-            *.tar.gz)   tar -zxvf $1        ;;
-            *.bz2)      bunzip2 $1          ;;
-            *.dmg)      hdiutil mount $1    ;;
-            *.gz)       gunzip $1           ;;
-            *.tar)      tar -xvf $1         ;;
-            *.tbz2)     tar -jxvf $1        ;;
-            *.tgz)      tar -zxvf $1        ;;
-            *.zip)      unzip $1            ;;
-            *.Z)        uncompress $1       ;;
-            *)          echo "'$1' cannot be extracted/mounted via smartextract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
-}
 
 import_history() {
     fc -RI
