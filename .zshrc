@@ -47,11 +47,11 @@ setopt no_nomatch
 
 # history
 setopt inc_append_history
-setopt share_history
-setopt extended_history				# save date, time, and elapsed time
-setopt hist_ignore_dups				# don't add sequential duplicated commands to the history
-setopt hist_reduce_blanks			# tidy up the line when entering into the line
-setopt nonotify					# don't notify immediately when a background process completes
+#setopt share_history
+setopt extended_history             # save date, time, and elapsed time
+setopt hist_ignore_dups             # don't add sequential duplicated commands to the history
+setopt hist_reduce_blanks           # tidy up the line when entering into the line
+setopt nonotify                     # don't notify immediately when a background process completes
 setopt zle
 
 bindkey  history-incremental-search-backward
@@ -169,17 +169,17 @@ else
 fi
 
 hosts=(
-	"$_etc_hosts[@]"
+    "$_etc_hosts[@]"
 
-	localhost
-	#Add favourite hosts here, and zsh will autocomplete them
+    localhost
+    #Add favourite hosts here, and zsh will autocomplete them
 )
 
 zstyle ':completion:*' hosts $hosts
 
 my_accounts=(
-	root@localhost
-	#Add ssh hosts here, and zsh will autocomplete them
+    root@localhost
+    #Add ssh hosts here, and zsh will autocomplete them
 )
 
 zstyle ':completion:*:my-accounts' users-hosts $my_accounts
