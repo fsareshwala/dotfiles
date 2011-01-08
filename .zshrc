@@ -217,5 +217,3 @@ import_history() {
 
 export CLICOLOR=1
 #export LSCOLORS=CxFxExDxBxegedabagacad
-
-xset r rate 150 100
