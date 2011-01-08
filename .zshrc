@@ -100,13 +100,6 @@ alias pxhkg='pssh -h ~/prefix/etc/pixel/hkg'
 alias pxtok='pssh -h ~/prefix/etc/pixel/tok'
 
 # -----------------------------------------------
-# Named directories
-# -----------------------------------------------
-quantserve=~/code/main/platform/quantserve/
-
-: ~quantserve
-
-# -----------------------------------------------
 # Load zsh modules
 # -----------------------------------------------
 # compinit initializes various advanced completions for zsh
