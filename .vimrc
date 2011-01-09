@@ -20,7 +20,7 @@ set expandtab                       "use spaces instead of tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set comments=sl:/*,mb:\ *,elx:\ */
 set formatoptions+=r
-"set list
+set list
 set listchars=tab:>-,trail:~,extends:>,precedes:< ",eol:$
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
