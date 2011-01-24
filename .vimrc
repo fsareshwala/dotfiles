@@ -36,7 +36,7 @@ set smartcase  " override 'ignorecase' if the search pattern contains upper case
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " interactions and interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"colorscheme peachpuff
+colorscheme delek
 set mouse=a
 set number
 set ruler
