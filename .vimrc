@@ -6,6 +6,7 @@ map t :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase .<CR>
 " indending and tabbing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent                      "set lines to automatically indent based on previous line
+set cindent
 set smartindent                     "makes vim attempt to intelligently guess the indent level of any new line based on the previous line
 set showtabline=2                   "always show tab line
 set shiftwidth=4                    "set the shiftwidth (>) to 4
