@@ -58,6 +58,8 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
+let c_space_errors = 1
+let java_space_errors = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taglist
