@@ -6,6 +6,7 @@ map t :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase .<CR>
 " indending and tabbing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent                      "set lines to automatically indent based on previous line
+set cindent
 set smartindent                     "makes vim attempt to intelligently guess the indent level of any new line based on the previous line
 set showtabline=2                   "always show tab line
 set shiftwidth=4                    "set the shiftwidth (>) to 4
@@ -35,7 +36,7 @@ set smartcase  " override 'ignorecase' if the search pattern contains upper case
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " interactions and interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"colorscheme peachpuff
+colorscheme delek
 set mouse=a
 set number
 set ruler
@@ -57,8 +58,8 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
-au FileType c,cpp,slang set cindent
-au FileType c,cpp,slang set cf
+let c_space_errors = 1
+let java_space_errors = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taglist
