@@ -70,6 +70,3 @@ nnoremap K <C-w>k
 nnoremap L <C-w>l
 nnoremap <C-j> :join<CR>
 nnoremap <C-k> i<CR><ESC>
-"nnoremap <C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-"nnoremap <C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
