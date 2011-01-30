@@ -11,6 +11,7 @@ set smartindent
 set showtabline=2
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set smarttab
 set nowrap
 set textwidth=100 wrap linebreak
