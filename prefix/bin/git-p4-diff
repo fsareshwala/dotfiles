@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+import os
+import subprocess
+import sys
+
+################################################################################
+# Utility functions
+################################################################################
+def strip_last_dir(path):
+    return '/' + '/'.join(path.strip('/').split('/')[0:-1])
+
+def run_command(command):
+    # TODO: need to write this function
+    pass
+
+def error(message):
+    print 'Error: ' + message
+    sys.exit(1)
+
+################################################################################
+# Git
+################################################################################
+class Git:
+    def __init__(self):
+        self.cwd = self.get_dir()
+
+    def get_dir(self):
+        '''go upwards in the directory tree to find the main git directory'''
+        path = os.getcwd()
+
+        while True:
+            if '.git' in os.listdir(path):
+                return path
+            
+            # we've checked all directories up to root and haven't found a git directory
+            if path == '/':
+                error('Traversed all the way up to / and could not find a git directory.')
+
+            path = strip_last_dir(path)
+
+################################################################################
+# Perforce
+################################################################################
+class Perforce:
+    def __init__(self):
+        self.cwd = os.getcwd()
+
+    def get_dir(self):
+        '''determine the Perforce client root'''
+        return run_command('p4 client -o').split()[1]
+
+################################################################################
+# Main
+################################################################################
+def main():
+    git = Git()
+    perforce = Perforce()
+
+    change = sys.argv[1]
+    print strip_last_dir('///')
+
+if __name__ == '__main__': main()
