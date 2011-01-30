@@ -62,37 +62,6 @@ let c_space_errors = 1
 let java_space_errors = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" taglist
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F5> :TlistToggle<CR>
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Use_SingleClick = 1
-let Tlist_Process_File_Always = 1
-"let Tlist_Show_One_File = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Display_Tag_Scope = 1
-"let Tlist_Auto_Open = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F6> :NERDTreeToggle<CR>
-map <Undo> :NERDTreeMirror<CR>
-"let NERDChristmasTree = 1
-let NERDTreeIgnore = ['\.o$', '\~$']
-let NERDTreeWinSize = 31
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"OmniCppComplete
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let OmniCpp_NamespaceSearch = 2             "search namespaces in the current buffer and in included files
-let OmniCpp_ShowPrototypeInAbbr = 1         "display prototype in abbreviation
-let OmniCpp_MayCompleteScope = 1
-let OmniCpp_SelectFirstItem = 2             "select first popup item (without inserting it to the text)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap H <C-w>h
@@ -104,14 +73,3 @@ nnoremap <C-k> i<CR><ESC>
 "nnoremap <C-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 "nnoremap <C-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Git
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set laststatus=2
-"set statusline=%<%{GitBranch()}\ \|\ %F\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-"
-"map gc :GitCommit<CR>
-"map gd :GitDiff<CR>
-"map gl :GitLog<CR>
-"map gb :GitBlame<CR>
-"map gm :GitVimDiffMerge<CR>
