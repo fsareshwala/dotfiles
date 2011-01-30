@@ -64,9 +64,8 @@ let java_space_errors = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap H <C-w>h
-nnoremap J <C-w>j
-nnoremap K <C-w>k
-nnoremap L <C-w>l
-nnoremap <C-j> :join<CR>
-nnoremap <C-k> i<CR><ESC>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap K i<CR><ESC>
