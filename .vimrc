@@ -45,7 +45,7 @@ set tags=tags
 "set spell
 set showmode
 set showcmd
-"set scrolloff=5                " minimal number of screen lines to keep above and below the cursor
+set scrolloff=5                " minimal number of screen lines to keep above and below the cursor
 "set foldmethod=indent          " use indent for folding
 set backspace=eol,start,indent
 set clipboard+=unnamed         " share clipboard
