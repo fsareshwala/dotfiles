@@ -49,7 +49,7 @@ set scrolloff=5                " minimal number of screen lines to keep above an
 "set foldmethod=indent          " use indent for folding
 set backspace=eol,start,indent
 set clipboard+=unnamed         " share clipboard
-"set foldcolumn=3               " display folds"
+"set foldcolumn=3               " display folds
 set wildmenu                   " enhance command completion
 set wildmode=list:longest,full " first 'list:lingest' and second 'full'"
 
