@@ -101,3 +101,4 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap K i<CR><ESC>
+call pathogen#runtime_append_all_bundles()
