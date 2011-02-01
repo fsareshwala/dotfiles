@@ -6,6 +6,8 @@ map t :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase .<CR>
 " indendting and tabbing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
+set copyindent
+set preserveindent
 set cindent
 set smartindent
 set showtabline=2
