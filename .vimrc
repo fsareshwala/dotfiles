@@ -1,6 +1,6 @@
 map X :tabnext<CR>
 map Z :tabprev<CR>
-map t :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase .<CR>
+map t :!ctags -R .<CR>
 
 set nocompatible
 set foldenable
