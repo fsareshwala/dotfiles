@@ -54,9 +54,9 @@ set showmode
 set showcmd
 "set scrolloff=5
 "set foldmethod=indent
+"set foldcolumn=3
 set backspace=eol,start,indent
 set clipboard+=unnamed
-"set foldcolumn=3
 set wildmenu
 set wildmode=list:longest,full
 
