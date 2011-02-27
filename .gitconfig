@@ -13,6 +13,8 @@
 	branch = auto
 	status = auto
 	interactive = auto
+	ui = true
+	pager = true
 
 [alias]
 	graph = log --graph --pretty=oneline --abbrev-commit
