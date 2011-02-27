@@ -2,6 +2,9 @@
 	name = Faraaz Sareshwala
 	email = fsaresh@ucdavis.edu
 
+[branch]
+	autosetuprebase = always
+
 [color]
 	diff = auto
 	branch = auto
