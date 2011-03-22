@@ -34,7 +34,7 @@ autoload -U ~/.zsh/functions/*(:t)
 # Allow for functions in the prompt.
 setopt PROMPT_SUBST
 
-export PROMPT="[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[green]%}%m%{$fg[default]%}$(prompt_git_info) %{$fg[yellow]%}%c%{$fg[default]%}]%# "
+export PROMPT=$'[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[green]%}%m%{$fg[default]%}$(prompt_git_info) %{$fg[yellow]%}%c%{$fg[default]%}]%# '
 export RPROMPT="[%{$fg[yellow]%} %~ %{$fg[default]%}|%{$fg[blue]%} %D{%a %x %I:%M:%S %p} %{$fg[default]%}]"
 
 # -----------------------------------------------
