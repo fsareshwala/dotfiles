@@ -1,0 +1,46 @@
+local st="$(git status 2>/dev/null)"
+if [[ -n "$st" ]]; then
+    local -a arr
+    arr=(${(f)st})
+
+    local s=":"
+    s+="%{${fg[yellow]}%}"
+    if [[ $arr[1] =~ 'Not currently on any branch.' ]]; then
+        s+="no-branch"
+        __CURRENT_GIT_BRANCH='no-branch'
+    else
+        s+="${arr[1][(w)4]}";
+    fi
+
+    s+="%{${fg[blue]}%}"
+    if [[ $arr[2] =~ 'Your branch is' ]]; then
+        if [[ $arr[2] =~ 'ahead' ]]; then
+            s+="^"
+        elif [[ $arr[2] =~ 'diverged' ]]; then
+            s+="I"
+        else
+            s+="v"
+        fi
+    fi
+
+    if [[ $st =~ 'Changes to be committed' ]]; then
+        s+="%{${fg[green]}%}"
+        s+="+"
+        s+="%{${fg[yellow]}%}"
+    fi
+    if [[ $st =~ 'Changed but not updated|Untracked files'  ]]; then
+        s+="%{${fg[red]}%}"
+        s+="!"
+        s+="%{${fg[yellow]}%}"
+    fi
+
+    if [[ $st =~ 'Unmerged paths' ]]; then
+        s+="$B%{${fg[red]}%}"
+        s+="*"
+        s+="$b%{${fg[yellow]}%}"
+    fi
+
+    s+="%{${fg[default]}%}"
+
+    printf "%s" $s
+fi
