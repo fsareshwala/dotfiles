@@ -62,6 +62,7 @@ bindkey  history-incremental-search-backward
 # -----------------------------------------------
 ## Command Aliases
 alias c=clear
+alias deployer='ruby ~/code/main/platform/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias gpr='git p4 rebase'
 alias gps='git p4 submit'
 alias gp4='vim ~/prefix/bin/git-p4'
