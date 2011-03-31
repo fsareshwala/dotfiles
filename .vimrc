@@ -59,6 +59,7 @@ set backspace=eol,start,indent
 set clipboard+=unnamed
 set wildmenu
 set wildmode=list:longest,full
+set guifont=Terminus\ 8
 
 " make vim's completion menu act more like an ide
 set completeopt=longest,menuone
