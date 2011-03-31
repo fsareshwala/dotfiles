@@ -71,11 +71,11 @@ bindkey  history-incremental-search-backward
 alias c=clear
 alias calpost='calpost -u fsareshwala -c realtime'
 alias deployer='ruby ~/code/main/platform/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
+alias gp4='vim ~/prefix/bin/git-p4'
 alias gpr='git p4 rebase'
 alias gps='git p4 submit'
-alias gp4='vim ~/prefix/bin/git-p4'
-alias ls='ls --color'
 alias less='less -r'
+alias ls='ls --color'
 alias m='make'
 alias mc='make clean'
 alias mrc='vim ~/.muttrc'
