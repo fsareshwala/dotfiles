@@ -27,10 +27,6 @@ promptinit
 autoload -U colors
 colors
 
-# Autoload zsh functions.
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
-
 export PROMPT='[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[green]%}%m%{$fg[default]%} %{$fg[yellow]%}%c%{$fg[default]%}]%# '
 export RPROMPT="[%{$fg[yellow]%} %~ %{$fg[default]%}|%{$fg[blue]%} %D{%a %x %I:%M:%S %p} %{$fg[default]%}]"
 
