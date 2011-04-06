@@ -14,11 +14,11 @@ if [[ -n "$st" ]]; then
     s+="%{${fg[blue]}%}"
     if [[ $arr[2] =~ 'Your branch is' ]]; then
         if [[ $arr[2] =~ 'ahead' ]]; then
-            s+="^"
+	        s+="↑"
         elif [[ $arr[2] =~ 'diverged' ]]; then
-            s+="I"
+	        s+="↕"
         else
-            s+="v"
+	        s+="↓"
         fi
     fi
 
