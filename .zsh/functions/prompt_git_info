@@ -7,7 +7,6 @@ if [[ -n "$st" ]]; then
     s+="%{${fg[yellow]}%}"
     if [[ $arr[1] =~ 'Not currently on any branch.' ]]; then
         s+="no-branch"
-        __CURRENT_GIT_BRANCH='no-branch'
     else
         s+="${arr[1][(w)4]}";
     fi
