@@ -64,6 +64,8 @@ bindkey  history-incremental-search-backward
 alias c=clear
 alias calpost='calpost -u fsareshwala -c realtime'
 alias b='git branch -a'
+alias d='git diff'
+alias dc='git diff --cached'
 alias st='git status'
 alias deployer='ruby ~/code/main/platform/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias gp4='vim ~/prefix/bin/git-p4'
