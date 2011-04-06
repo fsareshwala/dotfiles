@@ -27,7 +27,7 @@ promptinit
 autoload -U colors
 colors
 
-export PROMPT='[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[green]%}%m%{$fg[default]%} %{$fg[yellow]%}%c%{$fg[default]%}]%# '
+export PROMPT="[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[green]%}%m%{$fg[default]%} %{$fg[yellow]%}%c%{$fg[default]%}]%# "
 export RPROMPT="[%{$fg[yellow]%} %~ %{$fg[default]%}|%{$fg[blue]%} %D{%a %x %I:%M:%S %p} %{$fg[default]%}]"
 
 # -----------------------------------------------
