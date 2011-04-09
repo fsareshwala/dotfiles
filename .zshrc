@@ -65,6 +65,7 @@ alias c=clear
 alias calpost='calpost -u fsareshwala -c realtime'
 alias b='git branch -a'
 alias d='git diff'
+alias dt='git difftool'
 alias dc='git diff --cached'
 alias st='git status'
 alias deployer='ruby ~/code/main/platform/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
