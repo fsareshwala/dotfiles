@@ -2,7 +2,7 @@
 
 set realname="Faraaz Sareshwala"
 set from="fsareshwala@quantcast.com"
-set hostname="quantcast.com"		  	# my DNS domain
+set hostname="quantcast.com"            # my DNS domain
 set envelope_from
 
 set spoolfile="imaps://owa017.msoutlookonline.net/"
@@ -26,74 +26,74 @@ set beep_new
 set alias_file=~/.aliases.mutt
 source ~/.aliases.mutt
 
-set nosave_empty						# remove files when no messages are left
-set include								# always include messages when replying
-set fast_reply						   	# skip initial prompts when replying
-set reply_to						   	# always use reply-to if present
+set nosave_empty                        # remove files when no messages are left
+set include                             # always include messages when replying
+set fast_reply                          # skip initial prompts when replying
+set reply_to                            # always use reply-to if present
 set move=no
-set copy=yes							# always save a copy of outgoing messages
-set bounce=yes							# don't ask about bouncing messages, just do it
-set delete=yes							# purge deleted messages without asking
+set copy=yes                            # always save a copy of outgoing messages
+set bounce=yes                          # don't ask about bouncing messages, just do it
+set delete=yes                          # purge deleted messages without asking
 set quit=ask-yes
-set nomark_old							# i don't care about whether a message is old
-set mail_check=30						# how often to poll for new mail
-set timeout=15							# timeout for prompt in the index menu
-set mime_forward						# use message/rfc822 type to forward messages
-set pager_index_lines=11				# how many index lines to show in the pager
-set reverse_name						# use my address as it appears in the message i am replying to
-set read_inc=25							# show progress when reading a mailbox
-set write_inc=25						# show progress while writing mailboxes
+set nomark_old                          # i don't care about whether a message is old
+set mail_check=30                       # how often to poll for new mail
+set timeout=15                          # timeout for prompt in the index menu
+set mime_forward                        # use message/rfc822 type to forward messages
+set pager_index_lines=11                # how many index lines to show in the pager
+set reverse_name                        # use my address as it appears in the message i am replying to
+set read_inc=25                         # show progress when reading a mailbox
+set write_inc=25                        # show progress while writing mailboxes
 unset mark_old
-unset markers							# no annoying + markers at beginning of wrapped lines
+unset markers                           # no annoying + markers at beginning of wrapped lines
 auto_view text/html
-alternative_order text/plain text/enriched text/html	# prefer plain text
+alternative_order text/plain text/enriched text/html    # prefer plain text
 
-set ascii_chars							# use ASCII instead of ACS chars for threads
+set ascii_chars                         # use ASCII instead of ACS chars for threads
 set attribution="On %D, %f wrote:"
-set forward_format="FWD: %s"			# subject to use when forwarding messages
-set indent_string="> "					# how to quote replied text
-set autoedit							# go to the editor right away when composing
-set noconfirmappend						# don't ask me if i want to append to mailboxes
+set forward_format="FWD: %s"            # subject to use when forwarding messages
+set indent_string="> "                  # how to quote replied text
+set autoedit                            # go to the editor right away when composing
+set noconfirmappend                     # don't ask me if i want to append to mailboxes
 set index_format="%4C %Z %{%b %d} %-15.15F %s"
-set help								# show the help lines
-set tmpdir=/tmp					 		# where to store temp files
-set tilde								# virtual lines to pad blank lines in the pager
-set implicit_autoview=yes				# pager shows parts having a mailcap viewer
-set pgp_verify_sig=no					# don't automatically verify message signatures
-set sort_browser=reverse-date			# how to sort files in the dir browser
+set help                                # show the help lines
+set tmpdir=/tmp                         # where to store temp files
+set tilde                               # virtual lines to pad blank lines in the pager
+set implicit_autoview=yes               # pager shows parts having a mailcap viewer
+set pgp_verify_sig=no                   # don't automatically verify message signatures
+set sort_browser=reverse-date           # how to sort files in the dir browser
 set sort=reverse-date
 #set sort_aux=date-received
-set nouse_domain						# don't qualify local addresses with $domain
-set use_from							# always generate the `From:' header field
+set nouse_domain                        # don't qualify local addresses with $domain
+set use_from                            # always generate the `From:' header field
 
 # Headers to ignore
 ignore *
 unignore        From: To: Cc: Subject: Date:
 
 #color normal white default
-color normal	white default
+color normal    white default
 color attachment brightyellow default
 color hdrdefault cyan default
 color indicator black cyan
-color markers	brightred default
-color quoted	green default
+color markers   brightred default
+color quoted    green default
 color signature cyan default
-color status	brightgreen blue
-color tilde	blue default
-color tree	red default
+color status    brightgreen blue
+color tilde blue default
+color tree  red default
 color error brightred default
 color message brightcyan default
-color search default green	# how to hilite search patterns in the pager
-color body magenta default "(ftp|http|https)://[^ ]+"	# point out URLs
-color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
+color search default green  # how to hilite search patterns in the pager
+color body magenta default "(ftp|http|https)://[^ ]+"   # point out URLs
+color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+    # e-mail addresses
 color underline brightgreen default
-#color header	brightgreen black ^From:
-#color header	brightcyan black ^To:
-#color header	brightcyan black ^Reply-To:
-#color header	brightcyan black ^Cc:
-#color header	brightblue black ^Subject:
-#color body	brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
-#color body	brightblue black (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
+#color header   brightgreen black ^From:
+#color header   brightcyan black ^To:
+#color header   brightcyan black ^Reply-To:
+#color header   brightcyan black ^Cc:
+#color header   brightblue black ^Subject:
+#color body brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+#color body brightblue black (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
 
 # Show documentation when pressing F1
 macro generic <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
