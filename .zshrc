@@ -12,12 +12,6 @@ export HISTSIZE=3000
 export SAVEHIST=3000
 export PATH=.:~/prefix/bin:/usr/local/lib/google_appengine:$PATH
 
-export P4USER=fsareshwala
-export P4CLIENT=fsareshwala-linux
-export P4PORT=perforce1.sfo1.qc:1666
-export P4MERGE=vimdiff
-export P4EDITOR=vim
-
 # -----------------------------------------------
 # Set up the prompt
 # -----------------------------------------------
@@ -69,9 +63,6 @@ alias dt='git difftool'
 alias dc='git diff --cached'
 alias st='git status'
 alias deployer='ruby ~/code/main/platform/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-alias gp4='vim ~/prefix/bin/git-p4'
-alias gpr='git p4 rebase'
-alias gps='git p4 submit'
 alias less='less -r'
 alias ls='ls --color'
 alias l='ls'
