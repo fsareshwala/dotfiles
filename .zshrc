@@ -100,7 +100,7 @@ alias pxdel='pssh -h ~/prefix/etc/pixel/del'
 alias pxhkg='pssh -h ~/prefix/etc/pixel/hkg'
 alias pxtok='pssh -h ~/prefix/etc/pixel/tok'
 
-alias q='cd ~/code/main/platform/quantserve'
+alias q='cd ~/code/quantserve'
 
 # -----------------------------------------------
 # Load zsh modules
