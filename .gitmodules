@@ -13,3 +13,6 @@
 [submodule "prefix/usr/local/flamethrower"]
 	path = prefix/usr/local/flamethrower
 	url = https://github.com/blakesmith/flamethrower.git
+[submodule ".vim/bundle/gitv"]
+	path = .vim/bundle/gitv
+	url = https://github.com/gregsexton/gitv.git
