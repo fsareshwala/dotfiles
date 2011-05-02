@@ -55,7 +55,7 @@ bindkey  history-incremental-search-backward
 # Shell Aliases
 # -----------------------------------------------
 ## Command Aliases
-alias c=clear
+alias c='cd ~/code'
 alias calpost='calpost -u fsareshwala -c realtime'
 alias b='git branch -a'
 alias d='git diff'
