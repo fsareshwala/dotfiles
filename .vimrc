@@ -21,7 +21,7 @@ set tabstop=4
 set softtabstop=4
 set smarttab
 set nowrap
-set textwidth=100 wrap linebreak
+set textwidth=80 wrap linebreak
 set expandtab
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
