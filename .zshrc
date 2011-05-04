@@ -11,6 +11,7 @@ export HISTFILE=~/.zshhistory
 export HISTSIZE=3000
 export SAVEHIST=3000
 export PATH=.:~/prefix/bin:/usr/local/lib/google_appengine:$PATH
+export GIT_TOP_DIR=~/code
 
 # -----------------------------------------------
 # Set up the prompt
