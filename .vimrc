@@ -30,7 +30,7 @@ set expandtab
 set comments=sl:/*,mb:\ *,elx:\ */
 set formatoptions+=r
 set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:\|­,trail:~,extends:>,precedes:<
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " search
