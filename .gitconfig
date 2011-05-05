@@ -2,9 +2,6 @@
 	name = Faraaz Sareshwala
 	email = fsareshwala@quantcast.com
 
-[branch]
-	autosetuprebase = always
-
 [core]
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = /home/fsareshwala/prefix/etc/git/exclude
