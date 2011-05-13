@@ -19,3 +19,6 @@
 [submodule "personal"]
 	path = personal
 	url = git@faraazs.homeip.net:personal.git
+[submodule ".vim/bundle/vim-protobuf"]
+	path = .vim/bundle/vim-protobuf
+	url = https://github.com/jboyens/vim-protobuf.git
