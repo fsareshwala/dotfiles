@@ -4,8 +4,6 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 
-require("debian.menu")
-
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 terminal = "x-terminal-emulator"
@@ -37,16 +35,6 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", awesome.quit }
 }
-
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
-                                  }
-                        })
-
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
-                                     menu = mymainmenu })
--- }}}
 
 mytextclock = awful.widget.textclock({ align = "right" })
 mysystray = widget({type = "systray"})
@@ -113,7 +101,6 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mylauncher,
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
