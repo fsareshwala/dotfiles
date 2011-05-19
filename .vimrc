@@ -95,7 +95,7 @@ let Tlist_Display_Tag_Scope = 1
 map <F6> :NERDTreeToggle<CR>
 map <Undo> :NERDTreeMirror<CR>
 "let NERDChristmasTree = 1
-let NERDTreeIgnore = ['\.o$', '\~$']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
 let NERDTreeWinSize = 31
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
