@@ -106,9 +106,7 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
-  freenode = {
-    type = "IRC";
-  };
+  freenode = { type = "IRC"; };
   campfire = { type = "IRC"; };
 };
 
@@ -287,6 +285,10 @@ settings = {
     nick = "fsareshwala";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { use_status_window = "no"; };
+  "fe-common/core" = {
+    use_status_window = "no";
+    bell_beeps = "yes";
+    beep_msg_level = "MSGS NOTICES INVITES DCC DCCMSGS HILIGHT";
+  };
 };
 hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
