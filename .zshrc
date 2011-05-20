@@ -83,6 +83,7 @@ alias vim='vim -O'
 alias x=exit
 alias zrc='vim ~/.zshrc'
 
+# parallel ssh aliases
 alias pssh='parallel-ssh --inline'
 alias pxall='pssh -h ~/prefix/etc/pixel/all'
 alias pxsftest='pssh -h ~/prefix/etc/pixel/sftest'
