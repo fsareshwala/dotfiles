@@ -57,20 +57,13 @@ bindkey  history-incremental-search-backward
 # -----------------------------------------------
 ## Command Aliases
 alias calpost='calpost -u fsareshwala -c realtime'
-alias b='git branch -a'
-alias d='git diff'
-alias dt='git difftool'
-alias dc='git diff --cached'
-alias st='git status'
 alias deployer='ruby ~/code/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-alias gpr='git pull --rebase'
 alias less='less -r'
 alias ls='ls --color'
 alias l='ls'
 alias m='make'
 alias mc='make clean'
 alias mrc='vim ~/.muttrc'
-alias mt='git mergetool'
 alias o='popd'
 alias p='pushd'
 alias pr='post-review --guess-summary --guess-description'
@@ -82,6 +75,18 @@ alias vi='vim'
 alias vim='vim -O'
 alias x=exit
 alias zrc='vim ~/.zshrc'
+
+# git aliases
+alias ga='git add'
+alias gb='git branch -a'
+alias gc='git checkout'
+alias gcl='git clone'
+alias gd='git diff'
+alias gdt='git difftool'
+alias gm='git commit -m'
+alias gmt='git mergetool'
+alias gpr='git pull --rebase'
+alias gs='git status'
 
 # parallel ssh aliases
 alias pssh='parallel-ssh --inline'
