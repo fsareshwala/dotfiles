@@ -78,6 +78,7 @@ alias zrc='vim ~/.zshrc'
 
 # git aliases
 alias ga='git add'
+alias gap='git add -p'
 alias gb='git branch -a'
 alias gc='git checkout'
 alias gcl='git clone'
