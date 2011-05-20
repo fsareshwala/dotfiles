@@ -1,5 +1,5 @@
 servers = (
- {
+  {
     address = "irc.freenode.net";
     chatnet = "freenode";
     port = "6667";
@@ -19,7 +19,10 @@ servers = (
 
 chatnets = {
   freenode = { type = "IRC"; };
-  campfire = { type = "IRC"; };
+  campfire = {
+    type = "IRC";
+    autosendcmd = "wait 2000";
+  };
 };
 
 channels = (
