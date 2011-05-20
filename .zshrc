@@ -56,7 +56,6 @@ bindkey  history-incremental-search-backward
 # Shell Aliases
 # -----------------------------------------------
 ## Command Aliases
-alias c='cd ~/code'
 alias calpost='calpost -u fsareshwala -c realtime'
 alias b='git branch -a'
 alias d='git diff'
@@ -65,7 +64,6 @@ alias dc='git diff --cached'
 alias st='git status'
 alias deployer='ruby ~/code/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias gpr='git pull --rebase'
-alias g='cd ~/projects/owrglass/owrglass'
 alias less='less -r'
 alias ls='ls --color'
 alias l='ls'
@@ -73,7 +71,6 @@ alias m='make'
 alias mc='make clean'
 alias mrc='vim ~/.muttrc'
 alias mt='git mergetool'
-alias n='cd ~/projects/codex/website/neocodex'
 alias o='popd'
 alias p='pushd'
 alias pr='post-review --guess-summary --guess-description'
@@ -103,7 +100,11 @@ alias pxdel='pssh -h ~/prefix/etc/pixel/del'
 alias pxhkg='pssh -h ~/prefix/etc/pixel/hkg'
 alias pxtok='pssh -h ~/prefix/etc/pixel/tok'
 
+# directory aliases
+alias c='cd ~/code'
 alias q='cd ~/code/quantserve'
+alias g='cd ~/projects/owrglass/owrglass'
+alias n='cd ~/projects/codex/website/neocodex'
 
 # -----------------------------------------------
 # Load zsh modules
