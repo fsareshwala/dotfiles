@@ -23,7 +23,7 @@ for s = 1, screen.count() do
     tags[s] = awful.tag({1, 2, 3, 4, 5, 6, 7, 8, 9}, s, layouts[1])
 end
 
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, " %A, %B %d, %Y | %I:%M %p ")
 mysystray = widget({type = "systray"})
 
 mywibox = {}
