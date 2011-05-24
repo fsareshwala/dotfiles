@@ -79,6 +79,8 @@ alias zrc='vim ~/.zshrc'
 # git aliases
 alias ga='git add'
 alias gap='git add -p'
+alias gc='git checkout'
+alias gcb='git checkout -b'
 alias b='git branch -a'
 alias d='git diff'
 alias dc='git diff --cached'
