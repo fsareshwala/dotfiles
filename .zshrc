@@ -77,11 +77,13 @@ alias x=exit
 alias zrc='vim ~/.zshrc'
 
 # git aliases
+alias ga='git add'
 alias gap='git add -p'
 alias b='git branch -a'
 alias d='git diff'
+alias dc='git diff --cached'
 alias dt='git difftool'
-alias gc='git commit -m'
+alias gm='git commit -m'
 alias mt='git mergetool'
 alias gpr='git pull --rebase'
 alias st='git status'
