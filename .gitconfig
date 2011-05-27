@@ -15,7 +15,7 @@
 	pager = true
 
 [alias]
-	graph = log --graph --pretty=oneline --abbrev-commit
+	graph = log --graph --oneline --decorate
 	ls = ls-files
 	serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
