@@ -14,15 +14,21 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "bitlbee";
+    port = "6666";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
   }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
-  campfire = {
-    type = "IRC";
-    autosendcmd = "wait 2000";
-  };
+  campfire = { type = "IRC"; autosendcmd = "wait 2000"; };
+  bitlbee = { type = "IRC"; };
 };
 
 channels = (
