@@ -9,7 +9,13 @@ beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 terminal = "x-terminal-emulator"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
-modkey = "Mod4"
+
+hostname = awful.util.pread("hostname -f"):gsub("\n", "")
+if hostname == 'pikachu' then
+    modkey = "Mod1"
+else
+    modkey = 'Mod4'
+end
 
 layouts =
 {
