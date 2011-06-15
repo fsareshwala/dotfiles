@@ -78,17 +78,18 @@ alias x=exit
 alias zrc='vim ~/.zshrc'
 
 # git aliases
-alias ga='git add'
-alias gap='git add -p'
-alias gc='git checkout'
-alias gcb='git checkout -b'
 alias b='git branch -a'
 alias d='git diff'
 alias dc='git diff --cached'
 alias dt='git difftool'
+alias ga='git add'
+alias gap='git add -p'
+alias gc='git checkout'
+alias gcb='git checkout -b'
 alias gm='git commit -m'
-alias mt='git mergetool'
+alias gp='git pull'
 alias gpr='git pull --rebase'
+alias mt='git mergetool'
 alias st='git status'
 
 # parallel ssh aliases
