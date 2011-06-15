@@ -112,7 +112,7 @@ alias pxtok='pssh -h ~/prefix/etc/pixel/tok'
 
 # directory aliases
 alias c='cd ~/code'
-alias q='cd ~/code/quantserve'
+alias q='cd ~/code/realtime/quantserve'
 alias g='cd ~/projects/owrglass/owrglass'
 alias n='cd ~/projects/codex/website/neocodex'
 
