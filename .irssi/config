@@ -216,3 +216,41 @@ hilights = (
   { text = "dro"; nick = "yes"; word = "yes"; }
 );
 ignores = ( { level = "MODES"; channels = ( "&bitlbee" ); } );
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#realtime";
+        tag = "campfire";
+      }
+    );
+    sticky = "yes";
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "&bitlbee";
+        tag = "bitlbee";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#neocodex2";
+        tag = "freenode";
+      }
+    );
+  };
+};
+mainwindows = {
+  1 = { first_line = "50"; lines = "47"; };
+  2 = { first_line = "1"; lines = "49"; };
+};
