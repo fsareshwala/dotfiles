@@ -127,7 +127,7 @@ autoload zmv
 # -----------------------------------------------
 # Set up zsh autocompletions
 # -----------------------------------------------
-# case-insensitive tab completion for filenames (useful on Mac OS X)
+# case-insensitive tab completion for filenames
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # General completion technique
