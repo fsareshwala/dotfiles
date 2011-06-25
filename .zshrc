@@ -10,7 +10,7 @@ export COLORTERM=yes
 export HISTFILE=~/.zshhistory
 export HISTSIZE=3000
 export SAVEHIST=3000
-export PATH=.:~/prefix/bin:~/code/git-tools/bin:/usr/local/lib/google_appengine:$PATH
+export PATH=.:~/prefix/bin:~/code/git-tools/bin:$PATH
 export GIT_TOP_DIR=~/code
 export USE_CCACHE=true
 
