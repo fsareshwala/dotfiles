@@ -166,33 +166,6 @@ zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' menu yes
 
-# -----------------------------------------------
-# Set up completion for hostnames
-# -----------------------------------------------
-
-if [[ "$ZSH_VERSION_TYPE" == 'new' ]]; then
-  : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}}
-else
-  # Older versions don't like the above cruft
-  _etc_hosts=()
-fi
-
-hosts=(
-    "$_etc_hosts[@]"
-
-    localhost
-    #Add favourite hosts here, and zsh will autocomplete them
-)
-
-zstyle ':completion:*' hosts $hosts
-
-my_accounts=(
-    root@localhost
-    #Add ssh hosts here, and zsh will autocomplete them
-)
-
-zstyle ':completion:*:my-accounts' users-hosts $my_accounts
-
 import_history() {
     fc -RI
 }
