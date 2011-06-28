@@ -116,6 +116,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-K> i<CR><ESC>
 noremap <F12> :Gblame<CR>
+noremap <F11> :Gdiff<CR>
 call pathogen#runtime_append_all_bundles()
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
