@@ -99,3 +99,4 @@ color underline brightgreen default
 macro generic <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
 macro index   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
 macro pager   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
+bind index "^" imap-fetch-mail
