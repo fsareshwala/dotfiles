@@ -13,6 +13,7 @@ set editor=vim
 set shell="/bin/zsh"
 set record="+Sent Items"
 set postponed="+Drafts"
+set trash="+Trash"
 
 # Cache the headers locally under $HOME/mail/headers folder
 # # Create this folder manually before starting Mutt
