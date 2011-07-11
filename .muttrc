@@ -49,8 +49,6 @@ unset markers                           # no annoying + markers at beginning of 
 auto_view text/html
 alternative_order text/plain text/enriched text/html    # prefer plain text
 
-set ascii_chars                         # use ASCII instead of ACS chars for threads
-set attribution="On %D, %f wrote:"
 set forward_format="FWD: %s"            # subject to use when forwarding messages
 set indent_string="> "                  # how to quote replied text
 set autoedit                            # go to the editor right away when composing
