@@ -3,6 +3,7 @@ map Z :tabprev<CR>
 map t :!ctags -R .<CR>
 
 set nocompatible
+set nobackup
 set foldenable
 set mousehide
 imap jj <esc>
