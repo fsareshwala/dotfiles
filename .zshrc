@@ -78,7 +78,7 @@ alias x=exit
 alias zrc='vim ~/.zshrc'
 
 # git aliases
-alias b='git branch -a'
+alias b='git branch -avv'
 alias d='git diff'
 alias dc='git diff --cached'
 alias dt='git difftool'
