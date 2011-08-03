@@ -127,7 +127,3 @@ if has("autocmd")
         autocmd bufwritepost .vimrc source ~/.vimrc
     augroup END
 endif
-
-if $HOSTNAME =~ 'folsom'
-    set makeprg=scons
-endif
