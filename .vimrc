@@ -61,6 +61,7 @@ set clipboard+=unnamed
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
+set autoread
 
 " make vim's completion menu act more like an ide
 set complete=.,w,b,u,t,i
