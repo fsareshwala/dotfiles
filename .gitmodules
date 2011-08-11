@@ -1,27 +1,27 @@
 [submodule "prefix/usr/local/vrome"]
 	path = prefix/usr/local/vrome
-	url = https://github.com/jinzhu/vrome.git
+	url = git://github.com/jinzhu/vrome.git
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/nerdtree"]
 	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
+	url = git://github.com/scrooloose/nerdtree.git
 [submodule ".vim/pathogen"]
 	path = .vim/pathogen
-	url = https://github.com/tpope/vim-pathogen.git
+	url = git://github.com/tpope/vim-pathogen.git
 [submodule "prefix/usr/local/flamethrower"]
 	path = prefix/usr/local/flamethrower
-	url = https://github.com/blakesmith/flamethrower.git
+	url = git://github.com/blakesmith/flamethrower.git
 [submodule ".vim/bundle/gitv"]
 	path = .vim/bundle/gitv
-	url = https://github.com/gregsexton/gitv.git
+	url = git://github.com/gregsexton/gitv.git
 [submodule "personal"]
 	path = personal
 	url = git@faraazs.homeip.net:personal.git
 [submodule ".vim/bundle/vim-protobuf"]
 	path = .vim/bundle/vim-protobuf
-	url = https://github.com/jboyens/vim-protobuf.git
+	url = git://github.com/jboyens/vim-protobuf.git
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
