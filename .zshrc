@@ -62,6 +62,7 @@ alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --j
 alias less='less -r'
 alias ls='ls --color'
 alias l='ls'
+alias make='make --no-print-directory'
 alias m='make'
 alias mc='make clean'
 alias mrc='vim ~/.muttrc'
