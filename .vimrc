@@ -92,9 +92,7 @@ let NERDTreeWinSize = 31
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "OmniCppComplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let OmniCpp_NamespaceSearch = 2             "search namespaces in the current buffer and in included files
 let OmniCpp_ShowPrototypeInAbbr = 1         "display prototype in abbreviation
-let OmniCpp_MayCompleteScope = 1
 let OmniCpp_SelectFirstItem = 2             "select first popup item (without inserting it to the text)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
