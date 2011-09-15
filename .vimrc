@@ -86,7 +86,7 @@ map <F5> :TagbarToggle<CR>
 map <F6> :NERDTreeToggle<CR>
 map <Undo> :NERDTreeMirror<CR>
 "let NERDChristmasTree = 1
-let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
 let NERDTreeWinSize = 31
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
