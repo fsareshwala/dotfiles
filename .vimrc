@@ -90,12 +90,6 @@ let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
 let NERDTreeWinSize = 31
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"OmniCppComplete
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let OmniCpp_ShowPrototypeInAbbr = 1         "display prototype in abbreviation
-let OmniCpp_SelectFirstItem = 2             "select first popup item (without inserting it to the text)
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <C-h> <C-w>h
