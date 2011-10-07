@@ -89,7 +89,6 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gm='git commit -m'
 alias gp='git pull'
-alias gpr='git pull --rebase'
 alias mt='git mergetool'
 alias st='git status'
 
