@@ -22,6 +22,7 @@
     add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     update = submodule foreach git fetch
     fs = !~/code/git-tools/bin/git-full-status
+    ff = pull --ff-only --stat
 
 [reviewboard]
     url = http://reviews.sfoffice.qc/
