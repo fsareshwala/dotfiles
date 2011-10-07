@@ -1,36 +1,41 @@
 [user]
-	name = Faraaz Sareshwala
-	email = fsareshwala@quantcast.com
+    name = Faraaz Sareshwala
+    email = fsareshwala@quantcast.com
 
 [core]
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /home/fsareshwala/prefix/etc/git/exclude
+    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    excludesfile = /home/fsareshwala/prefix/etc/git/exclude
 
 [color]
-	diff = auto
-	branch = auto
-	status = auto
-	interactive = auto
-	ui = true
-	pager = true
+    diff = auto
+    branch = auto
+    status = auto
+    interactive = auto
+    ui = true
+    pager = true
 
 [alias]
-	graph = log --graph --oneline --decorate --no-merges
-	ls = ls-files
-	serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-	edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-	add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-	update = submodule foreach git fetch
-	fs = !~/code/git-tools/bin/git-full-status
+    graph = log --graph --oneline --decorate --no-merges
+    ls = ls-files
+    serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
+    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+    update = submodule foreach git fetch
+    fs = !~/code/git-tools/bin/git-full-status
+
 [reviewboard]
-	url = http://reviews.sfoffice.qc/
+    url = http://reviews.sfoffice.qc/
+
 [diff]
-	tool = vimdiff
+    tool = vimdiff
+
 [difftool]
-	prompt = false
+    prompt = false
+
 [merge]
-	tool = vimdiff
+    tool = vimdiff
+
 [tig]
-	author-width = 25
-	line-graphics = yes
-	tab-size = 4
+    author-width = 25
+    line-graphics = no
+    tab-size = 4
