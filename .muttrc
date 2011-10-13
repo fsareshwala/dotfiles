@@ -17,11 +17,11 @@ set trash="+Trash"
 
 # Cache the headers locally under $HOME/mail/headers folder
 # # Create this folder manually before starting Mutt
-set header_cache = "~/mail/headers"
+set header_cache = "~/.mail/headers"
 
 # # For better performance cache the message body as well
 # # Create this folder manually before starting Mutt
-set message_cachedir = "~/mail/messages"
+set message_cachedir = "~/.mail/messages"
 
 set beep_new
 set alias_file=~/.aliases.mutt
