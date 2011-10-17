@@ -11,11 +11,7 @@ editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 hostname = awful.util.pread("hostname -f"):gsub("\n", "")
-if hostname == 'pikachu' then
-    modkey = "Mod1"
-else
-    modkey = 'Mod4'
-end
+modkey = "Mod1"
 
 layouts =
 {
