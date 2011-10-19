@@ -38,5 +38,5 @@
 
 [tig]
     author-width = 25
-    line-graphics = no
+    line-graphics = yes
     tab-size = 4
