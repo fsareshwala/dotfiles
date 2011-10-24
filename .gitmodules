@@ -15,7 +15,7 @@
 	url = git://github.com/blakesmith/flamethrower.git
 [submodule "personal"]
 	path = personal
-	url = git@faraazs.dyndns.org:personal.git
+	url = git@bitbucket.org:fsareshwala/personal.git
 [submodule ".vim/bundle/vim-protobuf"]
 	path = .vim/bundle/vim-protobuf
 	url = git://github.com/jboyens/vim-protobuf.git
