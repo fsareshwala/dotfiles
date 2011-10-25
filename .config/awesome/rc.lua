@@ -11,7 +11,12 @@ editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 hostname = awful.util.pread("hostname -f"):gsub("\n", "")
-modkey = "Mod1"
+if hostname == 'fsareshwala-l' then
+    modkey = 'Mod4'
+else
+    modkey = "Mod1"
+end
+
 
 layouts =
 {
