@@ -10,9 +10,6 @@
 [submodule ".vim/pathogen"]
 	path = .vim/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "prefix/usr/local/flamethrower"]
-	path = prefix/usr/local/flamethrower
-	url = git://github.com/blakesmith/flamethrower.git
 [submodule "personal"]
 	path = personal
 	url = git@bitbucket.org:fsareshwala/personal.git
