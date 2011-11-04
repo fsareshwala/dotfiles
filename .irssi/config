@@ -10,7 +10,7 @@ servers = (
   {
     address = "localhost";
     chatnet = "bitlbee";
-    port = "6666";
+    port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
