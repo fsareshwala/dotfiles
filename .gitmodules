@@ -10,9 +10,6 @@
 [submodule ".vim/pathogen"]
 	path = .vim/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "personal"]
-	path = personal
-	url = git@bitbucket.org:fsareshwala/personal.git
 [submodule ".vim/bundle/vim-protobuf"]
 	path = .vim/bundle/vim-protobuf
 	url = git://github.com/jboyens/vim-protobuf.git
