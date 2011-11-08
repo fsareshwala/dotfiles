@@ -16,9 +16,6 @@
 [submodule ".vim/bundle/vim-protobuf"]
 	path = .vim/bundle/vim-protobuf
 	url = git://github.com/jboyens/vim-protobuf.git
-[submodule ".vim/bundle/command-t"]
-	path = .vim/bundle/command-t
-	url = git://git.wincent.com/command-t.git
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
