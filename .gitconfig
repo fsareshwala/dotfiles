@@ -18,8 +18,6 @@
     graph = log --graph --oneline --decorate --no-merges
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-    edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
-    add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
     update = submodule foreach git fetch
     fs = !~/code/git-tools/bin/git-full-status
     ff = pull --ff-only --stat
