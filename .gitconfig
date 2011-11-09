@@ -18,7 +18,7 @@
     graph = log --graph --oneline --decorate --no-merges
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-    update = submodule foreach git fetch
+    update = submodule foreach git pull
     fs = !~/code/git-tools/bin/git-full-status
     ff = pull --ff-only --stat
 
