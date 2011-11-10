@@ -3,7 +3,7 @@
 # -----------------------------------------------
 export TERM=xterm-color
 export EDITOR=vim
-export PAGER=less
+export PAGER=~/prefix/usr/local/vimpager/vimpager
 export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
@@ -59,7 +59,7 @@ bindkey  history-incremental-search-backward
 ## Command Aliases
 alias calpost='calpost -u fsareshwala -c realtime'
 alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-alias less='less -r'
+alias less=$PAGER
 alias ls='ls --color'
 alias l='ls'
 alias make='make --no-print-directory'
@@ -77,6 +77,7 @@ alias vi='vim'
 alias vim='vim -O'
 alias x=exit
 alias zrc='vim ~/.zshrc'
+alias zless=$PAGER
 
 # git aliases
 alias b='git branch -a'
