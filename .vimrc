@@ -96,7 +96,7 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-K> i<CR><ESC>
+nnoremap o i<CR><ESC>
 nnoremap j gj
 nnoremap k gk
 noremap <F12> :Gblame<CR>
