@@ -92,15 +92,15 @@ let NERDTreeWinSize = 31
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap o i<CR><ESC>
-nnoremap j gj
-nnoremap k gk
-noremap <F12> :Gblame<CR>
-noremap <F11> :Gdiff<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-o> i<CR><ESC>
+map j gj
+map k gk
+map <F12> :Gblame<CR>
+map <F11> :Gdiff<CR>
 call pathogen#runtime_append_all_bundles()
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
