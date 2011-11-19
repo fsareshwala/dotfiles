@@ -252,6 +252,29 @@ add_binds("normal", {
 
 add_binds("insert", {
     key({"Control"}, "z",           function (w) w:set_mode("passthrough") end),
+
+    key({"Control"},  "e",       function (w)
+        local s = w:eval_js("document.activeElement.value")
+        local n = "/tmp/" .. os.time()
+        local f = io.open(n, "w")
+        f:write(s)
+        f:flush()
+        f:close()
+
+        luakit.spawn_sync("x-terminal-emulator -e vim -c 'set spell' " .. n)
+
+        f = io.open(n, "r")
+        s = f:read("*all")
+        f:close()
+        -- Strip the string
+        s = s:gsub("^%s*(.-)%s*$", "%1")
+        -- Escape it but remove the quotes
+        s = string.format("%q", s):sub(2, -2)
+        -- lua escaped newlines (slash+newline) into js newlines (slash+n)
+        s = s:gsub("\\\n", "\\n")
+        w:eval_js('document.activeElement.value = "' .. s .. '";')
+        w:eval_js('document.activeElement.value = "hi"')
+    end),
 })
 
 add_binds({"command", "search"}, {
