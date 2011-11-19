@@ -15,15 +15,25 @@ servers = (
     ssl_verify = "no";
     autoconnect = "yes";
   }
+  {
+    address = "irc.oftc.net";
+    chatnet = "oftc";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
   bitlbee = { type = "IRC"; };
+  oftc = { type = "IRC"; };
 };
 
 channels = (
   { name = "#neocodex2"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#suckless"; chatnet = "oftc"; autojoin = "yes"; },
 );
 
 aliases = {
