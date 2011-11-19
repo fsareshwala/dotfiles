@@ -96,7 +96,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-o> i<CR><ESC>
+map <C-i> i<CR><ESC>
 map j gj
 map k gk
 map <F12> :Gblame<CR>
