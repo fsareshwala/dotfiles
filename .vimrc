@@ -1,5 +1,5 @@
-map H :tabnext<CR>
-map L :tabprev<CR>
+map L :tabnext<CR>
+map H :tabprev<CR>
 map t :!ctags -R .<CR>
 
 set nocompatible
