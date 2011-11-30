@@ -7,6 +7,27 @@ set nobackup
 set foldenable
 set mousehide
 imap jj <esc>
+set ttyfast
+set history=1000
+set undofile
+set undoreload=10000
+set lazyredraw
+set shell=/bin/zsh
+set matchtime=3
+set autowrite
+set autoread
+set title
+set virtualedit+=block
+set cursorline
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Don't move on *
+nnoremap * *<c-o>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " indendting and tabbing
@@ -61,7 +82,6 @@ set clipboard+=unnamed
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
-set autoread
 
 " make vim's completion menu act more like an ide
 " set complete=.,w,b,u,t,i
