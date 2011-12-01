@@ -3,8 +3,8 @@
 # Simple control script for Juniper Network Connect VPN clients
 #
 C='Copyright 2008-2011 Paul D. Smith <paul@mad-scientist.net>'
-V='Version 1.8'
-D='05 Jan 2011'
+V='Version 1.16'
+D='31 Oct 2011'
 U='http://mad-scientist.net/juniper.html'
 #
 # This script is free software; you can redistribute it and/or modify it under
@@ -47,7 +47,8 @@ _cmd=${0##*/}
 
 # Find a program on PATH
 _foundprog=
-findprog () {
+findprog ()
+{
     _foundprog=`which $1 2>/dev/null`
     return $?
 }
@@ -83,7 +84,8 @@ HOST=
 : ${USER:=`id -u -n`}
 REALM='RSA'
 
-help () {
+help ()
+{
     cat <<EOF
 
 $_cmd -- manage Juniper Network Connect VPN
@@ -121,7 +123,10 @@ EOF
     exit 0
 }
 
-die () {
+log () { echo "$*" >> "$_errlog"; }
+
+die ()
+{
     _loginfo=''
     [ -s "$_errlog" ] && _loginfo="
 
@@ -138,7 +143,8 @@ Check the error log file '$_errlog' for more information."
     exit 1
 }
 
-msg () {
+msg ()
+{
     if $_gui; then
         if $_zenity; then
             zenity --title="$_vpntitle" --info --text="$*"
@@ -150,43 +156,83 @@ msg () {
     fi
 }
 
-query () {
-    if $_zenity; then
-        zenity --title="$_vpntitle" --question --text="$*"
+query ()
+{
+    if $_gui; then
+        if $_zenity; then
+            zenity --title="$_vpntitle" --question --text="$*"
+        else
+            kdialog  --title "$_vpntitle" --yesno "$*"
+        fi
     else
-        kdialog  --title "$_vpntitle" --yesno "$*"
+        while true; do
+            printf "$* (y/n)? "
+            read answer
+            case $answer in
+                ([Yy]*) return 0;;
+                ([Nn]*) return 1;;
+            esac
+            echo "Bad response: please answer yes or no."
+        done
     fi
 }
 
-input () {
-    if $_zenity; then
-        zenity --title="$_vpntitle" --entry --text="$1" --entry-text="$2"
+input ()
+{
+    if $_gui; then
+        if $_zenity; then
+            zenity --title="$_vpntitle" --entry --text="$1" --entry-text="$2"
+        else
+            kdialog  --title "$_vpntitle" --inputbox "$1" "$2"
+        fi
     else
-        kdialog  --title "$_vpntitle" --inputbox "$1" "$2"
+        printf "$1${2:+ ($2)}? " 1>&2
+        read answer
+        echo "${answer:-$2}"
     fi
 }
 
-password () {
-    if $_zenity; then
-        zenity --title="$_vpntitle" --entry --text="$1" --hide-text
+password ()
+{
+    if $_gui; then
+        if $_zenity; then
+            zenity --title="$_vpntitle" --entry --text="$1" --hide-text
+        else
+            kdialog  --title "$_vpntitle" --password "$1"
+        fi
     else
-        kdialog  --title "$_vpntitle" --password "$1"
+        stty -echo
+        printf "$1 ? " 1>&2
+        read answer
+        stty echo
+        echo 1>&2
+        echo "$answer"
     fi
 }
 
-getdir () {
-    if $_zenity; then
-        zenity --title "$*" --file-selection --directory
+getdir ()
+{
+    if $_gui; then
+        if $_zenity; then
+            zenity --title "$*" --file-selection --directory
+        else
+            kdialog  --title "$*" --getexistingdirectory
+        fi
     else
-        kdialog  --title "$*" --getexistingdirectory
+        while true; do
+            printf "$* ?" 1>&2
+            read dir
+            if [ -d "$dir" ]; then
+                echo "$dir"
+                return 0
+            fi
+            echo "Not a directory: '$dir'"
+        done
     fi
 }
 
-log () {
-    echo "$*" >> "$_errlog"
-}
-
-uninstall_nc () {
+uninstall_nc ()
+{
     if $1; then
         t=uninstall
     else
@@ -207,7 +253,8 @@ uninstall_nc () {
 
 # Check the host for configuration issues.
 # It has been reported that Knoppix, for example, doesn't have a tun device
-setup_host () {
+setup_host ()
+{
     [ -c /dev/net/tun ] && return 0
     query "Your system does not have a /dev/net/tun device configured.
 Should I create one?" \
@@ -218,14 +265,20 @@ Should I create one?" \
         || die "Failed to create /dev/net/tun!"
 }
 
+check_jar ()
+{
+    findprog jar || die "This program requires the program 'jar'.
+It is often found in the Java JDK package.
+Use your package manager to install it."
+}
+
 # Set up the Juniper app, if it's not done yet.
-setup () {
+setup ()
+{
     _svc="$_ncpath/ncsvc"
     # If ncsvc is not available, unpack it
     if [ ! -f "$_svc" ]; then
-	findprog jar || die "This program requires the program 'jar'.
-Use your package manager to install it."
-
+	check_jar
         (cd "$_ncpath" && jar xf "$_jarfile" && [ -f "$_svc" ]) >> "$_errlog" 2>&1 \
             || die "Could not unpack Juniper Network Connect!"
     fi
@@ -233,26 +286,38 @@ Use your package manager to install it."
     # If the ownership or permissions are not correct, fix them
     if [ `stat -c '%u:%g:%a' "$_svc"` != 0:0:6711 ]; then
         msg "Initial setup requires administrator privileges.  Please enter your password."
-        ( $_sudo chown 0:0 "$_svc" && $_sudo chmod 06711 "$_svc" \
-            && $_sudo ldd "$_svc" | grep -i 'not found') >> "$_errlog" 2>&1 \
+        ($_sudo chown 0:0 "$_svc" && $_sudo chmod 06711 "$_svc") >> "$_errlog" 2>&1 \
             || die "Failed to set permissions on '$_svc'!"
+
+        ($_sudo ldd "$_svc" | grep -i 'not found') >> "$_errlog" 2>&1 \
+            && die "'$_svc' requires extra libraries to be installed!"
     fi
 }
 
 # Allow the user to customize the system
-config () {
+config ()
+{
     # Get a hostname--needs to be valid
     err=''
     while true; do
-        HOST=`input "${err}Enter the Network Connect server:" "$HOST"` \
+        URL=`input "${err}Enter the Network Connect URL or server:" "$URL"` \
             || exit 1
 
-        # Some folks enter the HTTP part; remove it.
-        case $HOST in
-            (http://*)   HOST=${HOST#http://} ;;
-            (https://*)  HOST=${HOST#https://} ;;
+        # If it looks like a URL, set the hostname.
+        # If not, turn off URL and just keep the hostname
+        case $URL in
+            (http://*)   HOST=${URL#http://} ;;
+            (https://*)  HOST=${URL#https://} ;;
+            (*)          HOST=$URL; URL= ;;
         esac
+
+        # Remove any leftover stuff: we just want the hostname
         HOST=${HOST%%/*}
+
+        # If the hostname has a port extension strip it
+        case $HOST in
+            (*:*) PORT=${HOST##*:}; HOST=${HOST%:*} ;;
+        esac
 
         # If it's a hostname, make sure we can look it up.
         case $HOST in
@@ -261,6 +326,9 @@ config () {
                 err="Cannot resolve hostname $HOST.  Please try again.
 
 " ;;
+
+            # It seems to be an IP address; let it go through
+            (*) break ;;
         esac
     done
 
@@ -270,7 +338,8 @@ config () {
     # See if we can find the REALM from the homepage
     if findprog wget; then
         wargs='-q --no-check-certificate -O -'
-        REALM=$( (wget $wargs "https://$HOST" || wget $wargs "http://$HOST") \
+        url=${URL:-"https://$HOST"}
+        REALM=$( (wget $wargs "$url" || wget $wargs "http://$HOST") \
                     | sed -n 's/.*<input\( [^>]*name="realm" [^>]*\)>.*/\1/p' \
                     | sed -n 's/.* value="\([^"]*\)".*/\1/p')
     fi
@@ -280,20 +349,21 @@ config () {
 
     cat > "$_vpncfg" <<EOF
 HOST="$HOST"
+PORT="$PORT"
 USER="$USER"
 CERT="$CERT"
 REALM="$REALM"
+URL="$URL"
 EOF
 }
 
 # Get the server certificate
-getcert () {
+getcert ()
+{
     _certdir="$_ncpath"
     _clean=false
 
-    findprog jar || die "This program requires the program 'jar'.
-Use your package manager to install it."
-
+    check_jar
     if [ ! -x "$_certdir/getx509certificate.sh" ]; then
         _certdir="/tmp/.juniper_temp.$$"
         mkdir -p "$_certdir"
@@ -311,7 +381,8 @@ Use your package manager to install it."
 }
 
 JAVA=
-test_java () {
+test_java ()
+{
     dir=$1
     [ -n "$dir" ] || return 1
 
@@ -338,12 +409,18 @@ test_java () {
     JAVA="$JDK_HOME/bin/java"
 }
 
-setup_java () {
+get_bitsize ()
+{
+    file -L -b "$1" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p
+}
+
+setup_java ()
+{
     bitsize=$1
     oldjava=
 
     if [ -n "$JAVA" ] && [ -x "$JAVA" ]; then
-        jbit=`file -L -b "$JAVA" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p`
+        jbit=`get_bitsize "$JAVA"`
         [ "$jbit" = "$bitsize" ] && return 0
 
         # Wrong size!  Ignore it.
@@ -354,7 +431,7 @@ Ignoring $jbit-bit Java from \$JAVA ($JAVA)"
     fi
 
     if test_java "$JDK_HOME"; then
-        jbit=`file -L -b "$JAVA" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p`
+        jbit=`get_bitsize "$JAVA"`
         [ "$jbit" = "$bitsize" ] && return 0
 
         # Wrong size!  Ignore it.
@@ -366,7 +443,7 @@ Ignoring $jbit-bit Java in $JDK_HOME"
     # Can we find a Java on the PATH, that we haven't tested?
     if findprog java && [ "$oldjava" != "$_foundprog" ]; then
         JAVA=$_foundprog
-        jbit=`file -L -b "$JAVA" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p`
+        jbit=`get_bitsize "$JAVA"`
         [ "$jbit" = "$bitsize" ] && return 0
 
         # Wrong size!  Ignore it.
@@ -383,7 +460,7 @@ Please install it with your package manager
 or run junipernc with the '-nojava' flag."
 
         if test_java "$jdir"; then
-            jbit=`file -L -b "$JAVA" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p`
+            jbit=`get_bitsize "$JAVA"`
             [ "$jbit" = "$bitsize" ] && return 0
 
             # Wrong size!  Ignore it.
@@ -396,141 +473,145 @@ Ignoring $jbit-bit Java in $jdir"
 
 # --------------- MAIN
 
-# We _don't_ want to be root!
-[ `id -u` -eq 0 ] && die "This script should NOT be run with sudo.
-Please run it directly."
+main ()
+{
+    # We _don't_ want to be root!
+    [ `id -u` -eq 0 ] && die "This script should NOT be run with sudo.
+    Please run it directly."
 
-rm -rf "$_errlog"
-touch "$_errlog"
+    rm -rf "$_errlog"
+    touch "$_errlog"
 
-[ -f "$_jarfile" ] \
-    || die "Juniper Network Connect is not installed!"
+    [ -f "$_jarfile" ] || die "Juniper Network Connect is not installed!"
 
-# See if the user wants to use the GUI
-log "Run as: $0 $*"
-uninstall=
-while [ -n "$1" ]; do
+    # See if the user wants to use the GUI
+    log "Run as: $0 $*"
+    uninstall=
+    while [ -n "$1" ]; do
+        case $1 in
+            (--help|-help)           help ;;
+            (--profile|-profile)     _profile=$2; shift ;;
+            (--gui|-gui)             _gui=true ;;
+            (--nogui|-nogui)         _gui=false ;;
+            (--nojava|-nojava)       _java=false ;;
+            (--deconfig|-deconfig)   uninstall=false ;;
+            (--uninstall|-uninstall) uninstall=true ;;
+            (--) shift; break ;;
+            (*) break ;;
+        esac
+        shift
+    done
+
     case $1 in
-        (--help|-help)           help ;;
-        (--profile|-profile)     _profile=$2; shift ;;
-        (--gui|-gui)             _gui=true ;;
-        (--nogui|-nogui)         _gui=false ;;
-        (--nojava|-nojava)       _java=false ;;
-        (--deconfig|-deconfig)   uninstall=false ;;
-        (--uninstall|-uninstall) uninstall=true ;;
-        (--) shift; break ;;
-        (*) break ;;
-    esac
-    shift
-done
-
-case $1 in
-    ('') : ok ;;
-    (*)  die "Invalid arguments: $*" ;;
-esac
-
-case $DISPLAY in
-    ('') _gui=false
-        msg "No DISPLAY detected.  Disabling GUI mode.";;
-esac
-
-# If no GUI, disable Java requirement as well
-$_gui || _java=false
-
-_vpncfg="$HOME/.vpn.$_profile.cfg"
-CERT="$HOME/.vpn.$_profile.crt"
-
-[ -n "$uninstall" ] && uninstall_nc $uninstall
-
-# Backward-compat
-if [ ! -f "$_vpncfg" ] && [ -f "$HOME/.vpn.cfg" ]; then
-    grep -v '^CERT=' "$HOME/.vpn.cfg" > "$_vpncfg" \
-        && rm -f "$HOME/.vpn.cfg"
-fi
-
-# Read the custom file if it exists
-if [ -f "$_vpncfg" ]; then
-    log "Reading $_vpncfg..."
-    . "$_vpncfg"
-fi
-
-if [ ! -f "$CERT" ] && [ -f "$HOME/.vpn.crt" ]; then
-    mv "$HOME/.vpn.crt" "$CERT"
-    echo "CERT=\"$CERT\"" >> "$_vpncfg"
-fi
-
-$_gui || _sudo=sudo
-
-rm -f "$_vpnup"
-
-# Check the host configuration
-setup_host
-
-# Make sure the service is set up
-setup
-
-# If anything's missing, call the config function
-case ":$HOST:$USER:$CERT:$REALM:" in
-    (*::*) config ;;
-esac
-
-[ -f "$CERT" ] || getcert
-
-# If we want to use the Java UI front-end, make sure we can find a good one
-if $_java; then
-    # Determine the bit size we need for the ncui shared library.
-    bitsize=`file -L -b "$_ncpath/libncui.so" | sed -n 's/.*ELF \([0-9]*\).*/\1/'p`
-
-    # Set the JDK_HOME value as needed
-    cJAVA=$JAVA
-    cJDK_HOME=$JDK_HOME
-    setup_java "$bitsize"
-
-    [ -n "$JAVA" ] && [ "$cJAVA" != "$JAVA" ] \
-        && echo "JAVA=$JAVA" >> "$_vpncfg"
-    [ -n "$JDK_HOME" ] && [ "$cJDK_HOME" != "$JDK_HOME" ] \
-        && echo "JDK_HOME=$JDK_HOME" >> "$_vpncfg"
-fi
-
-# If we get here there's nothing useful in the error log, so delete it.
-rm -f "$_errlog"
-
-# Connect to the remote server and bring up the VPN
-# This loop runs forever or until the user quits.
-while true; do
-    password=`password 'Enter your PIN + SecurID Code'` \
-        || exit 0
-    case $password in
-        ('') die 'Invalid passphrase' ;;
+        ('') : ok ;;
+        (*)  die "Invalid arguments: $*" ;;
     esac
 
-    touch "$_vpnup"
+    case $DISPLAY in
+        ('') _gui=false
+            msg "No DISPLAY detected.  Disabling GUI mode.";;
+    esac
 
-    ok=true
-    # Send the password on stdin to avoid having it show up via ps
-    if $_java; then
-        echo "$password" | "$JAVA" -jar "$_ncpath/NC.jar" -h "$HOST" -u "$USER" -f "$CERT" -r "$REALM" \
-            || ok=false
+    # If no GUI, disable Java requirement as well
+    $_gui || _java=false
 
-    else
-        # No GUI?  Just let the thing run in the background
-        echo "$password" | "$_ncpath/ncsvc" -h "$HOST" -u "$USER" -r "$REALM" -f "$CERT" \
-            || ok=false
+    _vpncfg="$HOME/.vpn.$_profile.cfg"
+    CERT="$HOME/.vpn.$_profile.crt"
+
+    [ -n "$uninstall" ] && uninstall_nc $uninstall
+
+    # Backward-compat
+    if [ ! -f "$_vpncfg" ] && [ -f "$HOME/.vpn.cfg" ]; then
+        grep -v '^CERT=' "$HOME/.vpn.cfg" > "$_vpncfg" \
+            && rm -f "$HOME/.vpn.cfg"
     fi
+
+    # Read the custom file if it exists
+    if [ -f "$_vpncfg" ]; then
+        log "Reading $_vpncfg..."
+        . "$_vpncfg"
+    fi
+
+    if [ ! -f "$CERT" ] && [ -f "$HOME/.vpn.crt" ]; then
+        mv "$HOME/.vpn.crt" "$CERT"
+        echo "CERT=\"$CERT\"" >> "$_vpncfg"
+    fi
+
+    $_gui || _sudo=sudo
 
     rm -f "$_vpnup"
 
-    if $ok; then
-        status='VPN has exited successfully.'
-    else
-        status='VPN has failed!'
+    # Check the host configuration
+    setup_host
+
+    # Make sure the service is set up
+    setup
+
+    # If anything's missing, call the config function
+    # PORT and URL are optional
+    case ":$HOST:$USER:$CERT:$REALM:" in
+        (*::*) config ;;
+    esac
+
+    [ -f "$CERT" ] || getcert
+
+    # If we want to use the Java UI front-end, make sure we can find a good one
+    if $_java; then
+        # Determine the bit size we need for the ncui shared library.
+        bitsize=`get_bitsize "$_ncpath/libncui.so"`
+
+        # Set the JDK_HOME value as needed
+        cJAVA=$JAVA
+        cJDK_HOME=$JDK_HOME
+        setup_java "$bitsize"
+
+        [ -n "$JAVA" ] && [ "$cJAVA" != "$JAVA" ] \
+            && echo "JAVA=$JAVA" >> "$_vpncfg"
+        [ -n "$JDK_HOME" ] && [ "$cJDK_HOME" != "$JDK_HOME" ] \
+            && echo "JDK_HOME=$JDK_HOME" >> "$_vpncfg"
     fi
 
-    query "$status
+    # If we get here there's nothing useful in the error log, so delete it.
+    rm -f "$_errlog"
 
-Would you like to restart the VPN connection?" \
-        || exit 0
-done
+    # Connect to the remote server and bring up the VPN
+    # This loop runs forever or until the user quits.
+    while true; do
+        password=`password 'Enter your PIN + SecurID Code'` \
+            || exit 0
+        case $password in
+            ('') die 'Invalid passphrase' ;;
+        esac
 
-# Should never get here
-exit 1
+        touch "$_vpnup"
+
+        ok=true
+        # Send the password on stdin to avoid having it show up via ps
+        if $_java; then
+            echo "$password" | "$JAVA" -jar "$_ncpath/NC.jar" -h "$HOST" -u "$USER" -r "$REALM" -f "$CERT" ${PORT:+-P "$PORT"} ${URL:+-U "$URL"} >"$_errlog" 2>&1 \
+                || ok=false
+
+        else
+            # No GUI?  Just let the thing run in the background
+            echo "$password" | "$_ncpath/ncsvc" -h "$HOST" -u "$USER" -r "$REALM" -f "$CERT" ${PORT:+-P "$PORT"} ${URL:+-U "$URL"} >"$_errlog" \
+                || ok=false
+        fi
+
+        rm -f "$_vpnup"
+
+        if $ok; then
+            status='VPN has exited successfully.'
+        else
+            status='VPN has failed!'
+        fi
+
+        query "$status
+
+    Would you like to restart the VPN connection?" \
+            || exit 0
+    done
+}
+
+# Call a function.  If we update this script while it's running
+# hopefully this helps 
+main "$@"; exit 1
