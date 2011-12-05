@@ -81,14 +81,6 @@ set clipboard+=unnamed
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
-set makeprg=colormake
-
-" make vim's completion menu act more like an ide
-" set complete=.,w,b,u,t,i
-" set completeopt=longest,menuone
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-" inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 set nocp
 syntax on
