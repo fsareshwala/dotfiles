@@ -6,7 +6,7 @@ require("naughty")
 
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
-terminal = "x-terminal-emulator"
+terminal = "xterm"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
