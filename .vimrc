@@ -90,12 +90,15 @@ filetype plugin on
 let c_space_errors = 1
 let java_space_errors = 1
 
-map <F5> :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F6> :NERDTreeToggle<CR>
+map <F4> :TagbarToggle<CR>
+map <F3> :NERDTreeToggle<CR>
+map <F11> :Gdiff<CR>
+map <F12> :Gblame<CR>
+
 map <Undo> :NERDTreeMirror<CR>
 "let NERDChristmasTree = 1
 let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
@@ -111,8 +114,6 @@ map <C-l> <C-w>l
 map <C-o> 0i<CR><ESC>
 map j gj
 map k gk
-map <F12> :Gblame<CR>
-map <F11> :Gdiff<CR>
 call pathogen#runtime_append_all_bundles()
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
