@@ -2,4 +2,4 @@ XTerm*font: terminus-12
 XTerm*foreground: gray
 XTerm*background: black
 XTerm*allowBoldFonts: false
-*bellSuppressTime: 0
+XTerm*bellSuppressTime: 0
