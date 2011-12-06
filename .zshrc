@@ -25,8 +25,8 @@ promptinit
 autoload -U colors
 colors
 
-export PROMPT="[%{$fg[blue]%}%n%{$fg[default]%}@%{$fg[yellow]%}%m%{$fg[default]%} %{$fg[green]%}%c%{$fg[default]%}]%# "
-export RPROMPT="[%{$fg[green]%} %~ %{$fg[default]%}]"
+export PROMPT="[%{$fg[blue]%}%n%{$reset_color%}@%{$fg[gray]%}%m%{$reset_color%} %{$fg[green]%}%c%{$reset_color%}]%# "
+export RPROMPT="[%{$fg[green]%} %~ %{$reset_color%}]"
 
 # -----------------------------------------------
 # Set zsh options
