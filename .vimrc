@@ -77,7 +77,7 @@ set showcmd
 "set foldmethod=indent
 "set foldcolumn=3
 set backspace=eol,start,indent
-set clipboard+=unnamed
+set clipboard=unnamedplus
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
