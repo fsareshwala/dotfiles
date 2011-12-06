@@ -4,7 +4,7 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 terminal = "xterm"
 editor = "vim"
