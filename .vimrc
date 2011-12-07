@@ -100,7 +100,6 @@ map <F11> :Gdiff<CR>
 map <F12> :Gblame<CR>
 
 map <Undo> :NERDTreeMirror<CR>
-let NERDChristmasTree = 1
 let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
 let NERDTreeWinSize = 31
 
