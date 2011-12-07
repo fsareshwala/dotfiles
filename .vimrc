@@ -110,7 +110,7 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <C-o> 0i<CR><ESC>
+map <C-o> i<CR><ESC>0
 map j gj
 map k gk
 call pathogen#runtime_append_all_bundles()
