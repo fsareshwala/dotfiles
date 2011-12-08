@@ -94,8 +94,9 @@ let java_space_errors = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F4> :TagbarToggle<CR>
 map <F3> :NERDTreeToggle<CR>
+map <F4> :TagbarToggle<CR>
+map <F10> :ConqueTermVSplit zsh<CR>
 map <F11> :Gdiff<CR>
 map <F12> :Gblame<CR>
 
