@@ -173,3 +173,5 @@ import_history() {
 
 export CLICOLOR=1
 #export LSCOLORS=CxFxExDxBxegedabagacad
+
+ulimit -c unlimited
