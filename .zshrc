@@ -175,3 +175,4 @@ export CLICOLOR=1
 #export LSCOLORS=CxFxExDxBxegedabagacad
 
 ulimit -c unlimited
+ulimit -m 1048576
