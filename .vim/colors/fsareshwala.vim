@@ -27,7 +27,7 @@ let g:colors_name = "fsareshwala"
 
 hi Comment      ctermfg=Blue
 hi Constant     ctermfg=Red
-hi Cursor
+hi Cursor       ctermfg=Red
 hi Directory    ctermfg=Cyan
 hi Error        ctermfg=White           ctermbg=Red
 hi ErrorMsg     ctermbg=White           ctermfg=DarkRed
@@ -40,7 +40,7 @@ hi MoreMsg      ctermfg=Green
 hi NonText      ctermfg=DarkGreen
 hi Normal       ctermbg=Black           ctermfg=Gray
 hi PreProc      ctermfg=Brown
-hi Question     ctermfg=Green
+hi Question     ctermfg=Cyan
 hi Search       ctermbg=Magenta         ctermfg=White
 hi Special      ctermfg=Red
 hi SpecialKey   ctermfg=Green
