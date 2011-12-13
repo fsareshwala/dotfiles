@@ -95,22 +95,6 @@ alias gp='git pull'
 alias mt='git mergetool'
 alias st='git status'
 
-# parallel ssh aliases
-alias pssh='parallel-ssh --inline'
-alias pxall='pssh -h ~/prefix/etc/pixel/all'
-alias pxams='pssh -h ~/prefix/etc/pixel/ams004'
-alias pxlon='pssh -h ~/prefix/etc/pixel/lon003'
-alias pxpar='pssh -h ~/prefix/etc/pixel/par002'
-alias pxsef='pssh -h ~/prefix/etc/pixel/sef003'
-alias pxlax='pssh -h ~/prefix/etc/pixel/lax007'
-alias pxchg='pssh -h ~/prefix/etc/pixel/chg004'
-alias pxnym='pssh -h ~/prefix/etc/pixel/nym008'
-alias pxwdc='pssh -h ~/prefix/etc/pixel/wdc009'
-alias pxacs='pssh -h ~/prefix/etc/pixel/acs001'
-alias pxhou='pssh -h ~/prefix/etc/pixel/hou001'
-alias pxhkg='pssh -h ~/prefix/etc/pixel/hkg001'
-alias pxtok='pssh -h ~/prefix/etc/pixel/tok003'
-
 # directory aliases
 alias c='cd ~/code'
 alias q='cd ~/code/realtime/quantserve'
