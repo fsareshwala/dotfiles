@@ -9,8 +9,8 @@ set mousehide
 imap jj <esc>
 set ttyfast
 set history=1000
-set undofile
-set undoreload=10000
+" set undofile
+" set undoreload=10000
 set lazyredraw
 set shell=/bin/zsh
 set matchtime=3
