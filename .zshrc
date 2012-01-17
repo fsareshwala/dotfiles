@@ -13,7 +13,7 @@ export SAVEHIST=3000
 export PATH=$PATH:~/prefix/bin:~/code/git-tools/bin:.
 export GIT_TOP_DIR=~/code
 export USE_CCACHE=true
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 export GEM_HOME=/usr/lib/ruby/gems/1.8
 
 # -----------------------------------------------
