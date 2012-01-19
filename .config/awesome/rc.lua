@@ -10,8 +10,8 @@ terminal = "xterm"
 editor = "vim"
 editor_cmd = terminal .. " -e " .. editor
 
-hostname = awful.util.pread("hostname -f"):gsub("\n", "")
-if hostname == 'fsareshwala-l.corp.qc' then
+hostname = awful.util.pread("hostname"):gsub("\n", "")
+if hostname == 'fsareshwala-l' then
     modkey = 'Mod4'
 else
     modkey = "Mod1"
