@@ -10,11 +10,16 @@ export COLORTERM=yes
 export HISTFILE=~/.zshhistory
 export HISTSIZE=3000
 export SAVEHIST=3000
-export PATH=$PATH:~/prefix/bin:~/code/git-tools/bin:.
+export PATH=~/prefix/bin:.:$PATH
 export GIT_TOP_DIR=~/code
 export USE_CCACHE=true
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 export GEM_HOME=/usr/lib/ruby/gems/1.8
+
+HOSTNAME=`hostname`
+if [[ $HOSTNAME == "fsareshwala-l" ]]; then
+    export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:$PATH
+fi
 
 # -----------------------------------------------
 # Set up the prompt
