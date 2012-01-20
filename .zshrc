@@ -89,7 +89,8 @@ alias zrc='vim ~/.zshrc'
 alias zless=$PAGER
 
 # git aliases
-alias b='git branch -a'
+alias b='git branch'
+alias ba='git branch -a'
 alias d='git diff'
 alias dc='git diff --cached'
 alias dt='git difftool'
