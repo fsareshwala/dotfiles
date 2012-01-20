@@ -18,6 +18,8 @@ export GEM_HOME=/usr/lib/ruby/gems/1.8
 
 HOSTNAME=`hostname`
 if [[ $HOSTNAME == "fsareshwala-l" ]]; then
+    export C_INCLUDE_PATH=/qc/protobuf/include
+    export CPLUS_INCLUDE_PATH=/qc/protobuf/include
     export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:$PATH
 fi
 
