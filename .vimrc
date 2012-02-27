@@ -113,6 +113,12 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-o> i<CR><ESC>0
+
+nmap <left> :3wincmd <<cr>
+nmap <right> :3wincmd ><cr>
+nmap <up> :3wincmd +<cr>
+nmap <down> :3wincmd -<cr>
+
 map j gj
 map k gk
 call pathogen#runtime_append_all_bundles()
