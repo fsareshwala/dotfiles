@@ -121,7 +121,28 @@ nmap <down> :3wincmd -<cr>
 
 map j gj
 map k gk
+
 call pathogen#runtime_append_all_bundles()
+
+" enable :G for git grep
+func GitGrep(...)
+    let save = &grepprg
+    set grepprg=git\ grep\ -n\ $*
+    let s = 'grep'
+    for i in a:000
+        let s = s . ' ' . i
+    endfor
+    exe s
+    let &grepprg = save
+endfun
+command -nargs=? G call GitGrep(<f-args>)
+
+" enable <C-x>G for git grep on word under cursor
+func GitGrepWord()
+    normal! "zyiw
+    call GitGrep('-w -e ', getreg('z'))
+endf
+nmap <C-x>G :call GitGrepWord()<CR>
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
