@@ -81,7 +81,6 @@ set clipboard=unnamedplus
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
-colorscheme fsareshwala
 
 set nocp
 syntax on
