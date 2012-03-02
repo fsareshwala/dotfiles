@@ -90,16 +90,6 @@ filetype plugin on
 let c_space_errors = 1
 let java_space_errors = 1
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERDTree
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F3> :NERDTreeToggle<CR>
-map <F4> :TagbarToggle<CR>
-map <F10> :ConqueTermVSplit zsh<CR>
-map <F11> :Gdiff<CR>
-map <F12> :Gblame<CR>
-
 map <Undo> :NERDTreeMirror<CR>
 let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
 let NERDTreeWinSize = 31
@@ -141,7 +131,14 @@ func GitGrepWord()
     normal! "zyiw
     call GitGrep('-w -e ', getreg('z'))
 endf
-nmap <C-x>G :call GitGrepWord()<CR>
+
+nmap <F3> :NERDTreeToggle<CR>
+nmap <F4> :TagbarToggle<CR>
+nmap <F9> :call GitGrepWord()<CR>
+nmap <F10> :ConqueTermVSplit zsh<CR>
+nmap <F11> :Gdiff<CR>
+nmap <F12> :Gblame<CR>
+
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
