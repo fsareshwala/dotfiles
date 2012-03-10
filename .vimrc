@@ -1,6 +1,6 @@
 map L :tabnext<cr>
 map H :tabprev<cr>
-map t :!ctags -R .<CR>
+map t :call GenerateTags()<cr>
 
 set nocompatible
 set nobackup
@@ -131,7 +131,15 @@ command -nargs=? G call GitGrep(<f-args>)
 func GitGrepWord()
     normal! "zyiw
     call GitGrep('-w -e ', getreg('z'))
-endf
+endfunction
+
+function! GenerateTags()
+    :silent !ctags -R .
+    :silent !find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files
+    :silent !cscope -b -i cscope.files -f cscope.out
+    :silent cs reset
+    :redraw!
+endfunction
 
 nmap <f3> :NERDTreeToggle<cr>
 nmap <f4> :TagbarToggle<cr>
