@@ -114,21 +114,20 @@ map k gk
 
 call pathogen#runtime_append_all_bundles()
 
-" enable :G for git grep
-func GitGrep(...)
+function! GitGrep(...)
     let save = &grepprg
     set grepprg=git\ grep\ -n\ $*
     let s = 'grep'
+
     for i in a:000
         let s = s . ' ' . i
     endfor
+
     exe s
     let &grepprg = save
-endfun
-command -nargs=? G call GitGrep(<f-args>)
+endfunction
 
-" enable <C-x>G for git grep on word under cursor
-func GitGrepWord()
+function! GitGrepWord()
     normal! "zyiw
     call GitGrep('-w -e ', getreg('z'))
 endfunction
