@@ -2,3 +2,4 @@
 *.swp
 tags
 *.un~
+cscope.out
