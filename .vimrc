@@ -1,5 +1,5 @@
-map L :tabnext<CR>
-map H :tabprev<CR>
+map L :tabnext<cr>
+map H :tabprev<cr>
 map t :!ctags -R .<CR>
 
 set nocompatible
@@ -90,18 +90,18 @@ filetype plugin on
 let c_space_errors = 1
 let java_space_errors = 1
 
-map <Undo> :NERDTreeMirror<CR>
+map <Undo> :NERDTreeMirror<cr>
 let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
 let NERDTreeWinSize = 31
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-o> i<CR><ESC>0
+map <c-h> <C-w>h
+map <c-j> <C-w>j
+map <c-k> <C-w>k
+map <c-l> <C-w>l
+map <c-o> i<cr><esc>0
 map <c-p> "_cw"<esc>
 
 nmap <left> :3wincmd <<cr>
@@ -133,12 +133,12 @@ func GitGrepWord()
     call GitGrep('-w -e ', getreg('z'))
 endf
 
-nmap <F3> :NERDTreeToggle<CR>
-nmap <F4> :TagbarToggle<CR>
-nmap <F9> :call GitGrepWord()<CR>
-nmap <F10> :ConqueTermVSplit zsh<CR>
-nmap <F11> :Gdiff<CR>
-nmap <F12> :Gblame<CR>
+nmap <f3> :NERDTreeToggle<cr>
+nmap <f4> :TagbarToggle<cr>
+nmap <f9> :silent call GitGrepWord()<cr>:redraw!<cr>
+nmap <f10> :ConqueTermVSplit zsh<cr>
+nmap <f11> :Gdiff<cr>
+nmap <f12> :Gblame<cr>
 
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
