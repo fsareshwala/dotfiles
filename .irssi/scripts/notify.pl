@@ -76,6 +76,6 @@ sub dcc_request_notify {
     notify($server, "DCC ".$dcc->{type}." request", $dcc->{nick});
 }
 
-Irssi::signal_add('print text', 'print_text_notify');
+#Irssi::signal_add('print text', 'print_text_notify');
 Irssi::signal_add('message private', 'message_private_notify');
-Irssi::signal_add('dcc request', 'dcc_request_notify');
+#Irssi::signal_add('dcc request', 'dcc_request_notify');
