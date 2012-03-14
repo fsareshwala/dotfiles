@@ -61,6 +61,10 @@ sub message_private_notify {
     my ($server, $msg, $nick, $address) = @_;
 
     return if (!$server);
+
+    chomp($nick);
+    return if (lc($nick) ne "saarahsk");
+
     notify($server, "Private message from ".$nick, $msg);
 }
 
