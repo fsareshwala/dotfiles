@@ -97,10 +97,10 @@ let NERDTreeWinSize = 31
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Miscellaneous
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <c-h> <C-w>h
-map <c-j> <C-w>j
-map <c-k> <C-w>k
-map <c-l> <C-w>l
+map <c-h> <esc><C-w>h
+map <c-j> <esc><C-w>j
+map <c-k> <esc><C-w>k
+map <c-l> <esc><C-w>l
 map <c-o> i<cr><esc>0
 map <c-p> "_cw"<esc>
 
