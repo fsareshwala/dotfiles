@@ -145,7 +145,7 @@ nmap <f4> :TagbarToggle<cr>
 nmap <f9> :silent call GitGrepWord()<cr>:redraw!<cr>
 nmap <f10> :ConqueTermVSplit zsh<cr>
 nmap <f11> :Gdiff<cr>
-nmap <f12> :Gblame<cr>
+nmap <f12> :Gblame w<cr>
 
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
