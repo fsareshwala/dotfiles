@@ -9,8 +9,8 @@ set mousehide
 imap jj <esc>
 set ttyfast
 set history=1000
-" set undofile
-" set undoreload=10000
+set undofile
+set undoreload=10000
 set lazyredraw
 set shell=/bin/zsh
 set matchtime=3
@@ -28,9 +28,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Don't move on *
 nnoremap * *<c-o>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" indendting and tabbing
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent
 set copyindent
 set preserveindent
@@ -44,38 +41,22 @@ set smarttab
 set nowrap
 set textwidth=80 wrap linebreak
 set expandtab
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" formatting
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set comments=sl:/*,mb:\ *,elx:\ */
-set formatoptions+=r
+set formatoptions+=rn
 set list
 set listchars=tab:\|­,trail:~,extends:>,precedes:<
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" search
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch
 set incsearch
 set wrapscan
 set ignorecase
 set smartcase
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" interactions and interface
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set mouse=a
 set number
 set ruler
 set showmatch
 set tags=tags
-"set spell
 set showmode
 set showcmd
-"set scrolloff=5
-"set foldmethod=indent
-"set foldcolumn=3
 set backspace=eol,start,indent
 set clipboard=unnamedplus
 set wildmenu
