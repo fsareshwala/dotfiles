@@ -120,6 +120,8 @@ endfunction
 
 nmap <f3> :NERDTreeToggle<cr>
 nmap <f4> :TagbarToggle<cr>
+nmap <f5> :cp<cr>
+nmap <f6> :cn<cr>
 nmap <f9> :silent call GitGrepWord()<cr>:redraw!<cr>
 nmap <f10> :ConqueTermVSplit zsh<cr>
 nmap <f11> :Gdiff<cr>
