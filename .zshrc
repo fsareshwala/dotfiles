@@ -11,22 +11,19 @@ export HISTFILE=~/.zshhistory
 export HISTSIZE=3000
 export SAVEHIST=3000
 export PATH=~/prefix/bin:.:$PATH
-export GIT_TOP_DIR=~/code
-export USE_CCACHE=true
-export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-i386
-export GEM_HOME=/usr/lib/ruby/gems/1.8
-export EC2_HOME=/home/fsareshwala/prefix/bin/ec2-api-tools-1.5.2.4
 
 HOSTNAME=`hostname`
 if [[ $HOSTNAME == "fsareshwala-l" || $HOSTNAME == "folsom.sfoffice.qc" ]]; then
     export C_INCLUDE_PATH=/qc/protobuf/include
     export CPLUS_INCLUDE_PATH=/qc/protobuf/include
     export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/usr/bin:$PATH
+    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+    export USE_CCACHE=true
+    export GEM_HOME=/usr/lib/ruby/gems/1.8
+    export GIT_TOP_DIR=~/code
 elif [[ $HOSTNAME == "squirtle" ]]; then
     export PATH=$PATH:/home/fsareshwala/prefix/usr/local/nodejs/bin
-fi
-
-if [[ -d $EC2_HOME ]] ; then
+    export EC2_HOME=/home/fsareshwala/prefix/bin/ec2-api-tools-1.5.2.4
     export PATH=$PATH:$EC2_HOME/bin
     export EC2_PRIVATE_KEY=/home/fsareshwala/personal/keys/pk-R3DAEWQE6XDHOVDDZ5VAI2IGNZ5KSOHX.pem
     export EC2_CERT=/home/fsareshwala/personal/keys/cert-R3DAEWQE6XDHOVDDZ5VAI2IGNZ5KSOHX.pem
