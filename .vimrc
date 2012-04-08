@@ -18,6 +18,8 @@ set autoread
 set title
 set virtualedit+=block
 
+colorscheme slate
+
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
