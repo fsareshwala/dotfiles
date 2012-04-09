@@ -19,7 +19,7 @@
     graph = log --graph --pretty=format:'%C(yellow)%h%Creset - %Cgreen(%cr) %C(bold blue)<%an>%Creset %s %Cred%d%Creset' --abbrev-commit --date=relative --no-merges
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-    update = submodule foreach git pull
+    update = "!f() { git submodule foreach git checkout master ; git submodule foreach git ff; }; f"
     fs = !~/code/git-tools/bin/git-full-status
     ff = pull --ff-only --stat
 
