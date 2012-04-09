@@ -4,6 +4,7 @@ map t :call GenerateTags()<cr>
 
 set nocompatible
 set nobackup
+set noswapfile
 set foldenable
 set mousehide
 imap jj <esc>
