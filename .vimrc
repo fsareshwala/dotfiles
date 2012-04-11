@@ -17,6 +17,7 @@ set autowrite
 set autoread
 set title
 set virtualedit+=block
+set cursorline
 
 colorscheme slate
 
