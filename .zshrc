@@ -73,7 +73,6 @@ bindkey  history-incremental-search-backward
 # Shell Aliases
 # -----------------------------------------------
 ## Command Aliases
-alias calpost='calpost -u fsareshwala -c realtime'
 alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias less=$PAGER
 alias ls='ls --color'
