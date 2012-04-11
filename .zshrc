@@ -111,7 +111,6 @@ alias st='git status'
 alias c='cd ~/code'
 alias q='cd ~/code/realtime/quantserve'
 alias g='cd ~/projects/owrglass'
-alias n='cd ~/projects/codex/website/neocodex'
 
 # -----------------------------------------------
 # Load zsh modules
