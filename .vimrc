@@ -60,7 +60,7 @@ set tags=tags
 set showmode
 set showcmd
 set backspace=eol,start,indent
-set clipboard=unnamedplus
+set clipboard=autoselect
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
