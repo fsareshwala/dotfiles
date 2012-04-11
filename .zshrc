@@ -90,7 +90,6 @@ alias wk='vim ~/personal/worklog'
 alias vc='vim ~/.vimrc'
 alias vi='vim'
 alias vim='vim -O'
-alias x=exit
 alias zrc='vim ~/.zshrc'
 alias zless=$PAGER
 
