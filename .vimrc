@@ -19,8 +19,6 @@ set title
 set virtualedit+=block
 set cursorline
 
-colorscheme slate
-
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
