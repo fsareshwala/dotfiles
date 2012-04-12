@@ -97,6 +97,7 @@ alias zless=$PAGER
 alias b='git branch'
 alias ba='git branch -a'
 alias d='git diff'
+alias gd='git diff --word-diff'
 alias dc='git diff --cached'
 alias ga='git add'
 alias gap='git add -p'
