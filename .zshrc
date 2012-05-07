@@ -169,7 +169,7 @@ import_history() {
 }
 
 export CLICOLOR=1
-#export LSCOLORS=CxFxExDxBxegedabagacad
+#export LS_COLORS='no=00:fi=00:di=05;33:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01r=40;31 ;01:ex=01;32.tar'
 
 ulimit -c unlimited
 ulimit -m 1048576
