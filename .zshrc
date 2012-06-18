@@ -49,6 +49,7 @@ setopt complete_aliases
 setopt extended_glob
 setopt hash_all
 setopt no_nomatch
+setopt completealiases
 
 # history
 setopt inc_append_history
