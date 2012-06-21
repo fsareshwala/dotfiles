@@ -47,5 +47,6 @@
 
 [help]
     autocorrect = 1
+
 [rerere]
-	enabled = 1
+    enabled = 1
