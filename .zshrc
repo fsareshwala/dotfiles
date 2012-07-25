@@ -168,3 +168,4 @@ export CLICOLOR=1
 
 ulimit -c unlimited
 ulimit -m 1048576
+ulimit -n 4096
