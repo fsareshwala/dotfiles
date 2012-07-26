@@ -105,7 +105,6 @@ alias mt='git mergetool'
 alias st='git status'
 
 # directory aliases
-alias c='cd ~/code'
 alias q='cd ~/code/realtime/quantserve'
 alias g='cd ~/projects/owrglass'
 
