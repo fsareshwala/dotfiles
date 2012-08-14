@@ -21,6 +21,7 @@ if [[ $HOSTNAME == "fsareshwala-l" ]]; then
     export USE_CCACHE=true
     export GEM_HOME=/usr/lib/ruby/gems/1.8
     export GIT_TOP_DIR=~/code
+    export ANT_HOME=/home/fsareshwala/prefix/bin/apache-ant-1.8.4
 fi
 
 # -----------------------------------------------
