@@ -104,10 +104,6 @@ alias gp='git pull'
 alias mt='git mergetool'
 alias st='git status'
 
-# directory aliases
-alias q='cd ~/code/realtime/quantserve'
-alias g='cd ~/projects/owrglass'
-
 # -----------------------------------------------
 # Load zsh modules
 # -----------------------------------------------
