@@ -76,8 +76,6 @@ let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
 let NERDTreeWinSize = 31
 
 map <c-h> <esc><C-w>h
-map <c-j> <esc><C-w>j
-map <c-k> <esc><C-w>k
 map <c-l> <esc><C-w>l
 map <c-o> i<cr><esc>0
 map <c-p> "_cw"<esc>
