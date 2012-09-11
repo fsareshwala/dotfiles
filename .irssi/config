@@ -24,6 +24,8 @@ chatnets = {
 
 channels = (
   { name = "#neocodex2"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#neocodex3"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#ragebumpers"; chatnet = "freenode"; autojoin = "yes"; },
 );
 
 aliases = {
