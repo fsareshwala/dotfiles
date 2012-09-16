@@ -61,7 +61,7 @@ set clipboard=autoselect
 set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
-set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.x,*.d,*.swp,*.zip
+set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
 
 set nocp
 syntax on
@@ -72,7 +72,7 @@ let c_space_errors = 1
 let java_space_errors = 1
 
 map <Undo> :NERDTreeMirror<cr>
-let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', '\.x$', '\.d$']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
 let NERDTreeWinSize = 31
 
 map <c-h> <esc><C-w>h
