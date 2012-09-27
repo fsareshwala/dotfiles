@@ -75,6 +75,8 @@ map <Undo> :NERDTreeMirror<cr>
 let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
 let NERDTreeWinSize = 31
 
+map <c-j> <esc><C-w>j
+map <c-k> <esc><C-w>k
 map <c-h> <esc><C-w>h
 map <c-l> <esc><C-w>l
 map <c-o> i<cr><esc>0
