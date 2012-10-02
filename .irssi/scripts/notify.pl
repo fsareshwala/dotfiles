@@ -63,7 +63,7 @@ sub message_private_notify {
     return if (!$server);
 
     chomp($nick);
-    return if (lc($nick) ne "saarahsk");
+    # return if (lc($nick) ne "saarahsk");
 
     notify($server, "Private message from ".$nick, $msg);
 }
