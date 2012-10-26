@@ -67,12 +67,16 @@ bindkey  history-incremental-search-backward
 # -----------------------------------------------
 # Shell Aliases
 # -----------------------------------------------
+
+if [[ "`uname`" == "Linux" ]]; then
+    alias ls='ls --color'
+    alias ll='ls -lh'
+fi
+
 ## Command Aliases
 alias -- -='cd -'
 alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias less=$PAGER
-alias ls='ls --color'
-alias ll='ls -lh'
 alias pr='post-review --guess-summary --guess-description'
 alias pxall='parallel-ssh --inline -h ~/prefix/etc/pixel/all'
 alias r='tmux attach'
