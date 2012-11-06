@@ -13,7 +13,7 @@ export SAVEHIST=3000
 export PATH=~/prefix/bin:.:$PATH
 
 HOSTNAME=`hostname`
-if [[ $HOSTNAME == "fsareshwala-l" ]]; then
+if [[ $HOSTNAME == "fsareshwala-l" || $HOSTNAME == "fsareshwala-ml.corp.qc" ]]; then
     export C_INCLUDE_PATH=/qc/protobuf/include
     export CPLUS_INCLUDE_PATH=/qc/protobuf/include
     export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/usr/bin:$PATH
