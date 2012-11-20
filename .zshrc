@@ -22,6 +22,11 @@ if [[ $HOSTNAME == "fsareshwala-l" || $HOSTNAME == "fsareshwala-ml.corp.qc" ]]; 
     export GEM_HOME=/usr/lib/ruby/gems/1.8
     export GIT_TOP_DIR=~/code
     export ANT_HOME=/home/fsareshwala/prefix/bin/apache-ant-1.8.4
+
+    alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
+    alias pr='post-review --guess-summary --guess-description'
+    alias pxall='parallel-ssh --inline -h ~/prefix/etc/pixel/all'
+    alias pxtest='parallel-ssh --inline -h ~/prefix/etc/pixel/sftest-pixel'
 fi
 
 # -----------------------------------------------
@@ -75,11 +80,7 @@ fi
 
 ## Command Aliases
 alias -- -='cd -'
-alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias less=$PAGER
-alias pr='post-review --guess-summary --guess-description'
-alias pxall='parallel-ssh --inline -h ~/prefix/etc/pixel/all'
-alias pxtest='parallel-ssh --inline -h ~/prefix/etc/pixel/sftest-pixel'
 alias r='tmux attach'
 alias s='source ~/.zshrc'
 alias wk='vim ~/personal/worklog'
