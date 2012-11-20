@@ -16,7 +16,7 @@ HOSTNAME=`hostname`
 if [[ $HOSTNAME == "fsareshwala-l" || $HOSTNAME == "fsareshwala-ml.corp.qc" ]]; then
     export C_INCLUDE_PATH=/qc/protobuf/include
     export CPLUS_INCLUDE_PATH=/qc/protobuf/include
-    export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/usr/bin:$PATH
+    export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/home/fsareshwala/prefix/bin/apache-ant-1.8.4/bin:/usr/bin:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
     export USE_CCACHE=true
     export GEM_HOME=/usr/lib/ruby/gems/1.8
@@ -79,6 +79,7 @@ alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --j
 alias less=$PAGER
 alias pr='post-review --guess-summary --guess-description'
 alias pxall='parallel-ssh --inline -h ~/prefix/etc/pixel/all'
+alias pxtest='parallel-ssh --inline -h ~/prefix/etc/pixel/sftest-pixel'
 alias r='tmux attach'
 alias s='source ~/.zshrc'
 alias wk='vim ~/personal/worklog'
