@@ -197,4 +197,9 @@ hilights = (
   { text = "hydro"; nick = "yes"; word = "yes"; },
   { text = "dro"; nick = "yes"; word = "yes"; }
 );
-# ignores = ( { level = "MODES"; channels = ( "&bitlbee" ); } );
+ignores = (
+        {
+            level = "MODES";
+            channels = ( "#neocodex2", "#osdev" );
+        }
+);
