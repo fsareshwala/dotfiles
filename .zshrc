@@ -59,7 +59,7 @@ setopt completealiases
 
 # history
 setopt inc_append_history
-setopt share_history
+# setopt share_history
 #setopt extended_history             # save date, time, and elapsed time
 setopt hist_ignore_dups             # don't add sequential duplicated commands to the history
 setopt hist_reduce_blanks           # tidy up the line when entering into the line
