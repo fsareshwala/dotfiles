@@ -81,6 +81,7 @@ fi
 ## Command Aliases
 alias -- -='cd -'
 alias less=$PAGER
+alias m='make'
 alias r='tmux attach'
 alias s='source ~/.zshrc'
 alias wk='vim ~/personal/worklog'
