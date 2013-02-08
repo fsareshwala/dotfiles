@@ -24,6 +24,7 @@ chatnets = {
 
 channels = (
   { name = "#neocodex2"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#go-nuts"; chatnet = "freenode"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -209,6 +210,6 @@ hilights = (
 ignores = (
         {
             level = "MODES";
-            channels = ( "#neocodex2", "&bitlbee" );
+            channels = ( "#neocodex2", "&bitlbee", "#go-nuts" );
         }
 );
