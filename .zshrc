@@ -82,6 +82,8 @@ fi
 alias -- -='cd -'
 alias less=$PAGER
 alias m='make'
+alias mc='make clean'
+alias mt='make test'
 alias r='tmux attach'
 alias s='source ~/.zshrc'
 alias wk='vim ~/personal/worklog'
@@ -104,7 +106,6 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 alias gm='git commit -m'
 alias gp='git pull'
-alias mt='git mergetool'
 alias st='git status'
 
 # -----------------------------------------------
