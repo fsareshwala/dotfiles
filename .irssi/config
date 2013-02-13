@@ -202,9 +202,8 @@ settings = {
 };
 hilights = (
   { text = "fsareshwala"; nick = "yes"; word = "yes"; },
-  { text = "hydrocodex"; nick = "yes"; word = "yes"; },
-  { text = "hydro"; nick = "yes"; word = "yes"; },
-  { text = "dro"; nick = "yes"; word = "yes"; }
+  { text = " hydro "; nick = "yes"; word = "yes"; },
+  { text = " dro "; nick = "yes"; word = "yes"; }
 );
 
 ignores = (
