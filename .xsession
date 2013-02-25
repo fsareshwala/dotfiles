@@ -7,13 +7,6 @@ xrandr -s 28 # resize screen
 xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
 
-eval `/usr/bin/ssh-agent`
-
-if test -f /usr/lib/ssh/x11-ssh-askpass # Debian
-then
-    SSH_ASKPASS=/usr/lib/ssh/x11-ssh-askpass ssh-add < /dev/null
-fi
-
 xrdb -merge $HOME/.Xresources
 xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
