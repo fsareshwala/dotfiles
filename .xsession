@@ -15,8 +15,8 @@ hash google-chrome && google-chrome &
 
 while true
 do
-    LOCALTIME=$(date +%Z\=%Y-%m-%dT%H:%M)
-    xsetroot -name "$LOCALTIME"
+    TIME=$(date "+%A, %B %d, %Y | %I:%M %p")
+    xsetroot -name "$TIME"
     sleep 1s
 done &
 
