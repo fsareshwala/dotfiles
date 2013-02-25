@@ -1,7 +1,7 @@
 #!/bin/bash
 xset r rate 150 100 # set keyboard repeat rate
 xset b off #turn off audio bell
-xrandr -s 9 # resize screen
+xrandr -s 28 # resize screen
 
 # add path to the font path and rebuild font cache
 xset +fp /usr/share/fonts/X11/misc
