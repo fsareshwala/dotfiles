@@ -13,7 +13,7 @@ set editor=vim
 set shell="/bin/zsh"
 set record="+Sent Items"
 set postponed="+Drafts"
-set trash="+Trash"
+set trash="+Deleted Items"
 
 # Cache the headers locally under $HOME/mail/headers folder
 # # Create this folder manually before starting Mutt
@@ -60,7 +60,7 @@ set tilde                               # virtual lines to pad blank lines in th
 set implicit_autoview=yes               # pager shows parts having a mailcap viewer
 set pgp_verify_sig=no                   # don't automatically verify message signatures
 set sort_browser=reverse-date           # how to sort files in the dir browser
-set sort=reverse-date
+set sort=threads
 #set sort_aux=date-received
 set nouse_domain                        # don't qualify local addresses with $domain
 set use_from                            # always generate the `From:' header field
@@ -99,3 +99,5 @@ macro generic <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" 
 macro index   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
 macro pager   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
 bind index "^" imap-fetch-mail
+macro index x t
+macro index y ";s+archive\n$"
