@@ -2,7 +2,7 @@ map L :tabnext<cr>
 map H :tabprev<cr>
 map t :call GenerateTags()<cr>
 
-colorscheme delek
+colorscheme fsareshwala
 set nocompatible
 set nobackup
 set noswapfile
