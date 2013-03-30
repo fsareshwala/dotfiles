@@ -46,6 +46,7 @@ if [[ "`uname`" == "Linux" ]]; then
     alias ll='ls -lh'
 fi
 
+alias -- ..='cd ..'
 alias -- -='cd -'
 alias less=$PAGER
 alias m='make'
