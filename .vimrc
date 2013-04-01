@@ -92,7 +92,7 @@ map j gj
 map k gk
 map m :make -j 2<cr>
 
-call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 
 function! GitGrep(...)
     let save = &grepprg
