@@ -11,7 +11,7 @@ imap jj <esc>
 set ttyfast
 set history=1000
 set lazyredraw
-set shell=/bin/zsh
+set shell=/bin/bash
 set matchtime=3
 set autowrite
 set autoread
