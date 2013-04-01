@@ -29,7 +29,7 @@ fi
 HISTCONTROL=ignoreboth # force ignoredups and ignorespace
 shopt -s histappend # append to the history file, don't overwrite it
 shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
-PS1='\u@\h:\w $ '
+PS1='[\u@\h \W] $ '
 
 bind 'set completion-ignore-case on'
 
