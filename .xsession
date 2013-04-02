@@ -12,6 +12,7 @@ xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
 hash google-chrome && google-chrome &
+hash perl && perl /home/fsareshwala/prefix/bin/edit-server.pl > /home/fsareshwala/.edit-server.log &
 
 while true
 do
