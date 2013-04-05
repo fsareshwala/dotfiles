@@ -7,7 +7,6 @@ set nocompatible
 set nobackup
 set noswapfile
 set mousehide
-imap jj <esc>
 set ttyfast
 set history=1000
 set lazyredraw
