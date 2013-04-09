@@ -13,12 +13,6 @@ setxkbmap -layout us -option ctrl:nocaps
 
 hash google-chrome && google-chrome &
 hash perl && perl /home/fsareshwala/prefix/bin/edit-server.pl > /home/fsareshwala/.edit-server.log &
-
-while true
-do
-    TIME=$(date "+%A, %B %d, %Y | %I:%M %p")
-    xsetroot -name "$TIME"
-    sleep 1s
-done &
+hash dwmstatus && /usr/local/bin/dwmstatus &
 
 exec /usr/local/bin/dwm
