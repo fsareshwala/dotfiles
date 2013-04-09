@@ -20,7 +20,6 @@
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
     update = "!f() { git submodule foreach git checkout master ; git submodule foreach git ff; }; f"
-    fs = !~/code/git-tools/bin/git-full-status
     ff = pull --ff-only --stat
 
     # show only the differences between another branch that I have added
