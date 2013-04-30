@@ -27,6 +27,7 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
 fi
 
 HISTCONTROL=ignoreboth # force ignoredups and ignorespace
+HISTFILESIZE=10000
 shopt -s histappend # append to the history file, don't overwrite it
 shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
 PS1='[\u@\h \W] '
