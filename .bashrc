@@ -19,6 +19,7 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export GEM_HOME=/usr/lib/ruby/gems/1.8
     export GIT_TOP_DIR=~/code
     export ANT_HOME=/home/fsareshwala/prefix/bin/apache-ant-1.8.4
+    export BUILD_TYPE=debug
 
     alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
     alias pr='post-review --guess-summary --guess-description'
