@@ -38,7 +38,6 @@ set softtabstop=4
 set smarttab
 set nowrap
 set textwidth=80 wrap linebreak
-set colorcolumn=+1
 set expandtab
 set comments=sl:/*,mb:\ *,elx:\ */
 set formatoptions+=rn
