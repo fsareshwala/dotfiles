@@ -62,6 +62,12 @@ set wildmode=list:longest,full
 set guifont=Terminus\ 8
 set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
 
+if exists('+colorcolumn')
+    set colorcolumn=+1
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+
 set nocp
 syntax on
 filetype on
