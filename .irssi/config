@@ -8,6 +8,15 @@ servers = (
     autoconnect = "yes";
   },
   {
+    address = "irc.corp.qc";
+    chatnet = "quantcast";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    autoconnect = "yes";
+    username = "fsareshwala";
+  },
+  {
     address = "localhost";
     chatnet = "bitlbee";
     port = "6667";
@@ -20,11 +29,13 @@ servers = (
 chatnets = {
   freenode = { type = "IRC"; };
   bitlbee = { type = "IRC"; };
+  quantcast = { type = "IRC"; };
 };
 
 channels = (
   { name = "#neocodex2"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#cassandra"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#bdp"; chatnet = "quantcast"; autojoin = "yes"; },
 );
 
 aliases = {
