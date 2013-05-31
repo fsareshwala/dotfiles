@@ -48,7 +48,7 @@ set incsearch
 set wrapscan
 set ignorecase
 set smartcase
-set mouse=a
+set mouse=
 set number
 set ruler
 set showmatch
