@@ -15,4 +15,10 @@ hash google-chrome && google-chrome &
 hash perl && perl /home/fsareshwala/prefix/bin/edit-server.pl > /home/fsareshwala/.edit-server.log &
 hash dwmstatus && /usr/local/bin/dwmstatus &
 
+DROPBOX_HOME=/home/fsareshwala/.dropbox-dist
+if [ -e $DROPBOX_HOME/dropboxd ]
+then
+    $DROPBOX_HOME/dropboxd &
+fi
+
 exec /usr/local/bin/dwm
