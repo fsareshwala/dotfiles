@@ -37,6 +37,7 @@ set tabstop=8
 set softtabstop=4
 set smarttab
 set nowrap
+set nostartofline
 set textwidth=80 wrap linebreak
 set expandtab
 set comments=sl:/*,mb:\ *,elx:\ */
