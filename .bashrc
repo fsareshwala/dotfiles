@@ -63,6 +63,8 @@ alias vim='vim -O'
 alias zrc='vim ~/.zshrc'
 alias zless=$PAGER
 alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
+alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
+alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 
 # git aliases
 alias b='git branch'
