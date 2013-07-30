@@ -101,3 +101,4 @@ macro pager   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" 
 bind index "^" imap-fetch-mail
 macro index x t
 macro index y ";s+archive\n$"
+macro index Y ";s+cassandra\n$"
