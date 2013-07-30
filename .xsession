@@ -1,7 +1,7 @@
 #!/bin/bash
 xset r rate 150 100
 xset b off
-xrandr -s 20
+xrandr -s 28
 
 # add path to the font path and rebuild font cache
 xset +fp /usr/share/fonts/X11/misc
