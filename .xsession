@@ -12,6 +12,7 @@ xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
 hash google-chrome && google-chrome &
+hash eclipse && eclipse &
 hash perl && perl /home/fsareshwala/prefix/bin/edit-server.pl > /home/fsareshwala/.edit-server.log &
 hash dwmstatus && /usr/local/bin/dwmstatus &
 hash dropbox && dropbox start -i
