@@ -53,7 +53,6 @@ alias less=$PAGER
 alias m='make'
 alias mc='make clean'
 alias mt='make test'
-alias q='cd ~/code/realtime/quantserve'
 alias r='tmux attach'
 alias s='source ~/.bashrc'
 alias wk='vim ~/personal/worklog'
