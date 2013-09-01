@@ -2,8 +2,20 @@ map L :tabnext<cr>
 map H :tabprev<cr>
 map t :call GenerateTags()<cr>
 
-colorscheme fsareshwala
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdtree'
+Bundle 'jboyens/vim-protobuf'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'jnwhiteh/vim-golang'
+
+filetype plugin indent on
+colorscheme fsareshwala
 set nobackup
 set noswapfile
 set mousehide
@@ -66,9 +78,6 @@ set colorcolumn=+1
 
 set nocp
 syntax on
-filetype on
-filetype indent on
-filetype plugin on
 let c_space_errors = 1
 let java_space_errors = 1
 
