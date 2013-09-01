@@ -95,8 +95,6 @@ map j gj
 map k gk
 map m :make<cr>
 
-call pathogen#incubate()
-
 function! GitGrep(...)
     let save = &grepprg
     set grepprg=git\ grep\ -n\ $*
