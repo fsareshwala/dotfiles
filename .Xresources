@@ -1,5 +1,5 @@
-XTerm*font: terminus-12
-XTerm*foreground: gray
-XTerm*background: black
-XTerm*allowBoldFonts: false
-XTerm*bellSuppressTime: 0
+UXTerm*font: terminus-12
+UXTerm*foreground: gray
+UXTerm*background: black
+UXTerm*allowBoldFonts: false
+UXTerm*bellSuppressTime: 0
