@@ -62,10 +62,7 @@ set wildmenu
 set wildmode=list:longest,full
 set guifont=Terminus\ 8
 set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
-
-if exists('+colorcolumn')
-    set colorcolumn=+1
-endif
+set colorcolumn=+1
 
 set nocp
 syntax on
