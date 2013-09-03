@@ -14,6 +14,8 @@ Bundle 'jboyens/vim-protobuf'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'jnwhiteh/vim-golang'
 
+let g:vim_markdown_folding_disabled=1
+
 filetype plugin indent on
 colorscheme fsareshwala
 set nobackup
