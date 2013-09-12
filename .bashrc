@@ -8,6 +8,7 @@ export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
 export PATH=~/prefix/bin:.:$PATH
+export GOPATH=/home/fsareshwala/go
 
 HOSTNAME=`hostname`
 if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" ]]; then
