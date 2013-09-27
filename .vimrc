@@ -1,6 +1,9 @@
 map L :tabnext<cr>
 map H :tabprev<cr>
 map t :call GenerateTags()<cr>
+map [ :cp<cr>
+map ] :cn<cr>
+inoremap jj <esc>
 
 set nocompatible
 filetype off
