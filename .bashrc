@@ -51,7 +51,6 @@ fi
 alias -- ..='cd ..'
 alias -- -='cd -'
 alias less=$PAGER
-alias make='make -j 2'
 alias m='make'
 alias mc='make clean'
 alias mt='make test'
