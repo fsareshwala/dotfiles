@@ -64,7 +64,7 @@ alias zless=$PAGER
 alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
-alias pr='post-review --tracking-branch=origin/master --guess-description --guess-summary --target-groups=bigdata --target-people=jmorrison'
+alias pr='post-review --tracking-branch=origin/master --guess-description --guess-summary --target-groups=realtime-data --target-people=jmorrison'
 
 # git aliases
 alias b='git branch'
