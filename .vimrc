@@ -104,7 +104,7 @@ nmap <down> :3wincmd -<cr>
 
 map j gj
 map k gk
-map m :make<cr>
+map m :make -j 4<cr>
 
 function! GitGrep(...)
     let save = &grepprg
