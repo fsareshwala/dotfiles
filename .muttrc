@@ -1,4 +1,5 @@
-# Note: $folder should be set _before_ any other path vars where `+' or `=' is used because paths are expanded when parsed
+# Note: $folder should be set _before_ any other path vars where `+' or `=' is
+# used because paths are expanded when parsed
 
 set realname="Faraaz Sareshwala"
 set from="fsareshwala@quantcast.com"
@@ -14,18 +15,14 @@ set shell="/bin/bash"
 set record="+Sent Items"
 set postponed="+Drafts"
 set trash="+Deleted Items"
-
-# Cache the headers locally under $HOME/mail/headers folder
-# # Create this folder manually before starting Mutt
 set header_cache = "~/.mail/headers"
-
-# # For better performance cache the message body as well
-# # Create this folder manually before starting Mutt
 set message_cachedir = "~/.mail/messages"
+set query_command="~/prefix/bin/mutt_ldap.py '%s'"
+bind editor "\t" complete-query
 
 set beep_new
-set alias_file=~/.aliases.mutt
-source ~/.aliases.mutt
+#set alias_file=~/.aliases.mutt
+#source ~/.aliases.mutt
 
 set nosave_empty                        # remove files when no messages are left
 set include                             # always include messages when replying
