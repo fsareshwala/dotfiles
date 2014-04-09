@@ -91,11 +91,6 @@ color underline brightgreen default
 #color body brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 #color body brightblue black (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
 
-# Show documentation when pressing F1
-macro generic <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
-macro index   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
-macro pager   <f1> "!zcat /usr/share/doc/mutt/manual.txt.gz | sensible-pager\n" "Show Mutt documentation"
 bind index "^" imap-fetch-mail
 macro index x t
 macro index y ";s+archive\n$"
-macro index Y ";s+cassandra\n$"
