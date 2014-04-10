@@ -7,16 +7,7 @@ inoremap jj <esc>
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jboyens/vim-protobuf'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'jnwhiteh/vim-golang'
-
+execute pathogen#infect()
 let g:vim_markdown_folding_disabled=1
 
 filetype plugin indent on
