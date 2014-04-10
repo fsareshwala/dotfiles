@@ -23,8 +23,6 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export BUILD_TYPE=debug
 
     alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-    alias pxall='parallel-ssh --inline -h ~/prefix/etc/pixel/all'
-    alias pxtest='parallel-ssh --inline -h ~/prefix/etc/pixel/sftest-pixel'
 fi
 
 HISTCONTROL=ignoreboth # force ignoredups and ignorespace
