@@ -3,4 +3,5 @@ UXTerm*foreground: gray
 UXTerm*background: black
 UXTerm*allowBoldFonts: false
 UXTerm*bellSuppressTime: 0
+UXTerm*cursorColor: green
 UXTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
