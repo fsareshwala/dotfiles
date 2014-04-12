@@ -83,4 +83,4 @@ alias st='git status'
 ulimit -c unlimited
 ulimit -m 1048576
 ulimit -n 4096
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+[[ -s "/home/fsareshwala/.gvm/scripts/gvm" ]] && source "/home/fsareshwala/.gvm/scripts/gvm"
