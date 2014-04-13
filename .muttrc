@@ -24,6 +24,7 @@ set beep_new
 #set alias_file=~/.aliases.mutt
 #source ~/.aliases.mutt
 
+set sleep_time=0
 set nosave_empty                        # remove files when no messages are left
 set include                             # always include messages when replying
 set fast_reply                          # skip initial prompts when replying
