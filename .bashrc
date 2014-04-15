@@ -58,7 +58,6 @@ alias s='source ~/.bashrc'
 alias wk='vim ~/personal/worklog'
 alias vi='vim'
 alias vim='vim -O'
-alias zrc='vim ~/.zshrc'
 alias zless=$PAGER
 alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
