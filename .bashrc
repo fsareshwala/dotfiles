@@ -64,7 +64,7 @@ alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 alias lowercase_fname="rename 'y/A-Z/a-z/' *"
-alias pr='post-review --tracking-branch=origin/master --guess-description --guess-summary --target-groups=realtime-data --target-people=jmorrison'
+alias pr='post-review --branch=$(git symbolic-ref --short -q HEAD) --tracking-branch=origin/master --guess-description --guess-summary --target-groups=realtime-data --target-people=jmorrison'
 
 # git aliases
 alias b='git branch'
