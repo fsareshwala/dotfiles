@@ -6,24 +6,20 @@ set from="fsareshwala@quantcast.com"
 set hostname="quantcast.com"            # my DNS domain
 set envelope_from
 
-set spoolfile="imaps://owa017.msoutlookonline.net/"
-set folder="imaps://owa017.msoutlookonline.net/"
-set imap_user="fsareshwala@quantcast.com"
+set folder = "~/.mail"
+source ~/.mutt/mailboxes
+set spoolfile = "+INBOX"
+set record = "+Sent\ Items"
+set postponed = "+Drafts"
+set trash = "+Deleted\ Items"
+
 set smtp_url="smtp://fsareshwala@quantcast.com@smtpx17.msoutlookonline.net:587/"
 set editor=vim
 set shell="/bin/bash"
-set record="+Sent Items"
-set postponed="+Drafts"
-set trash="+Deleted Items"
-set header_cache = "~/.mail/headers"
-set message_cachedir = "~/.mail/messages"
 set query_command="~/prefix/bin/mutt_ldap.py '%s'"
 bind editor "\t" complete-query
 
 set beep_new
-#set alias_file=~/.aliases.mutt
-#source ~/.aliases.mutt
-
 set sleep_time=0
 set nosave_empty                        # remove files when no messages are left
 set include                             # always include messages when replying
@@ -33,7 +29,6 @@ set move=no
 set copy=yes                            # always save a copy of outgoing messages
 set bounce=yes                          # don't ask about bouncing messages, just do it
 set delete=yes                          # purge deleted messages without asking
-set quit=ask-yes
 set nomark_old                          # i don't care about whether a message is old
 set mail_check=30                       # how often to poll for new mail
 set timeout=15                          # timeout for prompt in the index menu
@@ -54,7 +49,6 @@ set noconfirmappend                     # don't ask me if i want to append to ma
 set index_format="%5C %Z | %[%b %d, %I:%M %p] | %-15.15F | %s"
 set help                                # show the help lines
 set tmpdir=/tmp                         # where to store temp files
-set tilde                               # virtual lines to pad blank lines in the pager
 set implicit_autoview=yes               # pager shows parts having a mailcap viewer
 set pgp_verify_sig=no                   # don't automatically verify message signatures
 set sort_browser=reverse-date           # how to sort files in the dir browser
