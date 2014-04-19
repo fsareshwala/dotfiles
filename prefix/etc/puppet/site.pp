@@ -23,6 +23,16 @@ cron { offlineimap:
   hour => '*',
 }
 
+file { '/home/fsareshwala/.offlineimaprc':
+  ensure => link,
+  target => '/home/fsareshwala/personal/offlineimaprc',
+}
+
+file { '/home/fsareshwala/.config/mutt-ldap.cfg':
+  ensure => link,
+  target => '/home/fsareshwala/personal/mutt-ldap.cfg',
+}
+
 file { [
   '/etc/service/ntpd',
 ]:
