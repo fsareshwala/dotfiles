@@ -3,6 +3,7 @@ package { [
   'daemontools',
   'daemontools-run',
   'ntp',
+  'perl',
 ]:
   ensure => latest,
 }
