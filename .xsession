@@ -11,15 +11,12 @@ xrdb -merge $HOME/.Xresources
 xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
-hash google-chrome && google-chrome &
-hash perl && perl /home/fsareshwala/prefix/bin/edit-server.pl > /home/fsareshwala/.edit-server.log &
-hash dwmstatus && /usr/local/bin/dwmstatus &
-hash dropbox && dropbox start -i
+# launch default programs on start
+/usr/bin/google-chrome &
+/usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
+/usr/local/bin/dwmstatus &
 
-DROPBOX_HOME=/home/fsareshwala/.dropbox-dist
-if [ -e $DROPBOX_HOME/dropboxd ]
-then
-    $DROPBOX_HOME/dropboxd &
-fi
+/usr/bin/dropbox start -i
+/usr/bin/dropbox start
 
 exec /usr/local/bin/dwm
