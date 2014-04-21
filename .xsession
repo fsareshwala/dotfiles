@@ -12,11 +12,11 @@ xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
 # launch default programs on start
-/usr/bin/google-chrome &
-/usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
-/usr/local/bin/dwmstatus &
+hash google-chrome && /usr/bin/google-chrome &
+hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
+hash dwmstatus && /usr/local/bin/dwmstatus &
 
-/usr/bin/dropbox start -i
-/usr/bin/dropbox start
+hash dropbox && /usr/bin/dropbox start -i
+hash dropbox && /usr/bin/dropbox start
 
 exec /usr/local/bin/dwm
