@@ -6,7 +6,7 @@ package { [
   'perl',
   'offlineimap',
 ]:
-  ensure => latest,
+  ensure => installed,
 }
 
 cron { puppet:
