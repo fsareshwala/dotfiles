@@ -13,7 +13,7 @@ hi DiffAdd    ctermbg=LightBlue    guibg=LightBlue
 hi DiffChange ctermbg=LightMagenta guibg=LightMagenta
 hi DiffDelete ctermfg=Blue	   ctermbg=LightCyan gui=bold guifg=Blue guibg=LightCyan
 hi DiffText   ctermbg=Red	   cterm=bold gui=bold guibg=Red
-hi Directory  ctermfg=DarkBlue	   guifg=Blue
+hi Directory  ctermfg=Blue	   guifg=Blue
 hi ErrorMsg   ctermfg=White	   ctermbg=DarkRed  guibg=Red	    guifg=White
 hi FoldColumn ctermfg=DarkBlue	   ctermbg=Grey     guibg=Grey	    guifg=DarkBlue
 hi Folded     ctermbg=Grey	   ctermfg=DarkBlue guibg=LightGrey guifg=DarkBlue
