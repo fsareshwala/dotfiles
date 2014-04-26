@@ -13,14 +13,14 @@ cron { puppet:
   command => 'sudo puppet apply ~/prefix/etc/puppet/site.pp',
   user => fsareshwala,
   target => fsareshwala,
-  hour => '*',
+  minute => '*',
 }
 
 cron { offlineimap:
   command => '/usr/bin/setlock -nx /tmp/offlineimap.lock offlineimap >> /tmp/offlineimap.cron',
   user => fsareshwala,
   target => fsareshwala,
-  hour => '*',
+  minute => '*',
 }
 
 file { '/home/fsareshwala/.offlineimaprc':
