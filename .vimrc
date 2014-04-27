@@ -109,8 +109,6 @@ nmap <f10> :Ack <cword><cr>
 nmap <f11> :Gdiff<cr>
 nmap <f12> :Gblame w<cr>
 
-let g:ctrlp_map = '<leader>t'
-
 runtime! ftplugin/man.vim
 map K <leader>K
 
