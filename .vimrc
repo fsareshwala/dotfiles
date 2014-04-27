@@ -103,25 +103,7 @@ nmap <down> :3wincmd -<cr>
 
 map j gj
 map k gk
-map m :make -j 4<cr>
-
-function! GitGrep(...)
-    let save = &grepprg
-    set grepprg=git\ grep\ -n\ $*
-    let s = 'grep'
-
-    for i in a:000
-        let s = s . ' ' . i
-    endfor
-
-    exe s
-    let &grepprg = save
-endfunction
-
-function! GitGrepWord()
-    normal! "zyiw
-    call GitGrep('-w -e ', getreg('z'))
-endfunction
+map m :make -j 2<cr>
 
 function! GenerateTags()
     :silent !ctags -R .
@@ -132,8 +114,7 @@ function! GenerateTags()
 endfunction
 
 nmap <f3> :NERDTreeToggle<cr>
-nmap <f9> :silent call GitGrepWord()<cr>:redraw!<cr>:copen<cr>
-nmap <f10> :ConqueTermVSplit zsh<cr>
+nmap <f10> :Ack <cword><cr>
 nmap <f11> :Gdiff<cr>
 nmap <f12> :Gblame w<cr>
 
