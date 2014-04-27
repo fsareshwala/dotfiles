@@ -86,6 +86,5 @@ color underline brightgreen default
 #color body brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
 #color body brightblue black (https?|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
 
-bind index "^" imap-fetch-mail
 macro index x t
 macro index y ";s+archive\n$"
