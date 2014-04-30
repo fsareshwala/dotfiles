@@ -95,6 +95,7 @@ map <c-k> <esc><C-w>k
 map <c-h> <esc><C-w>h
 map <c-l> <esc><C-w>l
 map <c-o> i<cr><esc>0
+map <c-p> "_cw"<esc>
 
 nmap <left> :3wincmd <<cr>
 nmap <right> :3wincmd ><cr>
