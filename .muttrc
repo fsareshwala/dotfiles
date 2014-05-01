@@ -30,7 +30,7 @@ set copy=yes                            # always save a copy of outgoing message
 set bounce=yes                          # don't ask about bouncing messages, just do it
 set delete=yes                          # purge deleted messages without asking
 set nomark_old                          # i don't care about whether a message is old
-set mail_check=30                       # how often to poll for new mail
+set mail_check=1                        # how often to poll for new mail
 set timeout=15                          # timeout for prompt in the index menu
 set mime_forward                        # use message/rfc822 type to forward messages
 set pager_index_lines=11                # how many index lines to show in the pager
