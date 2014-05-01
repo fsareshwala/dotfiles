@@ -104,7 +104,7 @@ nmap <down> :3wincmd -<cr>
 
 map j gj
 map k gk
-map m :make -j 2<cr>
+map m :make<cr>
 
 function! GenerateTags()
     :silent !ctags -R .
