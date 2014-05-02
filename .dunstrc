@@ -31,21 +31,21 @@
 
 [urgency_low]
     background = "#007700"
-    foreground = "#000000"
+    foreground = "#eeeeee"
     timeout = 3
 
 [urgency_normal]
     background = "#005577"
-    foreground = "#000000"
+    foreground = "#eeeeee"
     timeout = 3
 
 [urgency_critical]
     background = "#dd6600"
-    foreground = "#000000"
+    foreground = "#eeeeee"
     timeout = 0
 
 [irc]
     appname = weechat
     timeout = 3
     background = "#008800"
-    foreground = "#000000"
+    foreground = "#eeeeee"
