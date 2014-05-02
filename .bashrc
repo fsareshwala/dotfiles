@@ -67,6 +67,7 @@ alias pr='post-review --branch=$(git symbolic-ref --short -q HEAD) --tracking-br
 alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
+alias bsub="sed -i -e 's/\${project.version.depends}/latest.integration/g' **/ivy.xml"
 
 # git aliases
 alias b='git branch'
