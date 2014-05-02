@@ -23,7 +23,6 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export BUILD_TYPE=debug
 
     alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-    alias vim='gvim -v'
 fi
 
 export HISTCONTROL=ignoredups:erasedups
