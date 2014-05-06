@@ -17,7 +17,7 @@ hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/e
 hash dwmstatus && /usr/local/bin/dwmstatus &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 
-hash dropbox && /usr/bin/dropbox start -i
-hash dropbox && /usr/bin/dropbox start
+hash dropbox && /usr/bin/dropbox start -i &
+hash dropbox && /usr/bin/dropbox start &
 
 exec /usr/local/bin/dwm
