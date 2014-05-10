@@ -10,6 +10,9 @@ export COLORTERM=yes
 export PATH=~/prefix/bin:.:$PATH
 export GOPATH=/home/fsareshwala/go
 
+stty werase undef
+bind '\C-W:unix-filename-rubout'
+
 HOSTNAME=`hostname`
 if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" ]]; then
     export C_INCLUDE_PATH=/qc/protobuf/include
