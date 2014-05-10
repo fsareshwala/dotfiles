@@ -48,4 +48,4 @@
     appname = weechat
     timeout = 3
     background = "#008800"
-    foreground = "#bbbbbb"
+    foreground = "#ffffff"
