@@ -1,1 +1,3 @@
 --ignore-file=is:tags
+--ignore-file=match:/cscope.*/
+--ignore-dir=build
