@@ -24,6 +24,7 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export GIT_TOP_DIR=~/code
     export ANT_HOME=/home/fsareshwala/prefix/bin/apache-ant-1.8.4
     export BUILD_TYPE=debug
+    export LD_LIBRARY_PATH=/qc/google-perftools/lib
 
     alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 fi
