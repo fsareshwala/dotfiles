@@ -1,0 +1,5 @@
+style "user-font" {
+        font_name = " Terminus 4"
+}
+widget_class "*" style "user-font"
+gtk-font-name="Terminus 8"
