@@ -12,7 +12,7 @@ xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
 # launch default programs on start
-hash google-chrome && /usr/bin/google-chrome &
+hash chromium && /usr/bin/chromium &
 hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
 hash dwmstatus && /usr/local/bin/dwmstatus &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
