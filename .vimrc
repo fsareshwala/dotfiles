@@ -80,6 +80,7 @@ set wildmode=list:longest,full
 set guifont=Terminus\ 8
 set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
 set colorcolumn=+1
+set modeline
 
 set nocp
 syntax on
