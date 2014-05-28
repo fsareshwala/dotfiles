@@ -18,7 +18,7 @@ HOSTNAME=`hostname`
 if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" ]]; then
     export C_INCLUDE_PATH=/qc/protobuf/include
     export CPLUS_INCLUDE_PATH=/qc/protobuf/include
-    export PATH=~/code/git-tools/bin:/qc/protobuf/bin:/qc/thrift/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/home/fsareshwala/prefix/bin/apache-ant-1.8.4/bin:/usr/bin:$PATH
+    export PATH=/qc/protobuf/bin:/qc/thrift/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/usr/bin:/qc/google-perftools/bin:$PATH
     export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
     export USE_CCACHE=true
     export GEM_HOME=/usr/lib/ruby/gems/1.8
