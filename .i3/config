@@ -91,3 +91,6 @@ bar {
     workspace_buttons yes
     tray_output none
 }
+
+assign [class='Chromium'] 3
+assign [class='Eclipse'] 3
