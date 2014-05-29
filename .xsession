@@ -1,5 +1,5 @@
 #!/bin/bash
-export TERMINAL=/usr/bin/uxterm
+export TERMINAL=/usr/bin/rxvt-unicode
 
 xset r rate 150 100
 xset b off
