@@ -6,6 +6,7 @@ UXTerm*foreground: gray
 UXTerm*background: black
 UXTerm*cursorColor: green
 
+UXTerm*saveLines: 10000
 UXTerm*scrollTtyOutput: false
 UXTerm*scrollWithBuffer: true
 UXTerm*scrollTtyKeypress: true
