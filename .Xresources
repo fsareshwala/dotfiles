@@ -12,10 +12,12 @@ URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 
-URxvt.perl-ext-common: ...,keyboard-select,clipboard
+URxvt.perl-ext-common: ...,keyboard-select,clipboard,matcher
 URxvt.keysym.C-i: perl:keyboard-select:activate
 URxvt.keysym.C-S-C: perl:clipboard:copy
 URxvt.keysym.C-S-V: perl:clipboard:paste
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
 
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
