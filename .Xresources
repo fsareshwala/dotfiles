@@ -1,14 +1,22 @@
-UXTerm*font: terminus-12
-UXTerm*allowBoldFonts: false
-UXTerm*bellSuppressTime: 0
+URxvt.font: terminus-12
+URxvt.scrollBar: false
+URxvt.allowBoldFonts: false
+URxvt.bellSuppressTime: 0
 
-UXTerm*foreground: gray
-UXTerm*background: black
-UXTerm*cursorColor: green
+URxvt.foreground: gray
+URxvt.background: black
+URxvt.cursorColor: green
 
-UXTerm*saveLines: 10000
-UXTerm*scrollTtyOutput: false
-UXTerm*scrollWithBuffer: true
-UXTerm*scrollTtyKeypress: true
+URxvt.saveLines: 10000
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
 
-UXTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+URxvt.perl-ext-common: ...,keyboard-select,clipboard
+URxvt.keysym.C-i: perl:keyboard-select:activate
+URxvt.keysym.C-S-C: perl:clipboard:copy
+URxvt.keysym.C-S-V: perl:clipboard:paste
+
+URxvt.clipboard.copycmd: xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.clipboard.autocopy: true
