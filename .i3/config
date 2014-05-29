@@ -89,4 +89,5 @@ bar {
     status_command i3status
     position top
     workspace_buttons yes
+    tray_output none
 }
