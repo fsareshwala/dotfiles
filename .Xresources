@@ -1,7 +1,13 @@
 UXTerm*font: terminus-12
-UXTerm*foreground: gray
-UXTerm*background: black
 UXTerm*allowBoldFonts: false
 UXTerm*bellSuppressTime: 0
+
+UXTerm*foreground: gray
+UXTerm*background: black
 UXTerm*cursorColor: green
+
+UXTerm*scrollTtyOutput: false
+UXTerm*scrollWithBuffer: true
+UXTerm*scrollTtyKeypress: true
+
 UXTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
