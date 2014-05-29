@@ -92,5 +92,5 @@ bar {
     tray_output none
 }
 
-assign [class='Chromium'] 3
+assign [class='Chromium'] 2
 assign [class='Eclipse'] 3
