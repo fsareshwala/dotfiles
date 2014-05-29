@@ -43,6 +43,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Don't move on *
 nnoremap * *<c-o>
 
+set bg=dark
 set autoindent
 set copyindent
 set preserveindent
