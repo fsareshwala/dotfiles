@@ -32,6 +32,12 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# resize focused window
+bindsym $mod+Control+h resize grow left 10px or 10ppt
+bindsym $mod+Control+j resize grow down 10px or 10ppt
+bindsym $mod+Control+k resize grow up 10px or 10ppt
+bindsym $mod+Control+l resize grow right 10px or 10ppt
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
@@ -45,12 +51,6 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -86,5 +86,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+    position top
+    workspace_buttons yes
 }
