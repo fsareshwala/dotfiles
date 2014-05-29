@@ -34,7 +34,7 @@ our $LOCALHOST_ONLY = 1;
 # Configure the program that you want to run to handle the requests.
 # This editor invocation must NOT return control to this script until
 # you are done editing.
-our $EDITOR_CMD = '/usr/bin/uxterm -e /usr/bin/vim -f "%s"';
+our $EDITOR_CMD = '/usr/bin/rxvt-unicode -e /usr/bin/vim -f "%s"';
 #our $EDITOR_CMD = '/usr/bin/emacsclient -c "%s"';
 
 # The settings to configure the temp dir and how soon old files are removed.
