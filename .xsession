@@ -1,4 +1,6 @@
 #!/bin/bash
+export TERMINAL=/usr/bin/uxterm
+
 xset r rate 150 100
 xset b off
 xrandr -s 5
