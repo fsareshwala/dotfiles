@@ -9,7 +9,7 @@ xrandr -s 5
 xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
 
-xrdb -merge $HOME/.Xresources
+xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
