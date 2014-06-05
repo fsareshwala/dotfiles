@@ -7,6 +7,7 @@
     excludesfile = /home/fsareshwala/prefix/etc/git/exclude
     pager = less
     autocrlf = input
+    preloadindex = true
 
 [color]
     diff = auto
