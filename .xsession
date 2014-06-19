@@ -15,7 +15,7 @@ xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
 
 # launch default programs on start
-hash chromium && /usr/bin/chromium &
+hash chromium && GTK2_RC_FILES=/home/fsareshwala/.gtkrc-2.0.chromium /usr/bin/chromium &
 hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 
