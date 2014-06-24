@@ -16,7 +16,7 @@ URxvt.perl-ext-common: ...,keyboard-select,clipboard,matcher
 URxvt.keysym.C-i: perl:keyboard-select:activate
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
-URxvt.url-launcher: /usr/bin/chromium
+URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.matcher.button: 1
 
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
