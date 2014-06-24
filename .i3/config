@@ -41,10 +41,9 @@ bindsym $mod+Control+l resize grow right 5px or 5ppt
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# split in some directional orientation
+bindsym $mod+s split h
+bindsym $mod+w split v
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
