@@ -88,3 +88,4 @@ color underline brightgreen default
 
 macro index x t
 macro index y ";s+archive\n$"
+macro pager y "s+archive\n"
