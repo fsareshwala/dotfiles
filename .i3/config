@@ -42,8 +42,10 @@ bindsym $mod+Control+l resize grow right 5px or 5ppt
 bindsym $mod+f fullscreen
 
 # split in some directional orientation
-bindsym $mod+s split h
-bindsym $mod+w split v
+bindsym $mod+Left split h
+bindsym $mod+Right split h
+bindsym $mod+Up split v
+bindsym $mod+Down split v
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
