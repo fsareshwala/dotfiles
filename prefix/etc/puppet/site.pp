@@ -5,6 +5,9 @@ package { [
   'ntp',
   'perl',
   'offlineimap',
+  'libldap2-dev',
+  'libsasl2-dev',
+  'python-pip',
 ]:
   ensure => installed,
 }
