@@ -23,7 +23,7 @@ cron { puppet:
 }
 
 cron { offlineimap:
-  command => '/usr/bin/setlock -nx /tmp/offlineimap.lock offlineimap >> /tmp/offlineimap.cron',
+  command => 'offlineimap >> /tmp/offlineimap.cron',
   user => fsareshwala,
   target => fsareshwala,
   minute => '*',
