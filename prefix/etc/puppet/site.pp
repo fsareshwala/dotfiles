@@ -11,6 +11,8 @@ package { [
   'tig',
   'htop',
   'strace',
+  'gdb',
+  'xclip',
 ]:
   ensure => installed,
 }
