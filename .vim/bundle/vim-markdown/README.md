@@ -6,12 +6,12 @@ Syntax highlighting, matching rules and mappings for [the original Markdown](htt
 
 If you use [Vundle](https://github.com/gmarik/vundle), add the following line to your `~/.vimrc`:
 
-    Bundle 'plasticboy/vim-markdown'
+    Plugin 'plasticboy/vim-markdown'
 
 And then run inside Vim:
 
     :so ~/.vimrc
-    :BundleInstall
+    :PluginInstall
 
 If you use [Pathogen](https://github.com/tpope/vim-pathogen), do this:
 
@@ -69,8 +69,6 @@ The following work on normal and visual modes:
 
 ## Commands
 
-The following commands currently only work for atx style headers (`#`). Pull request are welcome to extend them to Setext style headers (`===`).
-
 - `:Toc`: create a quickfix vertical window navigable table of contents with the headers.
 
     Hit `<Enter>` on a line to jump to the corresponding line of the markdown file.
@@ -78,6 +76,24 @@ The following commands currently only work for atx style headers (`#`). Pull req
 - `:Toch`: Same as `:Toc` but in an horizontal window.
 - `:Toct`: Same as `:Toc` but in a new tab.
 - `:Tocv`: Same as `:Toc` for symmetry with `:Toch` and `Tocv`.
+
+- `:SetexToAtx`:
+
+    Convert all Setex style headers in buffer to Atx.
+
+    If a range is given, e.g. hit `:` from visual mode, only operate on the range.
+
+- `:HeaderDecrease`:
+
+    Decrease level of all headers in buffer: `h2` to `h1`, `h3` to `h2`, etc.
+
+    If range is given, only operate in the range.
+
+    If an `h1` would be decreased, abort.
+
+    For simplicity of implementation, Setex headers are converted to Atx.
+
+- `:HeaderIncrease`: Analogous to `:HeaderDecrease`, but increase levels instead.
 
 ## Credits
 
