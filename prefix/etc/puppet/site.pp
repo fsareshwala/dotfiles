@@ -15,6 +15,8 @@ package { [
   'xclip',
   'weechat',
   'weechat-scripts',
+  'ctags',
+  'cscope',
 ]:
   ensure => installed,
 }
