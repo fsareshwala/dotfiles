@@ -8,6 +8,9 @@ package { [
   'libldap2-dev',
   'libsasl2-dev',
   'python-pip',
+  'tig',
+  'htop',
+  'strace',
 ]:
   ensure => installed,
 }
