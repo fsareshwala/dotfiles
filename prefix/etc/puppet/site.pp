@@ -13,6 +13,8 @@ package { [
   'strace',
   'gdb',
   'xclip',
+  'weechat',
+  'weechat-scripts',
 ]:
   ensure => installed,
 }
