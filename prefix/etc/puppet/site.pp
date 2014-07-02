@@ -27,7 +27,7 @@ file { [
   '/etc/service/ntpd',
 ]:
   ensure => directory,
-  require => Package['daemontools'],
+  require => Package['daemontools-run'],
 }
 
 file { '/etc/service/ntpd/run':
