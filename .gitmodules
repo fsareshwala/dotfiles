@@ -1,3 +1,0 @@
-[submodule "prefix/usr/local/vimpager"]
-	path = prefix/usr/local/vimpager
-	url = git://github.com/rkitover/vimpager.git
