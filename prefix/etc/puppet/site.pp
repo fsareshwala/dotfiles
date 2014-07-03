@@ -19,6 +19,7 @@ package { [
   'cscope',
   'lxappearance',
   'valgrind',
+  'nodm',
 ]:
   ensure => installed,
 }
@@ -54,6 +55,46 @@ file { '/etc/service/ntpd/run':
   content => '#!/bin/sh
 exec /usr/sbin/ntpd -n -g -u 113:121
 '
+}
+
+file { '/etc/default/nodm':
+  ensure => present,
+  backup => false,
+  owner => root,
+  group => root,
+  mode => 644,
+  require => Package['nodm'],
+  content => "# nodm configuration
+
+# Set NODM_ENABLED to something different than 'false' to enable nodm
+NODM_ENABLED=true
+
+# User to autologin for
+NODM_USER=fsareshwala
+
+# First vt to try when looking for free VTs
+NODM_FIRST_VT=7
+
+# X session
+NODM_XSESSION=/etc/X11/Xsession
+
+# Options for the X server
+NODM_X_OPTIONS='-nolisten tcp'
+
+# If an X session will run for less than this time in seconds, nodm will wait an
+# increasing bit of time before restarting the session.
+NODM_MIN_SESSION_TIME=60
+"
+}
+
+file { '/etc/X11/default-display-manager':
+  ensure => present,
+  backup => false,
+  owner => root,
+  group => root,
+  mode => 644,
+  require => Package['nodm'],
+  content => "/usr/sbin/nodm"
 }
 
 service { 'ntpd':
