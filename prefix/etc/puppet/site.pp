@@ -15,7 +15,7 @@ package { [
   'xclip',
   'weechat',
   'weechat-scripts',
-  'ctags',
+  'exuberant-ctags',
   'cscope',
   'lxappearance',
   'valgrind',
