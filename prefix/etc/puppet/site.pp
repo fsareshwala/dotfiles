@@ -17,6 +17,8 @@ package { [
   'weechat-scripts',
   'ctags',
   'cscope',
+  'lxappearance',
+  'valgrind',
 ]:
   ensure => installed,
 }
