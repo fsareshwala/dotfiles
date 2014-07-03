@@ -32,7 +32,7 @@ cron { puppet:
 }
 
 cron { offlineimap:
-  command => 'offlineimap >> /tmp/offlineimap.cron',
+  command => 'nice -n 15 offlineimap >> /tmp/offlineimap.cron',
   user => fsareshwala,
   target => fsareshwala,
   minute => '*',
