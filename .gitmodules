@@ -1,6 +1,0 @@
-[submodule "prefix/usr/local/vimpager"]
-	path = prefix/usr/local/vimpager
-	url = git://github.com/rkitover/vimpager.git
-[submodule ".vim/bundle/vundle"]
-	path = .vim/bundle/vundle
-	url = git://github.com/gmarik/vundle.git
