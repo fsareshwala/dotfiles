@@ -33,7 +33,7 @@ set nomark_old                          # i don't care about whether a message i
 set mail_check=1                        # how often to poll for new mail
 set timeout=15                          # timeout for prompt in the index menu
 set mime_forward                        # use message/rfc822 type to forward messages
-set pager_index_lines=11                # how many index lines to show in the pager
+set pager_index_lines=20                # how many index lines to show in the pager
 set reverse_name                        # use my address as it appears in the message i am replying to
 set read_inc=25                         # show progress when reading a mailbox
 set write_inc=25                        # show progress while writing mailboxes
