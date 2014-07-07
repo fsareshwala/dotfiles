@@ -13,7 +13,6 @@ set record = "+Sent\ Items"
 set postponed = "+Drafts"
 set trash = "+Deleted\ Items"
 
-set smtp_url="smtp://fsareshwala@quantcast.com@west.exch032.serverdata.net:587/"
 set editor=vim
 set shell="/bin/bash"
 set query_command="~/prefix/bin/mutt_ldap.py '%s'"
