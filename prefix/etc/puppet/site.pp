@@ -1,4 +1,5 @@
 package { [
+  'ack-grep',
   'build-essential',
   'cscope',
   'daemontools',
