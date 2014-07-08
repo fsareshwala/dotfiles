@@ -8,6 +8,7 @@ package { [
   'gdb',
   'htop',
   'libldap2-dev',
+  'libnotify-bin',
   'libsasl2-dev',
   'lxappearance',
   'nodm',
