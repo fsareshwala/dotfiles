@@ -41,6 +41,13 @@ cron { offlineimap:
   minute => '*',
 }
 
+cron { ntpd:
+  command => 'sudo ntpd -qg',
+  user => fsareshwala,
+  target => fsareshwala,
+  minute => '*/5',
+}
+
 file { [
   '/etc/service/ntpd',
 ]:
