@@ -54,6 +54,8 @@ fi
 
 alias -- ..='cd ..'
 alias -- -='cd -'
+alias cdq='cd ~/code/realtime/quantserve'
+alias cdb='cd ~/code/realtime/bidding'
 alias less=$PAGER
 alias m='make'
 alias mc='make clean'
