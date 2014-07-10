@@ -19,6 +19,7 @@ package { [
   'python-pip',
   'strace',
   'tig',
+  'tmux',
   'valgrind',
   'weechat',
   'weechat-scripts',
