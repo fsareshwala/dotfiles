@@ -52,3 +52,6 @@
 
 [rerere]
     enabled = 1
+
+[grep]
+    lineNumber = true
