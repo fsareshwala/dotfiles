@@ -24,6 +24,7 @@ package { [
   'weechat',
   'weechat-scripts',
   'xclip',
+  'xfonts-terminus',
 ]:
   ensure => installed,
 }
