@@ -70,7 +70,7 @@ alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 alias lowercase_fname="rename 'y/A-Z/a-z/' *"
-alias pr='rbt post --branch=$(git symbolic-ref --short -q HEAD) --tracking-branch=origin/master --target-groups=realtime-data -g auto'
+alias pr='rbt post --branch=$(git symbolic-ref --short -q HEAD) --tracking-branch=origin/master -g auto'
 alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
