@@ -4,6 +4,7 @@ package { [
   'cscope',
   'daemontools',
   'daemontools-run',
+  'exim4',
   'exuberant-ctags',
   'feh',
   'gdb',
@@ -97,6 +98,15 @@ NODM_X_OPTIONS='-nolisten tcp'
 # increasing bit of time before restarting the session.
 NODM_MIN_SESSION_TIME=60
 "
+}
+
+file { '/etc/exim4/passwd.client':
+  ensure => link,
+  target => '/home/fsareshwala/personal/exim4.passwd',
+  owner => root,
+  group => root,
+  mode => 600,
+  require => Package['exim4']
 }
 
 file { '/etc/X11/default-display-manager':
