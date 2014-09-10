@@ -11,6 +11,8 @@ export COLORTERM=yes
 export PATH=~/prefix/bin:.:$PATH
 export GOPATH=/home/fsareshwala/go
 
+. /etc/bash_completion
+
 stty werase undef
 bind '\C-W:unix-filename-rubout'
 
