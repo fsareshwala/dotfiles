@@ -22,4 +22,4 @@ hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash dropbox && /usr/bin/dropbox start -i &
 hash dropbox && /usr/bin/dropbox start &
 
-exec /usr/bin/i3
+exec /usr/bin/i3 --force-xinerama
