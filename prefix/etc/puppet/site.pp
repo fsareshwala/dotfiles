@@ -119,6 +119,15 @@ file { '/etc/X11/default-display-manager':
   content => "/usr/sbin/nodm"
 }
 
+file { '/etc/apt/sources.list.d/wheezy-backports.list':
+  ensure => present,
+  backup => false,
+  owner => root,
+  group => root,
+  mode => 644,
+  content => 'deb http://ftp.debian.org/debian wheezy-backports main contrib non-free'
+}
+
 service { 'ntpd':
   require => File['/etc/service/ntpd/run'],
   provider => 'daemontools',
