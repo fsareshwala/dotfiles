@@ -18,6 +18,7 @@ setxkbmap -layout us -option ctrl:nocaps
 hash chromium && GTK2_RC_FILES=/dev/null /usr/bin/chromium &
 hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
+hash vmware-user && /usr/bin/vmware-user &
 
 hash dropbox && /usr/bin/dropbox start -i &
 hash dropbox && /usr/bin/dropbox start &
