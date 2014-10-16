@@ -41,6 +41,7 @@
 
 [merge]
     tool = vimdiff
+    ff = only
 
 [tig]
     author-width = 25
