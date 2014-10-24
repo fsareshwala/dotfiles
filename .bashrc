@@ -8,8 +8,9 @@ export PAGER=~/prefix/usr/local/vimpager/vimpager
 export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
-export PATH=~/prefix/bin:.:$PATH
+export PATH=~/prefix/bin:.:/usr/local/go/bin:$PATH
 export GOPATH=/home/fsareshwala/go
+export GOROOT=/usr/local/go
 
 . /etc/bash_completion
 
