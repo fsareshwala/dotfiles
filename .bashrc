@@ -22,7 +22,6 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export C_INCLUDE_PATH=/qc/protobuf/include
     export CPLUS_INCLUDE_PATH=/qc/protobuf/include
     export PATH=/qc/protobuf/bin:/qc/thrift/bin:/var/lib/gems/1.8/gems/ruby_protobuf-0.4.11/bin:/usr/bin:/qc/google-perftools/bin:$PATH
-    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
     export USE_CCACHE=true
     export GEM_HOME=/usr/lib/ruby/gems/1.8
     export GIT_TOP_DIR=~/code
@@ -49,12 +48,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Command Aliases
-if [[ "`uname`" == "Linux" ]]; then
+OS=`uname`
+if [[ "$OS" == "Linux" ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64
     alias ls='ls --color'
-    alias ll='ls -lh'
+elif [[ "$OS" == "Darwin" ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+    alias ls='ls -G'
 fi
 
+# Command Aliases
 alias -- ..='cd ..'
 alias -- -='cd -'
 alias cdq='cd ~/code/realtime/quantserve'
@@ -96,4 +99,3 @@ alias st='git status'
 ulimit -c unlimited
 ulimit -m 1048576
 ulimit -n 4096
-[[ -s "/home/fsareshwala/.gvm/scripts/gvm" ]] && source "/home/fsareshwala/.gvm/scripts/gvm"
