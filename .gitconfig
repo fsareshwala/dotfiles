@@ -44,7 +44,6 @@
     ff = only
 
 [tig]
-    author-width = 25
     line-graphics = yes
     tab-size = 4
 
