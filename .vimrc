@@ -143,4 +143,12 @@ endif
 set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
 filetype plugin indent on
 syntax on
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+function! GoFmt()
+    try
+        exe "undojoin"
+        exe "Fmt"
+    catch
+    endtry
+endfunction
+au FileType go au bufwritepre <buffer> call GoFmt()
