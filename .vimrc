@@ -1,6 +1,5 @@
 map L :tabnext<cr>
 map H :tabprev<cr>
-map t :call GenerateTags()<cr>
 map [ :cp<cr>
 map ] :cn<cr>
 inoremap jj <esc>
@@ -119,6 +118,7 @@ endfunction
 nmap <f2> :copen<cr>
 nmap <f3> :NERDTreeToggle<cr>
 nmap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nmap <f9> :call GenerateTags()<cr>
 nmap <f10> :Ack <cword><cr>
 nmap <f11> :Gdiff<cr>
 nmap <f12> :Gblame w<cr>
