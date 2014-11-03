@@ -88,7 +88,7 @@ let c_space_errors = 1
 let java_space_errors = 1
 
 map <Undo> :NERDTreeMirror<cr>
-let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 
 map <c-j> <esc><C-w>j
