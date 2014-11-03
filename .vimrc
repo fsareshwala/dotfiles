@@ -109,8 +109,6 @@ map m :make -j 2<cr><cr>
 
 function! GenerateTags()
     :silent !ctags -R --exclude=*build* .
-    :silent !find . -iname '*.c' -o -iname '*.cpp' -o -iname '*.h' -o -iname '*.hpp' > cscope.files
-    :silent !cscope -b -i cscope.files -f cscope.out
     :silent cs reset
     :redraw!
 endfunction
