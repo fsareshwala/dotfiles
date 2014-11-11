@@ -119,13 +119,23 @@ file { '/etc/X11/default-display-manager':
   content => "/usr/sbin/nodm"
 }
 
-file { '/etc/apt/sources.list.d/wheezy-backports.list':
+file { '/etc/apt/sources.list.d/atlassian-hipchat.list':
   ensure => present,
   backup => false,
   owner => root,
   group => root,
   mode => 644,
-  content => 'deb http://ftp.debian.org/debian wheezy-backports main contrib non-free'
+  content => 'deb http://downloads.hipchat.com/linux/apt stable main'
+}
+
+file { '/etc/apt/sources.list.d/backports.list':
+  ensure => present,
+  backup => false,
+  owner => root,
+  group => root,
+  mode => 644,
+  content => 'deb http://ftp.debian.org/debian wheezy-backports main contrib non-free
+deb-src http://ftp.debian.org/debian wheezy-backports main contrib non-free'
 }
 
 service { 'ntpd':
