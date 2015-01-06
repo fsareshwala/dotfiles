@@ -45,6 +45,7 @@ set forward_format="FWD: %s"            # subject to use when forwarding message
 set indent_string="> "                  # how to quote replied text
 set autoedit                            # go to the editor right away when composing
 set noconfirmappend                     # don't ask me if i want to append to mailboxes
+set noconfirmcreate
 set index_format="%5C %Z | %[%b %d, %I:%M %p] | %-15.15F | %s"
 set help                                # show the help lines
 set tmpdir=/tmp                         # where to store temp files
