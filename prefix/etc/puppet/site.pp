@@ -30,6 +30,14 @@ package { [
   ensure => installed,
 }
 
+cron { motd:
+  command => '/etc/motd.sh',
+  user => root,
+  target => root,
+  minute => '0',
+  hour => '*',
+}
+
 cron { puppet:
   command => 'sudo puppet apply ~/prefix/etc/puppet/site.pp',
   user => fsareshwala,
