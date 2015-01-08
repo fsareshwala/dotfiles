@@ -70,6 +70,16 @@ exec /usr/sbin/ntpd -n -g -u 113:121
 '
 }
 
+file { '/etc/motd.sh':
+  ensure => present,
+  backup => false,
+  owner => root,
+  group => root,
+  mode => 755,
+  content => '#!/bin/bash
+sort -R /home/fsareshwala/personal/motd | head -1 > /etc/motd'
+}
+
 file { '/etc/default/nodm':
   ensure => present,
   backup => false,
