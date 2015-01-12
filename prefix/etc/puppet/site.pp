@@ -30,14 +30,6 @@ package { [
   ensure => installed,
 }
 
-cron { motd:
-  command => '/etc/motd.sh',
-  user => root,
-  target => root,
-  minute => '0',
-  hour => '*',
-}
-
 cron { puppet:
   command => 'sudo puppet apply ~/prefix/etc/puppet/site.pp',
   user => fsareshwala,
@@ -76,16 +68,6 @@ file { '/etc/service/ntpd/run':
   content => '#!/bin/sh
 exec /usr/sbin/ntpd -n -g -u 113:121
 '
-}
-
-file { '/etc/motd.sh':
-  ensure => present,
-  backup => false,
-  owner => root,
-  group => root,
-  mode => 755,
-  content => '#!/bin/bash
-sort -R /home/fsareshwala/personal/motd | head -1 > /etc/motd'
 }
 
 file { '/etc/default/nodm':
