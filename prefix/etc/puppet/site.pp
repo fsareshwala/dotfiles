@@ -26,6 +26,7 @@ package { [
   'weechat-scripts',
   'xclip',
   'xfonts-terminus',
+  'puppet',
 ]:
   ensure => installed,
 }
@@ -35,6 +36,7 @@ cron { puppet:
   user => fsareshwala,
   target => fsareshwala,
   minute => '*',
+  require => Package['puppet'],
 }
 
 cron { offlineimap:
@@ -42,6 +44,7 @@ cron { offlineimap:
   user => fsareshwala,
   target => fsareshwala,
   minute => '*',
+  require => Package['offlineimap'],
 }
 
 cron { ntpd:
@@ -49,13 +52,14 @@ cron { ntpd:
   user => fsareshwala,
   target => fsareshwala,
   minute => '*/5',
+  require => Package['ntp'],
 }
 
 file { [
   '/etc/service/ntpd',
 ]:
   ensure => directory,
-  require => Package['daemontools-run'],
+  require => [Package['ntp'], Package['daemontools-run']],
 }
 
 file { '/etc/service/ntpd/run':
