@@ -4,7 +4,7 @@ export PATH=/home/fsareshwala/prefix/bin:$PATH
 
 xset r rate 150 100
 xset b off
-xrandr -s 28
+xrandr -s 5
 
 # add path to the font path and rebuild font cache
 xset +fp /usr/share/fonts/X11/misc
