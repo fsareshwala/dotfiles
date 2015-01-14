@@ -80,13 +80,12 @@ NODM_MIN_SESSION_TIME=60
 "
 }
 
-file { '/etc/exim4/passwd.client':
+file { '/home/fsareshwala/.config/mutt-ldap.cfg':
   ensure => link,
-  target => '/home/fsareshwala/personal/exim4.passwd',
-  owner => root,
-  group => root,
+  target => '/home/fsareshwala/personal/mutt-ldap.cfg',
+  owner => fsareshwala,
+  group => fsareshwala,
   mode => 600,
-  require => Package['exim4']
 }
 
 file { '/etc/X11/default-display-manager':
