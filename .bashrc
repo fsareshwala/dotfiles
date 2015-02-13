@@ -79,7 +79,7 @@ alias pr='rbt post --branch=$(git symbolic-ref --short -q HEAD) --tracking-branc
 alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
-alias bsub="sed -i -e 's/\${project.version.depends}/latest.integration/g' **/ivy.xml && sed -i -e 's,\${basedir}/../.ivy2,\${user.home}/.ivy2/quantcast,g' **/build.properties && git update-index --assume-unchanged {bidder,common,mux,shared}/build.properties {bidder,common,mux}/ivy.xml"
+alias bsub="sed -i -e 's/\${project.version.depends}/latest.integration/g' **/ivy.xml && sed -i -e 's,\${basedir}/../.ivy2,\${user.home}/.ivy2/quantcast,g' **/build.properties"
 
 # git aliases
 alias b='git branch'
