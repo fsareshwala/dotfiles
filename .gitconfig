@@ -18,10 +18,8 @@
     pager = true
 
 [alias]
-    graph = log --graph --pretty=format:'%C(yellow)%h%Creset - %Cgreen(%cr) %C(bold blue)<%an>%Creset %s %Cred%d%Creset' --abbrev-commit --date=relative --no-merges
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-    update = "!f() { git submodule foreach git checkout master ; git submodule foreach git ff; }; f"
     ff = pull --ff-only --stat
 
     # show only the differences between another branch that I have added
