@@ -2,7 +2,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export TERM=rxvt-unicode-256color
+export TERM=xterm-256color
 export EDITOR=vim
 export PAGER=~/prefix/usr/local/vimpager/vimpager
 export RSYNC_RSH=/usr/bin/ssh
