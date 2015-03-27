@@ -4,7 +4,7 @@
 
 export TERM=xterm-256color
 export EDITOR=vim
-export PAGER=~/prefix/usr/local/vimpager/vimpager
+export PAGER=/usr/bin/less
 export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
@@ -61,7 +61,7 @@ alias -- ..='cd ..'
 alias -- -='cd -'
 alias cdq='cd ~/code/realtime/quantserve'
 alias cdb='cd ~/code/realtime/bidding'
-alias less=$PAGER
+alias less="$PAGER -R"
 alias m='make'
 alias mc='make clean'
 alias mt='make test'
@@ -70,7 +70,6 @@ alias s='source ~/.bashrc'
 alias wk='vim ~/personal/worklog'
 alias vi='vim'
 alias vim='vim -O'
-alias zless=$PAGER
 alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
