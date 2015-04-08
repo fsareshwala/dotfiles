@@ -1,0 +1,24 @@
+#!/bin/bash
+# modified from https://github.com/Ceryn/img
+
+argv=("$@")
+argc=("$#")
+clientid='3e7a4deb7ac67da'
+fileroot='/home/fsareshwala'
+
+if [ $argc -eq 0 ]; then
+    img=$(date "+/${fileroot}/%N.png")
+    import -window root ${img} >/dev/null 2>&1 || exit
+elif [ $argc -eq 1 ]; then
+    if [ ! -f ${argv[0]} ]; then
+        echo 'error: argument must be a regular file'
+        exit 1
+    fi
+
+    img=${argv[0]}
+fi
+
+# res=$(curl -sH "Authorization: Client-ID ${clientid}" -F "image=@${img}" "https://api.imgur.com/3/upload")
+# echo ${res} | grep -qo '"status":200' && link=$(echo ${res} | sed -e 's/.*"link":"\([^"]*\).*/\1/' -e 's/\\//g')
+# test -n "$link" && (printf $link | xclip) || echo "${res}" > "${img}.error"
+# rm ${img}
