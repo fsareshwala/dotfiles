@@ -21,6 +21,7 @@ hash chromium && /usr/bin/chromium --force-device-scale-factor=1 &
 hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash vmware-user && /usr/bin/vmware-user &
+hash hipchat && /usr/bin/hipchat &
 
 hash dropbox && /usr/bin/dropbox start -i &
 hash dropbox && /usr/bin/dropbox start &
