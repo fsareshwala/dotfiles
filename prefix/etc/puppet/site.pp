@@ -97,13 +97,3 @@ file { '/etc/X11/default-display-manager':
   require => Package['nodm'],
   content => "/usr/sbin/nodm"
 }
-
-file { '/etc/apt/sources.list.d/backports.list':
-  ensure => present,
-  backup => false,
-  owner => root,
-  group => root,
-  mode => 644,
-  content => 'deb http://ftp.debian.org/debian wheezy-backports main contrib non-free
-deb-src http://ftp.debian.org/debian wheezy-backports main contrib non-free'
-}
