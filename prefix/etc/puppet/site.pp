@@ -30,6 +30,7 @@ package { [
   'xfonts-terminus',
   'puppet',
   'bitlbee',
+  'numlockx',
 ]:
   ensure => installed,
 }
