@@ -16,6 +16,7 @@ xset fp rehash
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
 setxkbmap -layout us -option ctrl:nocaps
+/usr/bin/numlockx on
 
 # launch default programs on start
 hash chromium && TZ=${LOCAL_TZ} /usr/bin/chromium --force-device-scale-factor=1 &
