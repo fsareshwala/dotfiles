@@ -130,6 +130,7 @@ if has("autocmd")
         au!
         autocmd bufwritepost .vimrc source ~/.vimrc
     augroup END
+    autocmd BufRead,BufNewFile README set filetype=mkd
 endif
 
 " Some Linux distributions set filetype in /etc/vimrc.
