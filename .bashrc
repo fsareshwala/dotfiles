@@ -79,8 +79,8 @@ alias pr='rbt post --branch=$(git symbolic-ref --short -q HEAD) --tracking-branc
 alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
-alias bsub="sed -i -e 's/\${project.version.depends}/latest.integration/g' **/ivy.xml && sed -i -e 's,\${basedir}/../.ivy2,\${user.home}/.ivy2/quantcast,g' **/build.properties"
-alias percent='sort | uniq -c | awk "BEGIN{i=0; tot=0} {val[i] = \$1; txt[i] = \$2; tot += \$1; i++} END {for(j = 0; j < i; j++){printf \"%0.2f\t%s\n\", val[j] / tot * 100, txt[j]}}"'
+alias fpr='~/code/realtime/quantserve/scripts/first-post-review'
+alias rpr='~/code/realtime/quantserve/scrips/re-post-review'
 
 # git aliases
 alias b='git branch'
