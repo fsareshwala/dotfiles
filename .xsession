@@ -20,7 +20,6 @@ setxkbmap -layout us -option ctrl:nocaps
 
 # launch default programs on start
 hash chromium && TZ=${LOCAL_TZ} /usr/bin/chromium --force-device-scale-factor=1 &
-hash perl && /usr/bin/perl /home/fsareshwala/prefix/bin/edit-server.pl >> /tmp/edit-server.log &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash vmware-user && /usr/bin/vmware-user &
 hash hipchat && TZ=${LOCAL_TZ} /usr/bin/hipchat &
