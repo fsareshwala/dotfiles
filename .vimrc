@@ -116,6 +116,7 @@ endfunction
 nmap <f2> :copen<cr>
 nmap <f3> :NERDTreeToggle<cr>
 nmap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+set pastetoggle=<F5>
 nmap <f9> :call GenerateTags()<cr>
 nmap <f10> :Ack <cword><cr>
 nmap <f11> :Gdiff<cr>
