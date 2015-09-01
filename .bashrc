@@ -28,6 +28,7 @@ if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" 
     export GIT_TOP_DIR=~/code
     export BUILD_TYPE=debug
     export LD_LIBRARY_PATH=/qc/google-perftools/lib
+    export JAVA_KESTREL_BIN=/usr/lib/jvm/java-7-oracle/bin/java
 
     alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 fi
