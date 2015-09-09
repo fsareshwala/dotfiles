@@ -1,9 +1,7 @@
 #!/bin/bash
 export TERMINAL=/usr/bin/rxvt-unicode
 export PATH=/home/fsareshwala/prefix/bin:$PATH
-export TZ=America/Los_Angeles
-
-LOCAL_TZ=Asia/Singapore
+export TZ=Asia/Singapore
 
 xset r rate 150 100
 xset b off
@@ -19,10 +17,10 @@ setxkbmap -layout us -option ctrl:nocaps
 /usr/bin/numlockx on
 
 # launch default programs on start
-hash chromium && TZ=${LOCAL_TZ} /usr/bin/chromium --force-device-scale-factor=1 &
+hash chromium && /usr/bin/chromium --force-device-scale-factor=1 &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash vmware-user && /usr/bin/vmware-user &
-hash hipchat && TZ=${LOCAL_TZ} /usr/bin/hipchat &
+hash hipchat && /usr/bin/hipchat &
 
 hash dropbox && /usr/bin/dropbox start -i &
 hash dropbox && /usr/bin/dropbox start &
