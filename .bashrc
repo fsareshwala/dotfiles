@@ -81,7 +81,7 @@ alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
 alias fpr='~/code/realtime/quantserve/scripts/first-post-review'
-alias rpr='~/code/realtime/quantserve/scripts/re-post-review'
+alias rpr='pr -g -u'
 alias bc='bc -l'
 
 # git aliases
