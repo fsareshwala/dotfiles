@@ -82,7 +82,13 @@ color body brightred default "[Ff]araaz"
 color body brightred default "fsareshwala"
 color underline brightgreen default
 
-color index brightred default '~f nagios ~s WR-'
+color index red default '~f nagios ~s CR-'
+color index yellow default '~f nagios ~s WR-'
+color index green default '~f nagios ~s OK-'
+
+color index red default '~f px-.* ~s ERROR'
+color index yellow default '~f px-.* ~s WARN'
+color index green default '~f px-.* ~s INFO'
 
 macro index x t
 macro index y ";s+archive\n$"
