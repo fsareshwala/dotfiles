@@ -40,6 +40,7 @@ set write_inc=25                        # show progress while writing mailboxes
 unset mark_old
 unset markers                           # no annoying + markers at beginning of wrapped lines
 auto_view text/html
+auto_view text/calendar
 alternative_order text/html text/plain
 
 set forward_format="FWD: %s"            # subject to use when forwarding messages
