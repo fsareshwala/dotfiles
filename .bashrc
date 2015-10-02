@@ -9,8 +9,9 @@ export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
-export PATH=.:~/prefix/bin:$GOPATH/bin:/usr/local/go/bin:$PATH
+export GOAPPENGINE=/usr/local/go_appengine
+export GOROOT=$GOAPPENGINE/goroot
+export PATH=.:~/prefix/bin:$GOPATH/bin:/usr/local/go/bin:$GOAPPENGINE:$PATH
 export ANT_HOME=/usr/share/ant
 
 . /etc/bash_completion
