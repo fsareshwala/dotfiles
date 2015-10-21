@@ -21,7 +21,6 @@
     ls = ls-files
     serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
     ff = pull --ff-only --stat
-    fmerge = "!f() { git ff && git checkout $1 && git rebase origin/master && git checkout master && git merge $1 }; f"
 
     # show only the differences between another branch that I have added
     wc = "!f() { git diff `git merge-base HEAD $1`; }; f"
