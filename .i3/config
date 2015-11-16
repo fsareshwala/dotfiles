@@ -92,3 +92,5 @@ bar {
     workspace_buttons yes
     tray_output none
 }
+
+focus_follows_mouse no
