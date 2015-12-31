@@ -1,7 +1,7 @@
 #!/bin/bash
 export TERMINAL=/usr/bin/rxvt-unicode
 export PATH=/home/fsareshwala/prefix/bin:$PATH
-export TZ=Asia/Singapore
+export TZ=America/Los_Angeles
 
 xset r rate 150 100
 xset b off
