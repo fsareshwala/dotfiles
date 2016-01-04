@@ -93,4 +93,4 @@ bar {
     tray_output none
 }
 
-focus_follows_mouse no
+# focus_follows_mouse no
