@@ -13,7 +13,7 @@ URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
 
 URxvt.perl-lib: /home/fsareshwala/prefix/usr/local/rxvt/perls
-URxvt.perl-ext-common: ...,keyboard-select,url-select,clipboard,matcher
+URxvt.perl-ext-common: keyboard-select,url-select,clipboard,matcher
 URxvt.keysym.C-i: perl:keyboard-select:activate
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
