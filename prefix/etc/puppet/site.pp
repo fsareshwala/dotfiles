@@ -5,8 +5,8 @@ package { [
   'daemontools',
   'daemontools-run',
   'exim4',
-  "i3",
-  "chromium",
+  'i3',
+  'chromium-browser',
   'exuberant-ctags',
   'feh',
   'gdb',
@@ -31,6 +31,7 @@ package { [
   'puppet',
   'bitlbee',
   'numlockx',
+  'xclip',
 ]:
   ensure => installed,
 }
