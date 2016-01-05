@@ -17,12 +17,7 @@ setxkbmap -layout us -option ctrl:nocaps
 /usr/bin/numlockx on
 
 # launch default programs on start
-hash google-chrome && /usr/bin/google-chrome --force-device-scale-factor=1 --ignore-gpu-blacklist &
+hash chromium-browser && /usr/bin/chromium-browser --force-device-scale-factor=1 --ignore-gpu-blacklist &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash vmware-user && /usr/bin/vmware-user &
 hash hipchat && /usr/bin/hipchat &
-
-hash dropbox && /usr/bin/dropbox start -i &
-hash dropbox && /usr/bin/dropbox start &
-
-exec /usr/bin/i3 --force-xinerama
