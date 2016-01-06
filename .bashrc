@@ -14,8 +14,6 @@ export GOROOT=$GOAPPENGINE/goroot
 export PATH=.:~/prefix/bin:$GOPATH/bin:/usr/local/go/bin:$GOAPPENGINE:$PATH
 export ANT_HOME=/usr/share/ant
 
-. /etc/bash_completion
-
 stty werase undef
 bind '\C-W:unix-filename-rubout'
 
