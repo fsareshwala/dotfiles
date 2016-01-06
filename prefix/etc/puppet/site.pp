@@ -25,6 +25,13 @@ cron { offlineimap:
   require => Package['offlineimap'],
 }
 
+file { '/home/fsareshwala/.mutt':
+  ensure => directory,
+  owner => fsareshwala,
+  group => fsareshwala,
+  mode => 755,
+}
+
 file { '/home/fsareshwala/.config/mutt-ldap.cfg':
   ensure => link,
   target => '/home/fsareshwala/personal/mutt-ldap.cfg',
