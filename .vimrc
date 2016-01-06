@@ -10,7 +10,7 @@ execute pathogen#infect()
 let g:vim_markdown_folding_disabled=1
 
 filetype plugin indent on
-colorscheme delek
+colorscheme fsareshwala
 set nobackup
 set noswapfile
 set mousehide
