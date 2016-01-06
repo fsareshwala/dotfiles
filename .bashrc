@@ -50,7 +50,7 @@ fi
 
 OS=`uname`
 if [[ "$OS" == "Linux" ]]; then
-    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    export JAVA_HOME='/usr/lib/jvm/java-1.7.0-openjdk'
     alias ls='ls --color'
 elif [[ "$OS" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
