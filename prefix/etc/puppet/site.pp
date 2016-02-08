@@ -22,7 +22,7 @@ cron { offlineimap:
   command => 'nice -n 15 offlineimap >> /tmp/offlineimap.cron',
   user => fsareshwala,
   target => fsareshwala,
-  month => '*',
+  minute => '*',
   require => Package['offlineimap'],
 }
 
