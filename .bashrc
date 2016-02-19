@@ -14,23 +14,20 @@ export GOROOT=$GOAPPENGINE/goroot
 export PATH=.:~/prefix/bin:$GOPATH/bin:/usr/local/go/bin:$GOAPPENGINE:$PATH
 export ANT_HOME=/usr/share/ant
 
+export C_INCLUDE_PATH=/qc/protobuf/include
+export CPLUS_INCLUDE_PATH=/qc/protobuf/include
+export PATH=/qc/protobuf-2.6.1/bin:/qc/google-perftools/bin:/usr/lib/postgresql/9.4/bin:~/code/devtools/rbt-custom-tools:$PATH
+export USE_CCACHE=true
+export GEM_HOME=/usr/lib/ruby/gems/1.8
+export GIT_TOP_DIR=~/code
+export BUILD_TYPE=debug
+export LD_LIBRARY_PATH=/qc/google-perftools/lib
+export JAVA_KESTREL_BIN=/usr/lib/jvm/java-7-oracle/bin/java
+
+
 stty werase undef
 bind '\C-W:unix-filename-rubout'
 
-HOSTNAME=`hostname`
-if [[ "$HOSTNAME" == "fsareshwala-l" || "$HOSTNAME" == "fsareshwala-ml.corp.qc" ]]; then
-    export C_INCLUDE_PATH=/qc/protobuf/include
-    export CPLUS_INCLUDE_PATH=/qc/protobuf/include
-    export PATH=/qc/protobuf-2.6.1/bin:/qc/google-perftools/bin:/usr/lib/postgresql/9.4/bin:~/code/devtools/rbt-custom-tools:$PATH
-    export USE_CCACHE=true
-    export GEM_HOME=/usr/lib/ruby/gems/1.8
-    export GIT_TOP_DIR=~/code
-    export BUILD_TYPE=debug
-    export LD_LIBRARY_PATH=/qc/google-perftools/lib
-    export JAVA_KESTREL_BIN=/usr/lib/jvm/java-7-oracle/bin/java
-
-    alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
-fi
 
 export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=100000
@@ -62,6 +59,7 @@ alias -- ..='cd ..'
 alias -- -='cd -'
 alias cdq='cd ~/code/realtime/quantserve'
 alias cdb='cd ~/code/realtime/bidding'
+alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
 alias less="$PAGER -R"
 alias m='make'
 alias mc='make clean'
