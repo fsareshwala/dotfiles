@@ -22,3 +22,4 @@ hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash vmware-user && /usr/bin/vmware-user &
 hash hipchat && /usr/bin/hipchat &
 hash bitlbee && sudo /usr/sbin/bitlbee -D &
+hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
