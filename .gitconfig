@@ -54,5 +54,6 @@
 
 [grep]
     lineNumber = true
+
 [push]
-    default = current
+    default = upstream
