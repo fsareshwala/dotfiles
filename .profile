@@ -19,7 +19,6 @@ setxkbmap -layout us -option ctrl:nocaps
 # launch default programs on start
 hash google-chrome && /usr/bin/google-chrome --force-device-scale-factor=1 --ignore-gpu-blacklist &
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
-hash vmware-user && /usr/bin/vmware-user &
-hash hipchat && /usr/bin/hipchat &
+hash hipchat4 && /usr/local/bin/hipchat4 &
 hash bitlbee && sudo /usr/sbin/bitlbee -D &
 hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
