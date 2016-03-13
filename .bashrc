@@ -42,7 +42,7 @@ source /home/fsareshwala/prefix/etc/git/git-completion.bash
 
 OS=`uname`
 if [[ "$OS" == "Linux" ]]; then
-    export JAVA_HOME='/usr/lib/jvm/java-1.7.0-openjdk'
+    export JAVA_HOME='/usr/lib/jvm/java-1.7.0-openjdk-amd64'
     alias ls='ls --color'
 elif [[ "$OS" == "Darwin" ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
