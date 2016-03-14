@@ -21,4 +21,4 @@ hash google-chrome && /usr/bin/google-chrome --force-device-scale-factor=1 --ign
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 hash hipchat4 && /usr/local/bin/hipchat4 &
 hash bitlbee && sudo /usr/sbin/bitlbee -D &
-hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
+hash vmtoolsd && /usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr &
