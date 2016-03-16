@@ -52,6 +52,7 @@ fi
 # Command Aliases
 alias -- ..='cd ..'
 alias -- -='cd -'
+alias dirdiff='diff -ENwbur'
 alias cdq='cd ~/code/realtime/quantserve'
 alias cdb='cd ~/code/realtime/bidding'
 alias deployer='ruby ~/code/realtime/quantserve/scripts/run_dashboard_job.rb --job 1900000053'
