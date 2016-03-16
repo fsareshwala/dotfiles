@@ -71,7 +71,7 @@ alias pr='rbt post --branch=$(git symbolic-ref --short -q HEAD) --tracking-branc
 alias rsubmit='rbt close --close-type=submitted'
 alias rdiscard='rbt close --close-type=discarded'
 alias rst='rbt status --all'
-alias fpr='~/code/realtime/quantserve/scripts/first-post-review'
+alias fpr='~/code/devtools/rbt-custom-tools/first-post-review'
 alias rpr='qc-post-review --force --update -g'
 alias bc='bc -l'
 
