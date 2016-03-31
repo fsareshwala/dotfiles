@@ -23,6 +23,7 @@ export GIT_TOP_DIR=~/code
 export BUILD_TYPE=debug
 export LD_LIBRARY_PATH=/qc/google-perftools/lib
 export JAVA_KESTREL_BIN=/usr/lib/jvm/java-7-oracle/bin/java
+export MAKE_OPTIONS=--no-print-directory
 
 
 stty werase undef
