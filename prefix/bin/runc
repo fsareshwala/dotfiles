@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Run a docker container, sharing the current directory with the container.
+
+docker run -it --net=host --rm -v $(pwd):$(pwd) -w $(pwd) $1 /bin/bash
