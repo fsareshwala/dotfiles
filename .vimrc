@@ -60,7 +60,7 @@ set expandtab
 set comments=sl:/*,mb:\ *,elx:\ */
 set formatoptions+=rn
 set list
-set listchars=tab:\|­,trail:~,extends:>,precedes:<
+set listchars=tab:\|-,trail:~,extends:>,precedes:<
 set hlsearch
 set incsearch
 set wrapscan
