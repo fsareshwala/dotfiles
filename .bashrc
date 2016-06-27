@@ -18,7 +18,8 @@ shopt -s checkwinsize # check the window size after each command and, if necessa
 
 bind 'set completion-ignore-case on'
 
-# source /home/fsareshwala/prefix/etc/git/git-completion.bash
+source /home/fsareshwala/prefix/etc/git/git-completion.bash
+source /etc/bash_completion
 
 OS=`uname`
 if [[ "$OS" == "Linux" ]]; then
