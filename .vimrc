@@ -80,7 +80,7 @@ let java_space_errors = 1
 let g:table_mode_corner="|"
 
 map <Undo> :NERDTreeMirror<cr>
-let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', 'tags']
+let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 
 map <c-j> <esc><C-w>j
