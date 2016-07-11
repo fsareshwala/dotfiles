@@ -13,3 +13,4 @@ git merge -s ours --no-commit $name/master
 git read-tree --prefix=.vim/bundle/$name -u $name/master
 git commit -m "vim: subtree merge $name"
 git remote remove $name
+echo "git pull -s subtree $url master" >> ~/prefix/bin/update_subtree.sh
