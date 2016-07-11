@@ -14,5 +14,4 @@ setxkbmap -layout us -option ctrl:nocaps
 
 # launch default programs on start
 # hash google-chrome && /usr/bin/google-chrome --force-device-scale-factor=1 --ignore-gpu-blacklist &
-hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
-hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
+hash vmware-user && /usr/bin/vmware-user &
