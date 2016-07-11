@@ -13,8 +13,7 @@ export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=100000
 shopt -s histappend # append to the history file, don't overwrite it
 shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
-# export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-# PS1='[\u@\h \W] '
+PS1='[\u@\h \W] '
 
 bind 'set completion-ignore-case on'
 
