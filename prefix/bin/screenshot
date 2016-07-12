@@ -3,14 +3,14 @@
 
 argv=("$@")
 argc=("$#")
-clientid='3e7a4deb7ac67da'
+# clientid='3e7a4deb7ac67da'
 fileroot='/home/fsareshwala'
 
-if [ $argc -eq 0 ]; then
+if [ "${argc[0]}" -eq 0 ]; then
     img=$(date "+/${fileroot}/%N.png")
-    import -window root ${img} >/dev/null 2>&1 || exit
-elif [ $argc -eq 1 ]; then
-    if [ ! -f ${argv[0]} ]; then
+    import -window root "${img}" >/dev/null 2>&1 || exit
+elif [ "${argc[0]}" -eq 1 ]; then
+    if [ ! -f "${argv[0]}" ]; then
         echo 'error: argument must be a regular file'
         exit 1
     fi
