@@ -2,4 +2,4 @@
 
 # Run a docker container, sharing the current directory with the container.
 
-docker run -it --net=host --rm -v $PWD:$PWD -w $PWD $1 /bin/bash
+docker run -it --net=host --rm -v "$PWD":"$PWD" -w "$PWD" "$1" /bin/bash
