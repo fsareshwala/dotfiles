@@ -137,16 +137,6 @@ set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env G
 filetype plugin indent on
 syntax on
 
-" syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Automatically format go files with go fmt on save
 function! GoFmt()
     try
