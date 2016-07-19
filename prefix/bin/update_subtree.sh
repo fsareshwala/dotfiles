@@ -10,3 +10,4 @@ git pull -s subtree https://github.com/muennich/urxvt-perls.git master
 git pull -s subtree https://github.com/rkitover/vimpager.git master
 git pull -s subtree https://github.com/dhruvasagar/vim-table-mode.git master
 git pull -s subtree https://github.com/scrooloose/syntastic.git master
+git pull -s subtree git://github.com/tpope/vim-surround.git master
