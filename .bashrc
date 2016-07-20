@@ -5,6 +5,7 @@ export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
 export PATH=.:~/prefix/bin:$PATH
+export USE_CCACHE=yes
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
