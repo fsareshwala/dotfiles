@@ -27,16 +27,16 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Control+h move left
+bindsym $mod+Control+j move down
+bindsym $mod+Control+k move up
+bindsym $mod+Control+l move right
 
 # resize focused window
-bindsym $mod+Control+h resize grow left 5px or 5ppt
-bindsym $mod+Control+j resize grow down 5px or 5ppt
-bindsym $mod+Control+k resize grow up 5px or 5ppt
-bindsym $mod+Control+l resize grow right 5px or 5ppt
+bindsym $mod+Shift+h resize grow left 5px or 5ppt
+bindsym $mod+Shift+j resize grow down 5px or 5ppt
+bindsym $mod+Shift+k resize grow up 5px or 5ppt
+bindsym $mod+Shift+l resize grow right 5px or 5ppt
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
