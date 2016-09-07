@@ -12,3 +12,4 @@ git pull -s subtree https://github.com/dhruvasagar/vim-table-mode.git master
 git pull -s subtree https://github.com/scrooloose/syntastic.git master
 git pull -s subtree git://github.com/tpope/vim-surround.git master
 git pull -s subtree git://github.com/tpope/vim-repeat.git master
+git pull -s subtree git://github.com/tpope/vim-commentary.git master
