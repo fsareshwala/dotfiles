@@ -44,6 +44,7 @@ alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 alias lowercase_fname="rename 'y/A-Z/a-z/' *"
 alias bc='bc -l'
+alias gdb='cgdb'
 
 # git aliases
 alias b='git branch'
