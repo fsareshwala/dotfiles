@@ -45,6 +45,8 @@ alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 alias lowercase_fname="rename 'y/A-Z/a-z/' *"
 alias bc='bc -l'
 alias gdb='cgdb'
+alias rpost='git review post --no-open --use-commit-message'
+alias rsubmit='git review submit --skip-show-build --use-commit-message'
 
 # git aliases
 alias b='git branch'
