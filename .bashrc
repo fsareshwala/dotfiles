@@ -15,7 +15,7 @@ export HISTCONTROL=ignoredups:erasedups
 HISTFILESIZE=100000
 shopt -s histappend # append to the history file, don't overwrite it
 shopt -s checkwinsize # check the window size after each command and, if necessary, update the values of LINES and COLUMNS.
-PS1='[\u@\h \W] '
+export PS1='[\u@\h \[\033[0;36m\]\W\[\033[0m\]]\$ '
 
 bind 'set completion-ignore-case on'
 
