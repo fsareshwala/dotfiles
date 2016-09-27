@@ -18,8 +18,6 @@ shopt -s checkwinsize # check the window size after each command and, if necessa
 export PS1='[\u@\h \[\033[0;36m\]\W\[\033[0m\]]\$ '
 
 bind 'set completion-ignore-case on'
-
-source /etc/bash_completion.d/git
 source $HOME/prefix/etc/git/git-completion.bash
 
 OS=`uname`
