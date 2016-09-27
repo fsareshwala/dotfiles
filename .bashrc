@@ -20,7 +20,7 @@ PS1='[\u@\h \W] '
 bind 'set completion-ignore-case on'
 
 source /etc/bash_completion.d/git
-source /home/fsareshwala/prefix/etc/git/git-completion.bash
+source $HOME/prefix/etc/git/git-completion.bash
 
 OS=`uname`
 if [[ "$OS" == "Linux" ]]; then
