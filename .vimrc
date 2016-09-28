@@ -86,7 +86,6 @@ set nocp
 syntax on
 let c_space_errors = 1
 let java_space_errors = 1
-let g:table_mode_corner="|"
 
 map <Undo> :NERDTreeMirror<cr>
 let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
@@ -130,10 +129,8 @@ map K <leader>K
 
 " Source the vimrc file after saving it. This way, you don't have to reload Vim to see the changes.
 if has("autocmd")
-    augroup myvimrchooks
-        au!
-        autocmd bufwritepost .vimrc source ~/.vimrc
-    augroup END
+    autocmd BufWritePost .vimrc source ~/.vimrc
+    autocmd BufRead,BufNewFile *.md let g:table_mode_corner="|"
     autocmd BufRead,BufNewFile README set filetype=mkd
 endif
 
@@ -143,6 +140,7 @@ if exists("g:did_load_filetypes")
     filetype off
     filetype plugin indent off
 endif
+
 set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
 filetype plugin indent on
 syntax on
