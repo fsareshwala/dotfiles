@@ -27,6 +27,10 @@ elif [[ "$OS" == "Darwin" ]]; then
     alias ls='ls -G'
 fi
 
+tunnel() {
+    ssh -N -L 8080:$1 n
+}
+
 # Command Aliases
 alias -- ..='cd ..'
 alias -- -='cd -'
