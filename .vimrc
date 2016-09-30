@@ -122,6 +122,8 @@ map K <leader>K
 if has("autocmd")
     autocmd BufWritePost .vimrc source ~/.vimrc
     autocmd BufRead,BufNewFile *.md let g:table_mode_corner="|"
+    autocmd BufRead,BufNewFile *.rst let g:table_mode_corner_corner="+"
+    autocmd BufRead,BufNewFile *.rst let g:table_mode_header_fillchar="="
     autocmd BufRead,BufNewFile README set filetype=mkd
 endif
 
