@@ -1,7 +1,7 @@
 # vim: set tw=0:
 
 export EDITOR=vim
-export TERM=xterm-color
+export TERM=xterm-256color
 export RSYNC_RSH=/usr/bin/ssh
 export FIGNORE='.o:~:.pyc'
 export COLORTERM=yes
