@@ -19,14 +19,8 @@
 
 [alias]
     ls = ls-files
-    serve = daemon --reuseaddr --verbose --base-path=. --export-all ./.git
     ff = pull --ff-only --stat
     fmerge = "!f() { git checkout master && git ff && git checkout $1 && git rebase origin/master && git checkout master && git merge $1 && git branch -d $1; }; f"
-
-    # show only the differences between another branch that I have added
-    wc = "!f() { git diff `git merge-base HEAD $1`; }; f"
-    wcs = "!f() { git diff --stat `git merge-base HEAD $1`; }; f"
-    wcg = "!f() { SHA=`git merge-base HEAD $1`; git graph $SHA..HEAD; }; f"
 
 [reviewboard]
     url = http://reviews.sfoffice.qc/
