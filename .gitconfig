@@ -23,7 +23,7 @@
     fmerge = "!f() { git checkout master && git ff && git checkout $1 && git rebase origin/master && git checkout master && git merge $1 && git branch -d $1; }; f"
 
 [reviewboard]
-    url = http://reviews.sfoffice.qc/
+    url = http://reviewboard.twitter.biz
 
 [diff]
     tool = vimdiff
