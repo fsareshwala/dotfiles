@@ -111,7 +111,7 @@ nmap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 set pastetoggle=<F5>
 nmap <F6> :TableModeToggle<cr>
 nmap <f9> :call GenerateTags()<cr>
-nmap <f10> :Ack <cword><cr>
+nmap <f10> :Ggrep <cword><cr>
 nmap <f11> :Gdiff<cr>
 nmap <f12> :Gblame w<cr>
 
