@@ -91,10 +91,10 @@ map <Undo> :NERDTreeMirror<cr>
 let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 
-map <c-j> <esc><C-w>j
-map <c-k> <esc><C-w>k
-map <c-h> <esc><C-w>h
-map <c-l> <esc><C-w>l
+map <c-j> <esc><c-w>j
+map <c-k> <esc><c-w>k
+map <c-h> <esc><c-w>h
+map <c-l> <esc><c-w>l
 map <c-o> i<cr><esc>0
 map <c-p> "_cw"<esc>
 
