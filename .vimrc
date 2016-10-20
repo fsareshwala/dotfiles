@@ -89,6 +89,8 @@ map <c-l> <esc><c-w>l
 map <c-o> i<cr><esc>0
 map <c-p> "_cw"<esc>
 
+let g:ctrlp_map = '<leader>q'
+
 nmap <left> :3wincmd <<cr>
 nmap <right> :3wincmd ><cr>
 nmap <up> :3wincmd +<cr>
