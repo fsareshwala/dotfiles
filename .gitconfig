@@ -56,7 +56,5 @@
 [http]
     postBuffer = 524288000
 
-[format]
-    pretty = format:%C(green)%an%C(reset) [%C(yellow)%h%C(reset) %C(blue)%ci%C(reset)] %s
 [rebase]
     autoSquash = true
