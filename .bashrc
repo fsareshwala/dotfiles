@@ -34,21 +34,22 @@ tunnel() {
 # Command Aliases
 alias -- ..='cd ..'
 alias -- -='cd -'
-alias dirdiff='diff -ENwbur'
-alias r='tmux attach'
-alias s='source ~/.bashrc'
-alias i='sudo yum install -y'
-alias u='sudo yum update -y'
-alias vi='vim'
-alias vim='vim -O'
-alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
-alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
-alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
-alias lowercase_fname="rename 'y/A-Z/a-z/' *"
 alias bc='bc -l'
+alias dirdiff='diff -ENwbur'
+alias gdb='cgdb --directory=. -quiet'
+alias i='sudo yum install -y'
+alias lowercase_fname="rename 'y/A-Z/a-z/' *"
+alias make='make -j 4'
+alias png2pdf='for f in *.png ; do convert "$f" "${f%%.*}.pdf"; done'
+alias r='tmux attach'
+alias reswap='sudo /sbin/swapoff -a && sudo /sbin/swapon -a'
 alias rpost='git review post --use-commit-message'
 alias rsubmit='git review submit --skip-show-build --use-commit-message'
-alias gdb='cgdb --directory=. -quiet'
+alias s='source ~/.bashrc'
+alias u='sudo yum update -y'
+alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
+alias vi='vim'
+alias vim='vim -O'
 
 # git aliases
 alias b='git branch'
