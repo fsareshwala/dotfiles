@@ -80,6 +80,7 @@ set guifont=Terminus\ 8
 set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.dd,*.swp,*.zip
 set colorcolumn=+1
 set modeline
+set nojoinspaces
 set exrc
 
 set nocp
