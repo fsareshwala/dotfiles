@@ -162,7 +162,7 @@ au FileType go au bufwritepre <buffer> call GoFmt()
 
 " Cursorline configuration
 set cursorline
-hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+hi CursorLine cterm=none ctermbg=8 ctermfg=none guibg=darkred guifg=white
 augroup CursorLine
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
