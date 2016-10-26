@@ -16,3 +16,4 @@ git pull -s subtree git://github.com/tpope/vim-commentary.git master
 git pull -s subtree git@github.com:elzr/vim-json.git master
 git pull -s subtree git@github.com:solarnz/thrift.vim.git master
 git pull -s subtree git@github.com:ctrlpvim/ctrlp.vim.git master
+git pull -s subtree git@github.com:derekwyatt/vim-scala.git master
