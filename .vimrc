@@ -159,12 +159,3 @@ function! GoFmt()
     endtry
 endfunction
 au FileType go au bufwritepre <buffer> call GoFmt()
-
-" Cursorline configuration
-set cursorline
-hi CursorLine cterm=none ctermbg=8 ctermfg=none guibg=darkred guifg=white
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
