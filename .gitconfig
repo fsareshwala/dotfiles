@@ -20,7 +20,7 @@
 [alias]
     ls = ls-files
     ff = pull --ff-only --stat
-    fmerge = "!f() { git checkout master && git ff && git checkout $1 && git rebase origin/master && git checkout master && git merge $1 && git branch -d $1; }; f"
+    clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
 
 [reviewboard]
     url = http://reviewboard.twitter.biz
