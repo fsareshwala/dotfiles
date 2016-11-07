@@ -68,6 +68,8 @@ alias gf='git fx'
 alias gl='git log -n 10'
 alias gm='git commit -m'
 alias gp='git pull'
+alias griom='git rebase -i origin/master'
+alias grom='git rebase origin/master'
 alias st='git status'
 
 ulimit -c unlimited
