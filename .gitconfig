@@ -41,6 +41,9 @@
 [tig]
     line-graphics = yes
     tab-size = 4
+    commit-order = default
+    main-options = -n 100
+    show-changes = no
 
 [help]
     autocorrect = 1
