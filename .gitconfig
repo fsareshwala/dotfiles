@@ -42,7 +42,7 @@
     line-graphics = yes
     tab-size = 4
     commit-order = default
-    main-options = -n 100
+    main-options = -n 300
     show-changes = no
 
 [help]
