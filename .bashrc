@@ -49,7 +49,7 @@ alias s='source ~/.bashrc'
 alias u='sudo yum update -y'
 alias underscore_fname="find .  -exec rename 's/ /_/' {} \;"
 alias vi='vim'
-alias vim='vim -O'
+alias vim='nvim -O'
 
 # git aliases
 alias b='git branch'
