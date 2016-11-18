@@ -99,8 +99,8 @@ endif
 function! LangRunner()
   if(&ft=="python")
     nnoremap <leader>r :!python %<cr>
-  elseif(&ft=="c")
-    nnoremap <leader>r :make -j 4<cr>
+  elseif(&ft=="c" || &ft=="cpp")
+    nnoremap <leader>r :make -j 4<cr><cr>
   endif
 endfunction
 
