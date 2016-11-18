@@ -1,6 +1,6 @@
 " --- Dein configuration
 if &compatible
-  set nocompatible
+    set nocompatible
 endif
 
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
@@ -15,7 +15,7 @@ filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-  call dein#install()
+    call dein#install()
 endif
 
 
@@ -120,7 +120,7 @@ augroup END
 
 " MacOS vs Linux clipboard
 if has("mac")
-  set clipboard+=unnamed
+    set clipboard+=unnamed
 else
-  set clipboard=unnamedplus
+    set clipboard=unnamedplus
 endif
