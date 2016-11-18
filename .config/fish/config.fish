@@ -14,6 +14,8 @@ end
 
 if status --is-interactive
     set -g fish_user_abbreviations
+
+    # git abbreviations
     abbr --add b git branch
     abbr --add ba git branch -a
     abbr --add d git diff
@@ -28,6 +30,9 @@ if status --is-interactive
     abbr --add griom git rebase -i origin/master
     abbr --add grom git rebase origin/master
     abbr --add st git status
+
+    # miscellaneous
+    abbr --add vim nvim
 end
 
 alias bc 'bc -l'
