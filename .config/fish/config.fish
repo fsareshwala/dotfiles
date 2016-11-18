@@ -1,4 +1,4 @@
-set EDITOR vim
+set EDITOR nvim
 
 function install
     sudo yum install -y $argv
