@@ -92,7 +92,6 @@ set undofile
 " --- Automatic commands
 if has("autocmd")
     autocmd VimEnter * :NERDTreeToggle
-    autocmd BufWritePost init.vim source ~/.config/nvim/init.vim
     autocmd BufRead,BufNewFile README set filetype=mkd
 endif
 
