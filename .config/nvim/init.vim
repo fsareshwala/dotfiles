@@ -89,7 +89,7 @@ set noswapfile
 set nowrap
 set number
 set preserveindent
-set shell=/bin/bash
+set shell=/usr/bin/fish
 set shiftwidth=4
 set showmatch
 set showtabline=2
