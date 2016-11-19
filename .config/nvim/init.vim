@@ -26,6 +26,17 @@ let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+"  Ctrl-P
+let g:ctrlp_map = '<leader>t'
+
+"  neodark
+let g:neodark#use_256color = 1
+let g:neodark#background='black'
+
+" lightline
+let g:lightline = {}
+let g:lightline.colorscheme = 'neodark'
+
 " --- Key mappings
 map <c-h> <esc><c-w>h
 map <c-j> <esc><c-w>j
@@ -49,11 +60,7 @@ au VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
-let g:neodark#use_256color = 1
 colorscheme neodark
-let g:lightline = {}
-let g:lightline.colorscheme = 'neodark'
-
 set autoindent
 set autoread
 set autowrite
