@@ -12,7 +12,8 @@ font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /usr/bin/urxvt
+# centos: rxvt-unicode-256color
+bindsym $mod+Return exec /usr/bin/urxvt256c
 
 # kill focused window
 bindsym $mod+Shift+c kill
