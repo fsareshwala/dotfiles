@@ -1,2 +1,0 @@
-set noloadplugins
-let vimpager_disable_x11 = 1
