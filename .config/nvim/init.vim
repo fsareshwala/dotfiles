@@ -101,6 +101,7 @@ function! LangRunner()
     nnoremap <leader>r :!python %<cr>
   elseif(&ft=="c" || &ft=="cpp")
     nnoremap <leader>r :make -j 4<cr><cr>
+    nnoremap <leader>t :make test<cr>
   endif
 endfunction
 
