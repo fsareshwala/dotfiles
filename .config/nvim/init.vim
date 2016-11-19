@@ -22,6 +22,7 @@ endif
 "  NerdTree
 let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
+au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " --- Key mappings
 map <c-h> <esc><c-w>h
