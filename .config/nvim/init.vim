@@ -18,6 +18,10 @@ if dein#check_install()
     call dein#install()
 endif
 
+" --- Plugin configuration
+"  NerdTree
+let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
+let NERDTreeWinSize = 31
 
 " --- Key mappings
 map <c-h> <esc><c-w>h
