@@ -95,7 +95,7 @@ set undofile
 
 " --- Automatic commands
 if has("autocmd")
-    autocmd VimEnter * :NERDTreeToggle
+    autocmd VimEnter * :NERDTree
     autocmd BufRead,BufNewFile README set filetype=mkd
 endif
 
