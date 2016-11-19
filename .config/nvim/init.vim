@@ -9,6 +9,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-fugitive')
+call dein#add('KeitaNakamura/neodark.vim')
+call dein#add('itchyny/lightline.vim')
 call dein#end()
 
 filetype plugin indent on
@@ -46,6 +48,11 @@ nnoremap <leader>V :tabnew  ~/.config/nvim/init.vim<CR>
 au VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
+
+let g:neodark#use_256color = 1
+colorscheme neodark
+let g:lightline = {}
+let g:lightline.colorscheme = 'neodark'
 
 set autoindent
 set autoread
