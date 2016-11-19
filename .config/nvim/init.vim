@@ -30,22 +30,21 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 let g:ctrlp_map = '<leader>t'
 
 " --- Key mappings
-map <c-h> <esc><c-w>h
-map <c-j> <esc><c-w>j
-map <c-k> <esc><c-w>k
-map <c-l> <esc><c-w>l
-map <c-o> i<cr><esc>0
-map <c-p> "_cw"<esc>
-map H :tabprev<cr>
-map K <leader>K
-map L :tabnext<cr>
-map [ :cp<cr>
-map ] :cn<cr>
-map j gj
-map k gk
-nmap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <c-h> <esc><c-w>h
+nnoremap <c-j> <esc><c-w>j
+nnoremap <c-k> <esc><c-w>k
+nnoremap <c-l> <esc><c-w>l
+nnoremap <c-o> i<cr><esc>0
+nnoremap <c-p> "_cw"<esc>
+nnoremap H :tabprev<cr>
+nnoremap K :Man <c-r><c-w><cr>
+nnoremap L :tabnext<cr>
+nnoremap [ :cp<cr>
+nnoremap ] :cn<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <leader>v :e  ~/.config/nvim/init.vim<CR>
-nnoremap <leader>V :tabnew  ~/.config/nvim/init.vim<CR>
 
 " --- Editor configuration
 au VimResized * exe "normal! \<c-w>="
