@@ -7,7 +7,6 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin("~/.config/nvim")
 call dein#add('Shougo/dein.vim')
 
-call dein#add('Valloric/YouCompleteMe')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
@@ -31,10 +30,6 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>t'
-
-"  Python
-let g:python2_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
 
 " --- Key mappings
 nnoremap <c-h> <esc><c-w>h
