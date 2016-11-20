@@ -110,16 +110,13 @@ endif
 
 " --- File runners for various languages
 function! LangRunner()
-  if(&ft=="python")
-    nnoremap <leader>r :!python %<cr>
-  elseif(&ft=="c" || &ft=="cpp")
-    nnoremap <leader>r :make -j 4<cr><cr>
-    nnoremap <leader>t :make test<cr>
+  if(&ft=="c" || &ft=="cpp")
+    nnoremap <leader>b :make -j 4<cr><cr>:copen<cr>
+    nnoremap <leader>r :make test<cr>
   endif
 endfunction
 
 au BufEnter * call LangRunner()
-
 
 " --- Random hacks
 " Return to the same line when you reopen a file
