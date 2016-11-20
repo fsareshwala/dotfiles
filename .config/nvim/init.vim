@@ -6,12 +6,14 @@ endif
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin("~/.config/nvim")
 call dein#add('Shougo/dein.vim')
+
+call dein#add('Valloric/YouCompleteMe')
 call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-fugitive')
-call dein#add('itchyny/lightline.vim')
+call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
-call dein#add('Valloric/YouCompleteMe')
 call dein#end()
 
 filetype plugin indent on
