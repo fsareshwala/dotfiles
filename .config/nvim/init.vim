@@ -52,8 +52,8 @@ au VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
-set background=dark
 colorscheme hybrid
+set background=dark
 set autoindent
 set autoread
 set autowrite
@@ -90,6 +90,7 @@ set smartcase
 set smartindent
 set smarttab
 set softtabstop=4
+set splitright
 set tabstop=4
 set textwidth=80 wrap linebreak
 set title
