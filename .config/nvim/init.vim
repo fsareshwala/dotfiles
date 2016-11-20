@@ -9,8 +9,8 @@ call dein#add('Shougo/dein.vim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-fugitive')
-call dein#add('KeitaNakamura/neodark.vim')
 call dein#add('itchyny/lightline.vim')
+call dein#add('w0ng/vim-hybrid')
 call dein#end()
 
 filetype plugin indent on
@@ -28,14 +28,6 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>t'
-
-"  neodark
-let g:neodark#use_256color = 1
-let g:neodark#background='black'
-
-" lightline
-let g:lightline = {}
-let g:lightline.colorscheme = 'neodark'
 
 " --- Key mappings
 map <c-h> <esc><c-w>h
@@ -60,7 +52,8 @@ au VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
-colorscheme neodark
+set background=dark
+colorscheme hybrid
 set autoindent
 set autoread
 set autowrite
