@@ -35,17 +35,18 @@ if status --is-interactive
     abbr --add grom git rebase origin/master
     abbr --add st git status
 
+    # twitter
+    abbr --add rpost git review post --use-commit-message
+    abbr --add rsubmit git review submit --skip-show-build --use-commit-message
+
     # miscellaneous
     abbr --add vim nvim
+    abbr --add r tmux attach
+    abbr --add s source ~/.config/fish/config.fish
 end
 
 alias bc 'bc -l'
 alias gdb 'cgdb --directory=. -quiet'
 alias make 'make -j 4'
-alias r 'tmux attach'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
-alias s 'source ~/.config/fish/config.fish'
 alias vim 'nvim -O'
-
-alias rpost 'git review post --use-commit-message'
-alias rsubmit 'git review submit --skip-show-build --use-commit-message'
