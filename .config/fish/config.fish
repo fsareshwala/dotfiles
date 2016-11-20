@@ -5,11 +5,15 @@ set --export USE_CCACHE true
 set --export PATH . ~/.tools-cache/**/bin $PATH
 
 function install
-    sudo yum install -y $argv
+    sudo apt install -y $argv
+end
+
+function update
+    sudo apt update
 end
 
 function upgrade
-    sudo yum update -y
+    sudo apt upgrade
 end
 
 function tunnel
