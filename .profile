@@ -13,5 +13,4 @@ setxkbmap -layout us -option ctrl:nocaps
 /usr/bin/numlockx on
 
 # launch default programs on start
-# hash google-chrome && /usr/bin/google-chrome --force-device-scale-factor=1 --ignore-gpu-blacklist &
-hash vmware-user && /usr/bin/vmware-user &
+hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
