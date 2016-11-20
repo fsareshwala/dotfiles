@@ -2,6 +2,7 @@ set fish_greeting ""
 set EDITOR nvim
 
 set --export USE_CCACHE true
+set --export PATH . ~/.tools-cache/**/bin $PATH
 
 function install
     sudo yum install -y $argv
