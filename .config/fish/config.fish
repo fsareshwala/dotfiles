@@ -1,4 +1,5 @@
 set EDITOR nvim
+set --export USE_CCACHE true
 
 function install
     sudo yum install -y $argv
