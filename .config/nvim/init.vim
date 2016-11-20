@@ -11,6 +11,7 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-fugitive')
 call dein#add('itchyny/lightline.vim')
 call dein#add('w0ng/vim-hybrid')
+call dein#add('Valloric/YouCompleteMe')
 call dein#end()
 
 filetype plugin indent on
@@ -28,6 +29,10 @@ au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTre
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>t'
+
+"  Python
+let g:python2_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " --- Key mappings
 nnoremap <c-h> <esc><c-w>h
