@@ -43,8 +43,9 @@ nnoremap [ :cp<cr>
 nnoremap ] :cn<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <silent> <f4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-nnoremap <leader>v :e  ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
+nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
+nnoremap <leader>s :vsplit<cr>
 
 " --- Editor configuration
 au VimResized * exe "normal! \<c-w>="
