@@ -1,8 +1,8 @@
 set fish_greeting ""
-set EDITOR nvim
 
-set --export USE_CCACHE true
+set --export EDITOR nvim
 set --export PATH . ~/.tools-cache/**/bin $PATH
+set --export USE_CCACHE true
 
 function install
     sudo apt install -y $argv
@@ -13,7 +13,7 @@ function update
 end
 
 function upgrade
-    sudo apt upgrade
+    sudo apt -y upgrade
 end
 
 function tunnel
@@ -53,4 +53,3 @@ alias bc 'bc -l'
 alias gdb 'cgdb --directory=. -quiet'
 alias make 'make -j 4'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
-alias vim 'nvim -O'
