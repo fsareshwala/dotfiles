@@ -1,6 +1,6 @@
 set fish_greeting ""
 
-set --export EDITOR nvim
+set --export EDITOR vim
 set --export PATH . ~/.tools-cache/**/bin $PATH
 set --export USE_CCACHE true
 
@@ -44,7 +44,6 @@ if status --is-interactive
     abbr --add rsubmit git review submit --skip-show-build --use-commit-message
 
     # miscellaneous
-    abbr --add vim nvim
     abbr --add r tmux attach
     abbr --add s source ~/.config/fish/config.fish
 end
@@ -53,3 +52,4 @@ alias bc 'bc -l'
 alias gdb 'cgdb --directory=. -quiet'
 alias make 'make -j 4'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
+alias vim 'vim -O'

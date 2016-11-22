@@ -4,7 +4,7 @@ if &compatible
 endif
 
 set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
-call dein#begin("~/.config/nvim")
+call dein#begin("~/.vim")
 call dein#add('Shougo/dein.vim')
 
 call dein#add('ctrlpvim/ctrlp.vim')
