@@ -9,6 +9,7 @@ call dein#add('Shougo/dein.vim')
 
 "  Programming languages
 call dein#add('derekwyatt/vim-scala')
+call dein#add('derekwyatt/vim-sbt')
 
 "  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
