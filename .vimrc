@@ -7,9 +7,8 @@ set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 call dein#begin("~/.vim")
 call dein#add('Shougo/dein.vim')
 
-" Scala
+" Programming languages
 call dein#add('derekwyatt/vim-scala')
-call dein#add('ktvoelker/sbt-vim')
 
 " Editor
 call dein#add('ctrlpvim/ctrlp.vim')
