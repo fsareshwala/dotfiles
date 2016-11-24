@@ -105,13 +105,13 @@ set tabstop=4
 set tags=./tags,tags,../tags
 set textwidth=80 wrap linebreak
 set title
+set undodir=~/.vim/tmp/undo/
+set undofile
 set virtualedit+=block
 set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.dd,*.swp,*.zip
 set wildmenu
 set wildmode=list:longest,full
 set wrapscan
-set undodir=~/.config/nvim/tmp/undo/
-set undofile
 
 " --- Automatic commands
 if has("autocmd")
