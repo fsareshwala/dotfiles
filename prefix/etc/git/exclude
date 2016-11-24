@@ -1,7 +1,10 @@
-*.[o]
+*.o
 *.swp
-tags
-*.un~
-cscope.*
 *.iml
 .idea
+
+cscope.*
+
+.lib-src
+tags
+ctags
