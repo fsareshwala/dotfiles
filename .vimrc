@@ -7,17 +7,17 @@ set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 call dein#begin("~/.vim")
 call dein#add('Shougo/dein.vim')
 
-" Programming languages
+"  Programming languages
 call dein#add('derekwyatt/vim-scala')
 
-" Editor
+"  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
 
-" Tool Integrations
+"  Tool Integrations
 call dein#add('tpope/vim-fugitive')
 call dein#end()
 
@@ -32,7 +32,8 @@ endif
 "  NerdTree
 let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
-au bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * :NERDTree
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>t'
@@ -123,10 +124,10 @@ function! LangRunner()
     endif
 endfunction
 
-" --- Automatic commands
-autocmd VimEnter * :NERDTree
-autocmd BufRead,BufNewFile README set filetype=markdown
 autocmd BufEnter * call LangRunner()
+
+" --- Automatic commands
+autocmd BufRead,BufNewFile README set filetype=markdown
 autocmd BufEnter *.scala SortScalaImports
 
 " --- Random hacks
