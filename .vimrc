@@ -112,12 +112,6 @@ set wildmenu
 set wildmode=list:longest,full
 set wrapscan
 
-" --- Automatic commands
-if has("autocmd")
-    autocmd VimEnter * :NERDTree
-    autocmd BufRead,BufNewFile README set filetype=mkd
-endif
-
 " --- File runners for various languages
 function! LangRunner()
     if(&ft == "c" || &ft == "cpp")
@@ -129,7 +123,11 @@ function! LangRunner()
     endif
 endfunction
 
-au BufEnter * call LangRunner()
+" --- Automatic commands
+autocmd VimEnter * :NERDTree
+autocmd BufRead,BufNewFile README set filetype=markdown
+autocmd BufEnter * call LangRunner()
+autocmd BufEnter *.scala SortScalaImports
 
 " --- Random hacks
 " Return to the same line when you reopen a file
