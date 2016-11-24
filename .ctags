@@ -14,3 +14,8 @@
 --regex-scala=/^.*\s+type\s+([a-zA-Z0-9_]+)\s*[\[<>=]/\1/T,types/
 --exclude=target
 --exclude=.git
+--exclude=tags
+--exclude=cscope.\*
+--exclude=\*.tar.\*
+--exclude=node_modules
+--exclude=bower_components
