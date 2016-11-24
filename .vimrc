@@ -7,12 +7,19 @@ set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 call dein#begin("~/.vim")
 call dein#add('Shougo/dein.vim')
 
+" Scala
+call dein#add('derekwyatt/vim-scala')
+call dein#add('ktvoelker/sbt-vim')
+
+" Editor
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
-call dein#add('tpope/vim-fugitive')
 call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
+
+" Tool Integrations
+call dein#add('tpope/vim-fugitive')
 call dein#end()
 
 filetype plugin indent on
@@ -113,10 +120,13 @@ endif
 
 " --- File runners for various languages
 function! LangRunner()
-  if(&ft=="c" || &ft=="cpp")
-    nnoremap <leader>b :make -j 4<cr><cr>:copen<cr>
-    nnoremap <leader>r :make test<cr>
-  endif
+    if(&ft == "c" || &ft == "cpp")
+        nnoremap <leader>b :make -j 4<cr><cr>:copen<cr>
+        nnoremap <leader>r :make test<cr>
+    elseif(&ft == "scala")
+        nnoremap <leader>b :sbtc<cr>
+        nnoremap <leader>r :sbtt<cr>
+    endif
 endfunction
 
 au BufEnter * call LangRunner()
