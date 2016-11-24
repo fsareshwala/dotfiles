@@ -102,6 +102,7 @@ set smarttab
 set softtabstop=4
 set splitright
 set tabstop=4
+set tags=./tags,tags,../tags
 set textwidth=80 wrap linebreak
 set title
 set virtualedit+=block
