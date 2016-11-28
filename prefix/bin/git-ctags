@@ -1,0 +1,8 @@
+#!/bin/sh -x
+set -e
+
+gitroot="$(git rev-parse --show-toplevel)"
+
+trap 'rm -f "$gitroot/$$.tags"' EXIT
+(cd $gitroot && ctags -f "$gitroot/$$.tags")
+mv "$gitroot/$$.tags" "$gitroot/tags"
