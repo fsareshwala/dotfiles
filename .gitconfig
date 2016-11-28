@@ -61,3 +61,6 @@
 
 [rebase]
     autoSquash = true
+
+[init]
+    templatedir = ~/.gittemplate
