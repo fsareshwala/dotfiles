@@ -1,7 +1,14 @@
---fields=+l
+--fields=+l-k+K+i+a
+--sort=foldcase
 --verbose=no
 --recurse=yes
 --tag-relative=yes
+--exclude=.git
+--exclude=tags
+--exclude=cscope.\*
+--exclude=\*.tar.\*
+--exclude=*.log
+
 --langdef=scala
 --langmap=scala:.scala
 --regex-scala=/^.*class\s+([a-zA-Z0-9_]+)/\1/c,classes/
@@ -13,9 +20,6 @@
 --regex-scala=/^.*\s+val\s+([a-zA-Z0-9_=]+)\s*.*[:=]/\1/m,methods/
 --regex-scala=/^.*\s+type\s+([a-zA-Z0-9_]+)\s*[\[<>=]/\1/T,types/
 --exclude=target
---exclude=.git
---exclude=tags
---exclude=cscope.\*
---exclude=\*.tar.\*
+
 --exclude=node_modules
 --exclude=bower_components
