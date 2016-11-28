@@ -50,6 +50,6 @@ end
 
 alias bc 'bc -l'
 alias gdb 'cgdb --directory=. -quiet'
-alias make 'make -j 4'
+alias pmake 'set cores (grep -c "^processor" /proc/cpuinfo); and make -j $cores'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
 alias vim 'vim -O'
