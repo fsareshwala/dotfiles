@@ -131,7 +131,7 @@ autocmd BufEnter * call LangRunner()
 " --- File and filetype specific settings
 autocmd BufEnter *.scala SortScalaImports
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
-autocmd FileType gitcommit set spell
+autocmd FileType gitcommit set spell tw=72
 autocmd FileType scala setlocal ts=2 sw=2
 
 " --- Random hacks
