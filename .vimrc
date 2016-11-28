@@ -128,9 +128,11 @@ endfunction
 
 autocmd BufEnter * call LangRunner()
 
-" --- Automatic commands
-autocmd BufRead,BufNewFile README set filetype=markdown
+" --- File and filetype specific settings
 autocmd BufEnter *.scala SortScalaImports
+autocmd BufRead,BufNewFile README setlocal filetype=markdown
+autocmd FileType gitcommit set spell
+autocmd FileType scala setlocal ts=2 sw=2
 
 " --- Random hacks
 " Return to the same line when you reopen a file
