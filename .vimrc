@@ -136,7 +136,6 @@ autocmd BufEnter *.scala SortScalaImports
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
 autocmd FileType scala setlocal ts=2 sw=2
-autocmd FileType cpp setlocal keywordprg=cppman
 
 " --- Random hacks
 " Return to the same line when you reopen a file
