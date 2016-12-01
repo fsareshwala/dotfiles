@@ -20,6 +20,7 @@ call dein#add('w0ng/vim-hybrid')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
+call dein#add('vim-utils/vim-man')
 call dein#end()
 
 filetype plugin indent on
