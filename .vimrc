@@ -20,7 +20,6 @@ call dein#add('w0ng/vim-hybrid')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
-call dein#add('vim-utils/vim-man')
 call dein#end()
 
 filetype plugin indent on
@@ -40,6 +39,9 @@ autocmd VimEnter * :NERDTree
 "  Ctrl-P
 let g:ctrlp_map = '<leader>e'
 
+" Manpages
+runtime! ftplugin/man.vim
+
 " --- Key mappings
 nnoremap <c-h> <esc><c-w>h
 nnoremap <c-j> <esc><c-w>j
@@ -48,7 +50,7 @@ nnoremap <c-l> <esc><c-w>l
 nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
 nnoremap H :tabprev<cr>
-nnoremap K :Man <c-r><c-w><cr>
+nnoremap K :Man <cword><cr>
 nnoremap L :tabnext<cr>
 nnoremap [ :cp<cr>
 nnoremap ] :cn<cr>
