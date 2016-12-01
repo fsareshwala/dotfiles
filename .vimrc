@@ -37,7 +37,7 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd VimEnter * :NERDTree
 
 "  Ctrl-P
-let g:ctrlp_map = '<leader>t'
+let g:ctrlp_map = '<leader>e'
 
 " --- Key mappings
 nnoremap <c-h> <esc><c-w>h
