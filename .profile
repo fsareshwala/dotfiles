@@ -5,7 +5,6 @@ export TZ=America/Los_Angeles
 
 xset r rate 150 100
 xset b off
-xrandr -s 5
 
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
