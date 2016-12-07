@@ -35,6 +35,7 @@ let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
+autocmd VimEnter * wincmd p
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>e'
