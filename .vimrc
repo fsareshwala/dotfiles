@@ -123,7 +123,7 @@ set wrapscan
 " --- File runners for various languages
 function! LangRunner()
     if(&ft == "c" || &ft == "cpp")
-        nnoremap <leader>b :make<cr><cr>
+        nnoremap <leader>b :make -j 4<cr><cr>
         nnoremap <leader>r :make test<cr>
     elseif(&ft == "scala")
         nnoremap <leader>b :sbtc<cr>
