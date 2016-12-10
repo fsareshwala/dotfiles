@@ -10,6 +10,7 @@ call dein#add('Shougo/dein.vim')
 "  Programming languages
 call dein#add('derekwyatt/vim-scala')
 call dein#add('derekwyatt/vim-sbt')
+call dein#add('fatih/vim-go')
 
 "  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
@@ -125,9 +126,9 @@ function! LangRunner()
     if(&ft == "c" || &ft == "cpp")
         nnoremap <leader>b :make -j 4<cr><cr>
         nnoremap <leader>r :make test<cr>
-    elseif(&ft == "scala")
-        nnoremap <leader>b :sbtc<cr>
-        nnoremap <leader>r :sbtt<cr>
+    elseif(&ft == "go")
+        nnoremap <leader>b :GoBuild<cr>
+        nnoremap <leader>r :GoTest<cr>
     endif
 endfunction
 
