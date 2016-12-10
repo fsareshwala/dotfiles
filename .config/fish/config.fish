@@ -3,6 +3,7 @@ set fish_greeting ""
 set --export EDITOR vim
 set --export PATH . ~/.tools-cache/**/bin /opt/twitter_mde/bin $PATH
 set --export USE_CCACHE true
+set --export GOPATH ~/go
 
 function install
     sudo apt install -y $argv
