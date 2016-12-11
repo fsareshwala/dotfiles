@@ -11,6 +11,7 @@ call dein#add('Shougo/dein.vim')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('derekwyatt/vim-sbt')
 call dein#add('fatih/vim-go')
+call dein#add('elzr/vim-json')
 
 "  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
