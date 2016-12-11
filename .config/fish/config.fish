@@ -47,6 +47,7 @@ if status --is-interactive
     # miscellaneous
     abbr --add r tmux attach
     abbr --add s source ~/.config/fish/config.fish
+    abbr --add fc forecash --config ~/personal/personal.json
 end
 
 alias bc 'bc -l'
