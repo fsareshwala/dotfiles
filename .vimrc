@@ -126,10 +126,10 @@ set wrapscan
 function! LangRunner()
     if(&ft == "c" || &ft == "cpp")
         nnoremap <leader>b :make -j 4<cr><cr>
-        nnoremap <leader>r :make test<cr>
+        nnoremap <leader>t :make test<cr>
     elseif(&ft == "go")
         nnoremap <leader>b :GoBuild<cr>
-        nnoremap <leader>r :GoTest<cr>
+        nnoremap <leader>t :GoTest<cr>
     endif
 endfunction
 
