@@ -19,6 +19,7 @@ call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
+call dein#add('mbbill/undotree')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
@@ -64,6 +65,7 @@ nnoremap <leader>v :e  ~/.vimrc<cr>
 nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :Ggrep <cword><cr>
 nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>u :UndotreeToggle<cr>
 
 " --- Editor configuration
 au VimResized * exe "normal! \<c-w>="
