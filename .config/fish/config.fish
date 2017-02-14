@@ -59,3 +59,5 @@ alias gdb 'cgdb --directory=. -quiet'
 alias pmake 'set cores (grep -c "^processor" /proc/cpuinfo); and make -j $cores'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
 alias vim 'vim -O'
+
+ulimit -c unlimited
