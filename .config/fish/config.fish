@@ -45,8 +45,8 @@ if status --is-interactive
     abbr --add st git status
 
     # twitter
-    abbr --add rpost git review post --use-commit-message
-    abbr --add rsubmit git review submit --skip-show-build --use-commit-message
+    abbr --add rpost arc diff --browse
+    abbr --add rsubmit arc land
 
     # miscellaneous
     abbr --add r tmux attach
