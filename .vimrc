@@ -12,6 +12,7 @@ call dein#add('derekwyatt/vim-scala')
 call dein#add('derekwyatt/vim-sbt')
 call dein#add('fatih/vim-go')
 call dein#add('elzr/vim-json')
+call dein#add('alvan/vim-closetag') " html tag ending close helper
 
 "  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
