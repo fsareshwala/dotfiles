@@ -14,6 +14,7 @@ call dein#add('fatih/vim-go')
 call dein#add('elzr/vim-json')
 call dein#add('alvan/vim-closetag') " html tag ending close helper
 call dein#add('isRuslan/vim-es6')
+call dein#add('rodjek/vim-puppet')
 
 "  Editor
 call dein#add('ctrlpvim/ctrlp.vim')
