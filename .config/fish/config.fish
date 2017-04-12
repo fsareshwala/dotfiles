@@ -8,6 +8,7 @@ set --export PATH . $PATH
 set --export PATH ~/.tools-cache/**/bin $PATH
 set --export PATH /opt/twitter_mde/bin $PATH
 set --export PATH $GOPATH/bin $PATH
+set --export PATH ~/.npm-global/bin $PATH
 
 function install
     sudo apt install -y $argv
