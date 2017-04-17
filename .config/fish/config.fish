@@ -55,7 +55,7 @@ if status --is-interactive
     abbr --add fc forecash
 end
 
-alias bc 'bc -l'
+alias bc 'bc -lq'
 alias gdb 'cgdb --directory=. -quiet'
 alias pmake 'set cores (grep -c "^processor" /proc/cpuinfo); and make -j $cores'
 alias reswap 'sudo /sbin/swapoff -a; and sudo /sbin/swapon -a'
