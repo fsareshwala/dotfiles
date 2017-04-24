@@ -27,6 +27,8 @@ call dein#add('majutsushi/tagbar')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
+call dein#add('edma2/vim-pants')
+
 call dein#end()
 
 filetype plugin indent on
