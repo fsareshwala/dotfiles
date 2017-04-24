@@ -110,15 +110,15 @@ set nowrap
 set number
 set preserveindent
 set shell=$SHELL
-set shiftwidth=4
+set shiftwidth=2
 set showmatch
 set showtabline=2
 set smartcase
 set smartindent
 set smarttab
-set softtabstop=4
+set softtabstop=2
 set splitright
-set tabstop=4
+set tabstop=2
 set tags=./tags,tags,../tags
 set textwidth=80 wrap linebreak
 set title
