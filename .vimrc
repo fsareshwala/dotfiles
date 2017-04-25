@@ -94,6 +94,7 @@ set copyindent
 set expandtab
 set exrc
 set formatoptions+=1lrn
+set gdefault
 set guifont=Terminus\ 8
 set hlsearch
 set ignorecase
