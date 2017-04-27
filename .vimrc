@@ -81,10 +81,10 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
 colorscheme hybrid
-set background=dark
 set autoindent
 set autoread
-set autowrite
+set autowriteall
+set background=dark
 set backspace=eol,start,indent
 set cindent
 set cinoptions+=g0,l1,N-s,j1,J1
