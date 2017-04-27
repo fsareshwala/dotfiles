@@ -5,6 +5,7 @@ set --export GOPATH ~/go
 set --export USE_CCACHE true
 
 set --export PATH . $PATH
+set --export PATH /usr/sbin $PATH
 set --export PATH ~/.tools-cache/**/bin $PATH
 set --export PATH /opt/twitter_mde/bin $PATH
 set --export PATH $GOPATH/bin $PATH
