@@ -39,7 +39,7 @@ if status --is-interactive
   abbr --add gap git add -p
   abbr --add gca git commit --amend
   abbr --add gcan git commit --amend --no-edit
-  abbr --add gc git checkout -b fsareshwala/
+  abbr --add gc git fcheckout
   abbr --add gf git fx
   abbr --add gm git commit -m
   abbr --add griom git rebase -i origin/master
