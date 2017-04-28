@@ -6,7 +6,7 @@ export FIGNORE='.o:~:.pyc'
 export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
 export PATH=.:~/prefix/bin:$PATH
-export PS1='[\u@\h \[\033[0;36m\]\W\[\033[0m\]]\$ '
+export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
 export TERM=xterm-256color
 
