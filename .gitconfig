@@ -1,66 +1,66 @@
 [user]
-    name = Faraaz Sareshwala
-    email = faraazs@gmail.com
+  name = Faraaz Sareshwala
+  email = faraazs@gmail.com
 
 [core]
-    whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = /home/fsareshwala/prefix/etc/git/exclude
-    pager = less
-    autocrlf = input
-    preloadindex = true
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  excludesfile = /home/fsareshwala/prefix/etc/git/exclude
+  pager = less
+  autocrlf = input
+  preloadindex = true
 
 [color]
-    diff = auto
-    branch = auto
-    status = auto
-    interactive = auto
-    ui = true
-    pager = true
+  diff = auto
+  branch = auto
+  status = auto
+  interactive = auto
+  ui = true
+  pager = true
 
 [alias]
-    ls = ls-files
-    ff = pull --ff-only --stat
-    fx = "!f() { git commit --fixup \":/$1\"; }; f"
-    clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
+  ls = ls-files
+  ff = pull --ff-only --stat
+  fx = "!f() { git commit --fixup \":/$1\"; }; f"
+  clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
 
 [reviewboard]
-    url = http://reviewboard.twitter.biz
+  url = http://reviewboard.twitter.biz
 
 [diff]
-    tool = vimdiff
-    algorithm = patience
-    renames = true
+  tool = vimdiff
+  algorithm = patience
+  renames = true
 
 [difftool]
-    prompt = false
+  prompt = false
 
 [merge]
-    tool = vimdiff
-    ff = only
+  tool = vimdiff
+  ff = only
 
 [tig]
-    line-graphics = yes
-    tab-size = 4
-    commit-order = default
-    show-changes = no
+  line-graphics = yes
+  tab-size = 4
+  commit-order = default
+  show-changes = no
 
 [help]
-    autocorrect = 1
+  autocorrect = 1
 
 [rerere]
-    enabled = 1
+  enabled = 1
 
 [grep]
-    lineNumber = true
+  lineNumber = true
 
 [push]
-    default = upstream
+  default = upstream
 
 [http]
-    postBuffer = 524288000
+  postBuffer = 524288000
 
 [rebase]
-    autoSquash = true
+  autoSquash = true
 
 [init]
-    templatedir = ~/.gittemplate
+  templatedir = ~/.gittemplate
