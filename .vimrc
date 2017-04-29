@@ -40,7 +40,7 @@ endif
 
 " --- Plugin configuration
 "  NerdTree
-let NERDTreeIgnore = ['\.d$', '\.o$', '\~$', '\.pyc$', 'tags']
+let NERDTreeIgnore = ['\.o$', '\~$', '\.pyc$', 'tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
@@ -128,7 +128,7 @@ set title
 set undodir=~/.vim/tmp/undo/
 set undofile
 set virtualedit+=block
-set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.d,*.swp,*.zip
+set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
 set wildmenu
 set wildmode=list:longest,full
 set wrapscan
