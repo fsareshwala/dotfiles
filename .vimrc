@@ -152,6 +152,7 @@ autocmd BufEnter *.workflow set ft=json
 autocmd BufEnter *.aurora set ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
+autocmd FileType markdown setlocal spell
 autocmd FileType scala :SortScalaImports
 autocmd FileType scala :TagbarToggle
 
