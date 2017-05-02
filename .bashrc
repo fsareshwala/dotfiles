@@ -1,7 +1,7 @@
 # vim: set tw=0:
 
 export COLORTERM=yes
-export EDITOR=vim
+export EDITOR=/usr/bin/vim
 export FIGNORE='.o:~:.pyc'
 export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
