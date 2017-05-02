@@ -8,6 +8,7 @@
   pager = less
   autocrlf = input
   preloadindex = true
+  editor = vim
 
 [color]
   diff = auto
