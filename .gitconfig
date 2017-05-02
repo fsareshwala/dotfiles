@@ -65,4 +65,4 @@
   autoSquash = true
 
 [init]
-  templatedir = ~/.gittemplate
+  templatedir = ~/prefix/etc/git/template.gittemplate
