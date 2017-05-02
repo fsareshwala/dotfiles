@@ -53,7 +53,6 @@ alias d='git diff'
 alias dc='git diff --cached'
 alias ga='git add'
 alias gap='git add -p'
-alias gc='git checkout -b fsareshwala/'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 alias gf='git fx'
@@ -61,6 +60,10 @@ alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 alias st='git status'
+
+gc() {
+  git checkout -b fsareshwala/$1
+}
 
 # miscellaneous aliases
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j $cores'
