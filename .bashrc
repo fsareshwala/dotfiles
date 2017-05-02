@@ -5,19 +5,20 @@ export EDITOR=/usr/bin/vim
 export FIGNORE='.o:~:.pyc'
 export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
-export PATH=.:~/prefix/bin:$PATH
 export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
 export TERM=xterm-256color
 export USE_CCACHE=true
+export GOPATH=${HOME}/go
 
 # path setup
-export PATH=.:$PATH
-export PATH=/usr/sbin:$PATH
-export PATH=~/.tools-cache/**/bin:$PATH
-export PATH=/opt/twitter_mde/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
-export PATH=~/.npm-global/bin:$PATH
+export PATH=.:${PATH}
+export PATH=.:~/prefix/bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+export PATH=~/.tools-cache/**/bin:${PATH}
+export PATH=/opt/twitter_mde/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=~/.npm-global/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
@@ -31,13 +32,13 @@ tunnel() {
 }
 
 # command Aliases
-alias -- ..='cd ..'
 alias -- -='cd -'
+alias -- ..='cd ..'
+alias bc='bc -lq'
+alias fc='forecash'
+alias gdb='cgdb --directory=. -quiet'
 alias vi='vim'
 alias vim='vim -O'
-alias fc='forecash'
-alias bc='bc -lq'
-alias gdb='cgdb --directory=. -quiet'
 
 # twitter aliases
 alias ppost='arc diff --browse'
@@ -52,9 +53,9 @@ alias d='git diff'
 alias dc='git diff --cached'
 alias ga='git add'
 alias gap='git add -p'
+alias gc='git checkout -b fsareshwala/'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
-alias gc='git checkout -b fsareshwala/'
 alias gf='git fx'
 alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
@@ -62,10 +63,10 @@ alias grom='git rebase origin/master'
 alias st='git status'
 
 # miscellaneous aliases
-alias r='tmux attach'
-alias s='source ~/.bashrc'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j $cores'
+alias r='tmux attach'
 alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
+alias s='source ~/.bashrc'
 alias watch='watch --color'
 
 ulimit -c unlimited
