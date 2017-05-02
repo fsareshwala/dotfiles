@@ -1,11 +1,3 @@
-%packager Faraaz Sareshwala
-%_signature gpg
-%_gpg_name Faraaz Sareshwala
-
 %_builddir %(pwd)
-%_rpmdir %(pwd)/rpms/
-%_srcrpmdir %(pwd)/srpms/
-%_sourcedir %(pwd)
-
-# %_topdir  %(pwd)/rpms/%{name}
-# %_rpmtopdir %(_topdir)
+%_rpmdir %(pwd)/rpms
+%_topdir /tmp/rpmbuild
