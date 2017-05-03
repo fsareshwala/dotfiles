@@ -12,4 +12,5 @@ setxkbmap -layout us -option ctrl:nocaps
 /usr/bin/numlockx on
 
 # launch default programs on start
-hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
+# hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
+hash vmware-user && /usr/bin/vmware-user &
