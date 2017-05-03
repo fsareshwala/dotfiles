@@ -40,6 +40,12 @@ alias gdb='cgdb --directory=. -quiet'
 alias vi='vim'
 alias vim='vim -O'
 
+if [[ $(uname) == "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color'
+fi
+
 # twitter aliases
 alias ppost='arc diff --browse'
 alias psubmit='arc land'
