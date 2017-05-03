@@ -19,6 +19,7 @@ export PATH=~/.tools-cache/**/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=~/.npm-global/bin:${PATH}
+export PATH=~/code/sourcegit/.STAGE/git.Linux.x86_64/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
