@@ -72,6 +72,8 @@ nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :Ggrep <cword><cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <silent> <leader>= :vertical resize +5<cr>
+nnoremap <silent> <leader>- :vertical resize -5<cr>
 
 " --- Editor configuration
 au VimResized * exe "normal! \<c-w>="
