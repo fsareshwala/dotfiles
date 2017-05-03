@@ -141,7 +141,7 @@ function! LangRunner()
     elseif(&ft == "go")
         nnoremap <leader>b :GoBuild<cr>
         nnoremap <leader>t :GoTest<cr>
-    elseif(&ft == "scala")
+    elseif(&ft == "scala" || &ft == "java")
         nnoremap <leader>b :Pants compile<cr>
         nnoremap <leader>t :Pants test<cr>
     endif
