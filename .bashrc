@@ -14,13 +14,15 @@ export GOPATH=${HOME}/go
 # path setup
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=~/.npm-global/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
+
+# twitter path setup
+export PATH=~/code/sourcegit/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=~/.tools-cache/home/devprod/git-review-linux/bin:${PATH}
 export PATH=~/.tools-cache/home/ee-phabricator-deploy/release/arc/bin/:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=~/.npm-global/bin:${PATH}
-export PATH=~/code/sourcegit/.STAGE/git.Linux.x86_64/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
