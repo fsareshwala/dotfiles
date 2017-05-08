@@ -22,6 +22,7 @@ export PATH=/usr/sbin:${PATH}
 export PATH=~/code/sourcegit/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=~/.tools-cache/home/devprod/git-review-linux/bin:${PATH}
 export PATH=~/.tools-cache/home/ee-phabricator-deploy/release/arc/bin/:${PATH}
+export PATH=~/.tools-cache/home/packer/tools/packer/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
 
 stty werase undef
