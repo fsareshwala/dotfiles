@@ -48,6 +48,8 @@ autocmd VimEnter * wincmd p
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>e'
+let g:ctrlp_working_path_mode = 'c' " the directory of the current file.
+" let g:ctrlp_working_path_mode = 'ra' " the nearest ancestor containing revision control directory
 
 " Manpages
 runtime! ftplugin/man.vim
