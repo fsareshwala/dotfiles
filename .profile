@@ -4,7 +4,7 @@ export TERMINAL=/usr/bin/rxvt-unicode
 export PATH=/home/fsareshwala/prefix/bin:$PATH
 export TZ=America/Los_Angeles
 
-xset fp+ /opt/local/share/fonts/
+xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
 
 xset r rate 150 100
