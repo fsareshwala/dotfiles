@@ -70,10 +70,17 @@ alias gf='git fx'
 alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
-alias st='git status'
 
 gc() {
   git checkout -b fsareshwala/$1
+}
+
+st() {
+  if [[ $(pwd) == */code/source* ]]; then
+    git status -uno
+  else
+    git status
+  fi
 }
 
 # miscellaneous aliases
