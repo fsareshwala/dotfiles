@@ -17,6 +17,7 @@ export PATH=.:~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=~/.npm-global/bin:${PATH}
 export PATH=~/Library/Python/2.7/bin:${PATH}
+export PATH=./node_modules/.bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 
 # twitter path setup
