@@ -1,8 +1,9 @@
 #!/bin/sh
 set -e
 
+$pid = $$
 gitroot="$(git rev-parse --show-toplevel)"
 
-trap 'rm -f "$gitroot/$$.tags"' EXIT
-(cd $gitroot && ctags -f "$gitroot/$$.tags")
-mv "$gitroot/$$.tags" "$gitroot/tags"
+trap "rm -f $gitroot/$pid.tags" EXIT
+(cd $gitroot && ctags -f "$gitroot/$pid.tags")
+mv "$gitroot/$pid.tags" "$gitroot/tags"
