@@ -130,7 +130,7 @@ set title
 set undodir=~/.vim/tmp/undo/
 set undofile
 set virtualedit+=block
-set wildignore+=*/tmp/*,*cache*,*.so,*.o,*.swp,*.zip
+set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
 set wrapscan
