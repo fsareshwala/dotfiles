@@ -21,7 +21,7 @@ export PATH=./node_modules/.bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 
 # twitter path setup
-export PATH=~/code/sourcegit/.STAGE/git.Linux.x86_64/bin:${PATH}
+export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=~/.tools-cache/home/devprod/git-review-linux/bin:${PATH}
 export PATH=~/.tools-cache/home/ee-phabricator-deploy/release/arc/bin/:${PATH}
 export PATH=~/.tools-cache/home/packer/tools/packer/bin:${PATH}
