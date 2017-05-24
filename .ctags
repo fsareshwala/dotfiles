@@ -3,11 +3,6 @@
 --verbose=no
 --recurse=yes
 --tag-relative=yes
---exclude=.git
---exclude=tags
---exclude=cscope.\*
---exclude=\*.tar.\*
---exclude=*.log
 
 --langdef=scala
 --langmap=scala:.scala
@@ -21,5 +16,10 @@
 --regex-scala=/^.*\s+type\s+([a-zA-Z0-9_]+)\s*[\[<>=]/\1/T,types/
 --exclude=target
 
---exclude=node_modules
+--exclude=*.log
+--exclude=.git
+--exclude=\*.tar.\*
 --exclude=bower_components
+--exclude=cscope.\*
+--exclude=node_modules
+--exclude=tags
