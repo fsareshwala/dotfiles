@@ -49,7 +49,7 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
 
-"  Ctrl-P
+" Ctrl-P
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 
@@ -177,8 +177,8 @@ endfunction
 autocmd BufEnter * call LangRunner()
 
 " --- File and filetype specific settings
-autocmd BufEnter *.workflow set ft=json
-autocmd BufEnter *.aurora set ft=python
+autocmd BufEnter *.workflow setlocal ft=json
+autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
 autocmd FileType markdown setlocal spell
@@ -188,8 +188,8 @@ autocmd FileType scala :TagbarToggle
 " --- Random hacks
 " Return to the same line when you reopen a file
 augroup line_return
-    au!
-    au BufReadPost *
+    autocmd!
+    autocmd BufReadPost *
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \     execute 'normal! g`"zvzz' |
         \ endif
