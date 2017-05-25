@@ -1,7 +1,7 @@
 # vim: set tw=0:
 
 export COLORTERM=yes
-export EDITOR=/usr/bin/vim
+export EDITOR=/opt/twitter/bin/nvim
 export FIGNORE='.o:~:.pyc'
 export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
@@ -44,8 +44,8 @@ alias -- ..='cd ..'
 alias bc='bc -lq'
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
-alias vi='vim'
-alias vim='vim -O'
+alias vi='nvim'
+alias vim='nvim -O'
 
 if [[ $(uname) == "Darwin" ]]; then
   alias ls='ls -G'
