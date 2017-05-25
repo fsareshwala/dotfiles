@@ -17,6 +17,8 @@ call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 
 "  Editor
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
@@ -48,8 +50,29 @@ autocmd VimEnter * wincmd p
 
 "  Ctrl-P
 let g:ctrlp_map = '<leader>e'
-let g:ctrlp_working_path_mode = 'c' " the directory of the current file.
-" let g:ctrlp_working_path_mode = 'ra' " the nearest ancestor containing revision control directory
+let g:ctrlp_working_path_mode = 'wa'
+
+" tern
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" omnifuncs
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
 
 " Manpages
 runtime! ftplugin/man.vim
