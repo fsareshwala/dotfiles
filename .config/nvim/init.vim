@@ -185,7 +185,26 @@ autocmd FileType markdown setlocal spell
 autocmd FileType scala :SortScalaImports
 autocmd FileType scala :TagbarToggle
 
+" Javascript Tern doesn't have a good way to push and pop onto the tag stack, so fake it :(
+function! JSFakePushTag()
+  normal mA
+  TernDef
+endfunction
+
+function! JSFakePopTag()
+  normal 'A
+endfunction
+
+autocmd FileType javascript map <buffer> <c-]> :call JSFakePushTag()<cr>
+autocmd FileType javascript map <buffer> <c-t> :call JSFakePopTag()<cr>
+
 " --- Random hacks
+" Load vimrc on save
+augroup vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+
 " Return to the same line when you reopen a file
 augroup line_return
     autocmd!
