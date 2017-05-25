@@ -69,7 +69,7 @@ nnoremap ] :cn<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-nnoremap <leader>v :e  ~/.vimrc<cr>
+nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :Ggrep <cword><cr>
 nnoremap <leader>. :CtrlPTag<cr>
