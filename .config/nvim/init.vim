@@ -15,6 +15,7 @@ call dein#add('elzr/vim-json')
 call dein#add('alvan/vim-closetag') " html tag ending close helper
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
+call dein#add('artur-shaik/vim-javacomplete2.git')
 
 "  Editor
 call dein#add('Shougo/deoplete.nvim')
@@ -69,6 +70,7 @@ augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
   autocmd FileType javascript setlocal omnifunc=tern#Complete
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
