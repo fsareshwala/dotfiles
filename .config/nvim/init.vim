@@ -49,6 +49,9 @@ autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
 
+" Tagbar
+autocmd VimEnter * :Tagbar
+
 " Ctrl-P
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
@@ -183,7 +186,6 @@ autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
 autocmd FileType markdown setlocal spell
 autocmd FileType scala :SortScalaImports
-autocmd FileType scala :TagbarToggle
 
 " Javascript Tern doesn't have a good way to push and pop onto the tag stack, so fake it :(
 function! JSFakePushTag()
