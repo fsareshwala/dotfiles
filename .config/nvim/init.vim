@@ -16,6 +16,7 @@ call dein#add('alvan/vim-closetag') " html tag ending close helper
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('artur-shaik/vim-javacomplete2.git')
+call dein#add('solarnz/thrift.vim.git')
 
 "  Editor
 call dein#add('Shougo/deoplete.nvim')
