@@ -44,7 +44,7 @@ endif
 
 " --- Plugin configuration
 "  NerdTree
-let NERDTreeIgnore = ['\.(o|d|pyc)$', '\~$', 'tags']
+let NERDTreeIgnore = ['\.o$', '\.d$', '\.pyc$', '\~$', 'tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
