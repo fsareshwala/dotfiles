@@ -27,7 +27,6 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
 call dein#add('mbbill/undotree')
-call dein#add('majutsushi/tagbar')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
@@ -49,9 +48,6 @@ let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
-
-" Tagbar
-autocmd VimEnter * :Tagbar
 
 " Ctrl-P
 let g:ctrlp_map = '<leader>e'
