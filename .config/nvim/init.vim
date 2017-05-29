@@ -87,7 +87,7 @@ nnoremap <c-l> <esc><c-w>l
 nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
 nnoremap H :tabprev<cr>
-nnoremap K :Man <cword><cr>
+nnoremap K :execute "Man " . expand("<cword>")<cr>
 nnoremap L :tabnext<cr>
 nnoremap [ :cp<cr>
 nnoremap ] :cn<cr>
