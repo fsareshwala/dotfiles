@@ -1,5 +1,32 @@
 #!/bin/sh
+
 set -e
+
+usage() {
+  echo "usage: $0 [options]
+
+$0 generates a tags file within the top level git root directory.
+
+  Available Options:
+    --help                    show this help message
+  "
+}
+
+# parse arguments
+while true ; do
+  case "$1" in
+    --help)
+      usage
+      exit
+      ;;
+    --)
+      shift ; break
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
 
 pid=$$
 gitroot="$(git rev-parse --show-toplevel)"
