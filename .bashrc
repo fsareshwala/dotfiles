@@ -7,7 +7,6 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
 export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
-export TERM=xterm-256color
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
