@@ -38,7 +38,7 @@ filetype plugin indent on
 syntax enable
 
 if dein#check_install()
-    call dein#install()
+  call dein#install()
 endif
 
 " --- Plugin configuration
@@ -162,16 +162,16 @@ set wrapscan
 
 " --- File runners for various languages
 function! LangRunner()
-    if(&ft == "c" || &ft == "cpp")
-        nnoremap <leader>b :make -j 4<cr><cr>
-        nnoremap <leader>t :make test<cr>
-    elseif(&ft == "go")
-        nnoremap <leader>b :GoBuild<cr>
-        nnoremap <leader>t :GoTest<cr>
-    elseif(&ft == "scala" || &ft == "java")
-        nnoremap <leader>b :Pants compile<cr>
-        nnoremap <leader>t :Pants test<cr>
-    endif
+  if(&ft == "c" || &ft == "cpp")
+    nnoremap <leader>b :make -j 4<cr><cr>
+    nnoremap <leader>t :make test<cr>
+  elseif(&ft == "go")
+    nnoremap <leader>b :GoBuild<cr>
+    nnoremap <leader>t :GoTest<cr>
+  elseif(&ft == "scala" || &ft == "java")
+    nnoremap <leader>b :Pants compile<cr>
+    nnoremap <leader>t :Pants test<cr>
+  endif
 endfunction
 
 autocmd BufEnter * call LangRunner()
@@ -200,22 +200,22 @@ autocmd FileType javascript map <buffer> <c-t> :call JSFakePopTag()<cr>
 " --- Random hacks
 " Load vimrc on save
 augroup vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
 " Return to the same line when you reopen a file
 augroup line_return
-    autocmd!
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
+  autocmd!
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \     execute 'normal! g`"zvzz' |
+      \ endif
 augroup END
 
 " MacOS vs Linux clipboard
 if has("mac")
-    set clipboard+=unnamed
+  set clipboard+=unnamed
 else
-    set clipboard=unnamedplus
+  set clipboard=unnamedplus
 endif
