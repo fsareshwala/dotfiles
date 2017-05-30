@@ -103,7 +103,7 @@ nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
 " --- Editor configuration
-au VimResized * exe "normal! \<c-w>="
+autocmd VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
