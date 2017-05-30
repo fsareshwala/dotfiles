@@ -161,20 +161,22 @@ set wildmode=list:longest,full
 set wrapscan
 
 " --- File runners for various languages
-function! LangRunner()
+function! LanguageSetup()
+  let path = expand('%:p:h')
+
   if(&ft == "c" || &ft == "cpp")
     nnoremap <leader>b :make -j 4<cr><cr>
     nnoremap <leader>t :make test<cr>
   elseif(&ft == "go")
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
-  elseif(&ft == "scala" || &ft == "java")
+  elseif(path =~ "code/source" && (&ft == "scala" || &ft == "java"))
     nnoremap <leader>b :Pants compile<cr>
     nnoremap <leader>t :Pants test<cr>
   endif
 endfunction
 
-autocmd BufEnter * call LangRunner()
+autocmd BufEnter * call LanguageSetup()
 
 " --- File and filetype specific settings
 autocmd BufEnter *.workflow setlocal ft=json
