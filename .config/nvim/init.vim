@@ -17,10 +17,10 @@ call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('artur-shaik/vim-javacomplete2.git')
 call dein#add('solarnz/thrift.vim.git')
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 
 "  Editor
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
