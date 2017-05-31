@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
@@ -28,9 +28,26 @@ while true ; do
   esac
 done
 
-pid=$$
-gitroot="$(git rev-parse --show-toplevel)"
+generate_tags() {
+  path=$1
+  pid=$$
 
-trap "rm -f $gitroot/$pid.tags" EXIT
-(cd $gitroot && ctags -f "$gitroot/$pid.tags")
-mv "$gitroot/$pid.tags" "$gitroot/tags"
+  trap "rm -f $path/$pid.tags" EXIT
+  (cd $path && ctags -f $pid.tags)
+  mv $path/$pid.tags $path/tags
+}
+
+
+# if we are in twitter source code, only generate tags for specific services
+cwd=$(pwd)
+if [[ $cwd == */code/source* ]]; then
+  services="muxproxy tfe wilyns"
+  for service in $services; do
+    generate_tags $service
+  done
+else
+  gitroot="$(git rev-parse --show-toplevel)"
+  generate_tags $gitroot
+fi
+
+
