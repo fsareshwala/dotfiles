@@ -47,8 +47,8 @@ alias -- ..='cd ..'
 alias bc='bc -lq'
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
-alias vi='nvim'
-alias vim='nvim -O'
+alias vi="TERM='' nvim"
+alias vim="TERM='' nvim -O"
 
 if [[ $(uname) == "Darwin" ]]; then
   alias ls='ls -G'
