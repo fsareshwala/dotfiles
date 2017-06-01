@@ -38,7 +38,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 tunnel() {
-  ssh -N -L 8080:$1 n
+  ssh -N -L 8080:${1} n
 }
 
 # command Aliases
@@ -77,7 +77,7 @@ alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 
 gc() {
-  git checkout -b fsareshwala/$1
+  git checkout -b fsareshwala/${1}
 }
 
 st() {
@@ -89,7 +89,7 @@ st() {
 }
 
 # miscellaneous aliases
-alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j $cores'
+alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias r='tmux attach'
 alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
 alias s='source ~/.bashrc'
