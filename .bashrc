@@ -21,10 +21,14 @@ export PATH=/usr/sbin:${PATH}
 
 # twitter path setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
-export PATH=~/.tools-cache/home/devprod/git-review-linux/bin:${PATH}
-export PATH=~/.tools-cache/home/ee-phabricator-deploy/release/arc/bin/:${PATH}
-export PATH=~/.tools-cache/home/packer/tools/packer/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
+
+DOT_TOOLS=~/.tools
+if [[ -f ${DOT_TOOLS} ]]; then
+  for dir in $(cat ${DOT_TOOLS}); do
+    export PATH=~/.tools-cache/${dir}/bin:${PATH}
+  done
+fi
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
