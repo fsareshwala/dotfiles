@@ -27,6 +27,7 @@ call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/a.vim')
 call dein#add('w0ng/vim-hybrid')
 call dein#add('mbbill/undotree')
+call dein#add('tpope/vim-surround.git')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
