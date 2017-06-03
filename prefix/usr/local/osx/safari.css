@@ -1,0 +1,23 @@
+/* gmail */
+.gs .ii, textarea.Ak {
+  font-family: MonoSpace !important;
+  font-size: 10pt !important;
+  width: 100ch;
+}
+
+/* google docs */
+.kix-page-compact::before {
+  display: none;
+}
+
+/* wiki */
+div#content.page.view {
+  font-family: MonoSpace !important;
+  font-size: 10pt !important;
+  width: 140ch;
+}
+
+textarea {
+  font-family: MonoSpace !important;
+  font-size: 10pt !important;
+}
