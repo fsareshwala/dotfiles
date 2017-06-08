@@ -32,6 +32,7 @@ call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-surround.git')
 call dein#add('vim-scripts/a.vim')
 call dein#add('wellle/targets.vim')
+call dein#add('FooSoft/vim-argwrap')
 
 "  Tool Integrations
 call dein#add('edma2/vim-pants')
@@ -103,6 +104,7 @@ nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>u :UndotreeToggle<cr>
+nnoremap <leader>a :ArgWrap<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
