@@ -179,6 +179,7 @@ function! LanguageSetup()
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
   elseif(&ft == 'vim')
+    nnoremap K :execute 'help ' . expand('<cword>')<cr>
   elseif(path =~ 'code/source' && (&ft == 'scala' || &ft == 'java'))
     nnoremap <leader>b :Pants compile<cr>
     nnoremap <leader>t :Pants test<cr>
