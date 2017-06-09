@@ -4,7 +4,7 @@ if &compatible
 endif
 
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
-call dein#begin("~/.config/nvim")
+call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
 "  Programming languages
@@ -58,7 +58,7 @@ let g:ctrlp_working_path_mode = 'wa'
 "  NerdTree
 let NERDTreeIgnore = ['\.o$', '\.d$', '\.pyc$', '\~$', 'tags']
 let NERDTreeWinSize = 31
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
 
@@ -108,7 +108,7 @@ nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
 " --- Editor configuration
-autocmd VimResized * exe "normal! \<c-w>="
+autocmd VimResized * exe 'normal! \<c-w>='
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
@@ -171,14 +171,15 @@ set wrapscan
 function! LanguageSetup()
   let path = expand('%:p:h')
 
-  if(&ft == "c" || &ft == "cpp")
-    nnoremap K :execute "Man " . expand('<cword>')<cr>
+  if(&ft == 'c' || &ft == 'cpp')
+    nnoremap K :execute 'Man ' . expand('<cword>')<cr>
     nnoremap <leader>b :make -j 4<cr><cr>
     nnoremap <leader>t :make test<cr>
-  elseif(&ft == "go")
+  elseif(&ft == 'go')
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
-  elseif(path =~ "code/source" && (&ft == "scala" || &ft == "java"))
+  elseif(&ft == 'vim')
+  elseif(path =~ 'code/source' && (&ft == 'scala' || &ft == 'java'))
     nnoremap <leader>b :Pants compile<cr>
     nnoremap <leader>t :Pants test<cr>
   endif
@@ -218,13 +219,13 @@ augroup END
 augroup line_return
   autocmd!
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \ if line("'\"") > 0 && line("'\"") <= line('$') |
       \     execute 'normal! g`"zvzz' |
       \ endif
 augroup END
 
 " MacOS vs Linux clipboard
-if has("mac")
+if has('mac')
   set clipboard+=unnamed
 else
   set clipboard=unnamedplus
