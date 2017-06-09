@@ -92,7 +92,6 @@ nnoremap <c-l> <esc><c-w>l
 nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
 nnoremap H :tabprev<cr>
-nnoremap K :execute "Man " . expand('<cword>')<cr>
 nnoremap L :tabnext<cr>
 nnoremap [ :cp<cr>
 nnoremap ] :cn<cr>
@@ -173,6 +172,7 @@ function! LanguageSetup()
   let path = expand('%:p:h')
 
   if(&ft == "c" || &ft == "cpp")
+    nnoremap K :execute "Man " . expand('<cword>')<cr>
     nnoremap <leader>b :make -j 4<cr><cr>
     nnoremap <leader>t :make test<cr>
   elseif(&ft == "go")
