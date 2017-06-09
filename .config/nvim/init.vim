@@ -132,6 +132,7 @@ set guifont=Terminus\ 8
 set hlsearch
 set ignorecase
 set incsearch
+set laststatus=2
 set list
 set listchars=tab:\|-,trail:~,extends:>,precedes:<
 set matchtime=3
@@ -140,6 +141,7 @@ set mouse=
 set mousehide
 set nobackup
 set nojoinspaces
+set noshowmode
 set nostartofline
 set noswapfile
 set nowrap
