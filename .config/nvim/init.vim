@@ -22,12 +22,16 @@ call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 "  Editor
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('itchyny/lightline.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-scripts/a.vim')
-call dein#add('w0ng/vim-hybrid')
 call dein#add('mbbill/undotree')
 call dein#add('tpope/vim-surround.git')
+call dein#add('bluz71/vim-moonfly-colors')
+call dein#add('tommcdo/vim-lion')
+call dein#add('wellle/targets.vim')
+call dein#add('michaeljsmith/vim-indent-object')
+call dein#add('neomake/neomake')
+call dein#add('tpope/vim-commentary')
 
 "  Tool Integrations
 call dein#add('tpope/vim-fugitive')
@@ -43,20 +47,19 @@ if dein#check_install()
 endif
 
 " --- Plugin configuration
+let g:lion_squeeze_spaces = 1
+let g:neomake_open_list = 1
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
+let g:ctrlp_map = '<leader>e'
+let g:ctrlp_working_path_mode = 'wa'
+
 "  NerdTree
 let NERDTreeIgnore = ['\.o$', '\.d$', '\.pyc$', '\~$', 'tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
-
-" Ctrl-P
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_working_path_mode = 'wa'
-
-" tern
-let g:tern_show_argument_hints = 'on_hold'
-let g:tern_show_signature_in_pum = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -108,7 +111,7 @@ autocmd VimResized * exe "normal! \<c-w>="
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
-colorscheme hybrid
+colorscheme moonfly
 set autoindent
 set autoread
 set autowriteall
