@@ -27,34 +27,19 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
 
-! black
-! URxvt.color0: #2E3436
-! URxvt.color8: #555753
-
-! red
-! URxvt.color1: #CC0000
-! URxvt.color9: #EF2929
-
-! green
-! URxvt.color2: #4E9A06
-! URxvt.color10: #8AE234
-
-! yellow
-! URxvt.color3: #C4A000
-! URxvt.color11: #FCE94F
-
-! blue
-URxvt.color4: #3465A4
-URxvt.color12: #729FCF
-
-! magenta
-! URxvt.color5: #75507B
-! URxvt.color13: #AD7FA8
-
-! cyan
-! URxvt.color6: #06989A
-! URxvt.color14: #34E2E2
-
-! white
-! URxvt.color7: #D3D7CF
-! URxvt.color15: #EEEEEC
+URxvt*color0:  #373c40
+URxvt*color1:  #ff5454
+URxvt*color2:  #8cc85f
+URxvt*color3:  #e3c78a
+URxvt*color4:  #80a0ff
+URxvt*color5:  #ce76e8
+URxvt*color6:  #7ee0ce
+URxvt*color7:  #de935f
+URxvt*color8:  #f09479
+URxvt*color9:  #fe3b7b
+URxvt*color10: #42cf89
+URxvt*color11: #cfcfb0
+URxvt*color12: #78c2ff
+URxvt*color13: #ae81ff
+URxvt*color14: #85dc85
+URxvt*color15: #e2637f
