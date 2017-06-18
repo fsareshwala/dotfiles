@@ -8,34 +8,34 @@ call dein#begin("~/.config/nvim")
 call dein#add('Shougo/dein.vim')
 
 "  Programming languages
-call dein#add('derekwyatt/vim-scala')
-call dein#add('derekwyatt/vim-sbt')
-call dein#add('fatih/vim-go')
-call dein#add('elzr/vim-json')
 call dein#add('alvan/vim-closetag') " html tag ending close helper
+call dein#add('artur-shaik/vim-javacomplete2.git')
+call dein#add('derekwyatt/vim-sbt')
+call dein#add('derekwyatt/vim-scala')
+call dein#add('elzr/vim-json')
+call dein#add('fatih/vim-go')
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
-call dein#add('artur-shaik/vim-javacomplete2.git')
 call dein#add('solarnz/thrift.vim.git')
 call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 
 "  Editor
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('ctrlpvim/ctrlp.vim')
-call dein#add('scrooloose/nerdtree')
-call dein#add('vim-scripts/a.vim')
-call dein#add('mbbill/undotree')
-call dein#add('tpope/vim-surround.git')
 call dein#add('bluz71/vim-moonfly-colors')
-call dein#add('tommcdo/vim-lion')
-call dein#add('wellle/targets.vim')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('mbbill/undotree')
 call dein#add('michaeljsmith/vim-indent-object')
 call dein#add('neomake/neomake')
+call dein#add('scrooloose/nerdtree')
+call dein#add('tommcdo/vim-lion')
 call dein#add('tpope/vim-commentary')
+call dein#add('tpope/vim-surround.git')
+call dein#add('vim-scripts/a.vim')
+call dein#add('wellle/targets.vim')
 
 "  Tool Integrations
-call dein#add('tpope/vim-fugitive')
 call dein#add('edma2/vim-pants')
+call dein#add('tpope/vim-fugitive')
 
 call dein#end()
 
