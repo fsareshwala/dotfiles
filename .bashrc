@@ -10,19 +10,10 @@ export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
-# path setup
-export PATH=.:${PATH}
-export PATH=.:~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=~/.npm-global/bin:${PATH}
-export PATH=~/Library/Python/2.7/bin:${PATH}
-export PATH=./node_modules/.bin:${PATH}
-export PATH=/usr/sbin:${PATH}
-
 # twitter path setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
-export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=~/prefix/bin/idea-IC-171.4424.56/bin:${PATH}
+export PATH=/opt/twitter_mde/bin:${PATH}
 
 DOT_TOOLS=~/.tools
 if [[ -f ${DOT_TOOLS} ]]; then
@@ -30,6 +21,16 @@ if [[ -f ${DOT_TOOLS} ]]; then
     export PATH=~/.tools-cache/${dir}/bin:${PATH}
   done
 fi
+
+# personal path setup
+export PATH=.:${PATH}
+export PATH=.:~/prefix/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=~/.npm-global/bin:${PATH}
+export PATH=~/Library/Python/2.7/bin:${PATH}
+export PATH=./node_modules/.bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+export PATH=/usr/local/n/versions/node/8.0.0/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
