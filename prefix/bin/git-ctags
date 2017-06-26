@@ -41,7 +41,7 @@ generate_tags() {
 # if we are in twitter source code, only generate tags for specific services
 cwd=$(pwd)
 if [[ $cwd == */code/source* ]]; then
-  services="muxproxy tfe wilyns macaw-meta"
+  services="limiter muxproxy tfe wilyns macaw-meta"
   for service in $services; do
     generate_tags $service
   done
