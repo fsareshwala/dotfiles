@@ -189,6 +189,9 @@ endfunction
 autocmd BufEnter * call LanguageSetup()
 
 " --- File and filetype specific settings
+let php_sql_query = 1
+let php_htmlInStrings = 1
+
 autocmd BufEnter *.workflow setlocal ft=json
 autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
