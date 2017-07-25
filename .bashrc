@@ -59,10 +59,8 @@ else
 fi
 
 # twitter aliases
-alias ppost='arc diff --browse'
-alias psubmit='arc land'
-alias rpost='git review post --use-commit-message'
-alias rsubmit=' git review submit --skip-show-build --use-commit-message'
+alias rpost='arc diff --browse'
+alias rsubmit='arc land'
 
 # git aliases
 alias b='git branch'
