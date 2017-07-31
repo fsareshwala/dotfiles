@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# The presence of this script is here solely because various scripts I have used in the past assume
+# a mac environment and call out to open directly. In doing so, sometimes I receive a very strange
+# and cryptic error that looks like an error from the script itself.
+
+kernel=$(uname -s)
+
+if [[ $kernel == "Darwin" ]]; then
+  /usr/bin/open ${@:2}
+fi
