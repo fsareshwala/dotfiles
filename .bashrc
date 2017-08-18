@@ -77,7 +77,7 @@ alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 
 gc() {
-  git checkout -b fsareshwala/${1}
+  git checkout -b fsareshwala/${1} origin/master
 }
 
 st() {
