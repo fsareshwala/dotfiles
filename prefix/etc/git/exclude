@@ -8,3 +8,4 @@ cscope.*
 .lib-src
 tags
 ctags
+core
