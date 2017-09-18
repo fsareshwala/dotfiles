@@ -9,7 +9,6 @@ call dein#add('Shougo/dein.vim')
 
 "  Programming languages
 call dein#add('alvan/vim-closetag') " html tag ending close helper
-call dein#add('artur-shaik/vim-javacomplete2.git')
 call dein#add('derekwyatt/vim-sbt')
 call dein#add('derekwyatt/vim-scala')
 call dein#add('elzr/vim-json')
@@ -75,7 +74,6 @@ augroup omnifuncs
   autocmd!
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
   autocmd FileType javascript setlocal omnifunc=tern#Complete
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
