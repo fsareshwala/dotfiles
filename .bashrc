@@ -14,6 +14,7 @@ export GOPATH=${HOME}/go
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=~/prefix/bin/idea-IC-171.4424.56/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
+export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
 
 DOT_TOOLS=~/.tools
 if [[ -f ${DOT_TOOLS} ]]; then
