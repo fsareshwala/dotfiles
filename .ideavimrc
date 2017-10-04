@@ -3,4 +3,5 @@ source ~/.config/nvim/init.vim
 " ideavim doesn't understand certain vim actions
 nnoremap H :action PreviousTab<cr>
 nnoremap L :action NextTab<cr>
+nnoremap ] :action GotoNextError<cr>
 nnoremap <c-n> :action CodeCompletion<cr>
