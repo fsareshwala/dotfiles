@@ -177,6 +177,8 @@ function! LanguageSetup()
   elseif(&ft == 'go')
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
+  elseif(&ft == 'tex')
+    nnoremap <leader>b :!pdflatex %:t<cr>
   elseif(&ft == 'vim')
     nnoremap K :execute 'help ' . expand('<cword>')<cr>
   elseif(path =~ 'code/source' && (&ft == 'scala' || &ft == 'java'))
