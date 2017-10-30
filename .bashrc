@@ -52,6 +52,7 @@ alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
 alias vi='nvim'
 alias vim='nvim -O'
+alias pdflatex='pdflatex -file-line-error -halt-on-error'
 
 if [[ $(uname) == "Darwin" ]]; then
   alias ls='ls -G'
