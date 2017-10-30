@@ -32,6 +32,7 @@ call dein#add('tpope/vim-surround.git')
 call dein#add('vim-scripts/a.vim')
 call dein#add('wellle/targets.vim')
 call dein#add('FooSoft/vim-argwrap')
+call dein#add('godlygeek/tabular')
 
 "  Tool Integrations
 call dein#add('edma2/vim-pants')
