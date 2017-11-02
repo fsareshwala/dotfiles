@@ -56,7 +56,17 @@ let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 
 "  NerdTree
-let NERDTreeIgnore = ['\.o$', '\.d$', '\.pyc$', '\~$', 'tags']
+let NERDTreeIgnore = []
+let NERDTreeIgnore += ['\.o$']
+let NERDTreeIgnore += ['\.d$']
+let NERDTreeIgnore += ['\.pyc$']
+let NERDTreeIgnore += ['\~$']
+let NERDTreeIgnore += ['\.toc$']
+let NERDTreeIgnore += ['\.pdf$']
+let NERDTreeIgnore += ['\.aux$']
+let NERDTreeIgnore += ['\.out$']
+let NERDTreeIgnore += ['\.log$']
+let NERDTreeIgnore += ['tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
