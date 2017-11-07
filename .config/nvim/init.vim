@@ -66,6 +66,7 @@ let NERDTreeIgnore += ['\.pdf$']
 let NERDTreeIgnore += ['\.aux$']
 let NERDTreeIgnore += ['\.out$']
 let NERDTreeIgnore += ['\.log$']
+let NERDTreeIgnore += ['\.class$']
 let NERDTreeIgnore += ['tags']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
