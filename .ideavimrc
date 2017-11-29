@@ -5,3 +5,5 @@ nnoremap H :action PreviousTab<cr>
 nnoremap L :action NextTab<cr>
 nnoremap ] :action GotoNextError<cr>
 nnoremap <c-n> :action CodeCompletion<cr>
+nnoremap <leader>e :action SearchEverywhere
+nnoremap <leader>g :action FindUsages
