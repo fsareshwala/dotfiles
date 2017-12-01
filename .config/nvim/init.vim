@@ -209,7 +209,6 @@ autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
 autocmd FileType markdown setlocal spell
-autocmd FileType tex setlocal spell
 autocmd FileType scala :SortScalaImports
 
 " Javascript Tern doesn't have a good way to push and pop onto the tag stack, so fake it :(
