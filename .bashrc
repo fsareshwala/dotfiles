@@ -99,4 +99,4 @@ alias watch='watch --color'
 
 ulimit -c unlimited
 ulimit -m 1048576
-ulimit -n 4096
+ulimit -n 8192
