@@ -169,7 +169,7 @@ set tabstop=2
 set tags=tags
 set textwidth=100 wrap linebreak
 set title
-set undodir=~/.vim/tmp/undo/
+set undodir=~/.config/nvim/tmp/undo
 set undofile
 set virtualedit+=block
 set wildignore+=*.so,*.o
