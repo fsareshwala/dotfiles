@@ -31,7 +31,7 @@ export PATH=~/.npm-global/bin:${PATH}
 export PATH=~/Library/Python/2.7/bin:${PATH}
 export PATH=./node_modules/.bin:${PATH}
 export PATH=/usr/sbin:${PATH}
-export PATH=/usr/local/n/versions/node/8.0.0/bin:${PATH}
+export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
