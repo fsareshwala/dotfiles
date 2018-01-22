@@ -68,6 +68,8 @@ let NERDTreeIgnore += ['\.out$']
 let NERDTreeIgnore += ['\.log$']
 let NERDTreeIgnore += ['\.class$']
 let NERDTreeIgnore += ['tags']
+let NERDTreeIgnore += ['__pycache__']
+let NERDTreeIgnore += ['__init__.py']
 let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
