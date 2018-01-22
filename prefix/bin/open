@@ -7,5 +7,5 @@
 kernel=$(uname -s)
 
 if [[ $kernel == "Darwin" ]]; then
-  /usr/bin/open ${@:2}
+  /usr/bin/open ${@:1}
 fi
