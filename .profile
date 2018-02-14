@@ -19,5 +19,5 @@ setxkbmap -layout us -option ctrl:nocaps
 hash numlockx && /usr/bin/numlockx on
 hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 
-# hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
-hash vmware-user && /usr/bin/vmware-user &
+hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
+# hash vmware-user && /usr/bin/vmware-user &
