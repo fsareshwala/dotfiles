@@ -2,6 +2,7 @@
 
 export COLORTERM=yes
 export EDITOR=nvim
+export VISUAL=nvim
 export FIGNORE='.o:~:.pyc'
 export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
