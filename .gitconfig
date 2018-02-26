@@ -66,7 +66,3 @@
 
 [init]
   templatedir = ~/prefix/etc/git/template
-
-[ci "alt"]
-  remote = https://git.twitter.biz/source-ci
-  enabled = true
