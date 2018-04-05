@@ -13,7 +13,6 @@ export GOPATH=${HOME}/go
 
 # twitter path setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
-export PATH=~/prefix/bin/idea-IC-171.4424.56/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
 export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
@@ -29,9 +28,6 @@ fi
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
-export PATH=~/.npm-global/bin:${PATH}
-export PATH=~/Library/Python/2.7/bin:${PATH}
-export PATH=./node_modules/.bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
 
@@ -46,7 +42,7 @@ tunnel() {
   ssh -N -L 8080:${1} n
 }
 
-# command Aliases
+# command aliases
 alias -- -='cd -'
 alias -- ..='cd ..'
 alias bc='bc -lq'
