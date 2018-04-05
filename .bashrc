@@ -24,6 +24,11 @@ if [[ -f ${DOT_TOOLS} ]]; then
   done
 fi
 
+# dottools: add distribution binary directories to PATH
+if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
+  . "$HOME/.tools-cache/setup-dottools-path.sh"
+fi
+
 # personal path setup
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
