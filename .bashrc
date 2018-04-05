@@ -17,6 +17,14 @@ export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
 export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
 
+# some projects require an older version of gcc :(
+export CC=/usr/bin/gcc-4.8
+export CXX=/usr/bin/g++-4.8
+alias gcc='gcc-4.8'
+alias cc='gcc-4.8'
+alias g++='g++-4.8'
+alias c++='c++-4.8'
+
 DOT_TOOLS=~/.tools
 if [[ -f ${DOT_TOOLS} ]]; then
   for dir in $(cat ${DOT_TOOLS}); do
