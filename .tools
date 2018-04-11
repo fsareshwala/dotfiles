@@ -1,0 +1,5 @@
+## To install tools, simply add a line here. Here are some examples to get started.
+/home/aurora/tools/client
+/home/packer/tools/package
+/home/packer/tools/packer
+/home/ee-phabricator-deploy/release/arc
