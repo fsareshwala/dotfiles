@@ -11,6 +11,13 @@ export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
+# personal path setup
+export PATH=.:${PATH}
+export PATH=.:~/prefix/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
+
 # twitter path setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
@@ -28,13 +35,6 @@ fi
 if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
   . "$HOME/.tools-cache/setup-dottools-path.sh"
 fi
-
-# personal path setup
-export PATH=.:${PATH}
-export PATH=.:~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=/usr/sbin:${PATH}
-export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
