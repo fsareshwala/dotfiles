@@ -23,3 +23,5 @@ hash dunst && /usr/bin/dunst -conf /home/fsareshwala/.dunstrc &
 
 hash vmtoolsd && /usr/bin/vmtoolsd -n vmusr &
 # hash vmware-user && /usr/bin/vmware-user &
+
+exec /usr/bin/i3
