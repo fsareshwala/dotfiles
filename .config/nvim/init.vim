@@ -7,7 +7,7 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
-"  Programming languages
+" Programming languages
 call dein#add('alvan/vim-closetag') " html tag ending close helper
 call dein#add('elzr/vim-json')
 call dein#add('fatih/vim-go')
@@ -15,7 +15,7 @@ call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('solarnz/thrift.vim.git')
 
-"  Editor
+" Editor
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('mbbill/undotree')
@@ -29,7 +29,7 @@ call dein#add('wellle/targets.vim')
 call dein#add('FooSoft/vim-argwrap')
 call dein#add('godlygeek/tabular')
 
-"  Tool Integrations
+" Tool Integrations
 call dein#add('tpope/vim-fugitive')
 
 call dein#end()
@@ -118,7 +118,6 @@ autocmd VimResized * exe 'normal! \<c-w>='
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 nnoremap * *<c-o>
 
-colorscheme moonfly
 set autoindent
 set autoread
 set autowriteall
@@ -172,6 +171,8 @@ set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
 set wrapscan
+
+colorscheme default
 
 " --- File runners for various languages
 function! LanguageSetup()
