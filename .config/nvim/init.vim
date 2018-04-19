@@ -172,7 +172,7 @@ set wildmenu
 set wildmode=list:longest,full
 set wrapscan
 
-colorscheme default
+colorscheme delek
 
 " --- File runners for various languages
 function! LanguageSetup()
