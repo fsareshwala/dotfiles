@@ -161,7 +161,7 @@ set smarttab
 set softtabstop=2
 set splitright
 set tabstop=2
-set tags=tags
+set tags=tags;
 set textwidth=100 wrap linebreak
 set title
 set undodir=~/.config/nvim/tmp/undo
