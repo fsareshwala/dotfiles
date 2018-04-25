@@ -190,6 +190,8 @@ function! LanguageSetup()
     nnoremap <leader>t :GoTest<cr>
   elseif(&ft == 'tex')
     nnoremap <leader>b :!pdflatex %:t<cr>
+    ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
+    ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   elseif(&ft == 'vim')
     nnoremap K :execute 'help ' . expand('<cword>')<cr>
   elseif(path =~ 'code/source' && (&ft == 'scala' || &ft == 'java'))
