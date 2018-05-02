@@ -52,6 +52,7 @@ let g:ctrlp_working_path_mode = 'wa'
 "  NerdTree
 let NERDTreeIgnore = []
 let NERDTreeIgnore += ['\.o$']
+let NERDTreeIgnore += ['\.a$']
 let NERDTreeIgnore += ['\.d$']
 let NERDTreeIgnore += ['\.pyc$']
 let NERDTreeIgnore += ['\~$']
