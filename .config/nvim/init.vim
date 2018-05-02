@@ -210,6 +210,8 @@ autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72
 autocmd FileType markdown setlocal spell
 autocmd FileType scala :SortScalaImports
+autocmd FileType cpp setlocal commentstring=//\ %s
+autocmd FileType c setlocal commentstring=//\ %s
 
 " Javascript Tern doesn't have a good way to push and pop onto the tag stack, so fake it :(
 function! JSFakePushTag()
