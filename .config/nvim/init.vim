@@ -195,9 +195,6 @@ function! LanguageSetup()
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   elseif(&ft == 'vim')
     nnoremap K :execute 'help ' . expand('<cword>')<cr>
-  elseif(path =~ 'code/source' && (&ft == 'scala' || &ft == 'java'))
-    nnoremap <leader>b :Pants compile<cr>
-    nnoremap <leader>t :Pants test<cr>
   endif
 endfunction
 
