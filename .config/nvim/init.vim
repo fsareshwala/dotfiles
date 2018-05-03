@@ -14,6 +14,7 @@ call dein#add('fatih/vim-go')
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('solarnz/thrift.vim.git')
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 
 " Editor
 call dein#add('Shougo/deoplete.nvim')
