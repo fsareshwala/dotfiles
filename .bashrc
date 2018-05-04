@@ -47,6 +47,13 @@ tunnel() {
   ssh -N -L 8080:${1} n
 }
 
+rreplace() {
+  file=$1
+  old=$2
+  new=$3
+  find . -type f -iname "$file" -exec sed -i "s/$old/$new/g" "{}" +;
+}
+
 # command aliases
 alias -- -='cd -'
 alias -- ..='cd ..'
