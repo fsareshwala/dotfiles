@@ -1,0 +1,16 @@
+let barposition = 'bottom'
+let blacklists = ['*://mail.google.com/*', '*://drive.google.com/*', '*://calendar.google.com/*', '*://keep.google.com/*', '*://*.reddit.com/*', '*://twitter.com/*', '*://github.com/*']
+let hintcharacters = 'asdfghjkl'
+let vimport=8001
+
+set localconfig
+set completeonopen
+set noautofocus
+set nolinkanimations
+set typelinkhints
+set autoupdategist
+set ignorecase
+set smartcase
+set incsearch
+
+imap <C-m> editWithVim
