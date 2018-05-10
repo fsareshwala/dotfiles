@@ -10,6 +10,7 @@ export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
+export JAVA_HOME=/etc/alternatives/java_sdk
 
 # personal path setup
 export PATH=.:${PATH}
