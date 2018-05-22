@@ -74,6 +74,7 @@ fi
 # twitter aliases
 alias rpost='arc diff --browse'
 alias rsubmit='arc land'
+alias rlist='arc list'
 
 # git aliases
 alias b='git branch'
