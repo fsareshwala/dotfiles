@@ -64,6 +64,7 @@ alias gdb='cgdb --directory=. -quiet'
 alias vi='nvim'
 alias vim='nvim -O'
 alias pdflatex='pdflatex -file-line-error -halt-on-error'
+alias json='python -m json.tool'
 
 if [[ $(uname) == "Darwin" ]]; then
   alias ls='ls -G'
