@@ -76,6 +76,7 @@ fi
 alias rpost='arc diff --browse'
 alias rsubmit='arc land'
 alias rlist='arc list'
+alias rassign='arc amend --revision'
 
 # git aliases
 alias b='git branch'
