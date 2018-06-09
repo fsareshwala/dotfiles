@@ -8,3 +8,11 @@ json
 redis
 thirdparty
 timestamp
+Twemcache
+Memcached
+twemcache
+libevent
+memcached
+unix
+tcp
+udp
