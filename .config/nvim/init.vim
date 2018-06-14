@@ -135,7 +135,7 @@ set comments=sl:/*,mb:\ *,elx:\ */
 set copyindent
 set expandtab
 set exrc
-set formatoptions+=1lrn
+set formatoptions=cjlnqrt
 set gdefault
 set guifont=Terminus\ 8
 set hlsearch
