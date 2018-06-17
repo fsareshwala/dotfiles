@@ -48,6 +48,7 @@ let g:neomake_open_list = 1
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 let g:tex_flavor = 'latex'
+let b:surround_45 = '\\texttt{\r}'
 
 "  NerdTree
 let NERDTreeIgnore = []
