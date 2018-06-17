@@ -23,3 +23,5 @@ cmake
 submodules
 Atlassian
 github
+monospace
+filetypes
