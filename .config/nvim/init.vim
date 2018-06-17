@@ -51,6 +51,7 @@ let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
+let g:tex_flavor = 'latex'
 
 "  NerdTree
 let NERDTreeIgnore = []
