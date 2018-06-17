@@ -14,7 +14,6 @@ call dein#add('fatih/vim-go')
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('solarnz/thrift.vim.git')
-call dein#add('ternjs/tern_for_vim', {'build': 'npm install'})
 
 " Editor
 call dein#add('Shougo/deoplete.nvim')
@@ -48,8 +47,6 @@ endif
 " --- Plugin configuration
 let g:lion_squeeze_spaces = 1
 let g:neomake_open_list = 1
-let g:tern_show_argument_hints = 'on_hold'
-let g:tern_show_signature_in_pum = 1
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 let g:tex_flavor = 'latex'
@@ -85,16 +82,6 @@ if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" omnifuncs
-augroup omnifuncs
-  autocmd!
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-augroup end
 
 " Manpages
 runtime! ftplugin/man.vim
@@ -220,19 +207,6 @@ autocmd FileType markdown setlocal spell
 autocmd FileType scala :SortScalaImports
 autocmd FileType cpp setlocal commentstring=//\ %s
 autocmd FileType c setlocal commentstring=//\ %s
-
-" Javascript Tern doesn't have a good way to push and pop onto the tag stack, so fake it :(
-function! JSFakePushTag()
-  normal mA
-  TernDef
-endfunction
-
-function! JSFakePopTag()
-  normal 'A
-endfunction
-
-autocmd FileType javascript map <buffer> <c-]> :call JSFakePushTag()<cr>
-autocmd FileType javascript map <buffer> <c-t> :call JSFakePopTag()<cr>
 
 " --- Random hacks
 " Load vimrc on save
