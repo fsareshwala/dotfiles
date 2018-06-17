@@ -16,7 +16,6 @@ call dein#add('rodjek/vim-puppet')
 call dein#add('solarnz/thrift.vim.git')
 
 " Editor
-call dein#add('Shougo/deoplete.nvim')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('mbbill/undotree')
 call dein#add('michaeljsmith/vim-indent-object')
@@ -74,14 +73,6 @@ let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#disable_auto_complete = 1
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Manpages
 runtime! ftplugin/man.vim
