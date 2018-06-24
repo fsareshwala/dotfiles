@@ -50,10 +50,9 @@ tunnel() {
 }
 
 rreplace() {
-  file=$1
-  old=$2
-  new=$3
-  find . -type f -iname "$file" -exec sed -i "s/$old/$new/g" "{}" +;
+  old=$1
+  new=$2
+  git grep -l $old . | xargs sed -i "s/$old/$new/g"
 }
 
 # command aliases
