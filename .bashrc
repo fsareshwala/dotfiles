@@ -15,6 +15,7 @@ export JAVA_HOME=/etc/alternatives/java_sdk
 # personal path setup
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
+export PATH=.:~/prefix/usr/local/flutter/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
