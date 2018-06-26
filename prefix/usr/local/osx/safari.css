@@ -17,13 +17,6 @@ div#content.page.view {
   width: 140ch;
 }
 
-/* bitbucket */
-#source-view {
-  font-family: MonoSpace !important;
-  font-size: 10pt !important;
-  width: 100ch;
-}
-
 textarea {
   font-family: MonoSpace !important;
   font-size: 10pt !important;
