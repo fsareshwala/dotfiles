@@ -167,7 +167,7 @@ function! LanguageSetup()
 
   if(&ft == 'c' || &ft == 'cpp')
     nnoremap K :execute 'Man ' . expand('<cword>')<cr>
-    nnoremap <leader>b :make -j 4<cr><cr>
+    nnoremap <leader>b :make -j 4<cr>
     nnoremap <leader>t :make test<cr>
   elseif(&ft == 'go')
     nnoremap <leader>b :GoBuild<cr>
