@@ -91,6 +91,7 @@ alias gf='git fx'
 alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
+alias gignore='git update-index --assume-unchanged'
 
 gc() {
   git checkout -b fsareshwala/${1} origin/master
