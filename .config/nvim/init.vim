@@ -214,5 +214,5 @@ augroup END
 if has('mac')
   set clipboard+=unnamed
 else
-  set clipboard=unnamedplus
+  set clipboard+=unnamedplus
 endif
