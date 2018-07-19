@@ -176,9 +176,6 @@ function! LanguageSetup()
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   elseif(&ft == 'vim')
     nnoremap K :execute 'help ' . expand('<cword>')<cr>
-  elseif(&ft == 'python')
-    setlocal shiftwidth=2
-    setlocal tabstop=2
   endif
 endfunction
 
