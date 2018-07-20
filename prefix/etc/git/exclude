@@ -3,9 +3,15 @@
 *.iml
 .idea
 
-cscope.*
-
-.lib-src
 tags
 ctags
+
 core
+core.*
+
+CMakeCache.txt
+CMakeFiles
+*.cmake
+
+# twitter specific
+deps
