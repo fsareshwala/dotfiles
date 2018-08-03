@@ -27,6 +27,7 @@ call dein#add('vim-scripts/a.vim')
 call dein#add('wellle/targets.vim')
 call dein#add('FooSoft/vim-argwrap')
 call dein#add('godlygeek/tabular')
+call dein#add('tpope/vim-repeat')
 
 " Tool Integrations
 call dein#add('tpope/vim-fugitive')
