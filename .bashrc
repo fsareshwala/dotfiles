@@ -10,7 +10,6 @@ export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
-export JAVA_HOME=/etc/alternatives/java_sdk
 
 # personal path setup
 export PATH=.:${PATH}
@@ -67,8 +66,10 @@ alias pdflatex='pdflatex -file-line-error -halt-on-error'
 alias json='python -m json.tool'
 
 if [[ $(uname) == "Darwin" ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
   alias ls='ls -G'
 else
+  export JAVA_HOME=/etc/alternatives/java_sdk
   alias ls='ls --color'
 fi
 
