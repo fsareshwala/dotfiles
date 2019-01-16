@@ -14,16 +14,16 @@ export GOPATH=${HOME}/go
 # personal path setup
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
-export PATH=.:~/prefix/usr/local/flutter/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
-export PATH=/opt/twitter/Cellar/protobuf/3.5.0.1/bin:${PATH}
 
 # twitter path setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
 export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
+export PATH=/home/fsareshwala/.gem/ruby/gems/easyviz-3.0.33/bin:${PATH}
+export PATH=/home/fsareshwala/.rbenv/bin:${PATH}
 
 DOT_TOOLS=~/.tools
 if [[ -f ${DOT_TOOLS} ]]; then
