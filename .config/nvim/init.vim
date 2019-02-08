@@ -197,6 +197,8 @@ let php_htmlInStrings = 1
 autocmd BufEnter *.workflow setlocal ft=json
 autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
+autocmd FileType gitcommit setlocal spell tw=72
+autocmd FileType markdown setlocal spell
 
 " --- Random hacks
 " Load vimrc on save
