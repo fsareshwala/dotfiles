@@ -11,13 +11,7 @@ export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
-# personal path setup
-export PATH=.:${PATH}
-export PATH=.:~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=/usr/sbin:${PATH}
-
-# twitter path setup
+# twitter setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
 export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
@@ -31,6 +25,13 @@ if [[ -f ${DOT_TOOLS} ]]; then
     export PATH=~/.tools-cache/${dir}/bin:${PATH}
   done
 fi
+
+# personal setup
+export PATH=.:${PATH}
+export PATH=.:~/prefix/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+
 
 # dottools: add distribution binary directories to PATH
 if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
