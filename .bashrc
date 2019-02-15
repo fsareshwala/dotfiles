@@ -11,6 +11,12 @@ export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
+# personal setup
+export PATH=.:${PATH}
+export PATH=.:~/prefix/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=/usr/sbin:${PATH}
+
 # twitter setup
 export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
 export PATH=/opt/twitter_mde/bin:${PATH}
@@ -18,6 +24,7 @@ export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
 export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
 export PATH=/home/fsareshwala/.gem/ruby/gems/easyviz-3.0.33/bin:${PATH}
 export PATH=/home/fsareshwala/.rbenv/bin:${PATH}
+export PANTS_NATIVE_BUILD_STEP_TOOLCHAIN_VARIANT=gnu
 
 DOT_TOOLS=~/.tools
 if [[ -f ${DOT_TOOLS} ]]; then
@@ -25,13 +32,6 @@ if [[ -f ${DOT_TOOLS} ]]; then
     export PATH=~/.tools-cache/${dir}/bin:${PATH}
   done
 fi
-
-# personal setup
-export PATH=.:${PATH}
-export PATH=.:~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=/usr/sbin:${PATH}
-
 
 # dottools: add distribution binary directories to PATH
 if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
