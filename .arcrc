@@ -1,0 +1,17 @@
+{
+  "config": {
+    "load": [
+      "/home/fsareshwala/.tools-cache/home/ee-phabricator-deploy/release/arc/libtwitter/"
+    ],
+    "default": "https://phabricator.twitter.biz/",
+    "base": "git:merge-base(origin/master), arc:amended, arc:prompt",
+    "events.listeners": [
+      "TwitterArcanistEventListener"
+    ]
+  },
+  "hosts": {
+    "https://phabricator.twitter.biz/api/": {
+      "token": "cli-h7iobxefnky43exk4r7vixzkylky"
+    }
+  }
+}
