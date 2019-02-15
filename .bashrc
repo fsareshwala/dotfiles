@@ -78,6 +78,7 @@ alias rpost='arc diff --browse'
 alias rsubmit='arc land'
 alias rlist='arc list'
 alias rassign='arc amend --revision'
+alias cmake='cmake3'
 
 # git aliases
 alias b='git branch'
