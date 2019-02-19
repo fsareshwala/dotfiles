@@ -59,12 +59,20 @@ rreplace() {
 alias -- -='cd -'
 alias -- ..='cd ..'
 alias bc='bc -lq'
+alias cmake='cmake3'
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
+alias json='python -m json.tool'
+alias pdflatex='pdflatex -file-line-error -halt-on-error'
+alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
+alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
 alias vi='nvim'
 alias vim='nvim -O'
-alias pdflatex='pdflatex -file-line-error -halt-on-error'
-alias json='python -m json.tool'
+alias watch='watch --color'
+
+# miscellaneous aliases
+alias r='tmux attach'
+alias s='source ~/.bashrc'
 
 if [[ $(uname) == "Darwin" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
@@ -79,7 +87,6 @@ alias rpost='arc diff --browse'
 alias rsubmit='arc land'
 alias rlist='arc list'
 alias rassign='arc amend --revision'
-alias cmake='cmake3'
 
 # git aliases
 alias b='git branch'
@@ -107,13 +114,6 @@ st() {
     git status
   fi
 }
-
-# miscellaneous aliases
-alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
-alias r='tmux attach'
-alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
-alias s='source ~/.bashrc'
-alias watch='watch --color'
 
 ulimit -c unlimited
 ulimit -m 1048576
