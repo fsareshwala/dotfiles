@@ -10,10 +10,12 @@ call dein#add('Shougo/dein.vim')
 " Programming languages
 call dein#add('alvan/vim-closetag') " html tag ending close helper
 call dein#add('elzr/vim-json')
-call dein#add('fatih/vim-go')
 call dein#add('isRuslan/vim-es6')
 call dein#add('rodjek/vim-puppet')
 call dein#add('solarnz/thrift.vim.git')
+
+call dein#add('fatih/vim-go')
+let g:go_version_warning = 0
 
 " Editor
 call dein#add('ctrlpvim/ctrlp.vim')
