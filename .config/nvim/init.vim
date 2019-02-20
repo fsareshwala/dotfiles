@@ -8,20 +8,14 @@ call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
 " Programming languages
-call dein#add('alvan/vim-closetag') " html tag ending close helper
-call dein#add('elzr/vim-json')
-call dein#add('isRuslan/vim-es6')
-call dein#add('rodjek/vim-puppet')
-call dein#add('solarnz/thrift.vim.git')
-
-call dein#add('fatih/vim-go')
-let g:go_version_warning = 0
+call dein#add('tpope/ragtag') " html tag ending close helper
+call dein#add('sheerun/vim-polyglot')
 
 " Editor
+call dein#add('bluz71/vim-moonfly-colors')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('mbbill/undotree')
 call dein#add('michaeljsmith/vim-indent-object')
-call dein#add('neomake/neomake')
 call dein#add('scrooloose/nerdtree')
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-surround.git')
@@ -30,6 +24,27 @@ call dein#add('wellle/targets.vim')
 call dein#add('FooSoft/vim-argwrap')
 call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-repeat')
+call dein#add('nelstrom/vim-visual-star-search')
+call dein#add('chaoren/vim-wordmotion')
+call dein#add('rstacruz/vim-closer')
+call dein#add('tpope/vim-sleuth')
+
+" ciw - change inside word
+" yi) - yank inside parenthesis
+" vat - visually select around tag
+" di" - delete inside double quotes
+call dein#add('wellle/targets.vim')
+
+" vii - visually select inside code block using current indentation
+" vaI - visually select around code block using current indentation AND include trailing line (for example the end delimiter in Ruby)
+call dein#add('michaeljsmith/vim-indent-object')
+
+" [q / ]q - navigate up and down through the quickfix list, for instance through vim-grepper results
+" [l / ]l - navigate up and down through the location list, for instance through neomake results
+" [a / ]a - navigate backward and forward through the file list
+" [<Space> / ]<Space> - add a blank line above or below the current line
+" [p / ]p - linewise paste above or below the current line
+call dein#add('tpope/vim-unimpaired')
 
 " Tool Integrations
 call dein#add('tpope/vim-fugitive')
@@ -44,8 +59,6 @@ if dein#check_install()
 endif
 
 " --- Plugin configuration
-let g:lion_squeeze_spaces = 1
-let g:neomake_open_list = 1
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 let g:tex_flavor = 'latex'
@@ -160,7 +173,7 @@ set wildmenu
 set wildmode=list:longest,full
 set wrapscan
 
-colorscheme delek
+colorscheme moonfly
 
 " --- File runners for various languages
 function! LanguageSetup()
