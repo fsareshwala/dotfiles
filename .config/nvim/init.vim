@@ -8,7 +8,7 @@ call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
 " Programming languages
-call dein#add('tpope/ragtag') " html tag ending close helper
+call dein#add('tpope/vim-ragtag')
 call dein#add('sheerun/vim-polyglot')
 
 " Editor
