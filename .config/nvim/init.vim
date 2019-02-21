@@ -12,7 +12,6 @@ call dein#add('tpope/vim-ragtag')
 call dein#add('sheerun/vim-polyglot')
 
 " Editor
-call dein#add('bluz71/vim-moonfly-colors')
 call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('mbbill/undotree')
 call dein#add('michaeljsmith/vim-indent-object')
