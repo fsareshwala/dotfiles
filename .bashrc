@@ -42,7 +42,11 @@ stty werase undef
 bind '\C-W:unix-filename-rubout'
 bind 'set completion-ignore-case on'
 
+# Share bash history across terminal sessions
+export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
 shopt -s checkwinsize
 
 tunnel() {
