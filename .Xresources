@@ -7,7 +7,7 @@ URxvt.foreground: gray
 URxvt.background: black
 URxvt.cursorColor: green
 
-URxvt.saveLines: 10000
+URxvt.saveLines: 65535
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
