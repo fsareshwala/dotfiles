@@ -25,7 +25,6 @@ call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-repeat')
 call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('chaoren/vim-wordmotion')
-call dein#add('rstacruz/vim-closer')
 call dein#add('tpope/vim-sleuth')
 
 " ciw - change inside word
