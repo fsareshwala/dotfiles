@@ -11,7 +11,7 @@ hi DiffChange   cterm=none                            ctermbg=lightmagenta
 hi DiffDelete   cterm=none    ctermfg=blue            ctermbg=lightcyan
 hi DiffText     cterm=bold                            ctermbg=Red
 hi Directory    cterm=none    ctermfg=darkblue
-hi ErrorMsg     cterm=none    ctermfg=white           ctermbg=darkred
+hi ErrorMsg     cterm=none    ctermfg=black           ctermbg=darkred
 hi FoldColumn   cterm=none    ctermfg=darkblue        ctermbg=grey
 hi Folded       cterm=none    ctermfg=darkblue        ctermbg=grey
 hi IncSearch    cterm=reverse
