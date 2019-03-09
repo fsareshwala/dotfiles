@@ -25,9 +25,6 @@
   clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
   fcheckout = "!f() { git checkout -b fsareshwala/$1; }; f"
 
-[reviewboard]
-  url = http://reviewboard.twitter.biz
-
 [diff]
   tool = vimdiff
   algorithm = patience
