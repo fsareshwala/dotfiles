@@ -7,7 +7,7 @@
 
 set $mod Mod4
 font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # gaps
 for_window [class="^.*"] border pixel 2
