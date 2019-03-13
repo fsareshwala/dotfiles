@@ -9,6 +9,11 @@ set $mod Mod4
 font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 focus_follows_mouse no
 
+# gaps
+for_window [class="^.*"] border pixel 0
+gaps inner 5
+gaps outer 5
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
