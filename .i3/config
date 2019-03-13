@@ -10,7 +10,7 @@ font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 focus_follows_mouse no
 
 # gaps
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 gaps inner 5
 gaps outer 5
 
