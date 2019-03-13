@@ -64,7 +64,6 @@ rreplace() {
 alias -- -='cd -'
 alias -- ..='cd ..'
 alias bc='bc -lq'
-alias cmake='cmake3'
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
 alias json='python -m json.tool'
