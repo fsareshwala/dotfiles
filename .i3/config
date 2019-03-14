@@ -32,31 +32,31 @@ bindsym $mod+Shift+c kill
 bindsym $mod+r exec dmenu_run -nb \#222222 -nf \#bbbbbb -sb \#005577 -sf \#eeeeee
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h focus Left
+bindsym $mod+j focus Down
+bindsym $mod+k focus Up
+bindsym $mod+l focus Right
 
 # move focused window
-bindsym $mod+shift+h move left
-bindsym $mod+shift+j move down
-bindsym $mod+shift+k move up
-bindsym $mod+shift+l move right
+bindsym $mod+shift+h move Left
+bindsym $mod+shift+j move Down
+bindsym $mod+shift+k move Up
+bindsym $mod+shift+l move Right
 
 # resize focused window
-bindsym $mod+control+h resize grow left 5px or 5ppt
-bindsym $mod+control+j resize grow down 5px or 5ppt
-bindsym $mod+control+k resize grow up 5px or 5ppt
-bindsym $mod+control+l resize grow right 5px or 5ppt
+bindsym $mod+control+h resize grow Left 5px or 5ppt
+bindsym $mod+control+j resize grow Down 5px or 5ppt
+bindsym $mod+control+k resize grow Up 5px or 5ppt
+bindsym $mod+control+l resize grow Right 5px or 5ppt
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
 
 # split in some directional orientation
-bindsym $mod+left split h
-bindsym $mod+right split h
-bindsym $mod+up split v
-bindsym $mod+down split v
+bindsym $mod+Left split h
+bindsym $mod+Right split h
+bindsym $mod+Up split v
+bindsym $mod+Down split v
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
