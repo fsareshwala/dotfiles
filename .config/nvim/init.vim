@@ -60,7 +60,6 @@ endif
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 let g:tex_flavor = 'latex'
-let b:surround_45 = '\\texttt{\r}'
 let g:wordmotion_spaces = '_-.'
 
 "  NerdTree
@@ -188,6 +187,7 @@ function! LanguageSetup()
     nnoremap <leader>t :GoTest<cr>
   elseif(&ft == 'tex')
     nnoremap <leader>b :!pdflatex %:t<cr>
+    let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   elseif(&ft == 'markdown')
