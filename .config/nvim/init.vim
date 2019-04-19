@@ -7,24 +7,53 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
-" Programming languages
 call dein#add('tpope/vim-ragtag')
 call dein#add('sheerun/vim-polyglot')
 
-" Editor
 call dein#add('ctrlpvim/ctrlp.vim')
+let g:ctrlp_map = '<leader>e'
+let g:ctrlp_working_path_mode = 'wa'
+nnoremap <leader>. :CtrlPTag<cr>
+
 call dein#add('mbbill/undotree')
-call dein#add('michaeljsmith/vim-indent-object')
+nnoremap <leader>u :UndotreeToggle<cr>
+
 call dein#add('scrooloose/nerdtree')
+let NERDTreeIgnore = []
+let NERDTreeIgnore += ['\.o$']
+let NERDTreeIgnore += ['\.a$']
+let NERDTreeIgnore += ['\.d$']
+let NERDTreeIgnore += ['\.pyc$']
+let NERDTreeIgnore += ['\~$']
+let NERDTreeIgnore += ['\.toc$']
+let NERDTreeIgnore += ['\.pdf$']
+let NERDTreeIgnore += ['\.aux$']
+let NERDTreeIgnore += ['\.out$']
+let NERDTreeIgnore += ['\.log$']
+let NERDTreeIgnore += ['\.class$']
+let NERDTreeIgnore += ['tags']
+let NERDTreeIgnore += ['__pycache__']
+let NERDTreeIgnore += ['__init__.py']
+let NERDTreeIgnore += ['CMakeFiles']
+let NERDTreeIgnore += ['cmake_install.cmake']
+let NERDTreeIgnore += ['CMakeCache.txt']
+let NERDTreeWinSize = 31
+autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * :NERDTree
+autocmd VimEnter * wincmd p
+
+call dein#add('chaoren/vim-wordmotion')
+let g:wordmotion_spaces = '_-.'
+
+call dein#add('FooSoft/vim-argwrap')
+nnoremap <leader>a :ArgWrap<cr>
+
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-surround.git')
 call dein#add('vim-scripts/a.vim')
-call dein#add('wellle/targets.vim')
-call dein#add('FooSoft/vim-argwrap')
 call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-repeat')
 call dein#add('nelstrom/vim-visual-star-search')
-call dein#add('chaoren/vim-wordmotion')
 call dein#add('tpope/vim-sleuth')
 
 " ciw - change inside word
@@ -56,35 +85,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-" --- Plugin configuration
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_working_path_mode = 'wa'
 let g:tex_flavor = 'latex'
-let g:wordmotion_spaces = '_-.'
-
-"  NerdTree
-let NERDTreeIgnore = []
-let NERDTreeIgnore += ['\.o$']
-let NERDTreeIgnore += ['\.a$']
-let NERDTreeIgnore += ['\.d$']
-let NERDTreeIgnore += ['\.pyc$']
-let NERDTreeIgnore += ['\~$']
-let NERDTreeIgnore += ['\.toc$']
-let NERDTreeIgnore += ['\.pdf$']
-let NERDTreeIgnore += ['\.aux$']
-let NERDTreeIgnore += ['\.out$']
-let NERDTreeIgnore += ['\.log$']
-let NERDTreeIgnore += ['\.class$']
-let NERDTreeIgnore += ['tags']
-let NERDTreeIgnore += ['__pycache__']
-let NERDTreeIgnore += ['__init__.py']
-let NERDTreeIgnore += ['CMakeFiles']
-let NERDTreeIgnore += ['cmake_install.cmake']
-let NERDTreeIgnore += ['CMakeCache.txt']
-let NERDTreeWinSize = 31
-autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-autocmd VimEnter * :NERDTree
-autocmd VimEnter * wincmd p
 
 " Manpages
 runtime! ftplugin/man.vim
@@ -106,9 +107,6 @@ nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>u :UndotreeToggle<cr>
-nnoremap <leader>a :ArgWrap<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
@@ -179,8 +177,9 @@ function! LanguageSetup()
 
   if(&ft == 'c' || &ft == 'cpp')
     nnoremap K :execute 'Man ' . expand('<cword>')<cr>
-    nnoremap <leader>b :make -j 4<cr>
+    nnoremap <leader>b :make -j 3<cr>
     nnoremap <leader>t :make test<cr>
+    nnoremap <leader>r exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<cr>
     setlocal commentstring=//\ %s
   elseif(&ft == 'go')
     nnoremap <leader>b :GoBuild<cr>
