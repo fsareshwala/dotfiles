@@ -12,32 +12,10 @@ export RSYNC_RSH=/usr/bin/ssh
 export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
-# personal setup
 export PATH=.:${PATH}
 export PATH=.:~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
-
-# twitter setup
-export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
-export PATH=/opt/twitter_mde/bin:${PATH}
-export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
-export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
-export PATH=/home/fsareshwala/.gem/ruby/gems/easyviz-3.0.33/bin:${PATH}
-export PATH=/home/fsareshwala/.rbenv/bin:${PATH}
-export PANTS_NATIVE_BUILD_STEP_TOOLCHAIN_VARIANT=gnu
-
-DOT_TOOLS=~/.tools
-if [[ -f ${DOT_TOOLS} ]]; then
-  for dir in $(cat ${DOT_TOOLS}); do
-    export PATH=~/.tools-cache/${dir}/bin:${PATH}
-  done
-fi
-
-# dottools: add distribution binary directories to PATH
-if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
-  . "$HOME/.tools-cache/setup-dottools-path.sh"
-fi
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
@@ -49,10 +27,6 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 shopt -s checkwinsize
-
-tunnel() {
-  ssh -N -L 8080:${1} n
-}
 
 rreplace() {
   old=$1
@@ -86,12 +60,6 @@ else
   alias ls='ls --color'
 fi
 
-# twitter aliases
-alias rpost='arc diff --browse'
-alias rsubmit='arc land'
-alias rlist='arc list'
-alias rassign='arc amend --revision'
-
 # git aliases
 alias b='git branch'
 alias ba='git branch -a'
@@ -112,6 +80,41 @@ gc() {
   git checkout -b fsareshwala/${1} origin/master
 }
 
+ulimit -c unlimited
+ulimit -m 1048576
+# ulimit -n 8192
+# ulimit -l 16384
+
+# twitter setup
+export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
+export PATH=/opt/twitter_mde/bin:${PATH}
+export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
+export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
+export PATH=/home/fsareshwala/.gem/ruby/gems/easyviz-3.0.33/bin:${PATH}
+export PATH=/home/fsareshwala/.rbenv/bin:${PATH}
+export PANTS_NATIVE_BUILD_STEP_TOOLCHAIN_VARIANT=gnu
+
+DOT_TOOLS=~/.tools
+if [[ -f ${DOT_TOOLS} ]]; then
+  for dir in $(cat ${DOT_TOOLS}); do
+    export PATH=~/.tools-cache/${dir}/bin:${PATH}
+  done
+fi
+
+# dottools: add distribution binary directories to PATH
+if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
+  . "$HOME/.tools-cache/setup-dottools-path.sh"
+fi
+
+alias rpost='arc diff --browse'
+alias rsubmit='arc land'
+alias rlist='arc list'
+alias rassign='arc amend --revision'
+
+tunnel() {
+  ssh -N -L 8080:${1} n
+}
+
 st() {
   if [[ $(pwd) == */code/source* ]]; then
     git status -uno
@@ -120,7 +123,3 @@ st() {
   fi
 }
 
-ulimit -c unlimited
-ulimit -m 1048576
-# ulimit -n 8192
-# ulimit -l 16384
