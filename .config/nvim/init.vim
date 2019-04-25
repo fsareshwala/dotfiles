@@ -99,8 +99,6 @@ nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
 nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
-nnoremap [ :cp<cr>
-nnoremap ] :cn<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
