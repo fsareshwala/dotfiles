@@ -107,6 +107,7 @@ nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <leader>s :vsplit<cr>
 nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
+nnoremap <leader>u YpVr-
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
