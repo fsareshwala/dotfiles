@@ -214,7 +214,7 @@ autocmd BufEnter markdown :syntax sync fromstart
 " Load vimrc on save
 augroup vimrc
   autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+  autocmd BufWritePost * source $MYVIMRC
 augroup END
 
 " Return to the same line when you reopen a file
