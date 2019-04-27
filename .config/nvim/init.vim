@@ -18,6 +18,9 @@ call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
 
+call dein#add('vimwiki/vimwiki')
+let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'}]
+
 call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
