@@ -19,7 +19,9 @@ call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
 
 call dein#add('vimwiki/vimwiki')
-let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
+let g:vimwiki_folding = 'list'
+let g:vimwiki_hl_cb_checked = 2
 
 call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_map = '<leader>e'
