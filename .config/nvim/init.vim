@@ -9,6 +9,14 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('tpope/vim-ragtag')
 call dein#add('sheerun/vim-polyglot')
+call dein#add('tpope/vim-commentary')
+call dein#add('tpope/vim-surround.git')
+call dein#add('vim-scripts/a.vim')
+call dein#add('godlygeek/tabular')
+call dein#add('tpope/vim-repeat')
+call dein#add('nelstrom/vim-visual-star-search')
+call dein#add('tpope/vim-sleuth')
+call dein#add('tpope/vim-fugitive')
 
 call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_map = '<leader>e'
@@ -48,14 +56,6 @@ let g:wordmotion_spaces = '_-.'
 call dein#add('FooSoft/vim-argwrap')
 nnoremap <leader>a :ArgWrap<cr>
 
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-surround.git')
-call dein#add('vim-scripts/a.vim')
-call dein#add('godlygeek/tabular')
-call dein#add('tpope/vim-repeat')
-call dein#add('nelstrom/vim-visual-star-search')
-call dein#add('tpope/vim-sleuth')
-
 " ciw - change inside word
 " yi) - yank inside parenthesis
 " vat - visually select around tag
@@ -72,9 +72,6 @@ call dein#add('michaeljsmith/vim-indent-object')
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
 call dein#add('tpope/vim-unimpaired')
-
-" Tool Integrations
-call dein#add('tpope/vim-fugitive')
 
 call dein#end()
 
