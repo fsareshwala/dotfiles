@@ -189,11 +189,6 @@ function! LanguageSetup()
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
-  elseif(&ft == 'markdown')
-    setlocal spell
-  elseif(&ft == 'gitcommit')
-    setlocal spell
-    setlocal textwidth=72 wrap linebreak
   elseif(&ft == 'java' || &ft == 'scala')
     setlocal textwidth=120 wrap linebreak
   elseif(&ft == 'vim')
@@ -210,8 +205,9 @@ let php_htmlInStrings = 1
 autocmd BufEnter *.workflow setlocal ft=json
 autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
-autocmd FileType gitcommit setlocal spell tw=72
+autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown setlocal spell
+autocmd BufEnter markdown :syntax sync fromstart
 
 " --- Random hacks
 " Load vimrc on save
