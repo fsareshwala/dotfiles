@@ -211,6 +211,8 @@ autocmd FileType markdown setlocal spell
 autocmd BufEnter markdown :syntax sync fromstart
 
 " --- Random hacks
+inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
+
 " Load vimrc on save
 augroup vimrc
   autocmd!
