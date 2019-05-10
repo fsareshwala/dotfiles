@@ -7,7 +7,7 @@ tags
 ctags
 
 core
-core.*
+core.\d*
 
 CMakeCache.txt
 CMakeFiles
