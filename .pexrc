@@ -1,2 +1,2 @@
-PEX_PYTHON_PATH=/opt/ee/python/2.7/bin/python2.7:/opt/ee/python/3.6/bin/python3.6
+PEX_PYTHON_PATH=/opt/ee/python/2.7/bin/python2.7:/opt/ee/python/3.7/bin/python3.7
 PEX_PYTHON=/opt/ee/python/2.7/bin/python2.7
