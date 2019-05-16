@@ -182,6 +182,7 @@ function! LanguageSetup()
     nnoremap <leader>t :make test<cr>
     nnoremap <leader>r exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<cr>
     setlocal commentstring=//\ %s
+    setlocal expandtab
   elseif(&ft == 'go')
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
