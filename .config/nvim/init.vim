@@ -219,7 +219,7 @@ inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>i'
 " Load vimrc on save
 augroup vimrc
   autocmd!
-  autocmd BufWritePost * source $MYVIMRC
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
 " Return to the same line when you reopen a file
