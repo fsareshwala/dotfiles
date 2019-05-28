@@ -191,6 +191,8 @@ function! LanguageSetup()
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
+    nmap <leader>a :Tabularize /&<cr>
+    vmap <leader>a :Tabularize /&<cr>
   elseif(&ft == 'java' || &ft == 'scala')
     setlocal textwidth=120 wrap linebreak
   elseif(&ft == 'vim')
