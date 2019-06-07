@@ -17,6 +17,7 @@ call dein#add('tpope/vim-repeat')
 call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-speeddating')
 
 call dein#add('vimwiki/vimwiki')
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
