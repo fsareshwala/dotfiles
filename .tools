@@ -1,7 +1,8 @@
 /home/aurora/tools/client
+/home/devprod/release/tools/jira
 /home/ee-phabricator-deploy/release/arc
 /home/observe/tools/user
 /home/packer/tools/package
 /home/packer/tools/packer
 /home/sretooling/deploy-pcm/bin
-/home/devprod/release/tools/jira
+/home/university/tools/docbird
