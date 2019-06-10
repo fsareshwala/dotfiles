@@ -187,7 +187,7 @@ function! LanguageSetup()
     nnoremap <leader>b :GoBuild<cr>
     nnoremap <leader>t :GoTest<cr>
   elseif(&ft == 'tex')
-    nnoremap <leader>b :!pdflatex %:t<cr>
+    nnoremap <leader>b :!bazel build ...<cr>
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
