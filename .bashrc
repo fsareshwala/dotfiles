@@ -13,7 +13,7 @@ export USE_CCACHE=true
 export GOPATH=${HOME}/go
 
 export PATH=.:${PATH}
-export PATH=.:~/prefix/bin:${PATH}
+export PATH=~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 
