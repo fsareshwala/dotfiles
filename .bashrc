@@ -16,6 +16,7 @@ export PATH=.:${PATH}
 export PATH=~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
+export PATH=~/.local/bin:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
