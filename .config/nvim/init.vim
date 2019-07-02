@@ -21,7 +21,6 @@ call dein#add('tpope/vim-speeddating')
 
 call dein#add('vimwiki/vimwiki')
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
-let g:vimwiki_folding = 'list'
 let g:vimwiki_hl_cb_checked = 2
 
 call dein#add('ctrlpvim/ctrlp.vim')
