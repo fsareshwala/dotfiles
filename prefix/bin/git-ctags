@@ -33,7 +33,7 @@ generate_tags() {
   pid=$$
 
   trap "rm -f $path/$pid.tags" EXIT
-  (cd $path && ctags -f $pid.tags)
+  (cd $path && ctags --exclude=deps -f $pid.tags)
   mv $path/$pid.tags $path/tags
 }
 
