@@ -107,7 +107,7 @@ if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
   . "$HOME/.tools-cache/setup-dottools-path.sh"
 fi
 
-alias rpost='arc diff --browse'
+alias rpost='arc multi-diff'
 alias rsubmit='arc land'
 alias rlist='arc list'
 alias rassign='arc amend --revision'
