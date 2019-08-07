@@ -78,7 +78,7 @@ alias grom='git rebase origin/master'
 alias gignore='git update-index --assume-unchanged'
 
 gc() {
-  git checkout -b ${1} -t origin/master
+  git checkout -b fsareshwala/${1} -t origin/master
 }
 
 ulimit -c unlimited
