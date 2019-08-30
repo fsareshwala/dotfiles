@@ -81,6 +81,14 @@ gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
+st() {
+  if [[ $(pwd) == */code/source* ]]; then
+    git status --untracked-files=no
+  else
+    git status
+  fi
+}
+
 ulimit -c unlimited
 ulimit -m 1048576
 # ulimit -n 8192
@@ -115,12 +123,3 @@ alias rassign='arc amend --revision'
 tunnel() {
   ssh -N -L 8080:${1} n
 }
-
-st() {
-  if [[ $(pwd) == */code/source* ]]; then
-    git status -uno
-  else
-    git status
-  fi
-}
-
