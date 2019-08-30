@@ -81,6 +81,10 @@ gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
+lg() {
+  git log --abbrev-commit --oneline --pretty=format:'%C(red)%h%C(reset) %C(blue)<%<(25)%an>%Creset %s' -n 10 $@
+}
+
 st() {
   if [[ $(pwd) == */code/source* ]]; then
     git status --untracked-files=no
