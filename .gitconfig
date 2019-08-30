@@ -23,7 +23,6 @@
   ff = pull --ff-only --stat
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
   clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
-  fcheckout = "!f() { git checkout -b fsareshwala/$1; }; f"
 
 [diff]
   tool = vimdiff
