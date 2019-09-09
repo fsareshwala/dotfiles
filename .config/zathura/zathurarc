@@ -1,2 +1,3 @@
 set selection-clipboard clipboard
 set window-title-basename "true"
+map <C-i> recolor
