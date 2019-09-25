@@ -124,7 +124,6 @@ set backspace=eol,start,indent
 set cindent
 set cinoptions+=g0,l1,N-s,j1,J1
 set colorcolumn=+1
-set comments=sl:/*,mb:\ *,elx:\ */
 set copyindent
 set expandtab
 set exrc
