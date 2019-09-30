@@ -188,7 +188,7 @@ function! LanguageSetup()
   elseif(&ft == 'tex')
     nnoremap <leader>b :!bazel build ...<cr>
     let b:surround_45 = '\\texttt{\r}'
-    ab dsol \begin{solutionordottedlines}[0.5in]<cr><cr>\end{solutionordottedlines}
+    ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
     nmap <leader>a :Tabularize /&<cr>
     vmap <leader>a :Tabularize /&<cr>
