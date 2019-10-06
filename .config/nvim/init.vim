@@ -12,7 +12,6 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-surround.git')
 call dein#add('vim-scripts/a.vim')
-call dein#add('godlygeek/tabular')
 call dein#add('tpope/vim-repeat')
 call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('tpope/vim-sleuth')
@@ -22,6 +21,10 @@ call dein#add('tpope/vim-speeddating')
 call dein#add('vimwiki/vimwiki')
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
 let g:vimwiki_hl_cb_checked = 2
+
+call dein#add('junegunn/vim-easy-align')
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_map = '<leader>e'
@@ -190,8 +193,6 @@ function! LanguageSetup()
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
-    nmap <leader>a :Tabularize /&<cr>
-    vmap <leader>a :Tabularize /&<cr>
   elseif(&ft == 'java' || &ft == 'scala')
     setlocal textwidth=120 wrap linebreak
   elseif(&ft == 'vim')
