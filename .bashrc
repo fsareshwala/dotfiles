@@ -93,6 +93,9 @@ st() {
   fi
 }
 
+git_bash_completion=/etc/profile.d/bash_completion.sh
+test -f $git_bash_completion && source $git_bash_completion
+
 ulimit -c unlimited
 ulimit -m 1048576
 # ulimit -n 8192
