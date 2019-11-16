@@ -17,6 +17,7 @@ export PATH=~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=~/.local/bin:${PATH}
+export PATH=/usr/libexec/git-core:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
