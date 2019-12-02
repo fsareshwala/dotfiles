@@ -1,2 +1,2 @@
 test --test_output=errors
-test --cache_test_results=no
+test --cache_test_results=yes
