@@ -48,6 +48,7 @@ alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
 alias vi='nvim'
 alias vim='nvim -O'
+alias p='cd ~/personal'
 alias watch='watch --color'
 
 # miscellaneous aliases
