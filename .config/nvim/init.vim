@@ -8,7 +8,6 @@ call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
 call dein#add('tpope/vim-ragtag')
-call dein#add('sheerun/vim-polyglot')
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-surround.git')
 call dein#add('vim-scripts/a.vim')
@@ -18,6 +17,11 @@ call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-speeddating')
 
+call dein#add('sheerun/vim-polyglot')
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_auto_insert_bullets = 0
+let g:vim_markdown_new_list_item_indent = 0
+
 call dein#add('junegunn/vim-easy-align')
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -25,6 +29,7 @@ nmap ga <Plug>(EasyAlign)
 call dein#add('vimwiki/vimwiki')
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
 let g:vimwiki_hl_cb_checked = 2
+let g:vimwiki_conceallevel = 0
 
 call dein#add('ctrlpvim/ctrlp.vim')
 let g:ctrlp_map = '<leader>e'
