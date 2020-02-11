@@ -141,6 +141,7 @@ set gdefault
 set guifont=Terminus\ 8
 set hlsearch
 set ignorecase
+set inccommand=split
 set incsearch
 set laststatus=2
 set list
