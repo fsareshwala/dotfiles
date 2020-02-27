@@ -16,6 +16,7 @@ call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-speeddating')
+call dein#add('camspiers/lens.vim')
 
 call dein#add('sheerun/vim-polyglot')
 let g:vim_markdown_conceal = 0
