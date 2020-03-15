@@ -31,9 +31,9 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 shopt -s checkwinsize
 
 rreplace() {
-  old=$1
-  new=$2
-  git grep -l $old . | xargs sed -i "s/$old/$new/g"
+  old="$1"
+  new="$2"
+  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
 # command aliases
