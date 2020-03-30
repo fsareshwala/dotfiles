@@ -103,27 +103,6 @@ ulimit -m 1048576
 # ulimit -n 8192
 # ulimit -l 16384
 
-# twitter setup
-export PATH=~/code/git/.STAGE/git.Linux.x86_64/bin:${PATH}
-export PATH=/opt/twitter_mde/bin:${PATH}
-export PATH=/usr/share/rvm/src/rvm/bin:${PATH}
-export PATH=/Users/fsareshwala/.gem/ruby/2.3.0/bin:${PATH}
-export PATH=/home/fsareshwala/.gem/ruby/gems/easyviz-3.0.33/bin:${PATH}
-export PATH=/home/fsareshwala/.rbenv/bin:${PATH}
-export PANTS_NATIVE_BUILD_STEP_TOOLCHAIN_VARIANT=gnu
-
-DOT_TOOLS=~/.tools
-if [[ -f ${DOT_TOOLS} ]]; then
-  for dir in $(cat ${DOT_TOOLS}); do
-    export PATH=~/.tools-cache/${dir}/bin:${PATH}
-  done
-fi
-
-# dottools: add distribution binary directories to PATH
-if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
-  . "$HOME/.tools-cache/setup-dottools-path.sh"
-fi
-
 alias rpost='arc multi-diff'
 alias rsubmit='arc land'
 alias rlist='arc list'
