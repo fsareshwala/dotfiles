@@ -1,6 +1,7 @@
 Xcursor.size: 16
 
 URxvt.font: xft:terminus:antialias=false:pixelsize=12
+URxvt.letterSpace: 1
 URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
