@@ -3,3 +3,5 @@ build --cxxopt=-std=c++14
 
 test --test_output=errors
 test --cache_test_results=yes
+
+build --cxxopt='-std=c++14'
