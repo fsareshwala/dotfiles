@@ -14,9 +14,9 @@ assign [class="Google-chrome"] 2
 assign [class="Slack"] 9
 
 # gaps
-for_window [class="^.*"] border pixel 2
-gaps inner 5
-gaps outer 0
+# for_window [class="^.*"] border pixel 2
+# gaps inner 5
+# gaps outer 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
