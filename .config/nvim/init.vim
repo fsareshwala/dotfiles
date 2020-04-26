@@ -18,11 +18,6 @@ call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-speeddating')
 call dein#add('tpope/vim-abolish')
 
-call dein#add('chuling/vim-equinusocio-material')
-let g:equinusocio_material_darker = 1
-let g:equinusocio_material_hide_vertsplit = 1
-colorscheme equinusocio_material
-
 call dein#add('sheerun/vim-polyglot')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_auto_insert_bullets = 0
@@ -106,6 +101,8 @@ let g:tex_flavor = 'latex'
 " Manpages
 runtime! ftplugin/man.vim
 
+colorscheme fsareshwala
+
 " --- Key mappings
 nnoremap <c-h> <esc><c-w>h
 nnoremap <c-j> <esc><c-w>j
@@ -183,7 +180,6 @@ set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
 set wrapscan
-set termguicolors
 
 " --- File runners for various languages
 function! LanguageSetup()
