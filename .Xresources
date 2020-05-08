@@ -1,6 +1,7 @@
 Xcursor.size: 16
+Xft.dpi: 144
 
-URxvt.font: xft:terminus:antialias=false:pixelsize=12
+URxvt.font: xft:terminus:antialias=false:size=10
 URxvt.letterSpace: 1
 URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
