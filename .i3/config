@@ -6,7 +6,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
-font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
+set $font -*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*
+font $font
 focus_follows_mouse yes
 
 # application workspace assignments
@@ -91,6 +92,7 @@ bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
     status_command i3status
+    font $font
     position top
     workspace_buttons yes
     tray_output primary
