@@ -1,4 +1,4 @@
-Xcursor.size: 16
+Xcursor.size: 20
 Xft.dpi: 144
 
 URxvt.font: xft:terminus:antialias=false:size=10
@@ -6,10 +6,6 @@ URxvt.letterSpace: 1
 URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
-
-URxvt.foreground: gray
-URxvt.background: black
-URxvt.cursorColor: green
 
 URxvt.saveLines: 65535
 URxvt.scrollTtyOutput: false
@@ -37,19 +33,23 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
 
-URxvt*color0:  #373c40
-URxvt*color1:  #ff5454
-URxvt*color2:  #8cc85f
-URxvt*color3:  #e3c78a
-URxvt*color4:  #80a0ff
-URxvt*color5:  #ce76e8
-URxvt*color6:  #7ee0ce
-URxvt*color7:  #de935f
-URxvt*color8:  #f09479
-URxvt*color9:  #fe3b7b
-URxvt*color10: #42cf89
-URxvt*color11: #cfcfb0
-URxvt*color12: #78c2ff
-URxvt*color13: #ae81ff
-URxvt*color14: #85dc85
-URxvt*color15: #e2637f
+! terminal.sexy: dotshare
+URxvt.foreground:   #ffffff
+URxvt.background:   #000000
+URxvt.cursorColor:  #ffffff
+URxvt.color0:       #101010
+URxvt.color8:       #404040
+URxvt.color1:       #e84f4f
+URxvt.color9:       #d23d3d
+URxvt.color2:       #b8d68c
+URxvt.color10:      #a0cf5d
+URxvt.color3:       #e1aa5d
+URxvt.color11:      #f39d21
+URxvt.color4:       #7dc1cf
+URxvt.color12:      #4e9fb1
+URxvt.color5:       #9b64fb
+URxvt.color13:      #8542ff
+URxvt.color6:       #6d878d
+URxvt.color14:      #42717b
+URxvt.color7:       #dddddd
+URxvt.color15:      #dddddd
