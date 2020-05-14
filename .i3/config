@@ -1,8 +1,3 @@
-# Should you change your keyboard layout somewhen, delete
-# this file and re-run i3-config-wizard(1).
-
-# i3 config file (v4)
-#
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
@@ -13,11 +8,6 @@ focus_follows_mouse yes
 # application workspace assignments
 assign [class="Google-chrome"] 2
 assign [class="Slack"] 9
-
-# gaps
-# for_window [class="^.*"] border pixel 2
-# gaps inner 5
-# gaps outer 0
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
