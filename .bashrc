@@ -1,23 +1,37 @@
+#!/usr/bin/env bash
+
 # vim: set tw=0:
+
+git_bash_completion=/etc/profile.d/bash_completion.sh
+test -f $git_bash_completion && source $git_bash_completion
+
+function rreplace() {
+  old="$1"
+  new="$2"
+  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
+}
+
+function parse_git_branch() {
+  branch=$(git symbolic-ref --short -q HEAD)
+  echo $branch
+}
+export PS1='[\u@\h \e[34m\w\e[0m:\e[32m$(parse_git_branch)\e[0m]\$ '
 
 export COLORTERM=yes
 export EDITOR=nvim
 export VISUAL=nvim
 export FIGNORE='.o:~:.pyc'
-export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=100000
 export MAILCAPS=${HOME}/.mailcap
-export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 export RSYNC_RSH=/usr/bin/ssh
-export USE_CCACHE=true
 export GOPATH=${HOME}/go
+export JAVA_HOME=/etc/alternatives/java_sdk
 
 export PATH=.:${PATH}
 export PATH=~/prefix/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=~/.local/bin:${PATH}
-export PATH=/usr/libexec/git-core:${PATH}
 
 stty werase undef
 bind '\C-W:unix-filename-rubout'
@@ -30,12 +44,6 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; histor
 
 shopt -s checkwinsize
 
-rreplace() {
-  old="$1"
-  new="$2"
-  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
-}
-
 # command aliases
 alias -- -='cd -'
 alias -- ..='cd ..'
@@ -43,25 +51,17 @@ alias bc='bc -lq'
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
 alias json='python -m json.tool'
-alias pdflatex='pdflatex -file-line-error -halt-on-error'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
-alias vi='nvim'
+alias vi='vim'
 alias vim='nvim -O'
 alias p='cd ~/personal'
 alias watch='watch --color'
+alias ls='ls --color'
 
 # miscellaneous aliases
 alias r='tmux attach'
 alias s='source ~/.bashrc'
-
-if [[ $(uname) == "Darwin" ]]; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
-  alias ls='ls -G'
-else
-  export JAVA_HOME=/etc/alternatives/java_sdk
-  alias ls='ls --color'
-fi
 
 # git aliases
 alias b='git branch'
@@ -79,24 +79,21 @@ alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 alias gignore='git update-index --assume-unchanged'
 
-gc() {
+function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
-lg() {
+function lg() {
   git log --abbrev-commit --oneline --pretty=format:'%C(red)%h%C(reset) %C(blue)<%<(25)%an>%Creset %s' -n 10 $@
 }
 
-st() {
+function st() {
   if [[ $(pwd) == */code/source* ]]; then
     git status --untracked-files=no
   else
     git status
   fi
 }
-
-git_bash_completion=/etc/profile.d/bash_completion.sh
-test -f $git_bash_completion && source $git_bash_completion
 
 ulimit -c unlimited
 ulimit -m 1048576
@@ -107,7 +104,3 @@ alias rpost='arc multi-diff'
 alias rsubmit='arc land'
 alias rlist='arc list'
 alias rassign='arc amend --revision'
-
-tunnel() {
-  ssh -N -L 8080:${1} n
-}
