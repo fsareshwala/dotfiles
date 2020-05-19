@@ -11,21 +11,16 @@ function rreplace() {
   git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
-function parse_git_branch() {
-  branch=$(git symbolic-ref --short -q HEAD)
-  echo $branch
-}
-export PS1='[\u@\h \e[34m\w\e[0m:\e[32m$(parse_git_branch)\e[0m]\$ '
-
 export COLORTERM=yes
 export EDITOR=nvim
-export VISUAL=nvim
 export FIGNORE='.o:~:.pyc'
-export HISTFILESIZE=100000
-export MAILCAPS=${HOME}/.mailcap
-export RSYNC_RSH=/usr/bin/ssh
 export GOPATH=${HOME}/go
+export HISTFILESIZE=100000
 export JAVA_HOME=/etc/alternatives/java_sdk
+export MAILCAPS=${HOME}/.mailcap
+export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
+export RSYNC_RSH=/usr/bin/ssh
+export VISUAL=nvim
 
 export PATH=.:${PATH}
 export PATH=~/prefix/bin:${PATH}
