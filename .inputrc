@@ -1,0 +1,15 @@
+set blink-matching-paren on
+set completion-ignore-case on
+set completion-map-case on
+set echo-control-characters off
+set enable-bracketed-paste on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set show-mode-in-prompt on
+set skip-completed-text on
+
+"\C-W": unix-filename-rubout
+
+set editing-mode vi
+set vi-cmd-mode-string \1\e[2 q\2
+set vi-ins-mode-string \1\e[6 q\2
