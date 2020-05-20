@@ -29,8 +29,6 @@ export PATH=/usr/sbin:${PATH}
 export PATH=~/.local/bin:${PATH}
 
 stty werase undef
-bind '\C-W:unix-filename-rubout'
-bind 'set completion-ignore-case on'
 
 # Share bash history across terminal sessions
 export HISTCONTROL=ignoredups:erasedups
