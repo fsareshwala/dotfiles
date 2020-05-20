@@ -85,6 +85,12 @@ bindsym $mod+shift+r reload
 bindsym $mod+shift+q restart
 bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+exec --no-startup-id numlockx
+exec --no-startup-id 'dunst -conf /home/fsareshwala/.dunstrc'
+exec --no-startup-id 'setxkbmap -layout us -option ctrl:nocaps'
+exec --no-startup-id 'xset r rate 150 100'
+exec --no-startup-id 'xset b off'
+
 bar {
     status_command i3status
     font $font
