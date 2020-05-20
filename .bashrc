@@ -11,6 +11,7 @@ function rreplace() {
   git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export COLORTERM=yes
 export EDITOR=nvim
 export FIGNORE='.o:~:.pyc'
