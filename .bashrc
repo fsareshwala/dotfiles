@@ -72,6 +72,7 @@ alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 alias gignore='git update-index --assume-unchanged'
+complete -A directory gm
 
 function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
