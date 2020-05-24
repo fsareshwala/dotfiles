@@ -27,16 +27,18 @@ shopt -s checkwinsize
 alias -- -='cd -'
 alias -- ..='cd ..'
 alias bc='bc -lq'
+alias diff="diff --color=auto"
 alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
+alias grep="grep --color=auto"
 alias json='python -m json.tool'
+alias ls='ls --color'
+alias p='cd ~/personal'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
 alias vi='vim'
 alias vim='nvim -O'
-alias p='cd ~/personal'
 alias watch='watch --color'
-alias ls='ls --color'
 
 # miscellaneous aliases
 alias r='tmux attach'
