@@ -10,6 +10,7 @@ export MAILCAPS=${HOME}/.mailcap
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+export READER=zathura
 
 export PATH=.:${PATH}
 export PATH=~/prefix/bin:${PATH}
