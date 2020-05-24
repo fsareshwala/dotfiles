@@ -1,3 +1,0 @@
-gem:
- --bindir ~/prefix/bin
- --no-ri --no-rdoc
