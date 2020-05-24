@@ -47,11 +47,7 @@ let NERDTreeIgnore += ['\.a$']
 let NERDTreeIgnore += ['\.d$']
 let NERDTreeIgnore += ['\.pyc$']
 let NERDTreeIgnore += ['\~$']
-let NERDTreeIgnore += ['\.toc$']
 let NERDTreeIgnore += ['\.pdf$']
-let NERDTreeIgnore += ['\.aux$']
-let NERDTreeIgnore += ['\.out$']
-let NERDTreeIgnore += ['\.log$']
 let NERDTreeIgnore += ['\.class$']
 let NERDTreeIgnore += ['tags']
 let NERDTreeIgnore += ['__pycache__']
@@ -134,6 +130,7 @@ set background=dark
 set backspace=eol,start,indent
 set cindent
 set cinoptions+=g0,l1,N-s,j1,J1
+set clipboard+=unnamedplus
 set colorcolumn=+1
 set copyindent
 set expandtab
@@ -237,10 +234,3 @@ augroup line_return
       \     execute 'normal! g`"zvzz' |
       \ endif
 augroup END
-
-" MacOS vs Linux clipboard
-if has('mac')
-  set clipboard+=unnamed
-else
-  set clipboard+=unnamedplus
-endif
