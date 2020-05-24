@@ -11,30 +11,15 @@ function rreplace() {
   git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-export COLORTERM=yes
-export EDITOR=nvim
-export FIGNORE='.o:~:.pyc'
-export GOPATH=${HOME}/go
-export HISTFILESIZE=100000
-export JAVA_HOME=/etc/alternatives/java_sdk
-export MAILCAPS=${HOME}/.mailcap
-export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
-export RSYNC_RSH=/usr/bin/ssh
-export VISUAL=nvim
-
-export PATH=.:${PATH}
-export PATH=~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=/usr/sbin:${PATH}
-export PATH=~/.local/bin:${PATH}
-
 stty werase undef
 
 # Share bash history across terminal sessions
+export HISTFILESIZE=100000
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
 
 shopt -s checkwinsize
 
@@ -95,6 +80,7 @@ ulimit -m 1048576
 # ulimit -n 8192
 # ulimit -l 16384
 
+# twitter aliases
 alias rpost='arc multi-diff'
 alias rsubmit='arc land'
 alias rlist='arc list'
