@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+declare -A replacements
+replacements['aa']='As Salaam Alaikum'
+replacements['alh']='Alhamdulillah'
+replacements['ia']='InshaAllah'
+replacements['ma']='MashaAllah'
+replacements['sa']='SubhanAllah'
+replacements['wa']='Wa Alaikum As Salaam'
+replacements['wb']='Wa Barakatuhu'
+replacements['wr']='Wa Rahmatullahi'
+replacements['jzk']='JazakAllah Khair'
+
+replacements['howel']='Hope you are doing well!'
+replacements['recresp']='Thanks for reaching out! I am not looking to make a move at the moment but
+I wish you the best in your search!'
+
+function trim() {
+  echo "$@" | tr -d '[:space:]'
+}
+
+function update() {
+  read value
+  expansion="${replacements[$value]}"
+  echo "$expansion " | xclip -r -selection clipboard
+}
+
+# load some personal information that shouldn't be published into replacements
+while IFS=: read -r key value; do
+  key=$(trim $key)
+  value=$(trim $value)
+  replacements[$key]="$value"
+done < ~/personal/info.sh
+
+# execute dmenu and load into clipboard
+for key in "${!replacements[@]}"; do
+  echo $key
+done | dmenu | update
