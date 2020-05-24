@@ -18,7 +18,7 @@ export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=~/.local/bin:${PATH}
 
-eval $(ssh-agent) > /dev/null
+ssh-agent & > /dev/null
 
 xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
