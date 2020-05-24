@@ -16,13 +16,13 @@ replacements['recresp']='Thanks for reaching out! I am not looking to make a mov
 I wish you the best in your search!'
 
 function trim() {
-  echo "$@" | tr -d '[:space:]'
+  echo "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 }
 
 function update() {
   read value
   expansion="${replacements[$value]}"
-  echo "$expansion " | xclip -r -selection clipboard
+  echo "$expansion" | xclip -r -selection clipboard
 }
 
 # load some personal information that shouldn't be published into replacements
