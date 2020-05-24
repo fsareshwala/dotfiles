@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+import -window root "/home/fsareshwala/$(date).png"
