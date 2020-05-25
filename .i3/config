@@ -1,4 +1,5 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# vim:filetype=i3config
 
 set $mod Mod1
 set $font -*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*
