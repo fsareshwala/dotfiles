@@ -21,7 +21,7 @@ function trim() {
 function update() {
   read value
   expansion="${replacements[$value]}"
-  echo "$expansion"
+  echo -n "$expansion"
 }
 
 # load some personal information that shouldn't be published into replacements
