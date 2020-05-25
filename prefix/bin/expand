@@ -29,7 +29,7 @@ while IFS=: read -r key value; do
   key=$(trim $key)
   value=$(trim $value)
   replacements[$key]="$value"
-done < ~/personal/info.sh
+done < ~/personal/info
 
 # execute dmenu and load into clipboard
 for key in "${!replacements[@]}"; do
