@@ -118,7 +118,6 @@ nnoremap <leader>o :w! \| !open <c-r>%<cr>
 nnoremap <leader>u YpVr-
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
-nnoremap <silent> <leader>f :syntax sync fromstart
 nnoremap <silent> <leader>s :vsplit<cr>
 nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
 
