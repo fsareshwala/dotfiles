@@ -7,7 +7,7 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set skip-completed-text on
 
-"\C-W": unix-filename-rubout
+Control-w: unix-filename-rubout
 
 set editing-mode vi
 
