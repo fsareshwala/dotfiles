@@ -50,15 +50,16 @@ alias ba='git branch -a'
 alias d='git diff'
 alias dc='git diff --cached'
 alias ga='git add'
-alias gb='git checkout @{-1}'
 alias gap='git add -p'
+alias gb='git checkout @{-1}'
 alias gca='git commit --amend'
 alias gcan='git commit --amend --no-edit'
 alias gf='git fx'
+alias gignore='git update-index --assume-unchanged'
 alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
-alias gignore='git update-index --assume-unchanged'
+alias st='git status'
 complete -A directory gm
 
 function gc() {
@@ -67,14 +68,6 @@ function gc() {
 
 function lg() {
   git log --abbrev-commit --oneline --pretty=format:'%C(red)%h%C(reset) %C(blue)<%<(25)%an>%Creset %s' -n 10 $@
-}
-
-function st() {
-  if [[ $(pwd) == */code/source* ]]; then
-    git status --untracked-files=no
-  else
-    git status
-  fi
 }
 
 ulimit -c unlimited
