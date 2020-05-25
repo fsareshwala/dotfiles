@@ -1,0 +1,15 @@
+#!/bin/sh
+
+absolute_path="$(realpath $1)"
+relative_path=$(dirname
+
+filename="${absolute_path##*/}"
+echo $filename
+
+case "$1" in
+  *.tex)
+    pdf=bazel-out/${$1/$PWD/}
+    # setsid xdg-open "$basename".pdf >/dev/null 2>&1 &
+    ;;
+  *) echo "unsupported: $1"
+esac
