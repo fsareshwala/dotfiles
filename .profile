@@ -11,6 +11,7 @@ export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 export READER=zathura
+export BROWSER=google-chrome
 
 export PATH=.:${PATH}
 export PATH=~/prefix/bin:${PATH}
