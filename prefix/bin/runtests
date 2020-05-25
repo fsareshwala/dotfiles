@@ -1,2 +1,14 @@
-c/cpp
-tex
+#!/usr/bin/env bash
+
+absolute_path=$(realpath "$1")
+filename=$(basename "$absolute_path")
+directory=$(dirname "$absolute_path")
+
+case $absolute_path in
+  *.c|*.cc)
+    bazel test ...
+    ;;
+  *)
+    echo "error: unsupported file ($absolute_path)"
+    ;;
+esac
