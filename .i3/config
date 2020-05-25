@@ -2,6 +2,7 @@
 # vim:filetype=i3config
 
 set $mod Mod1
+set $term --no-startup-id /usr/bin/urxvt
 set $font -*-terminus-medium-r-*-*-20-*-*-*-*-*-*-*
 font $font
 focus_follows_mouse yes
@@ -15,15 +16,16 @@ floating_modifier $mod
 
 # start a terminal
 # centos: rxvt-unicode-256color
-bindsym $mod+Return exec /usr/bin/urxvt
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
 # program bindings
-bindsym $mod+r exec dmenu_run -nb \#222222 -nf \#bbbbbb -sb \#005577 -sf \#eeeeee
 bindsym $mod+e exec ~/prefix/bin/expand
-bindsym $mod+s exec ~/prefix/bin/screenshot
+bindsym $mod+r exec dmenu_run -nb \#222222 -nf \#bbbbbb -sb \#005577 -sf \#eeeeee
+bindsym $mod+s exec flameshot full -p ~
+bindsym $mod+t split toggle
 
 # change focus
 bindsym $mod+h focus Left
@@ -45,12 +47,6 @@ bindsym $mod+control+l resize grow Right 5px or 5ppt
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
-
-# split in some directional orientation
-bindsym $mod+Left split h
-bindsym $mod+Right split h
-bindsym $mod+Up split v
-bindsym $mod+Down split v
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
@@ -89,10 +85,10 @@ bindsym $mod+shift+q restart
 bindsym $mod+shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 exec --no-startup-id numlockx
-exec --no-startup-id 'dunst -conf /home/fsareshwala/.dunstrc'
-exec --no-startup-id 'setxkbmap -layout us -option ctrl:nocaps'
-exec --no-startup-id 'xset r rate 150 100'
-exec --no-startup-id 'xset b off'
+exec --no-startup-id dunst -conf /home/fsareshwala/.dunstrc
+exec --no-startup-id setxkbmap -layout us -option ctrl:nocaps
+exec --no-startup-id xset r rate 150 100
+exec --no-startup-id xset b off
 
 bar {
     status_command i3status
