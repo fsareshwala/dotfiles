@@ -188,7 +188,6 @@ function! LanguageSetup()
     nnoremap K :execute 'Man ' . expand('<cword>')<cr>
     setlocal commentstring=//\ %s
   elseif(&ft == 'tex')
-    nnoremap <leader>b :!bazel build ...<cr>
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
