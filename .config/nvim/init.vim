@@ -211,16 +211,19 @@ autocmd BufEnter *.workflow setlocal ft=json
 autocmd BufEnter *.aurora setlocal ft=python
 
 " --- Random hacks
-" Print date and underline
+" automatically commit and push changes within the personal directory when I leave a file within it
+autocmd QuitPre ~/personal/* :Git commit -a -m 'personal: automatic update 21' | Git push
+
+" print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
 
-" Load vimrc on save
+" load vimrc on save
 augroup vimrc
   autocmd!
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
-" Return to the same line when you reopen a file
+" return to the same line when you reopen a file
 augroup line_return
   autocmd!
   autocmd BufReadPost *
@@ -229,6 +232,6 @@ augroup line_return
       \ endif
 augroup END
 
-" Automatically delete all trailing whitespace and newlines at end of file on save
+" automatically delete all trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
