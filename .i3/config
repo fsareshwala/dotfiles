@@ -19,9 +19,10 @@ bindsym $mod+Return exec /usr/bin/urxvt
 # kill focused window
 bindsym $mod+Shift+c kill
 
-# start dmenu (a program launcher)
+# program bindings
 bindsym $mod+r exec dmenu_run -nb \#222222 -nf \#bbbbbb -sb \#005577 -sf \#eeeeee
-bindsym $mod+u exec ~/prefix/bin/expand
+bindsym $mod+e exec ~/prefix/bin/expand
+bindsym $mod+s exec ~/prefix/bin/screenshot
 
 # change focus
 bindsym $mod+h focus Left
