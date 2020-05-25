@@ -116,7 +116,6 @@ nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
 nnoremap <leader>t :w! \| !runtests <c-r>%<cr>
 nnoremap <leader>o :w! \| !open <c-r>%<cr>
 nnoremap <leader>u YpVr-
-nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>f :syntax sync fromstart
@@ -208,6 +207,10 @@ autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown setlocal spell
 
+" --- Twitter settings
+autocmd BufEnter *.workflow setlocal ft=json
+autocmd BufEnter *.aurora setlocal ft=python
+
 " --- Random hacks
 " Print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
@@ -227,6 +230,6 @@ augroup line_return
       \ endif
 augroup END
 
-" --- Twitter settings
-autocmd BufEnter *.workflow setlocal ft=json
-autocmd BufEnter *.aurora setlocal ft=python
+" Automatically delete all trailing whitespace and newlines at end of file on save
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritepre * %s/\n\+\%$//e
