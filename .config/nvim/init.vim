@@ -111,13 +111,17 @@ nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
-nnoremap <leader>v :e  ~/.config/nvim/init.vim<cr>
-nnoremap <leader>s :vsplit<cr>
+nnoremap <leader>b :w! \| !compile <c-r>%<cr>
 nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
+nnoremap <leader>t :w! \| !runtests <c-r>%<cr>
+nnoremap <leader>o :w! \| !open <c-r>%<cr>
 nnoremap <leader>u YpVr-
-nnoremap <silent> <leader>= :vertical resize +5<cr>
+nnoremap <silent> <f4> :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
+nnoremap <silent> <leader>= :vertical resize +5<cr>
+nnoremap <silent> <leader>f :syntax sync fromstart
+nnoremap <silent> <leader>s :vsplit<cr>
+nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
 
 " --- Editor configuration
 autocmd VimResized * exe 'normal! \<c-w>='
@@ -181,17 +185,9 @@ set wrapscan
 
 " --- File runners for various languages
 function! LanguageSetup()
-  let path = expand('%:p:h')
-
   if(&ft == 'c' || &ft == 'cpp')
     nnoremap K :execute 'Man ' . expand('<cword>')<cr>
-    nnoremap <leader>b :make -j 3<cr>
-    nnoremap <leader>t :make test<cr>
-    nnoremap <leader>r exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<cr>
     setlocal commentstring=//\ %s
-  elseif(&ft == 'go')
-    nnoremap <leader>b :GoBuild<cr>
-    nnoremap <leader>t :GoTest<cr>
   elseif(&ft == 'tex')
     nnoremap <leader>b :!bazel build ...<cr>
     let b:surround_45 = '\\texttt{\r}'
@@ -211,9 +207,9 @@ let php_htmlInStrings = 1
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown setlocal spell
-autocmd BufEnter markdown :syntax sync fromstart
 
 " --- Random hacks
+" Print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
 
 " Load vimrc on save
