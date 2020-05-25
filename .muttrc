@@ -13,30 +13,31 @@ set record = "+Sent\ Items"
 set postponed = "+Drafts"
 set smtp_url="smtp://fsareshwala@quantcast.com@east.exch032.serverdata.net:587/"
 
-set editor=vim
-set shell="/bin/bash"
-set query_command="~/prefix/bin/mutt_ldap.py '%s'"
 bind editor "\t" complete-query
 
 set beep_new
-set sleep_time=0
-set nosave_empty                        # remove files when no messages are left
-set include                             # always include messages when replying
-set fast_reply                          # skip initial prompts when replying
-set reply_to                            # always use reply-to if present
-set move=no
-set copy=yes                            # always save a copy of outgoing messages
 set bounce=yes                          # don't ask about bouncing messages, just do it
+set copy=yes                            # always save a copy of outgoing messages
 set delete=yes                          # purge deleted messages without asking
-set nomark_old                          # i don't care about whether a message is old
+set editor=vim
+set envelope_from
+set fast_reply                          # skip initial prompts when replying
+set include                             # always include messages when replying
 set mail_check=1                        # how often to poll for new mail
-set timeout=15                          # timeout for prompt in the index menu
 set mime_forward                        # use message/rfc822 type to forward messages
+set move=no
+set nomark_old                          # i don't care about whether a message is old
+set nosave_empty                        # remove files when no messages are left
 set pager_index_lines=20                # how many index lines to show in the pager
-set reverse_name                        # use my address as it appears in the message i am replying to
+# set query_command="~/prefix/bin/mutt_ldap.py '%s'"
 set read_inc=25                         # show progress when reading a mailbox
+set reply_to                            # always use reply-to if present
+set reverse_name                        # use my address as it appears in the message i am replying to
+set shell="/bin/bash"
+set sleep_time=0
+set timeout=15                          # timeout for prompt in the index menu
+set use_from
 set write_inc=25                        # show progress while writing mailboxes
-unset mark_old
 unset markers                           # no annoying + markers at beginning of wrapped lines
 auto_view text/html
 auto_view text/calendar
@@ -56,7 +57,6 @@ set sort_browser=reverse-date           # how to sort files in the dir browser
 set sort=threads
 #set sort_aux=date-received
 set nouse_domain                        # don't qualify local addresses with $domain
-set use_from                            # always generate the `From:' header field
 
 # Headers to ignore
 ignore *
