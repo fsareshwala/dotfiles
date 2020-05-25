@@ -207,8 +207,6 @@ autocmd BufEnter * call LanguageSetup()
 let php_sql_query = 1
 let php_htmlInStrings = 1
 
-autocmd BufEnter *.workflow setlocal ft=json
-autocmd BufEnter *.aurora setlocal ft=python
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown setlocal spell
@@ -231,3 +229,7 @@ augroup line_return
       \     execute 'normal! g`"zvzz' |
       \ endif
 augroup END
+
+" --- Twitter settings
+autocmd BufEnter *.workflow setlocal ft=json
+autocmd BufEnter *.aurora setlocal ft=python
