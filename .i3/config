@@ -23,7 +23,7 @@ bindsym $mod+Shift+c kill
 
 # program bindings
 bindsym $mod+e exec ~/prefix/bin/expand
-bindsym $mod+r exec dmenu_run -nb \#222222 -nf \#bbbbbb -sb \#005577 -sf \#eeeeee
+bindsym $mod+r exec dmenu_run -c -n -l 50
 bindsym $mod+s exec flameshot full -p ~
 bindsym $mod+t split toggle
 
