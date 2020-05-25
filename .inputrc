@@ -17,14 +17,18 @@ set vi-cmd-mode-string \1\e[2 q\2
 set vi-ins-mode-string \1\e[6 q\2
 
 set keymap vi-command
-Control-l: clear-screen
 Control-a: beginning-of-line
+Control-b: backward-word
 Control-e: end-of-line
+Control-f: forward-word
+Control-l: clear-screen
 Control-r: history-search-backward
 
 set keymap vi-insert
-Control-l: clear-screen
 Control-a: beginning-of-line
+Control-b: backward-word
 Control-e: end-of-line
+Control-f: forward-word
+Control-l: clear-screen
 Control-r: history-search-backward
 $endif
