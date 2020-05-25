@@ -232,6 +232,9 @@ augroup line_return
       \ endif
 augroup END
 
+" Save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 " automatically delete all trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
