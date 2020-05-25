@@ -34,4 +34,4 @@ done < ~/personal/info.sh
 # execute dmenu and load into clipboard
 for key in "${!replacements[@]}"; do
   echo $key
-done | dmenu -c -n -l 50 | update | xargs --null xdotool type --clearmodifiers --delay 0
+done | dmenu -c -l 50 | update | xargs --null xdotool type --clearmodifiers --delay 0
