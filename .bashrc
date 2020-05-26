@@ -45,6 +45,20 @@ function reswap() {
   sudo /sbin/swapon -a
 }
 
+function dirdo() {
+  cwd=$(pwd)
+  directories="$(find . -maxdepth 1 -type d)"
+  for dir in $directories; do
+    if [[ $dir == '.' ]]; then
+      continue
+    fi
+
+    cd $dir
+    "$@"
+    cd $cwd
+  done
+}
+
 # miscellaneous aliases
 alias r='tmux attach'
 alias s='source ~/.bashrc'
