@@ -35,10 +35,15 @@ alias json='python -m json.tool'
 alias ls='ls --color'
 alias p='cd ~/personal'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
-alias reswap='sudo /sbin/swapoff -a; sudo /sbin/swapon -a'
 alias vi='vim'
 alias vim='nvim -O'
 alias watch='watch --color'
+alias gita="python3 -m gita"
+
+function reswap() {
+  sudo /sbin/swapoff -a
+  sudo /sbin/swapon -a
+}
 
 # miscellaneous aliases
 alias r='tmux attach'
