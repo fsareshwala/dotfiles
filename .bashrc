@@ -32,7 +32,6 @@ alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias vi='vim'
 alias vim='nvim -O'
 alias watch='watch --color'
-alias gita="python3 -m gita"
 
 function reswap() {
   sudo /sbin/swapoff -a
