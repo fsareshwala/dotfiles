@@ -5,12 +5,6 @@
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
-function rreplace() {
-  old="$1"
-  new="$2"
-  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
-}
-
 stty werase undef
 
 # Share bash history across terminal sessions
@@ -57,6 +51,12 @@ function dirdo() {
     "$@"
     cd $cwd
   done
+}
+
+function rreplace() {
+  old="$1"
+  new="$2"
+  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
 # miscellaneous aliases
