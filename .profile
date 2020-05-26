@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export COLORTERM=yes
 export EDITOR=nvim
@@ -13,11 +13,11 @@ export VISUAL=nvim
 export READER=zathura
 export BROWSER=google-chrome
 
-export PATH=.:${PATH}
-export PATH=~/prefix/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=~/.local/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=~/prefix/bin:${PATH}
+export PATH=.:${PATH}
 
 ssh-agent & > /dev/null
 
