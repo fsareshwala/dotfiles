@@ -14,9 +14,9 @@ export READER=zathura
 export BROWSER=google-chrome
 
 export PATH=/usr/sbin:${PATH}
-export PATH=~/.local/bin:${PATH}
+export PATH=/home/fsareshwala/.local/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
-export PATH=~/prefix/bin:${PATH}
+export PATH=/home/fsareshwala/prefix/bin:${PATH}
 export PATH=.:${PATH}
 
 ssh-agent & > /dev/null
