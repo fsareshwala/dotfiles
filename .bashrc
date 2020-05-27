@@ -13,7 +13,25 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+export BROWSER=google-chrome
+export COLORTERM=yes
+export EDITOR=nvim
+export FIGNORE='.o:~:.pyc'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GOPATH=${HOME}/go
+export JAVA_HOME=/etc/alternatives/java_sdk
+export MAILCAPS=${HOME}/.mailcap
 export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
+export READER=zathura
+export RSYNC_RSH=/usr/bin/ssh
+export TZ=America/Los_Angeles
+export VISUAL=nvim
+
+export PATH=/usr/sbin:${PATH}
+export PATH=/home/fsareshwala/.local/bin:${PATH}
+export PATH=$GOPATH/bin:${PATH}
+export PATH=/home/fsareshwala/prefix/bin:${PATH}
+export PATH=.:${PATH}
 
 shopt -s checkwinsize
 
