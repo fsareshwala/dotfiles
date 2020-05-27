@@ -1,7 +1,7 @@
 Xcursor.size: 20
 Xft.dpi: 144
 
-URxvt.font: xft:terminus:antialias=false:size=10
+URxvt.font: xft:terminus:size=10
 URxvt.letterSpace: 1
 URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
@@ -54,7 +54,7 @@ URxvt.color14:      #42717b
 URxvt.color7:       #dddddd
 URxvt.color15:      #dddddd
 
-dmenu.font: xft:terminus:antialias=false:pixelsize=10
+dmenu.font: xft:terminus:size=10
 dmenu.background: #222222
 dmenu.foreground: #bbbbbb
 dmenu.selbackground: #005577
