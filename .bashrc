@@ -119,3 +119,8 @@ alias rpost='arc multi-diff'
 alias rsubmit='arc land'
 alias rlist='arc list'
 alias rassign='arc amend --revision'
+
+# dottools: add distribution binary directories to PATH
+if [ -r "$HOME/.tools-cache/setup-dottools-path.sh" ]; then
+  . "$HOME/.tools-cache/setup-dottools-path.sh"
+fi

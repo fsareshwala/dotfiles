@@ -1,7 +1,4 @@
-Xcursor.size: 40
-Xft.dpi: 144
-
-URxvt.font: xft:terminus:size=10
+URxvt.font: xft:terminus:pixelsize=10
 URxvt.fading: 75
 URxvt.letterSpace: 1
 URxvt.scrollBar: false
