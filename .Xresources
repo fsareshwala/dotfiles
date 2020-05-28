@@ -53,9 +53,3 @@ URxvt.color6:       #6d878d
 URxvt.color14:      #42717b
 URxvt.color7:       #dddddd
 URxvt.color15:      #dddddd
-
-dmenu.font: xft:terminus:size=10
-dmenu.background: #222222
-dmenu.foreground: #bbbbbb
-dmenu.selbackground: #005577
-dmenu.selforeground: #eeeeee
