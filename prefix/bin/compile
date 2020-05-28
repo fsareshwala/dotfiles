@@ -5,10 +5,7 @@ filename=$(basename "$absolute_path")
 directory=$(dirname "$absolute_path")
 
 case $absolute_path in
-  *.tex)
-    bazel build ...
-    ;;
-  *.c|*.cc)
+  *.tex|*.c|*.cc)
     bazel build ...
     ;;
   *)
