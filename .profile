@@ -14,3 +14,4 @@ eval $(ssh-agent) > /dev/null
 
 numlockx &
 dunst -conf /home/fsareshwala/.dunstrc &
+/home/fsareshwala/code/ccstatus/bazel-bin/ccstatus &
