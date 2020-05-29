@@ -52,7 +52,7 @@ alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias vi='vim'
 alias vim='nvim -O'
 alias watch='watch --color'
-alias patch='patch -merge --no-backup-if-mismatch -i'
+alias patch='patch -merge --no-backup-if-mismatch'
 
 function reswap() {
   sudo /sbin/swapoff -a
