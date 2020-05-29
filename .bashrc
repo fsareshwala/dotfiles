@@ -8,7 +8,8 @@ test -f $git_bash_completion && source $git_bash_completion
 stty werase undef
 
 # Share bash history across terminal sessions
-export HISTFILESIZE=100000
+export HISTFILESIZE=
+export HISTSIZE=
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
