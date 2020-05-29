@@ -12,6 +12,7 @@ xset fp rehash
 
 eval $(ssh-agent) > /dev/null
 
+# start default programs
 numlockx &
 dunst -conf /home/fsareshwala/.dunstrc &
 /home/fsareshwala/code/ccstatus/bazel-bin/ccstatus &
