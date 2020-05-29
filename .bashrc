@@ -46,6 +46,7 @@ alias gdb='cgdb --directory=. -quiet'
 alias grep="grep --color=auto"
 alias json='python -m json.tool'
 alias ls='ls --color'
+alias mkdir='mkdir -p'
 alias p='cd ~/personal'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias vi='vim'
