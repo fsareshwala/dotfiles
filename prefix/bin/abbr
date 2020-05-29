@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=/home/fsareshwala/code/dmenu:${PATH}
+
 declare -A replacements
 replacements['aa']='As Salaam Alaikum'
 replacements['alh']='Alhamdulillah'
