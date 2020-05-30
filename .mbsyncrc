@@ -1,0 +1,23 @@
+imapaccount personal
+host imap.gmail.com
+user faraazs@gmail.com
+passcmd "keyring get personal-email fsareshwala"
+ssltype IMAPS
+certificatefile /etc/pki/tls/certs/ca-bundle.crt
+# certificatefile /etc/ssl/certs/ca-certificates.crt
+
+imapstore personal-remote
+account personal
+
+maildirstore personal-local
+subfolders verbatim
+path ~/.mail/personal/
+inbox ~/.mail/personal/Inbox
+
+channel personal
+master :personal-remote:
+slave :personal-local:
+create both
+syncstate *
+patterns *
+# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
