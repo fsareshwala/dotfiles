@@ -73,6 +73,14 @@ function dirdo() {
   done
 }
 
+function cal() {
+  if [[ $# -eq 0 ]]; then
+    /usr/bin/cal -3
+  else
+    /usr/bin/cal $@
+  fi
+}
+
 function rreplace() {
   old="$1"
   new="$2"
