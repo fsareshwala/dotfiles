@@ -2,32 +2,6 @@
 
 set -e
 
-usage() {
-  echo "usage: $0 [options]
-
-$0 generates a tags file within the top level git root directory.
-
-  Available Options:
-    --help                    show this help message
-  "
-}
-
-# parse arguments
-while true ; do
-  case "$1" in
-    --help)
-      usage
-      exit
-      ;;
-    --)
-      shift ; break
-      ;;
-    *)
-      break
-      ;;
-  esac
-done
-
 generate_tags() {
   path=$1
   pid=$$
@@ -37,17 +11,10 @@ generate_tags() {
   mv $path/$pid.tags $path/tags
 }
 
+gitroot="$(git rev-parse --show-toplevel)"
+cd $gitroot
 
-# if we are in twitter source code, only generate tags for specific services
-cwd=$(pwd)
-if [[ $cwd == */code/source* ]]; then
-  services="limiter muxproxy tfe wilyns macaw-meta"
-  for service in $services; do
-    generate_tags $service
-  done
-else
-  gitroot="$(git rev-parse --show-toplevel)"
-  generate_tags $gitroot
-fi
-
-
+pid=$$
+trap "rm -f $gitroot/$pid.tags" EXIT
+ctags --exclude=deps -f $pid.tags
+mv $pid.tags tags
