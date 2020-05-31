@@ -60,7 +60,7 @@ let NERDTreeWinSize = 31
 autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
-nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeMirror<cr>
 
 call dein#add('chaoren/vim-wordmotion')
 let g:wordmotion_spaces = '_-.'
