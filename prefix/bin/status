@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+while true; do
+  load_one=$(uptime | awk '{print $10}' | tr -d ',')
+  cpu_usage=$(top -bn1 | grep Cpu | tr -d ',' | awk '{printf "%.01f", 100 - $8}')
+  india_time=$(TZ=Asia/Calcutta date +"%I:%M:%S %p")
+  local_time=$(TZ=America/Los_Angeles date +"%A, %B %d, %Y, %I:%M:%S %p")
+
+  # https://stackoverflow.com/a/41251290
+  # Non cache/buffer memory: MemTotal - MemFree - Buffers - Cached
+  memory_usage=$(free | grep Mem | awk '{printf "%.01f", $3 / $2 * 100}')
+
+  status_str=" load one: $load_one"
+  status_str+=" | cpu: $cpu_usage%"
+  status_str+=" | mem: $memory_usage%"
+  status_str+=" | IN: $india_time"
+  status_str+=" | $local_time"
+  xsetroot -name "$status_str"
+  sleep 1
+done
