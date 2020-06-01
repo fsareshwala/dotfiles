@@ -1,10 +1,10 @@
+# personal email configuration
 imapaccount personal
 host imap.gmail.com
 user faraazs@gmail.com
 passcmd "keyring get personal-email fsareshwala"
 ssltype IMAPS
-certificatefile /etc/pki/tls/certs/ca-bundle.crt
-# certificatefile /etc/ssl/certs/ca-certificates.crt
+certificatefile /etc/ssl/certs/ca-certificates.crt
 
 imapstore personal-remote
 account personal
@@ -20,4 +20,26 @@ slave :personal-local:
 create both
 syncstate *
 patterns *
-# Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+
+# work email configuration
+imapaccount work
+host imap.gmail.com
+user fsareshwala@twitter.com
+passcmd "keyring get work-email fsareshwala"
+ssltype IMAPS
+certificatefile /etc/ssl/certs/ca-certificates.crt
+
+imapstore work-remote
+account work
+
+maildirstore work-local
+subfolders verbatim
+path ~/.mail/work/
+inbox ~/.mail/work/Inbox
+
+channel work
+master :work-remote:
+slave :work-local:
+create both
+syncstate *
+patterns *
