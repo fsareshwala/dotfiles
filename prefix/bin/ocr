@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+maim -s | tesseract stdin stdout 2> /dev/null | xclip
