@@ -5,6 +5,7 @@ user faraazs@gmail.com
 passcmd "keyring get personal-email fsareshwala"
 ssltype IMAPS
 certificatefile /etc/ssl/certs/ca-certificates.crt
+pipelinedepth 100
 
 imapstore personal-remote
 account personal
@@ -28,6 +29,7 @@ user fsareshwala@twitter.com
 passcmd "keyring get work-email fsareshwala"
 ssltype IMAPS
 certificatefile /etc/ssl/certs/ca-certificates.crt
+pipelinedepth 100
 
 imapstore work-remote
 account work
