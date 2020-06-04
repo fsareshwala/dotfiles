@@ -43,6 +43,7 @@ while true; do
   cpu_usage=$(top -bn1 | grep Cpu | tr -d ',' | awk '{printf "%.01f", 100 - $8}')
   india_time=$(TZ=Asia/Calcutta date +"%I:%M:%S %p")
   local_time=$(TZ=America/Los_Angeles date +"%A, %B %d, %Y, %I:%M:%S %p")
+  volume=$(amixer sget Master | grep Right | awk -F"[][]" '{print $2}' | sed '/^$/d')
 
   # https://stackoverflow.com/a/41251290
   # Non cache/buffer memory: MemTotal - MemFree - Buffers - Cached
@@ -53,6 +54,7 @@ while true; do
   status_str+=" | mem: $memory_usage%"
   # status_str+=" | up: $[$network_up / 1024] kb/s"
   # status_str+=" | down: $[$network_down / 1024] kb/s"
+  status_str+=" | vol: $volume"
   status_str+=" | IN: $india_time"
   status_str+=" | $local_time"
   xsetroot -name "$status_str"
