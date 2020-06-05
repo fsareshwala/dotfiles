@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-xclip -o | espeak
+xclip -o -selection clipboard | espeak
