@@ -1,62 +1,38 @@
 #!/usr/bin/env bash
 
-function min() {
-  a=$1
-  b=$2
-
-  if [[ $a -lt $b ]]; then
-    echo $a
-  else
-    echo $b
-  fi
+function load_one() {
+  uptime | awk '{print $10}' | tr -d ','
 }
 
-network_up=0
-prev_network_up=0
-calculate_network_up() {
-  sum=0
-  for bytes in $(cat /sys/class/net/*/statistics/tx_bytes); do
-    sum=$[$sum + $bytes]
-  done
-
-  network_up=$[$sum - $prev_network_up]
-  prev_network_up=$sum
+function cpu_usage() {
+  top -bn1 | grep Cpu | tr -d ',' | awk '{printf "%.01f", 100 - $8}'
 }
 
-network_down=0
-prev_network_down=0
-calculate_network_down() {
-  sum=0
-  for bytes in $(cat /sys/class/net/*/statistics/rx_bytes); do
-    sum=$[$sum + $bytes]
-  done
+function memory_usage() {
+  # https://stackoverflow.com/a/41251290
+  # Non cache/buffer memory: MemTotal - MemFree - Buffers - Cached
+  free | grep Mem | awk '{printf "%.01f", $3 / $2 * 100}'
+}
 
-  network_down=$[$sum - $prev_network_down]
-  prev_network_down=$sum
+function india_time() {
+  TZ=Asia/Calcutta date +"%I:%M:%S %p"
+}
+
+function local_time() {
+  TZ=America/Los_Angeles date +"%A, %B %d, %Y, %I:%M:%S %p"
+}
+
+function volume() {
+  amixer sget Master | grep Right | awk -F"[][]" '{print $2}' | sed '/^$/d'
 }
 
 while true; do
-  calculate_network_up
-  calculate_network_down
-
-  load_one=$(uptime | awk '{print $10}' | tr -d ',')
-  cpu_usage=$(top -bn1 | grep Cpu | tr -d ',' | awk '{printf "%.01f", 100 - $8}')
-  india_time=$(TZ=Asia/Calcutta date +"%I:%M:%S %p")
-  local_time=$(TZ=America/Los_Angeles date +"%A, %B %d, %Y, %I:%M:%S %p")
-  volume=$(amixer sget Master | grep Right | awk -F"[][]" '{print $2}' | sed '/^$/d')
-
-  # https://stackoverflow.com/a/41251290
-  # Non cache/buffer memory: MemTotal - MemFree - Buffers - Cached
-  memory_usage=$(free | grep Mem | awk '{printf "%.01f", $3 / $2 * 100}')
-
-  status_str=" load one: $load_one"
-  status_str+=" | cpu: $cpu_usage%"
-  status_str+=" | mem: $memory_usage%"
-  # status_str+=" | up: $[$network_up / 1024] kb/s"
-  # status_str+=" | down: $[$network_down / 1024] kb/s"
-  status_str+=" | vol: $volume"
-  status_str+=" | IN: $india_time"
-  status_str+=" | $local_time"
-  xsetroot -name "$status_str"
+  status_str=" load one: $(load_one)"
+  status_str+=" | cpu: $(cpu_usage)%"
+  status_str+=" | mem: $(memory_usage)%"
+  status_str+=" | vol: $(volume)"
+  status_str+=" | IN: $(india_time)"
+  status_str+=" | $(local_time)"
+  echo $status_str
   sleep 1
 done
