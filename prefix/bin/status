@@ -26,13 +26,23 @@ function volume() {
   amixer sget Master | grep Right | awk -F"[][]" '{print $2}' | sed '/^$/d'
 }
 
+function vpn() {
+  ps -fu root | grep -q vpn.twttr.com
+  if [[ $? -eq 0 ]]; then
+    echo "yes"
+  else
+    echo "no"
+  fi
+}
+
 while true; do
   status_str=" load one: $(load_one)"
   status_str+=" | cpu: $(cpu_usage)%"
   status_str+=" | mem: $(memory_usage)%"
   status_str+=" | vol: $(volume)"
+  status_str+=" | vpn: $(vpn)"
   status_str+=" | IN: $(india_time)"
   status_str+=" | $(local_time)"
-  echo $status_str
+  xsetroot -name "$status_str"
   sleep 1
 done
