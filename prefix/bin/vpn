@@ -2,7 +2,7 @@
 
 password="$(keyring get vpn fsareshwala)"
 password2='push'
-tunnel='TWO FACTOR SPLIT TUNNEL'
+tunnel='TWO FACTOR FULL TUNNEL'
 vpn_cmd='openconnect --protocol=nc --user=fsareshwala --passwd-on-stdin https://vpn.twttr.com'
 
 sudo $vpn_cmd << EOF &
