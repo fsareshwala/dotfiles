@@ -53,6 +53,8 @@ alias vi='vim'
 alias vim='nvim -O'
 alias watch='watch --color'
 alias patch='patch -merge --no-backup-if-mismatch'
+alias weather='curl wttr.in'
+alias thes='aiksaurus'
 
 function reswap() {
   sudo /sbin/swapoff -a
