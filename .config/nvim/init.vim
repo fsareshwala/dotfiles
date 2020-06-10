@@ -108,6 +108,7 @@ nnoremap <c-k> <esc><c-w>k
 nnoremap <c-l> <esc><c-w>l
 nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
+xnoremap <c-\> gc
 nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
 nnoremap j gj
@@ -151,6 +152,7 @@ set list
 set listchars=tab:\|-,trail:~,extends:>,precedes:<
 set matchtime=3
 set modeline
+set modelines=5
 set mouse=
 set mousehide
 set nobackup
