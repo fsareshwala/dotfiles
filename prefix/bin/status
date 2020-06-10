@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function load_one() {
-  uptime | awk '{print $10}' | tr -d ','
+  uptime | awk '{print $11}' | tr -d ','
 }
 
 function cpu_usage() {
