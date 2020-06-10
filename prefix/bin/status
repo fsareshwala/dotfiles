@@ -29,9 +29,7 @@ function volume() {
 function vpn() {
   ps -fu root | grep -q vpn.twttr.com
   if [[ $? -eq 0 ]]; then
-    echo "yes"
-  else
-    echo "no"
+    echo "vpn"
   fi
 }
 
@@ -40,7 +38,13 @@ while true; do
   status_str+=" | cpu: $(cpu_usage)%"
   status_str+=" | mem: $(memory_usage)%"
   status_str+=" | vol: $(volume)"
-  status_str+=" | vpn: $(vpn)"
+
+  # only show vpn status if we are connected
+  output=$(vpn)
+  if [[ ! -z $output ]]; then
+    status_str+=" | $output"
+  fi
+
   status_str+=" | IN: $(india_time)"
   status_str+=" | $(local_time)"
   xsetroot -name "$status_str"
