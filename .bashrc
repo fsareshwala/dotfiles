@@ -123,10 +123,3 @@ ulimit -c unlimited
 ulimit -m 1048576
 # ulimit -n 8192
 # ulimit -l 16384
-
-# twitter aliases
-alias rpost='arc multi-diff'
-alias rsubmit='arc land'
-alias rlist='arc list'
-alias rassign='arc amend --revision'
-test -f ~/.tools-cache/setup-dottools-path.sh && source ~/.tools-cache/setup-dottools-path.sh
