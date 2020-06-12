@@ -125,6 +125,7 @@ cs404
 ctrl
 da'wah
 diff
+dotfiles
 etc
 faraazs
 filesystem
@@ -151,6 +152,7 @@ java
 json
 libevent
 linearithmic
+malware
 memcached
 mentorship
 mergesort
@@ -158,6 +160,7 @@ mergesort's
 mkdir
 monorepo
 monospace
+multicore
 multithreaded
 multithreading
 mv
@@ -167,6 +170,7 @@ nanijaan
 oncall
 pdf
 plagiaristically
+plaintext
 plugin
 plugins
 preorder
@@ -179,6 +183,7 @@ realtime
 realtor
 realtors
 redis
+refactor
 repl
 runbook
 s
@@ -209,7 +214,3 @@ wildcard
 workflow
 workflows
 zina
-plaintext
-dotfiles
-refactor
-multicore
