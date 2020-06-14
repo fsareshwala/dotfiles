@@ -1,10 +1,10 @@
 build --linkopt -fsanitize=address
 
-build --cxxopt -std=c++17
 build --cxxopt -DADDRESS_SANITIZER
 build --cxxopt -Werror
 build --cxxopt -fno-omit-frame-pointer
 build --cxxopt -fsanitize=address
+build --cxxopt -std=c++17
 
 test --cache_test_results=yes
 test --test_output=errors
