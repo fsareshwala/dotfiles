@@ -25,7 +25,7 @@ let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 call dein#add('junegunn/vim-easy-align')
-nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 call dein#add('vimwiki/vimwiki')
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
