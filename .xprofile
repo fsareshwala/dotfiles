@@ -9,10 +9,3 @@ xsetroot -solid black
 
 xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
-
-eval $(ssh-agent) > /dev/null
-
-# start default programs
-numlockx &
-dunst -conf /home/fsareshwala/.dunstrc &
-/home/fsareshwala/prefix/bin/status &
