@@ -41,7 +41,6 @@ alias -- -='cd -'
 alias -- ..='cd ..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
-alias fc='forecash'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="grep --color=auto"
 alias json='python -m json.tool'
