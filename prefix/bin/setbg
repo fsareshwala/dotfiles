@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ~/personal/wallpapers
+feh --bg-fill $(ls | shuf -n 1)
