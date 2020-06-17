@@ -10,4 +10,4 @@ xsetroot -solid black
 xset +fp /usr/share/fonts/X11/misc
 xset fp rehash
 
-(cd ~/personal/wallpapers && feh --bg-fill $(ls | shuf -n 1))
+/home/fsareshwala/prefix/bin/setbg
