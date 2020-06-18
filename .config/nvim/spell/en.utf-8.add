@@ -36,6 +36,7 @@ GUIs
 GitHub
 GitHub's
 Grabowski
+Hadoop
 Hasiba
 Hiba
 Hiba's
@@ -51,6 +52,7 @@ Kruskal's
 Levenshtein
 Ln
 Lut
+MLS
 Masetti
 Milpitas
 Mubina
@@ -63,6 +65,7 @@ Nuh
 OpenSSL
 Pleasanton
 Prim's
+Quantcast
 Quora
 Raahil
 Rehan
@@ -79,6 +82,7 @@ Schulte
 Sharir
 Sidra
 Sohel
+TLS
 Taraweeh
 Templatized
 Todo
@@ -86,11 +90,13 @@ Torvalds
 TurnItIn
 Twemcache
 Twilley
+Twitter's
 UC
 VSCode
 Wauconda
 WhatsApp
 XCode
+YouTube
 accessor
 airbnb
 akhira
@@ -104,10 +110,12 @@ autocomplete
 autocompletion
 awk
 backend
+backends
 backstory
 barista
 bazel
 bg
+bluetooth
 buildable
 burstsort
 campuswire
@@ -124,14 +132,21 @@ cp
 cs404
 ctrl
 da'wah
+daemontools
+datacenters
 diff
+dmenu
 dotfiles
+dwm
+emoji
 etc
 faraazs
 filesystem
+filesystems
 filetypes
 fitnas
 fsareshwala
+gaslighting
 github
 gitignore
 globbing
@@ -167,7 +182,9 @@ mv
 nabi
 nanajaan
 nanijaan
+onboarding
 oncall
+overplan
 pdf
 plagiaristically
 plaintext
@@ -176,6 +193,7 @@ plugins
 preorder
 protip
 protips
+protobuf
 pwd
 quicksort
 qurbani
@@ -199,6 +217,7 @@ teardown
 templatized
 thirdparty
 timestamp
+toolchain
 tradeoffs
 trie
 twemcache
@@ -214,9 +233,3 @@ wildcard
 workflow
 workflows
 zina
-bluetooth
-emoji
-dmenu
-dwm
-YouTube
-daemontools
