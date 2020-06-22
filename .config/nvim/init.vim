@@ -147,6 +147,7 @@ set ignorecase
 set inccommand=split
 set incsearch
 set laststatus=2
+set nrformats+=alpha,octal
 set list
 set listchars=tab:\|-,trail:~,extends:>,precedes:<
 set matchtime=3
