@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# This script merges in changes from the public assignment repository into private student forks.
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: $0 repo"
+  exit 1
+fi
+
+repo=$1
+
+git remote remove upstream
+git remote add upstream git@github.com:fsareshwala/$repo.git
+git fetch upstream
+git merge --no-edit --ff upstream/master
