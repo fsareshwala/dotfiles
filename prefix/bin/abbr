@@ -33,7 +33,7 @@ while IFS=: read -r key value; do
   replacements[$key]="$value"
 done < ~/personal/info
 
-# execute dmenu and load into clipboard
+# execute dmenu and instruct X server to type result
 for key in "${!replacements[@]}"; do
   echo $key
-done | dmenu -f -c -l 50 -fn terminus:size=10 | update | xargs --null xdotool type --clearmodifiers --delay 0
+done | dmenu -f -c -l 50 | update | xargs --null xdotool type --clearmodifiers --delay 0
