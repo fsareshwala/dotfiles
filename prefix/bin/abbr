@@ -22,7 +22,7 @@ function trim() {
 
 function update() {
   read value
-  expansion="${replacements[$value]}"
+  local expansion="${replacements[$value]}"
   echo -n "$expansion"
 }
 
