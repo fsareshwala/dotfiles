@@ -1843,20 +1843,9 @@ function pad() {
   fi
 }
 
-function update() {
-  selection=$(cat)
-
-  local codepoints="${emoji_map[$selection]}"
-  local result=""
-
-  for codepoint in $codepoints; do
-    result="${result}U$(pad $codepoint 8 0)"
-  done
-
-  echo $result
-}
-
-# execute dmenu and instruct X server to type result
-for key in "${!emoji_map[@]}"; do
-  echo $key
-done | dmenu -f -c -l 50 | update | xargs xdotool key --clearmodifiers
+selection=$(for key in "${!emoji_map[@]}"; do echo $key; done | dmenu -F -f -c -l 50)
+codepoints="${emoji_map[$selection]}"
+for codepoint in $codepoints; do
+  padded=$(pad $codepoint 8 0)
+  xdotool key --clearmodifiers U$padded
+done
