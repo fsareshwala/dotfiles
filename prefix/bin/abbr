@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+topdir=$(git rev-parse --show-toplevel)
+source $topdir/prefix/lib/utilities.sh
+
 export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
 declare -A replacements
@@ -15,10 +18,6 @@ replacements['jzk']='JazakAllah Khair'
 
 replacements['howel']='Hope you are doing well!'
 replacements['recresp']='Thanks for reaching out! I am not looking to make a move at the moment but I wish you the best in your search!'
-
-function trim() {
-  echo "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
-}
 
 # load some personal information that shouldn't be published into replacements
 while IFS=: read -r key value; do
