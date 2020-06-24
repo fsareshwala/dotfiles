@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# This script copies assignment solutions into the appropriate student assignment directories.
+
+function log_error() {
+    echo "error: $1"
+    exit
+}
+
+function usage() {
+    echo "$(basename $0) copies solutions into the appropriate directories for each program.
+
+This script is meant to be used by the instructor. If you are a student, you may ignore this script
+entirely.
+
+    Required arguments:
+        -p|--program          The program number to copy solutions for
+        -r|--repo-path        The repository path to copy solutions from
+
+    Optional arguments:
+        -h|--help             Show this help
+"
+}
+
+positional=()
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        -p|--program)
+            program="$2"
+            shift; shift
+            ;;
+        -r|--repo-path)
+            repo_path="$2"
+            shift; shift
+            ;;
+        -h|--help)
+            usage
+            exit
+            ;;
+        *)
+            positional+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ -z "$program" ]]; then
+    log_error "no program number provided"
+fi
+
+solutions_map_path=$repo_path/solutions.map
+
+declare -A solutions_map
+while IFS=: read -r key value; do
+    if [[ -z $key ]]; then
+        continue
+    fi
+
+    solutions_map[$key]="${solutions_map[$key]} $value"
+done < $solutions_map_path
+
+for file in ${solutions_map[$program]}; do
+    directory=solutions/$program
+    mkdir -p $directory
+    cp $repo_path/$file $directory
+done
