@@ -9,7 +9,10 @@
 # After copying and pasting the table from the site above, we can create the bash array below using
 # the following command:
 #
-# awk -F'\t' '{print "emoji_map[\"" $NF "\"]=" "\"" $2 "\""}' data | sed -e 's/\U+//g' > out
+# awk -F'\t' '{print "emoji_map[\"" $NF "\"]=" "\"" $2 "\""}' data | sed -e 's/\U+//g'
+
+topdir=$(git rev-parse --show-toplevel)
+source $topdir/prefix/lib/utilities.sh
 
 export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
@@ -1823,25 +1826,6 @@ emoji_map["flag: Zimbabwe"]="1F1FF 1F1FC"
 emoji_map["flag: England"]="1F3F4 E0067 E0062 E0065 E006E E0067 E007F"
 emoji_map["flag: Scotland"]="1F3F4 E0067 E0062 E0073 E0063 E0074 E007F"
 emoji_map["flag: Walesweofinwefion"]="1F3F4 E0067 E0062 E0077 E006C E0073 E007F"
-
-function pad() {
-  local string=$1
-  local expected_length=$2
-  local padchar=$3
-
-  local actual_length=${#string}
-  local num_padchars=$[$expected_length - $actual_length]
-
-  if [[ $num_padchars -le 0 ]]; then
-    echo -n $string
-  else
-    for i in $(seq 1 $num_padchars); do
-      echo -n $padchar
-    done
-
-    echo -n $string
-  fi
-}
 
 selection=$(for key in "${!emoji_map[@]}"; do echo $key; done | dmenu -F -f -c -l 50)
 codepoints="${emoji_map[$selection]}"
