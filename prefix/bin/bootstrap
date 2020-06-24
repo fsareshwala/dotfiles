@@ -31,45 +31,40 @@ please install the Windows Subsystem for Linux and run this script under that en
     "
 }
 
-function main() {
-    ensure_exists git
+ensure_exists git
 
-    if [[ $# -ne 2 ]]; then
-        usage
+if [[ $# -ne 2 ]]; then
+    usage
+    exit
+fi
+
+local ostype="$(uname -s)"
+case "${ostype}" in
+    CYGWIN* | MINGW*)
+        echo "Error: work in the assignment repository can only be done in unix environments."
+        echo "Error: it appears you are running $ostype on Windows."
+        echo "Error: install the Windows Subsystem for Linux and re-run this script within it."
         exit
-    fi
+        ;;
+esac
 
-    local ostype="$(uname -s)"
-    case "${ostype}" in
-        CYGWIN* | MINGW*)
-            echo "Error: work in the assignment repository can only be done in unix environments."
-            echo "Error: it appears you are running $ostype on Windows."
-            echo "Error: install the Windows Subsystem for Linux and re-run this script within it."
-            exit
-            ;;
-    esac
+git config --global core.whitespace fix,-indent-with-non-tab,trailing-space,cr-at-eol
+git config --global core.autocrlf input
 
-    git config --global core.whitespace fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    git config --global core.autocrlf input
+local repo=$1
+local username=$2
 
-    local repo=$1
-    local username=$2
+test -d $repo && rm -rf $repo
 
-    test -d $repo && rm -rf $repo
+git clone https://github.com/fsareshwala/$repo.git
+cd $repo || log_error "directory $repo does not exist"
 
-    git clone https://github.com/fsareshwala/$repo.git
-    cd $repo || log_error "directory $repo does not exist"
+git remote remove origin
+git remote add -f origin https://github.com/$username/$repo.git
+git remote add -f upstream https://github.com/fsareshwala/$repo.git
+git push -uf origin master
 
-    git remote remove origin
-    git remote add -f origin https://github.com/$username/$repo.git
-    git remote add -f upstream https://github.com/fsareshwala/$repo.git
-    git push -uf origin master
-
-    (cat <<EOF
-test --test_output=errors
-test --cache_test_results=yes
-EOF
-) > ~/.bazelrc
-}
-
-main "$@"
+bazelrc=~/.bazelrc
+test -e $bazelrc && rm -rf $bazelrc
+echo "test --test_output=errors" >> $bazelrc
+echo "test --cache_test_results=yes" >> $bazelrc
