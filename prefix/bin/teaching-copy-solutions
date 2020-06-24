@@ -2,10 +2,8 @@
 
 # This script copies assignment solutions into the appropriate student assignment directories.
 
-function log_error() {
-    echo "error: $1"
-    exit
-}
+topdir=$(git rev-parse --show-toplevel)
+source $topdir/prefix/lib/utilities.sh
 
 function usage() {
     echo "$(basename $0) copies solutions into the appropriate directories for each program.
