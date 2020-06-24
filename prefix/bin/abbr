@@ -20,12 +20,6 @@ function trim() {
   echo "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 }
 
-function update() {
-  read value
-  local expansion="${replacements[$value]}"
-  echo -n "$expansion"
-}
-
 # load some personal information that shouldn't be published into replacements
 while IFS=: read -r key value; do
   key=$(trim $key)
@@ -34,6 +28,6 @@ while IFS=: read -r key value; do
 done < ~/personal/info
 
 # execute dmenu and instruct X server to type result
-for key in "${!replacements[@]}"; do
-  echo $key
-done | dmenu -f -c -l 50 | update | xargs --null xdotool type --clearmodifiers --delay 0
+selection=$(for key in "${!replacements[@]}"; do echo $key; done | dmenu -f -c -l 50)
+expansion="${replacements[$selection]}"
+xdotool type --clearmodifiers --delay 0 "$expansion"
