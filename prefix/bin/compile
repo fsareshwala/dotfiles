@@ -5,13 +5,15 @@ path=$2
 
 case $path in
   *.tex|*.c|*.cc)
-    local fullname=$(bazel query $path)
-    local rule=$(bazel query "attr('srcs', $fullname, ${fullname//:*/}:*)")
+    fullname=$(bazel query $path)
+    rule=$(bazel query "attr('srcs', $fullname, ${fullname//:*/}:*)")
 
     bazel $op $rule
-    for dep in $(bazel query "kind('generated file', rdeps(..., $rule))"); do
-      bazel $op $dep
-    done
+
+    # build/test all dependencies as well -- not quite working yet
+    # for dep in $(bazel query "kind('generated file', rdeps(..., $rule))"); do
+    #   bazel $op $dep
+    # done
     ;;
   *)
     echo "error: unsupported file ($path)"
