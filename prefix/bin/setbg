@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-directory=/home/fsareshwala/personal/wallpapers
+directory=/home/fsareshwala/wallpapers
 if [[ -d $directory ]]; then
   cd $directory
   feh --bg-fill $(ls | shuf -n 1)
