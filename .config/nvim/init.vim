@@ -217,9 +217,6 @@ autocmd BufEnter *.workflow setlocal ft=json
 autocmd BufEnter *.aurora setlocal ft=python
 
 " --- Random hacks
-" automatically commit and push changes within the personal directory when I leave a file within it
-autocmd QuitPre ~/personal/* :Git commit -a -m 'personal: automatic update' | Git push
-
 " print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
 
