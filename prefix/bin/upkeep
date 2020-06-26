@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+topdir=$(git rev-parse --show-toplevel)
+source $topdir/prefix/lib/utilities.sh
+
+function git_update() {
+  local directory=$1
+  if [[ ! -d "$directory" ]]; then
+    log_warn "$directory doesn't exist, not updating git"
+    return
+  fi
+
+  cd $directory
+  local git_status=$(git status --porcelain)
+  if [[ -z "$git_status" ]]; then
+    # no changes in repository, nothing to do
+    return
+  fi
+
+  git add .
+  git commit -m "$(basename $directory): automatic update"
+  git push
+}
+
+git_update ~/personal

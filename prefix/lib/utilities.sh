@@ -2,6 +2,10 @@
 
 # This file contains various utility functions that are used in other shell scripts
 
+function log_warn() {
+    echo "warn: $1"
+}
+
 function log_error() {
     echo "error: $1"
     exit
