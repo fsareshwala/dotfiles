@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+compression_type=$1
+case $compression_type in
+  screen|ebook|printer|prepress|default) ;;
+  *) echo "error: unsupported compression type ($compression_type)" ;;
+esac
+
+filename=$2
+output=${filename%.*}-compressed.pdf
+
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 -dPDFSETTINGS=/$compression_type -dNOPAUSE -dQUIET \
+    -dBATCH -sOutputFile=$output $filename
