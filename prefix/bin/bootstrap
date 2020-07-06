@@ -40,7 +40,7 @@ if [[ $# -ne 2 ]]; then
     exit
 fi
 
-local ostype="$(uname -s)"
+ostype="$(uname -s)"
 case "${ostype}" in
     CYGWIN* | MINGW*)
         echo "Error: work in the assignment repository can only be done in unix environments."
@@ -53,8 +53,8 @@ esac
 git config --global core.whitespace fix,-indent-with-non-tab,trailing-space,cr-at-eol
 git config --global core.autocrlf input
 
-local repo=$1
-local username=$2
+repo=$1
+username=$2
 
 test -d $repo && rm -rf $repo
 
