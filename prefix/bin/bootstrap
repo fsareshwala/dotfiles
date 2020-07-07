@@ -3,6 +3,8 @@
 # This script bootstraps student environments with a private fork of the public assignment
 # repository. You should not run this script from a clone of the repository. Rather, run this script
 # directly using the instructions in the readme.md file.
+#
+# TODO: query the ssh agent to see if ssh keys are loaded and prefer using ssh instead of https
 
 # this function must be present in this file because it is curled from student environments
 function log_error() {
