@@ -3,6 +3,8 @@
 # This script bootstraps student environments with a private fork of the public assignment
 # repository. You should not run this script from a clone of the repository. Rather, run this script
 # directly using the instructions in the readme.md file.
+#
+# TODO: query the ssh agent to see if ssh keys are loaded and prefer using ssh instead of https
 
 # this function must be present in this file because it is curled from student environments
 function log_error() {
@@ -17,7 +19,7 @@ function ensure_exists() {
 }
 
 function usage() {
-    echo "usage: $0 username
+    echo "usage: $0 username [use_ssh]
 
 $0 bootstraps student environments with a private fork of the public assignment repository.
 
@@ -27,15 +29,16 @@ please install the Windows Subsystem for Linux and run this script under that en
 
     Positional arguments:
         username            Your GitHub username
+        use_ssh             Use ssh instead of HTTPS
 
     Example:
-        $ bash $0 cs404.1 fsareshwala
+        $ bash $0 cs404.1 fsareshwala [use_ssh]
     "
 }
 
 ensure_exists git
 
-if [[ $# -ne 2 ]]; then
+if [[ $# -eq 1 ]]; then
     usage
     exit
 fi
@@ -55,15 +58,17 @@ git config --global core.autocrlf input
 
 repo=$1
 username=$2
+use_ssh=$3
+if [ -z "$use_ssh" ]; then host="git@gitub"; else host="https://gitub"; fi
 
 test -d $repo && rm -rf $repo
 
-git clone https://github.com/fsareshwala/$repo.git
+git clone $host.com/fsareshwala/$repo.git
 cd $repo || log_error "directory $repo does not exist"
 
 git remote remove origin
-git remote add -f origin https://github.com/$username/$repo.git
-git remote add -f upstream https://github.com/fsareshwala/$repo.git
+git remote add -f origin $host.com/$username/$repo.git
+git remote add -f upstream $host.com/fsareshwala/$repo.git
 git push -uf origin master
 
 bazelrc=~/.bazelrc
