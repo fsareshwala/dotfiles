@@ -68,7 +68,8 @@ function dirdo() {
     fi
 
     cd $dir
-    "$@"
+    echo $(basename $dir):
+    "$@" | sed -e 's/^/    /'
     cd $cwd
   done
 }
