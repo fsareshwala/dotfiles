@@ -20,6 +20,7 @@ call dein#add('mboughaba/i3config.vim')
 
 call dein#add('tpope/vim-speeddating')
 SpeedDatingFormat %A, %B %d, %Y
+SpeedDatingFormat %B %d, %Y
 
 call dein#add('sheerun/vim-polyglot')
 let g:vim_markdown_conceal = 0
