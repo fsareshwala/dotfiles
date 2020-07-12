@@ -57,15 +57,20 @@ git config --global core.autocrlf input
 
 repo=$1
 username=$2
-
 test -d $repo && rm -rf $repo
 
-git clone https://github.com/fsareshwala/$repo.git
+ssh_url=git@github.com:fsareshwala/$repo.git
+https_url=https://github.com/fsareshwala/$repo.git
+url=$ssh_url
+if ! git clone $ssh_url; then
+    git clone $https_url
+    url=$https_url
+fi
 cd $repo || log_error "directory $repo does not exist"
 
 git remote remove origin
-git remote add -f origin https://github.com/$username/$repo.git
-git remote add -f upstream https://github.com/fsareshwala/$repo.git
+git remote add -f origin $url
+git remote add -f upstream $url
 git push -uf origin master
 
 bazelrc=~/.bazelrc
