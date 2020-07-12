@@ -23,11 +23,13 @@ export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
 export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='nvim -c "set ft=man" -'
-export PROMPT_COMMAND='__git_ps1 "[\u@\h:\e[36m\w\e[m" "]\$ "'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+
+export GIT_PS1_SHOWCOLORHINTS=true
+export PROMPT_COMMAND='__git_ps1 "[\u@\h:\e[36m\w\e[m " "]\$ " "%s"'
 
 export PATH=/usr/sbin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
