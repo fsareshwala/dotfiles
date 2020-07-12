@@ -22,7 +22,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
 export MAILCAPS=${HOME}/.mailcap
-export PS1='[\u@\h \[\033[0;36m\]\w\[\033[0m\]]\$ '
+export PROMPT_COMMAND='__git_ps1 "[\u@\h:\e[36m\w\e[m" "]\$ "'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
