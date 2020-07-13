@@ -212,7 +212,7 @@ let php_htmlInStrings = 1
 
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
-autocmd FileType markdown setlocal spell
+autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " --- Twitter settings
