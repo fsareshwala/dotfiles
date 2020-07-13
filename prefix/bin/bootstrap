@@ -61,16 +61,18 @@ test -d $repo && rm -rf $repo
 
 ssh_url=git@github.com:fsareshwala/$repo.git
 https_url=https://github.com/fsareshwala/$repo.git
-url=$ssh_url
+upstream_url=$ssh_url
 if ! git clone $ssh_url; then
     git clone $https_url
-    url=$https_url
+    upstream_url=$https_url
 fi
+
+remote_url="${upstream_url/fsareshwala/$username}"
 cd $repo || log_error "directory $repo does not exist"
 
 git remote remove origin
-git remote add -f origin $url
-git remote add -f upstream $url
+git remote add -f origin $remote_url
+git remote add -f upstream $upstream_url
 git push -uf origin master
 
 bazelrc=~/.bazelrc
