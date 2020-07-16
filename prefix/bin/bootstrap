@@ -1,38 +1,24 @@
 #!/usr/bin/env bash
 
-# This script bootstraps student environments with a private fork of the public assignment
-# repository. You should not run this script from a clone of the repository. Rather, run this script
-# directly using the instructions in the readme.md file.
+# This script bootstraps student repositories with a private fork of the public assignment
+# repository. This script should be run by the instructor and not the students.
 #
-# TODO: query the ssh agent to see if ssh keys are loaded and prefer using ssh instead of https
+# TODO: perhaps avoid the clone altogether and run this from the repository directory itself to
+# bootstrap a student repository
 
-# this function must be present in this file because it is curled from student environments
-function log_error() {
-    echo "error: $1"
-    exit
-}
-
-# this function must be present in this file because it is curled from student environments
-function ensure_exists() {
-    local program=$1
-    command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
-}
+topdir=$(git rev-parse --show-toplevel)
+source $topdir/prefix/lib/utilities.sh
 
 function usage() {
-    echo "usage: $0 username
-
-$0 bootstraps student environments with a private fork of the public assignment repository.
-
-Note: work in the assignment repository should only be done on unix-like environments. If you are
-running Mac OS or Linux, you already have a unix-like environment. If you are running Windows,
-please install the Windows Subsystem for Linux and run this script under that environment.
+    echo "usage: $0 repo username
 
     Positional arguments:
-        username            Your GitHub username
+        repo                The repository name to bootstrap
+        username            The student's github username
 
     Example:
         $ bash $0 cs404.1 fsareshwala
-    "
+"
 }
 
 ensure_exists git
@@ -42,40 +28,18 @@ if [[ $# -ne 2 ]]; then
     exit
 fi
 
-ostype="$(uname -s)"
-case "${ostype}" in
-    CYGWIN* | MINGW*)
-        echo "Error: work in the assignment repository can only be done in unix environments."
-        echo "Error: it appears you are running $ostype on Windows."
-        echo "Error: install the Windows Subsystem for Linux and re-run this script within it."
-        exit
-        ;;
-esac
-
 git config --global core.whitespace fix,-indent-with-non-tab,trailing-space,cr-at-eol
 git config --global core.autocrlf input
 
 repo=$1
 username=$2
-test -d $repo && rm -rf $repo
 
-ssh_url=git@github.com:fsareshwala/$repo.git
-https_url=https://github.com/fsareshwala/$repo.git
-upstream_url=$ssh_url
-if ! git clone $ssh_url; then
-    git clone $https_url
-    upstream_url=$https_url
-fi
+tmpdir=$(mktemp -d)
+trap "rm -f $tmpdir" EXIT
+cd $tmpdir
 
-remote_url="${upstream_url/fsareshwala/$username}"
+git clone git@github.com:fsareshwala/$repo.git
 cd $repo || log_error "directory $repo does not exist"
 
-git remote remove origin
-git remote add -f origin $remote_url
-git remote add -f upstream $upstream_url
+git remote set-url origin git@github.com:$username/$repo.git
 git push -uf origin master
-
-bazelrc=~/.bazelrc
-test -e $bazelrc && rm -rf $bazelrc
-echo "test --test_output=errors" >> $bazelrc
-echo "test --cache_test_results=yes" >> $bazelrc

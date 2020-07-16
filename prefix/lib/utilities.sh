@@ -11,6 +11,11 @@ function log_error() {
     exit
 }
 
+function ensure_exists() {
+    local program=$1
+    command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
+}
+
 function trim() {
   echo "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 }
