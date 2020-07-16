@@ -8,8 +8,13 @@ if [[ $# -ne 1 ]]; then
 fi
 
 repo=$1
+upstream_url=git@github.com:fsareshwala/$repo.git
 
-git remote remove upstream
-git remote add upstream git@github.com:fsareshwala/$repo.git
+if git ls-remote upstream &> /dev/null; then
+  git remote set-url upstream $upstream_url
+else
+  git remote add upstream $upstream_url
+fi
+
 git fetch upstream
 git merge --no-edit --ff upstream/master
