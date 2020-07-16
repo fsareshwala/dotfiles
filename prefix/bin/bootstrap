@@ -35,7 +35,7 @@ repo=$1
 username=$2
 
 tmpdir=$(mktemp -d)
-trap "rm -f $tmpdir" EXIT
+trap "rm -rf $tmpdir" EXIT
 cd $tmpdir
 
 git clone git@github.com:fsareshwala/$repo.git
