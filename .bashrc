@@ -32,6 +32,7 @@ export GIT_PS1_SHOWCOLORHINTS=true
 export PROMPT_COMMAND='__git_ps1 "[\u@\h:\e[36m\w\e[m " "]\$ " "%s"'
 
 export PATH=/usr/sbin:${PATH}
+export PATH=/home/fsareshwala/.local/bin/:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/home/fsareshwala/prefix/bin:${PATH}
 export PATH=.:${PATH}
