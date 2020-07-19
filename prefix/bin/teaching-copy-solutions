@@ -19,7 +19,6 @@ entirely.
 "
 }
 
-positional=()
 while [[ $# -gt 0 ]]; do
     key="$1"
     case $key in
@@ -36,7 +35,6 @@ while [[ $# -gt 0 ]]; do
             exit
             ;;
         *)
-            positional+=("$1")
             shift
             ;;
     esac
@@ -56,6 +54,14 @@ while IFS=: read -r key value; do
 
     solutions_map[$key]="${solutions_map[$key]} $value"
 done < $solutions_map_path
+
+pushd $repo_path
+branch=$(git symbolic-ref --short -q HEAD)
+if [[ $branch != "solutions" ]]; then
+    echo "$repo_path is on branch $branch, requires branch solution"
+    exit 1
+fi
+popd
 
 for file in ${solutions_map[$program]}; do
     directory=solutions/$program
