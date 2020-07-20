@@ -12,7 +12,6 @@ export HISTFILESIZE=
 export HISTSIZE=
 export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 export BROWSER=google-chrome
 export COLORTERM=yes
@@ -23,13 +22,12 @@ export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
 export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='nvim -c "set ft=man" -'
+export PS1='[\u@\h \e[36m\w\e[0m]\$ '
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
-export GIT_PS1_SHOWCOLORHINTS=true
-export PROMPT_COMMAND='__git_ps1 "[\u@\h:\e[36m\w\e[m " "]\$ " "%s"'
 
 export PATH=/usr/sbin:${PATH}
 export PATH=/home/fsareshwala/.local/bin/:${PATH}
