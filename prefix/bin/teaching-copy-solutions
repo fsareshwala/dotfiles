@@ -40,10 +40,26 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
+# require a program value
 if [[ -z "$program" ]]; then
-    log_error "no program number provided"
+    log_error "no program value provided"
 fi
 
+# require a repository path
+if [[ -z "$repo_path" ]]; then
+    log_error "no repository path provided"
+fi
+
+# require the repository to be on the solutions branch
+pushd $repo_path
+branch=$(git symbolic-ref --short -q HEAD)
+if [[ $branch != "solutions" ]]; then
+    echo "$repo_path is on branch $branch, requires branch solution"
+    exit 1
+fi
+popd
+
+# all errors checked, let's continue
 solutions_map_path=$repo_path/solutions.map
 
 declare -A solutions_map
@@ -54,14 +70,6 @@ while IFS=: read -r key value; do
 
     solutions_map[$key]="${solutions_map[$key]} $value"
 done < $solutions_map_path
-
-pushd $repo_path
-branch=$(git symbolic-ref --short -q HEAD)
-if [[ $branch != "solutions" ]]; then
-    echo "$repo_path is on branch $branch, requires branch solution"
-    exit 1
-fi
-popd
 
 for file in ${solutions_map[$program]}; do
     directory=solutions/$program
