@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-topdir=$(git rev-parse --show-toplevel)
-source $topdir/prefix/lib/utilities.sh
+source ~/prefix/lib/utilities.sh
 
 function git_update() {
   local directory=$1

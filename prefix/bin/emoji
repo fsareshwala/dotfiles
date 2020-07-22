@@ -11,8 +11,7 @@
 #
 # awk -F'\t' '{print "emoji_map[\"" $NF "\"]=" "\"" $2 "\""}' data | sed -e 's/\U+//g'
 
-topdir=$(git rev-parse --show-toplevel)
-source $topdir/prefix/lib/utilities.sh
+source ~/prefix/lib/utilities.sh
 
 export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
