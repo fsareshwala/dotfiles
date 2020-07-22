@@ -126,7 +126,7 @@ nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>s :vsplit<cr>
 nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
-nnoremap <silent> <leader>wk :e ~/personal/worklog.md<cr>
+nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
 
 " --- Editor configuration
 autocmd VimResized * exe 'normal! \<c-w>='
