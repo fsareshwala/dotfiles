@@ -6,8 +6,7 @@
 # TODO: perhaps avoid the clone altogether and run this from the repository directory itself to
 # bootstrap a student repository
 
-topdir=$(git rev-parse --show-toplevel)
-source $topdir/prefix/lib/utilities.sh
+source ~/prefix/lib/utilities.sh
 
 function usage() {
     echo "usage: $0 repo username
