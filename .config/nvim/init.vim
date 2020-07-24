@@ -127,6 +127,7 @@ nnoremap <silent> <leader>s :vsplit<cr>
 nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>wj :e ~/personal/journal.md \| :NERDTreeToggle<cr>
 nnoremap <silent> <leader>wk :e ~/personal/career/google.md \| :NERDTreeToggle<cr>
+nnoremap <silent> <leader>wn :e ~/personal/career/notes.md \| :NERDTreeToggle<cr>
 
 " --- Editor configuration
 autocmd VimResized * exe 'normal! \<c-w>='
