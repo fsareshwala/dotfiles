@@ -1,8 +1,140 @@
-" --- Dein configuration
-if &compatible
-  set nocompatible
-endif
+set nocompatible
 
+set autoindent
+set autoread
+set autowriteall
+set background=dark
+set backspace=eol,start,indent
+set cindent
+set cinoptions+=g0,l1,N-s,j1,J1
+set clipboard+=unnamedplus
+set colorcolumn=+1
+set copyindent
+set expandtab
+set exrc
+set formatoptions=cjlnqrt
+set gdefault
+set guifont=Terminus\ 8
+set hlsearch
+set ignorecase
+set inccommand=split
+set incsearch
+set laststatus=2
+set nrformats+=alpha,octal
+set list
+set listchars=tab:\|-,trail:-,extends:>,precedes:<
+set matchtime=3
+set modeline
+set modelines=5
+set mouse=
+set mousehide
+set nobackup
+set nojoinspaces
+set noshowmode
+set nostartofline
+set noswapfile
+set nowrap
+set number
+set preserveindent
+set shell=$SHELL
+set shiftwidth=2
+set showmatch
+set showtabline=2
+set smartcase
+set smartindent
+set smarttab
+set softtabstop=2
+set splitright
+set tabstop=2
+set tags=tags;
+set textwidth=100 wrap linebreak
+set title
+set undodir=~/.config/nvim/tmp/undo
+set undofile
+set virtualedit+=block
+set wildignore+=*.so,*.o
+set wildmenu
+set wildmode=list:longest,full
+set wrapscan
+
+nnoremap <c-h> <esc><c-w>h
+nnoremap <c-j> <esc><c-w>j
+nnoremap <c-k> <esc><c-w>k
+nnoremap <c-l> <esc><c-w>l
+nnoremap <c-o> i<cr><esc>0
+nnoremap <c-p> "_cw"<esc>
+xnoremap <c-\> gc
+nnoremap H :tabprev<cr>
+nnoremap L :tabnext<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>u YpVr-
+nnoremap <silent> <leader>- :vertical resize -5<cr>
+nnoremap <silent> <leader>= :vertical resize +5<cr>
+nnoremap <silent> <leader>s :vsplit<cr>
+nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
+nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
+nnoremap <silent> <leader>wn :e ~/personal/career/notes.md<cr>
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+runtime! ftplugin/man.vim
+let g:tex_flavor = 'latex'
+let php_sql_query = 1
+let php_htmlInStrings = 1
+
+function! LanguageSetup()
+  if(&ft == 'c' || &ft == 'cpp')
+    nnoremap K :execute 'Man ' . expand('<cword>')<cr>
+    setlocal commentstring=//\ %s
+  elseif(&ft == 'tex')
+    let b:surround_45 = '\\texttt{\r}'
+    ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
+    ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
+  elseif(&ft == 'vim')
+    nnoremap K :execute 'help ' . expand('<cword>')<cr>
+  endif
+endfunction
+autocmd BufEnter * call LanguageSetup()
+
+autocmd BufRead,BufNewFile README setlocal filetype=markdown
+autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
+autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+" --- improvements
+" stay at current word when using star search
+nnoremap * *<c-o>
+
+" reload buffers on vim resize
+autocmd VimResized * exe 'normal! \<c-w>='
+
+" print date and underline
+inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
+
+" load vimrc on save
+augroup vimrc
+  autocmd!
+  autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END
+
+" return to the same line when you reopen a file
+augroup line_return
+  autocmd!
+  autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line('$') |
+      \     execute 'normal! g`"zvzz' |
+      \ endif
+augroup END
+
+" Save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" automatically delete all trailing whitespace and newlines at end of file on save
+autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritepre * %s/\n\+\%$//e
+
+" --- Plugin installation
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
@@ -95,144 +227,7 @@ endif
 
 colorscheme fsareshwala
 filetype plugin indent on
-syntax enable
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-runtime! ftplugin/man.vim
-let g:tex_flavor = 'latex'
-let php_sql_query = 1
-let php_htmlInStrings = 1
-
-" --- editor configuration
-set autoindent
-set autoread
-set autowriteall
-set background=dark
-set backspace=eol,start,indent
-set cindent
-set cinoptions+=g0,l1,N-s,j1,J1
-set clipboard+=unnamedplus
-set colorcolumn=+1
-set copyindent
-set expandtab
-set exrc
-set formatoptions=cjlnqrt
-set gdefault
-set guifont=Terminus\ 8
-set hlsearch
-set ignorecase
-set inccommand=split
-set incsearch
-set laststatus=2
-set nrformats+=alpha,octal
-set list
-set listchars=tab:\|-,trail:-,extends:>,precedes:<
-set matchtime=3
-set modeline
-set modelines=5
-set mouse=
-set mousehide
-set nobackup
-set nojoinspaces
-set noshowmode
-set nostartofline
-set noswapfile
-set nowrap
-set number
-set preserveindent
-set shell=$SHELL
-set shiftwidth=2
-set showmatch
-set showtabline=2
-set smartcase
-set smartindent
-set smarttab
-set softtabstop=2
-set splitright
-set tabstop=2
-set tags=tags;
-set textwidth=100 wrap linebreak
-set title
-set undodir=~/.config/nvim/tmp/undo
-set undofile
-set virtualedit+=block
-set wildignore+=*.so,*.o
-set wildmenu
-set wildmode=list:longest,full
-set wrapscan
-
-" --- Key mappings
-nnoremap <c-h> <esc><c-w>h
-nnoremap <c-j> <esc><c-w>j
-nnoremap <c-k> <esc><c-w>k
-nnoremap <c-l> <esc><c-w>l
-nnoremap <c-o> i<cr><esc>0
-nnoremap <c-p> "_cw"<esc>
-xnoremap <c-\> gc
-nnoremap H :tabprev<cr>
-nnoremap L :tabnext<cr>
-nnoremap j gj
-nnoremap k gk
-nnoremap <leader>u YpVr-
-nnoremap <silent> <leader>- :vertical resize -5<cr>
-nnoremap <silent> <leader>= :vertical resize +5<cr>
-nnoremap <silent> <leader>s :vsplit<cr>
-nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
-nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
-nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
-nnoremap <silent> <leader>wn :e ~/personal/career/notes.md<cr>
-
-" --- File runners for various languages
-function! LanguageSetup()
-  if(&ft == 'c' || &ft == 'cpp')
-    nnoremap K :execute 'Man ' . expand('<cword>')<cr>
-    setlocal commentstring=//\ %s
-  elseif(&ft == 'tex')
-    let b:surround_45 = '\\texttt{\r}'
-    ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
-    ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
-  elseif(&ft == 'vim')
-    nnoremap K :execute 'help ' . expand('<cword>')<cr>
-  endif
-endfunction
-
-autocmd BufEnter * call LanguageSetup()
-
-autocmd BufRead,BufNewFile README setlocal filetype=markdown
-autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
-autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
-
-" --- Random hacks
-" stay at current word when using star search
-nnoremap * *<c-o>
-
-" reload buffers on vim resize
-autocmd VimResized * exe 'normal! \<c-w>='
-
-" print date and underline
-inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
-
-" load vimrc on save
-augroup vimrc
-  autocmd!
-  autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
-
-" return to the same line when you reopen a file
-augroup line_return
-  autocmd!
-  autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line('$') |
-      \     execute 'normal! g`"zvzz' |
-      \ endif
-augroup END
-
-" Save file as sudo on files that require root permission
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-" automatically delete all trailing whitespace and newlines at end of file on save
-autocmd BufWritePre * %s/\s\+$//e
-autocmd BufWritepre * %s/\n\+\%$//e
+syntax on
 
 " personal settings
 nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
