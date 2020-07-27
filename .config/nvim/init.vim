@@ -216,10 +216,6 @@ autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
-" --- Twitter settings
-autocmd BufEnter *.workflow setlocal ft=json
-autocmd BufEnter *.aurora setlocal ft=python
-
 " --- Random hacks
 " print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
