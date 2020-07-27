@@ -16,7 +16,6 @@ call dein#add('nelstrom/vim-visual-star-search')
 call dein#add('tpope/vim-sleuth')
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-abolish')
-call dein#add('mboughaba/i3config.vim')
 
 call dein#add('tpope/vim-speeddating')
 SpeedDatingFormat %A, %B %d, %Y
