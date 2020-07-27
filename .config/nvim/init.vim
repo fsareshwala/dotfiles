@@ -1,6 +1,6 @@
 " --- Dein configuration
 if &compatible
-    set nocompatible
+  set nocompatible
 endif
 
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
@@ -88,52 +88,22 @@ call dein#add('michaeljsmith/vim-indent-object')
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
 call dein#add('tpope/vim-unimpaired')
-
 call dein#end()
-
-filetype plugin indent on
-syntax enable
 
 if dein#check_install()
   call dein#install()
 endif
 
-let g:tex_flavor = 'latex'
-
-" Manpages
-runtime! ftplugin/man.vim
-
 colorscheme fsareshwala
-
-" --- Key mappings
-nnoremap <c-h> <esc><c-w>h
-nnoremap <c-j> <esc><c-w>j
-nnoremap <c-k> <esc><c-w>k
-nnoremap <c-l> <esc><c-w>l
-nnoremap <c-o> i<cr><esc>0
-nnoremap <c-p> "_cw"<esc>
-xnoremap <c-\> gc
-nnoremap H :tabprev<cr>
-nnoremap L :tabnext<cr>
-nnoremap j gj
-nnoremap k gk
-nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
-nnoremap <leader>t :w! \| !compile test <c-r>%<cr>
-nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
-nnoremap <leader>u YpVr-
-nnoremap <silent> <leader>- :vertical resize -5<cr>
-nnoremap <silent> <leader>= :vertical resize +5<cr>
-nnoremap <silent> <leader>s :vsplit<cr>
-nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
-nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
-nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
-nnoremap <silent> <leader>wn :e ~/personal/career/notes.md<cr>
-
-" --- Editor configuration
-autocmd VimResized * exe 'normal! \<c-w>='
+filetype plugin indent on
+syntax enable
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-nnoremap * *<c-o>
+runtime! ftplugin/man.vim
+let g:tex_flavor = 'latex'
+let php_sql_query = 1
+let php_htmlInStrings = 1
 
+" --- editor configuration
 set autoindent
 set autoread
 set autowriteall
@@ -191,6 +161,27 @@ set wildmenu
 set wildmode=list:longest,full
 set wrapscan
 
+" --- Key mappings
+nnoremap <c-h> <esc><c-w>h
+nnoremap <c-j> <esc><c-w>j
+nnoremap <c-k> <esc><c-w>k
+nnoremap <c-l> <esc><c-w>l
+nnoremap <c-o> i<cr><esc>0
+nnoremap <c-p> "_cw"<esc>
+xnoremap <c-\> gc
+nnoremap H :tabprev<cr>
+nnoremap L :tabnext<cr>
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>u YpVr-
+nnoremap <silent> <leader>- :vertical resize -5<cr>
+nnoremap <silent> <leader>= :vertical resize +5<cr>
+nnoremap <silent> <leader>s :vsplit<cr>
+nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
+nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
+nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
+nnoremap <silent> <leader>wn :e ~/personal/career/notes.md<cr>
+
 " --- File runners for various languages
 function! LanguageSetup()
   if(&ft == 'c' || &ft == 'cpp')
@@ -207,16 +198,18 @@ endfunction
 
 autocmd BufEnter * call LanguageSetup()
 
-" --- File and filetype specific settings
-let php_sql_query = 1
-let php_htmlInStrings = 1
-
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " --- Random hacks
+" stay at current word when using star search
+nnoremap * *<c-o>
+
+" reload buffers on vim resize
+autocmd VimResized * exe 'normal! \<c-w>='
+
 " print date and underline
 inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
 
@@ -241,3 +234,8 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " automatically delete all trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
+
+" personal settings
+nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
+nnoremap <leader>t :w! \| !compile test <c-r>%<cr>
+nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
