@@ -28,14 +28,13 @@ export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
+shopt -s checkwinsize
 
 export PATH=/usr/sbin:${PATH}
 export PATH=/home/fsareshwala/.local/bin/:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/home/fsareshwala/prefix/bin:${PATH}
 export PATH=.:${PATH}
-
-shopt -s checkwinsize
 
 # command aliases
 alias -- -='cd -'
@@ -48,13 +47,14 @@ alias json='python -m json.tool'
 alias ls='ls --color'
 alias mkdir='mkdir -p'
 alias p='cd ~/personal'
+alias patch='patch -merge --no-backup-if-mismatch'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
+alias s='source ~/.bashrc'
+alias thes='aiksaurus'
 alias vi='vim'
 alias vim='nvim -O'
 alias watch='watch --color'
-alias patch='patch -merge --no-backup-if-mismatch'
 alias weather='curl wttr.in'
-alias thes='aiksaurus'
 
 function reswap() {
   sudo /sbin/swapoff -a
@@ -90,36 +90,38 @@ function rreplace() {
   git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
-# miscellaneous aliases
-alias r='tmux attach'
-alias s='source ~/.bashrc'
-
-# git aliases
-alias b='git branch'
-alias ba='git branch -a'
-alias d='git diff'
-alias dc='git diff --cached'
-alias ga='git add'
-alias gap='git add -p'
-alias gb='git checkout @{-1}'
-alias gca='git commit --amend'
-alias gcan='git commit --amend --no-edit'
-alias gf='git fx'
-alias gignore='git update-index --assume-unchanged'
-alias gm='git commit -m'
-alias griom='git rebase -i origin/master'
-alias grom='git rebase origin/master'
-alias st='git status'
-complete -A directory gm
-
 function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
-function lg() {
-  git log --abbrev-commit --oneline --pretty=format:'%C(red)%h%C(reset) %C(blue)<%<(25)%an>%Creset %s' -n 10 $@
-}
+if [[ -d /google ]]; then
+  # work setup
+  alias b='hg bookmark'
+  alias d='hg diff'
+  alias st='hg status'
+  alias ha='hg add'
+  alias hm='hg commit -m'
+else
+  # personal setup
+  alias b='git branch'
+  alias ba='git branch -a'
+  alias d='git diff'
+  alias dc='git diff --cached'
+  alias ga='git add'
+  alias gap='git add -p'
+  alias gb='git checkout @{-1}'
+  alias gca='git commit --amend'
+  alias gcan='git commit --amend --no-edit'
+  alias gf='git fx'
+  alias gignore='git update-index --assume-unchanged'
+  alias gm='git commit -m'
+  alias griom='git rebase -i origin/master'
+  alias grom='git rebase origin/master'
+  alias st='git status'
+  complete -A directory gm
+fi
 
+# TODO(fsareshwala): get these figured out
 ulimit -c unlimited
 ulimit -m 1048576
 # ulimit -n 8192
