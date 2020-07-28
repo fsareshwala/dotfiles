@@ -10,6 +10,8 @@ function git_update() {
   fi
 
   cd $directory
+  git ff
+
   local git_status=$(git status --porcelain)
   if [[ -z "$git_status" ]]; then
     # no changes in repository, nothing to do
