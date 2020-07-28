@@ -167,6 +167,7 @@ let g:vimwiki_conceallevel = 0
 call dein#add('ctrlpvim/ctrlp.vim')              " open files with fuzzy filename search
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
+let g:ctrlp_line_prefix = '- '
 nnoremap <leader>. :CtrlPTag<cr>
 
 call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
