@@ -220,6 +220,47 @@ if dein#check_install()
   call dein#install()
 endif
 
+" Use ag for ctrl-p plugin
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = '/usr/bin/ag %s -i --nocolor --nogroup --hidden
+        \ --ignore .git
+        \ --ignore .svn
+        \ --ignore .hg
+        \ --ignore .DS_Store
+        \ --ignore "**/*.pyc"
+        \ --ignore review
+        \ -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" load work specific vim plugins
+if isdirectory('/usr/share/vim/google')
+  source /usr/share/vim/google/google.vim
+
+  " automatically format build files with buildifier
+  Glug codefmt
+  Glug codefmt-google
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  nnoremap <leader>f :FormatCode<cr>
+
+  " enable easier navigation through changelists
+  " \pf to get a window of changed files
+  " \r to get a list of related files
+  Glug piper plugin[mappings]
+  Glug relatedfiles plugin[mappings]
+
+  Glug youcompleteme-google
+  Glug maktaba
+
+  Glug corpweb plugin[mappings]
+  noremap <leader>cs :CorpWebCs<Space>
+endif
 
 " personal settings
 nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
