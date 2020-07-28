@@ -37,6 +37,13 @@
   tool = vimdiff
   ff = only
 
+[push]
+  default = current
+
+[pull]
+  ff = only
+  rebase = false
+
 [tig]
   line-graphics = yes
   tab-size = 2
@@ -51,9 +58,6 @@
 
 [grep]
   lineNumber = true
-
-[push]
-  default = current
 
 [http]
   postBuffer = 524288000
@@ -72,7 +76,3 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
-[pull]
-  ff = only
-  rebase = true
