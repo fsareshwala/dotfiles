@@ -139,42 +139,40 @@ set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.config/nvim')
 call dein#add('Shougo/dein.vim')
 
-call dein#add('tpope/vim-ragtag')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-surround.git')
-call dein#add('vim-scripts/a.vim')
-call dein#add('tpope/vim-repeat')
-call dein#add('nelstrom/vim-visual-star-search')
-call dein#add('tpope/vim-sleuth')
-call dein#add('tpope/vim-fugitive')
-call dein#add('tpope/vim-abolish')
+call dein#add('tpope/vim-commentary')            " motions to comment lines out
+call dein#add('tpope/vim-surround.git')          " motions to surround text with other text
+call dein#add('vim-scripts/a.vim')               " switch to c/c++ header file
+call dein#add('tpope/vim-repeat')                " allow plugins to override .
+call dein#add('nelstrom/vim-visual-star-search') " start a * or # search from a visual block
+call dein#add('tpope/vim-sleuth')                " automatically adjust shiftwidth and expandtab
+call dein#add('tpope/vim-abolish')               " {} syntax (:Abolish, :Subvert), case style change
 
-call dein#add('tpope/vim-speeddating')
+call dein#add('tpope/vim-speeddating')           " ctrl-a ctrl-x on dates
 SpeedDatingFormat %A, %B %d, %Y
 SpeedDatingFormat %B %d, %Y
 
-call dein#add('sheerun/vim-polyglot')
+call dein#add('sheerun/vim-polyglot')            " filetype plugin for various programming languages
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
-call dein#add('junegunn/vim-easy-align')
+call dein#add('junegunn/vim-easy-align')         " align text on character
 xmap ga <Plug>(EasyAlign)
 
-call dein#add('vimwiki/vimwiki')
+call dein#add('vimwiki/vimwiki')                 " personal wiki on vim
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('ctrlpvim/ctrlp.vim')              " open files with fuzzy filename search
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'wa'
 nnoremap <leader>. :CtrlPTag<cr>
 
-call dein#add('mbbill/undotree')
+call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
 
-call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/nerdtree')             " project drawer
 let NERDTreeIgnore = []
 let NERDTreeIgnore += ['\.o$']
 let NERDTreeIgnore += ['\.a$']
@@ -197,28 +195,24 @@ autocmd VimEnter * wincmd p
 nnoremap <leader>n :NERDTreeMirror<cr>
 nnoremap <leader>f :NERDTreeFind<cr>
 
-call dein#add('chaoren/vim-wordmotion')
+call dein#add('chaoren/vim-wordmotion')          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
 
-call dein#add('FooSoft/vim-argwrap')
+call dein#add('FooSoft/vim-argwrap')             " toggle one argument per line
 nnoremap <leader>a :ArgWrap<cr>
 
 " ciw - change inside word
 " yi) - yank inside parenthesis
 " vat - visually select around tag
 " di" - delete inside double quotes
-call dein#add('wellle/targets.vim')
-
-" vii - visually select inside code block using current indentation
-" vaI - visually select around code block using current indentation AND include trailing line (for example the end delimiter in Ruby)
-call dein#add('michaeljsmith/vim-indent-object')
+call dein#add('wellle/targets.vim')              " additional text objects to operate on
 
 " [q / ]q - navigate up and down through the quickfix list, for instance through vim-grepper results
 " [l / ]l - navigate up and down through the location list, for instance through neomake results
 " [a / ]a - navigate backward and forward through the file list
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
-call dein#add('tpope/vim-unimpaired')
+call dein#add('tpope/vim-unimpaired')            " complementary pairs of mappings
 call dein#end()
 
 if dein#check_install()
