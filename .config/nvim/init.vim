@@ -68,7 +68,6 @@ nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>u YpVr-
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>s :vsplit<cr>
@@ -109,8 +108,11 @@ nnoremap * *<c-o>
 " reload buffers on vim resize
 autocmd VimResized * exe 'normal! \<c-w>='
 
+" underline current line
+nnoremap <leader>iu YpVr-
+
 " print date and underline
-inoremap <expr> <leader>d strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
+inoremap <expr> <leader>id strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
 
 " load vimrc on save
 augroup vimrc
@@ -146,6 +148,11 @@ call dein#add('tpope/vim-repeat')                " allow plugins to override .
 call dein#add('nelstrom/vim-visual-star-search') " start a * or # search from a visual block
 call dein#add('tpope/vim-sleuth')                " automatically adjust shiftwidth and expandtab
 call dein#add('tpope/vim-abolish')               " {} syntax (:Abolish, :Subvert), case style change
+call dein#add('SirVer/ultisnips')                " automatic snippet insertion
+call dein#add('honza/vim-snippets')              " collection of snippets
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
 call dein#add('tpope/vim-speeddating')           " ctrl-a ctrl-x on dates
 SpeedDatingFormat %A, %B %d, %Y
@@ -247,19 +254,61 @@ if isdirectory('/usr/share/vim/google')
   Glug codefmt
   Glug codefmt-google
   autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType markdown AutoFormatBuffer mdformat
+  autocmd FileType proto AutoFormatBuffer protofmt
+  autocmd FileType python AutoFormatBuffer pyformat
+  autocmd FileType sql AutoFormatBuffer format_sql
+  autocmd FileType textpb AutoFormatBuffer text-proto-format
   nnoremap <leader>f :FormatCode<cr>
 
-  " enable easier navigation through changelists
-  " \pf to get a window of changed files
-  " \r to get a list of related files
+  " \pf: get a window of changed files
   Glug piper plugin[mappings]
+
+  " \r: get a list of related files
   Glug relatedfiles plugin[mappings]
 
-  Glug youcompleteme-google
-  Glug maktaba
+  " \aa: automatically add using declaration in c++ for current identifier
+  Glug add_usings plugin[mappings]
 
+  " automatic code completion inside google source code
+  Glug youcompleteme-google
+  let g:ycm_key_list_select_completion = ['<c-j>', '<c-n>', '<down>']
+  let g:ycm_key_list_previous_completion = ['<c-k>', '<c-p>', '<up>']
+
+  " google specific snippets
+  " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
+  Glug ultisnips-google
+
+  " access corporate websites directly from vim
+  " \cw: code search word
+  " \cf: code search file
   Glug corpweb plugin[mappings]
   noremap <leader>cs :CorpWebCs<Space>
+
+  " \be: Load errors from blaze
+  " \bl: View build log
+  " \bd: Run blaze on targets
+  " \bb: Run 'blaze build'
+  " \bt: Run 'blaze test'
+  Glug blaze plugin[mappings]
+  let g:blazevim_quickfix_autoopen = 1
+
+  " \d: update build files with dependencies
+  Glug blazedeps plugin[mappings]
+
+  " \ji: create java import for class under cursor
+  " \js: sort java imports
+  Glug google-csimporter
+  nnoremap <leader>ji :CsImporter<cr>
+  nnoremap <leader>js :CsImporterSort<cr>
+
+  " maybe install in the future
+  " scampi (syntax analysis for java)
+  " kythe language server (codesearch based code jumps)
+  " vigor (interactive java debugging from within vim)
 endif
 
 " personal settings
