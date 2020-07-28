@@ -101,6 +101,7 @@ if [[ -d /google ]]; then
   alias st='hg status'
   alias ha='hg add'
   alias hm='hg commit -m'
+  alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
 else
   # personal setup
   alias b='git branch'
