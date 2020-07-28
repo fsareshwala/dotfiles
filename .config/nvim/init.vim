@@ -122,9 +122,9 @@ augroup END
 augroup line_return
   autocmd!
   autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line('$') |
-      \     execute 'normal! g`"zvzz' |
-      \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line('$') |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
 augroup END
 
 " Save file as sudo on files that require root permission
@@ -219,11 +219,13 @@ if dein#check_install()
   call dein#install()
 endif
 
-colorscheme fsareshwala
-filetype plugin indent on
-syntax on
 
 " personal settings
 nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
 nnoremap <leader>t :w! \| !compile test <c-r>%<cr>
 nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
+
+" the following lines should always be last
+colorscheme fsareshwala
+filetype plugin indent on
+syntax on
