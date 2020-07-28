@@ -194,7 +194,7 @@ autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isT
 autocmd VimEnter * :NERDTree
 autocmd VimEnter * wincmd p
 nnoremap <leader>n :NERDTreeMirror<cr>
-nnoremap <leader>f :NERDTreeFind<cr>
+nnoremap <leader>l :NERDTreeFind<cr>
 
 call dein#add('chaoren/vim-wordmotion')          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
