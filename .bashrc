@@ -94,7 +94,7 @@ function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
-if [[ -d /google ]]; then
+if [[ -f ~/.work ]]; then
   # work setup
   alias b='hg bookmark'
   alias d='hg diff'
