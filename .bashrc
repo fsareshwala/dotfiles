@@ -98,9 +98,12 @@ if [[ -f ~/.work ]]; then
   # work setup
   alias b='hg bookmark'
   alias d='hg diff'
-  alias st='hg status'
   alias ha='hg add'
+  alias hca='hg amend'
   alias hm='hg commit -m'
+  alias rpost='hg upload chain'
+  alias rsubmit='hg submit'
+  alias st='hg status'
 else
   # personal setup
   alias b='git branch'
