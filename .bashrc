@@ -97,13 +97,13 @@ function gc() {
 if [[ -f ~/.work ]]; then
   # work setup
   alias b='hg bookmark'
+  alias clpost='hg upload chain'
+  alias clsubmit='hg submit'
   alias d='hg diff'
   alias ha='hg add'
   alias hca='hg amend'
   alias hm='hg commit -m'
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
-  alias rpost='hg upload chain'
-  alias rsubmit='hg submit'
   alias st='hg status'
 else
   # personal setup
