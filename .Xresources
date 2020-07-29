@@ -24,19 +24,34 @@ URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-launcher: /usr/bin/google-chrome
-URxvt.matcher.button: 1
 URxvt.url-select.launcher: /usr/bin/google-chrome
 URxvt.url-select.underline: true
-
-URxvt.resize-font.step: 2
 URxvt.keysym.C-minus: resize-font:smaller
 URxvt.keysym.C-equal: resize-font:bigger
 URxvt.keysym.C-0: resize-font:reset
 URxvt.keysym.C-question: resize-font:show
-
+URxvt.resize-font.step: 2
+URxvt.matcher.button: 1
 URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
+
+! basic url matcher regex (does not support username@password or #anchor portions yet)
+!                                   |-- one or more subdomains
+!                                   |                  |-- top level domain
+!                                   |                  |        |-- optional trailing slash
+!                                   |                  |        |  |-- one or more path components with optional trailing slash
+!                                   |                  |        |  |                       |-- optional query string
+!                                   |                  |        |  |                       |     |-- value
+!                                   |                  |        |  |                       |     |                  |-- value
+!                                   v                  v        v  v                       v     v                  v
+URxvt.matcher.pattern.0: https?:\/\/([-_a-zA-Z0-9]+\.)+[a-zA-Z]+\/?([-_a-zA-Z0-9:+.~]+\/?)+([\?&][-_a-zA-Z0-9:+.~]+=[-_a-zA-Z0-9:+.~]+)*
+URxvt.matcher.pattern.1: go(\/[-_.a-zA-Z0-9]+)+
+URxvt.matcher.pattern.2: cl\/[0-9]+
+URxvt.matcher.pattern.3: b\/[0-9]+
+URxvt.matcher.pattern.4: t\/[0-9]+
+URxvt.matcher.pattern.5: g\/[-_.a-z]+
+URxvt.matcher.pattern.5: cs\/[-_.a-z]+
 
 ! terminal.sexy: dotshare
 URxvt.foreground:   #ffffff
