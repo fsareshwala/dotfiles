@@ -174,9 +174,17 @@ let g:vimwiki_conceallevel = 0
 
 call dein#add('ctrlpvim/ctrlp.vim')              " open files with fuzzy filename search
 let g:ctrlp_map = '<leader>e'
-let g:ctrlp_working_path_mode = 'wa'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_line_prefix = '- '
 nnoremap <leader>. :CtrlPTag<cr>
+
+" Use rg for ctrl-p plugin
+if executable('rg')
+  set grepprg=rg\ --hidden\ --color=never
+  let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
+  let g:ctrlp_use_caching = 0
+endif
+
 
 call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
@@ -226,25 +234,6 @@ call dein#end()
 
 if dein#check_install()
   call dein#install()
-endif
-
-" Use ag for ctrl-p plugin
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = '/usr/bin/ag %s -i --nocolor --nogroup --hidden
-        \ --ignore .git
-        \ --ignore .svn
-        \ --ignore .hg
-        \ --ignore .DS_Store
-        \ --ignore "**/*.pyc"
-        \ --ignore review
-        \ -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
 endif
 
 " load work specific vim plugins
