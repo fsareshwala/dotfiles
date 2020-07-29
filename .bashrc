@@ -102,6 +102,7 @@ if [[ -f ~/.work ]]; then
   alias d='hg diff'
   alias ha='hg add'
   alias hca='hg amend'
+  alias hap='hg commit -i'
   alias hm='hg commit -m'
   alias rpost='hg upload chain'
   alias rsubmit='hg submit'
