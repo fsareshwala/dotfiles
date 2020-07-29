@@ -176,6 +176,7 @@ call dein#add('ctrlpvim/ctrlp.vim')              " open files with fuzzy filenam
 let g:ctrlp_map = '<leader>e'
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_line_prefix = '- '
+let g:ctrlp_working_path_mode = 0
 nnoremap <leader>. :CtrlPTag<cr>
 
 " Use rg for ctrl-p plugin
@@ -184,7 +185,6 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
   let g:ctrlp_use_caching = 0
 endif
-
 
 call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
