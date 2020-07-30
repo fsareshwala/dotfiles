@@ -36,22 +36,13 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
 
-! basic url matcher regex (does not support username@password or #anchor portions yet)
-!                                   |-- one or more subdomains
-!                                   |                  |-- top level domain
-!                                   |                  |        |-- optional trailing slash
-!                                   |                  |        |  |-- one or more path components with optional trailing slash
-!                                   |                  |        |  |                       |-- optional query string
-!                                   |                  |        |  |                       |     |-- value
-!                                   |                  |        |  |                       |     |                  |-- value
-!                                   v                  v        v  v                       v     v                  v
-URxvt.matcher.pattern.0: https?:\/\/([-_a-zA-Z0-9]+\.)+[a-zA-Z]+\/?([-_a-zA-Z0-9:+.~]+\/?)+([\?&][-_a-zA-Z0-9:+.~]+=[-_a-zA-Z0-9:+.~]+)*
-URxvt.matcher.pattern.1: go(\/[-_.a-zA-Z0-9]+)+
+URxvt.matcher.pattern.0: https?:\/\/[a-zA-Z0-9-_.\/?&=+]+
+URxvt.matcher.pattern.1: go\/[a-zA-Z0-9-_.\/]+
 URxvt.matcher.pattern.2: cl\/[0-9]+
 URxvt.matcher.pattern.3: b\/[0-9]+
 URxvt.matcher.pattern.4: t\/[0-9]+
-URxvt.matcher.pattern.5: g\/[-_.a-z]+
-URxvt.matcher.pattern.5: cs\/[-_.a-z]+
+URxvt.matcher.pattern.5: g\/[-_.a-z0-9]+
+URxvt.matcher.pattern.6: cs\/[a-zA-Z0-9-_.\/]+
 
 ! terminal.sexy: dotshare
 URxvt.foreground:   #ffffff
