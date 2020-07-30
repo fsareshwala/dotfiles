@@ -56,6 +56,7 @@ alias thes='aiksaurus'
 alias vi='vim'
 alias vim='nvim -O'
 alias vimf='vim $(fzf)'
+alias mdv='mdless $(rg --files -t md * | fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 
