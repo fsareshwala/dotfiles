@@ -17,6 +17,8 @@ export BROWSER=google-chrome
 export COLORTERM=yes
 export EDITOR=nvim
 export FIGNORE='.o:~:.pyc'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --color=never *'
+export FZF_DEFAULT_OPTS='--height 20% --reverse'
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
@@ -53,6 +55,7 @@ alias s='source ~/.bashrc'
 alias thes='aiksaurus'
 alias vi='vim'
 alias vim='nvim -O'
+alias vimf='vim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 
