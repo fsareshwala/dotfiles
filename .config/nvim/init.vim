@@ -1,6 +1,5 @@
 set nocompatible
 
-set autochdir
 set autoindent
 set autoread
 set autowriteall
@@ -137,6 +136,11 @@ cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
 
+if executable('rg')
+  set grepprg=rg\ --vimgrep
+  nnoremap <leader>g :execute "grep " . expand('<cword>') . " *"<cr>
+endif
+
 " --- Plugin installation
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 call dein#begin('~/.config/nvim')
@@ -172,19 +176,9 @@ let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-call dein#add('ctrlpvim/ctrlp.vim')              " open files with fuzzy filename search
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_line_prefix = '- '
-let g:ctrlp_working_path_mode = 0
-nnoremap <leader>. :CtrlPTag<cr>
-
-" Use rg for ctrl-p plugin
-if executable('rg')
-  set grepprg=rg\ --hidden\ --color=never
-  let g:ctrlp_user_command = 'rg --files --hidden --color=never * %s'
-  let g:ctrlp_use_caching = 0
-endif
+call dein#add('junegunn/fzf')                    " fuzzy file finder
+call dein#add('junegunn/fzf.vim')                " fuzzy file finder (depends on junegunn/fzf)
+nnoremap <leader>e :Files<cr>
 
 call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
@@ -304,7 +298,6 @@ endif
 " personal settings
 nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
 nnoremap <leader>t :w! \| !compile test <c-r>%<cr>
-nnoremap <leader>g :execute "Ggrep " . expand('<cword>') . " " . getcwd()<cr>
 
 " the following lines should always be last
 colorscheme fsareshwala
