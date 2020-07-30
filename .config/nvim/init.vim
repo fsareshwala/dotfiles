@@ -142,48 +142,46 @@ if executable('rg')
 endif
 
 " --- Plugin installation
-set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
-call dein#begin('~/.config/nvim')
-call dein#add('Shougo/dein.vim')
+call plug#begin('~/.config/nvim/repos')
+Plug 'nelstrom/vim-visual-star-search' " start a * or # search from a visual block
+Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
+Plug 'tpope/vim-commentary'            " motions to comment lines out
+Plug 'tpope/vim-repeat'                " allow plugins to override .
+Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
+Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'vim-scripts/a.vim'               " switch to c/c++ header file
 
-call dein#add('tpope/vim-commentary')            " motions to comment lines out
-call dein#add('tpope/vim-surround.git')          " motions to surround text with other text
-call dein#add('vim-scripts/a.vim')               " switch to c/c++ header file
-call dein#add('tpope/vim-repeat')                " allow plugins to override .
-call dein#add('nelstrom/vim-visual-star-search') " start a * or # search from a visual block
-call dein#add('tpope/vim-sleuth')                " automatically adjust shiftwidth and expandtab
-call dein#add('tpope/vim-abolish')               " {} syntax (:Abolish, :Subvert), case style change
-call dein#add('SirVer/ultisnips')                " automatic snippet insertion
-call dein#add('honza/vim-snippets')              " collection of snippets
+Plug 'SirVer/ultisnips'                " automatic snippet insertion
+Plug 'honza/vim-snippets'              " collection of snippets
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 
-call dein#add('tpope/vim-speeddating')           " ctrl-a ctrl-x on dates
-SpeedDatingFormat %A, %B %d, %Y
-SpeedDatingFormat %B %d, %Y
+Plug 'tpope/vim-speeddating'           " ctrl-a ctrl-x on dates
+autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
+autocmd VimEnter * SpeedDatingFormat %B %d, %Y
 
-call dein#add('sheerun/vim-polyglot')            " filetype plugin for various programming languages
+Plug 'sheerun/vim-polyglot'            " filetype plugin for various programming languages
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
-call dein#add('junegunn/vim-easy-align')         " align text on character
+Plug 'junegunn/vim-easy-align'         " align text on character
 xmap ga <Plug>(EasyAlign)
 
-call dein#add('vimwiki/vimwiki')                 " personal wiki on vim
+Plug 'vimwiki/vimwiki'                 " personal wiki on vim
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-call dein#add('junegunn/fzf')                    " fuzzy file finder
-call dein#add('junegunn/fzf.vim')                " fuzzy file finder (depends on junegunn/fzf)
+Plug 'junegunn/fzf'                    " fuzzy file finder
+Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
 nnoremap <leader>e :Files<cr>
 
-call dein#add('mbbill/undotree')                 " restore files to a previous moment in time
+Plug 'mbbill/undotree'                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
 
-call dein#add('scrooloose/nerdtree')             " project drawer
+Plug 'scrooloose/nerdtree'             " project drawer
 let NERDTreeIgnore = []
 let NERDTreeIgnore += ['\.o$']
 let NERDTreeIgnore += ['\.a$']
@@ -206,29 +204,25 @@ autocmd VimEnter * wincmd p
 nnoremap <leader>n :NERDTreeMirror<cr>
 nnoremap <leader>l :NERDTreeFind<cr>
 
-call dein#add('chaoren/vim-wordmotion')          " better word motions through long strings
+Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
 
-call dein#add('FooSoft/vim-argwrap')             " toggle one argument per line
+Plug 'FooSoft/vim-argwrap'             " toggle one argument per line
 nnoremap <leader>a :ArgWrap<cr>
 
 " ciw - change inside word
 " yi) - yank inside parenthesis
 " vat - visually select around tag
 " di" - delete inside double quotes
-call dein#add('wellle/targets.vim')              " additional text objects to operate on
+Plug 'wellle/targets.vim'              " additional text objects to operate on
 
 " [q / ]q - navigate up and down through the quickfix list, for instance through vim-grepper results
 " [l / ]l - navigate up and down through the location list, for instance through neomake results
 " [a / ]a - navigate backward and forward through the file list
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
-call dein#add('tpope/vim-unimpaired')            " complementary pairs of mappings
-call dein#end()
-
-if dein#check_install()
-  call dein#install()
-endif
+Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
+call plug#end()
 
 " load work specific vim plugins
 if isdirectory('/usr/share/vim/google')
