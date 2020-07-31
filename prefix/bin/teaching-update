@@ -8,7 +8,7 @@ if [[ $# -ne 1 ]]; then
 fi
 
 repo=$1
-upstream_url=git@github.com:fsareshwala/$repo.git
+upstream_url=git@github.com:ucbext/$repo.git
 
 if git ls-remote upstream &> /dev/null; then
   git remote set-url upstream $upstream_url
