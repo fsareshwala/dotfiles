@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 # vim: set tw=0:
+#
+# If not running interactively, don't do anything
+case $- in
+  *i*) ;;
+  *) return;;
+esac
 
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
