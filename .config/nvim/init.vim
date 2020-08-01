@@ -180,33 +180,34 @@ nnoremap <leader>e :Files<cr>
 Plug 'mbbill/undotree'                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'} " project drawer
-autocmd VimEnter * :CHADopen
-nnoremap <leader>n :CHADopen<cr>
-autocmd VimEnter * wincmd p
+" Some issues prevent me from using this: https://github.com/ms-jpq/chadtree/issues (watch plugin)
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'} " project drawer
+" autocmd VimEnter * :CHADopen
+" nnoremap <leader>n :CHADopen<cr>
+" let g:chadtree_settings = {'width': 30}
 
-" Plug 'scrooloose/nerdtree'             " project drawer
-" let NERDTreeIgnore = []
-" let NERDTreeIgnore += ['\.o$']
-" let NERDTreeIgnore += ['\.a$']
-" let NERDTreeIgnore += ['\.d$']
-" let NERDTreeIgnore += ['\.pyc$']
-" let NERDTreeIgnore += ['\~$']
-" let NERDTreeIgnore += ['\.pdf$']
-" let NERDTreeIgnore += ['\.class$']
-" let NERDTreeIgnore += ['tags']
-" let NERDTreeIgnore += ['__pycache__']
-" let NERDTreeIgnore += ['__init__.py']
-" let NERDTreeIgnore += ['CMakeFiles']
-" let NERDTreeIgnore += ['cmake_install.cmake']
-" let NERDTreeIgnore += ['CMakeCache.txt']
-" let NERDTreeIgnore += ['bazel-*']
-" let NERDTreeWinSize = 31
-" autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-" autocmd VimEnter * :NERDTree
-" autocmd VimEnter * wincmd p
-" nnoremap <leader>n :NERDTreeMirror<cr>
-" nnoremap <leader>l :NERDTreeFind<cr>
+Plug 'scrooloose/nerdtree'             " project drawer
+let NERDTreeIgnore = []
+let NERDTreeIgnore += ['\.o$']
+let NERDTreeIgnore += ['\.a$']
+let NERDTreeIgnore += ['\.d$']
+let NERDTreeIgnore += ['\.pyc$']
+let NERDTreeIgnore += ['\~$']
+let NERDTreeIgnore += ['\.pdf$']
+let NERDTreeIgnore += ['\.class$']
+let NERDTreeIgnore += ['tags']
+let NERDTreeIgnore += ['__pycache__']
+let NERDTreeIgnore += ['__init__.py']
+let NERDTreeIgnore += ['CMakeFiles']
+let NERDTreeIgnore += ['cmake_install.cmake']
+let NERDTreeIgnore += ['CMakeCache.txt']
+let NERDTreeIgnore += ['bazel-*']
+let NERDTreeWinSize = 31
+autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * :NERDTree
+autocmd VimEnter * wincmd p
+nnoremap <leader>n :NERDTreeMirror<cr>
+nnoremap <leader>l :NERDTreeFind<cr>
 
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
