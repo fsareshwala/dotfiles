@@ -86,14 +86,14 @@ let php_htmlInStrings = 1
 
 function! LanguageSetup()
   if(&ft == 'c' || &ft == 'cpp')
-    nnoremap K :execute 'Man ' . expand('<cword>')<cr>
+    " nnoremap K :execute 'Man ' . expand('<cword>')<cr>
     setlocal commentstring=//\ %s
   elseif(&ft == 'tex')
     let b:surround_45 = '\\texttt{\r}'
     ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   elseif(&ft == 'vim')
-    nnoremap K :execute 'help ' . expand('<cword>')<cr>
+    " nnoremap K :execute 'help ' . expand('<cword>')<cr>
   endif
 endfunction
 autocmd BufEnter * call LanguageSetup()
@@ -173,7 +173,7 @@ let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 Plug 'junegunn/vim-easy-align'         " align text on character
-xmap ga <Plug>(EasyAlign)
+xnoremap ga <Plug>(EasyAlign)
 
 Plug 'vimwiki/vimwiki'                 " personal wiki on vim
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
@@ -186,35 +186,6 @@ nnoremap <leader>e :Files<cr>
 
 Plug 'mbbill/undotree'                 " restore files to a previous moment in time
 nnoremap <leader>u :UndotreeToggle<cr>
-
-" Some issues prevent me from using this: https://github.com/ms-jpq/chadtree/issues (watch plugin)
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'} " project drawer
-" autocmd VimEnter * :CHADopen
-" nnoremap <leader>n :CHADopen<cr>
-" let g:chadtree_settings = {'width': 30}
-
-Plug 'scrooloose/nerdtree'             " project drawer
-let NERDTreeIgnore = []
-let NERDTreeIgnore += ['\.o$']
-let NERDTreeIgnore += ['\.a$']
-let NERDTreeIgnore += ['\.d$']
-let NERDTreeIgnore += ['\.pyc$']
-let NERDTreeIgnore += ['\~$']
-let NERDTreeIgnore += ['\.pdf$']
-let NERDTreeIgnore += ['\.class$']
-let NERDTreeIgnore += ['tags']
-let NERDTreeIgnore += ['__pycache__']
-let NERDTreeIgnore += ['__init__.py']
-let NERDTreeIgnore += ['CMakeFiles']
-let NERDTreeIgnore += ['cmake_install.cmake']
-let NERDTreeIgnore += ['CMakeCache.txt']
-let NERDTreeIgnore += ['bazel-*']
-let NERDTreeWinSize = 31
-autocmd BufEnter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-autocmd VimEnter * :NERDTree
-autocmd VimEnter * wincmd p
-nnoremap <leader>n :NERDTreeMirror<cr>
-nnoremap <leader>l :NERDTreeFind<cr>
 
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
@@ -235,6 +206,74 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 " [p / ]p - linewise paste above or below the current line
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
+
+" install plugins incompaible wih work plugins
+if !s:atwork()
+  Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
+  Plug 'weirongxu/coc-explorer'        " project drawer
+
+  let g:coc_config_file='~/.config/coc/settings.json'
+  autocmd VimEnter * :CocCommand explorer --no-focus
+  autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
+
+  " Use <c-space> to trigger completion.
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+  " position. Coc only does snippet and additional edit on confirm.
+  " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+  if exists('*complete_info')
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+  else
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  endif
+
+  " Use `[g` and `]g` to navigate diagnostics
+  " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+  nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+  nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+
+  " GoTo code navigation.
+  nnoremap <silent> \gd <Plug>(coc-definition)
+  nnoremap <silent> \gy <Plug>(coc-type-definition)
+  nnoremap <silent> \gi <Plug>(coc-implementation)
+  nnoremap <silent> \gr <Plug>(coc-references)
+
+  " Use K to show documentation in preview window.
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  " Highlight the symbol and its references when holding the cursor.
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " Symbol renaming.
+  nnoremap <leader>rn <Plug>(coc-rename)
+
+  " Apply AutoFix to problem on the current line.
+  nnoremap <leader>qf <Plug>(coc-fix-current)
+
+  " Formatting code
+  xnoremap <leader>f <Plug>(coc-format-selected)
+  nnoremap <leader>f :call CocAction('format')<cr>
+
+  " Organize imports
+  nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+
+  augroup mygroup
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder.
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup end
+endif
 call plug#end()
 
 " load work specific vim plugins
@@ -303,8 +342,8 @@ if s:atwork()
 endif
 
 " personal settings
-nnoremap <leader>b :w! \| !compile build <c-r>%<cr>
-nnoremap <leader>t :w! \| !compile test <c-r>%<cr>
+nnoremap <leader>bb :w! \| !compile build <c-r>%<cr>
+nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
 
 " the following lines should always be last
 colorscheme fsareshwala
