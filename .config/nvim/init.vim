@@ -142,7 +142,7 @@ endif
 
 " --- Plugin installation
 call plug#begin('~/.config/nvim/repos')
-Plug 'nelstrom/vim-visual-star-search' " start a * or # search from a visual block
+Plug 'junegunn/vim-slash'              " search improvements (clear when move, visual star search)
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
 Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
