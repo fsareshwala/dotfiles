@@ -19,7 +19,6 @@ set ignorecase
 set inccommand=split
 set incsearch
 set laststatus=2
-set nrformats+=alpha,octal
 set list
 set listchars=tab:\|-,trail:-,extends:>,precedes:<
 set matchtime=3
@@ -33,12 +32,16 @@ set noshowmode
 set nostartofline
 set noswapfile
 set nowrap
+set nowritebackup
+set nrformats+=alpha,octal
 set number
 set preserveindent
 set shell=$SHELL
 set shiftwidth=2
+set shortmess+=c
 set showmatch
 set showtabline=2
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
