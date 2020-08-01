@@ -47,6 +47,10 @@ export PATH=.:${PATH}
 # command aliases
 alias -- -='cd -'
 alias -- ..='cd ..'
+alias -- ...='cd ../..'
+alias -- ....='cd ../../..'
+alias -- .....='cd ../../../..'
+alias -- ......='cd ../../../../..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias gdb='cgdb --directory=. -quiet'
@@ -64,6 +68,7 @@ alias vim='nvim -O'
 alias vimf='vim $(fzf)'
 alias mdv='mdless $(rg --files -t md * | fzf)'
 alias watch='watch --color'
+alias which='type -p'
 alias weather='curl wttr.in'
 
 function reswap() {
