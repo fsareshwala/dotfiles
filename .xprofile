@@ -6,7 +6,4 @@ setxkbmap -layout us -option ctrl:nocaps
 xset r rate 150 100
 xset b off
 
-xset +fp /usr/share/fonts/X11/misc
-xset fp rehash
-
 /home/fsareshwala/prefix/bin/setbg
