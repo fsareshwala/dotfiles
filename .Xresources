@@ -4,7 +4,7 @@ Xft.dpi: 144
 ! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt.shading: 15
 URxvt.transparent: true
-URxvt.font: xft:terminus:size=10
+URxvt.font: xft:TerminessTTF Nerd Font Mono:regular:size=10
 URxvt.boldFont:
 URxvt.fading: 75
 URxvt.letterSpace: 1

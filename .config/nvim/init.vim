@@ -14,7 +14,6 @@ set expandtab
 set exrc
 set formatoptions=cjlnqrt
 set gdefault
-set guifont=Terminus\ 8
 set hlsearch
 set ignorecase
 set inccommand=split
