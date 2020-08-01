@@ -144,6 +144,10 @@ if executable('rg')
 endif
 
 " --- Plugin installation
+function! s:atwork()
+  return filereadable('~/.work')
+endfunction
+
 call plug#begin('~/.config/nvim/repos')
 Plug 'junegunn/vim-slash'              " search improvements (clear when move, visual star search)
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
@@ -234,7 +238,7 @@ Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 call plug#end()
 
 " load work specific vim plugins
-if isdirectory('/usr/share/vim/google')
+if s:atwork()
   source /usr/share/vim/google/google.vim
 
   " automatically format build files with buildifier
