@@ -1,0 +1,42 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "cc",
+    "java",
+    "md",
+    "json"
+  ],
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.datetime.format": "MM/dd/yy HH:mm:ss",
+  "explorer.previewAction.onHover": false,
+  "explorer.width": 30,
+  "explorer.toggle": true,
+  "explorer.sources": [
+    {
+      "name": "bookmark",
+      "expand": false
+    },
+    {
+      "name": "buffer",
+      "expand": false
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.keyMappings": {
+    "<cr>": [
+      "expandable?",
+      [
+        "expanded?",
+        "collapse",
+        "expand"
+      ],
+      "open"
+    ],
+    "d": "deleteForever",
+    "u": "gotoParent"
+  }
+}
