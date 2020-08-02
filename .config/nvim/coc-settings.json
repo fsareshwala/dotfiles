@@ -2,9 +2,9 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "c",
     "cc",
-    "java",
     "md",
-    "json"
+    "json",
+    "sh"
   ],
   "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
