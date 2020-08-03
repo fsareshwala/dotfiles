@@ -207,7 +207,7 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'} " Project drawer
 autocmd VimEnter * :CHADopen
 nnoremap <leader>n :CHADopen<cr>
 let g:chadtree_settings = {
