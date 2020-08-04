@@ -5,6 +5,8 @@
 #
 # TODO: perhaps avoid the clone altogether and run this from the repository directory itself to
 # bootstrap a student repository
+#
+# NOTE: with the move to GitHub classroom, not sure if this script is even necessary anymore
 
 source ~/prefix/lib/utilities.sh
 
