@@ -28,6 +28,7 @@ export FZF_DEFAULT_OPTS='--height 20% --reverse'
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='nvim -c "set ft=man" -'
 export PS1='[\u@\h \e[36m\w\e[0m]\$ '
