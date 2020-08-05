@@ -12,9 +12,4 @@ generate_tags() {
 }
 
 gitroot="$(git rev-parse --show-toplevel)"
-cd $gitroot
-
-pid=$$
-trap "rm -f $gitroot/$pid.tags" EXIT
-ctags --exclude=deps -f $pid.tags
-mv $pid.tags tags
+generate_tags $gitroot
