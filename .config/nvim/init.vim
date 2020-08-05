@@ -5,8 +5,6 @@ set autoread
 set autowriteall
 set background=dark
 set backspace=eol,start,indent
-set cindent
-set cinoptions+=g0,l1,N-s,j1,J1
 set clipboard+=unnamedplus
 set colorcolumn=+1
 set copyindent
@@ -86,14 +84,15 @@ let php_htmlInStrings = 1
 
 function! LanguageSetup()
   if(&ft == 'c' || &ft == 'cpp')
-    " nnoremap K :execute 'Man ' . expand('<cword>')<cr>
     setlocal commentstring=//\ %s
+  elseif(&ft == 'c' || &ft == 'cpp' || &ft == 'java')
+    setlocal cindent
+    setlocal cinoptions+=g0,l1,N-s,E-s,(0,ks,(s,m1,j1,J1
   elseif(&ft == 'tex')
     let b:surround_45 = '\\texttt{\r}'
+    " TODO: move to snippets
     ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
     ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
-  elseif(&ft == 'vim')
-    " nnoremap K :execute 'help ' . expand('<cword>')<cr>
   endif
 endfunction
 autocmd BufEnter * call LanguageSetup()
