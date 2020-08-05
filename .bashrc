@@ -52,6 +52,7 @@ alias -- ...='cd ../..'
 alias -- ....='cd ../../..'
 alias -- .....='cd ../../../..'
 alias -- ......='cd ../../../../..'
+alias -- .......='cd ../../../../../..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias gdb='cgdb --directory=. -quiet'
