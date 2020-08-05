@@ -41,7 +41,6 @@ set showmatch
 set showtabline=2
 set signcolumn=yes
 set smartcase
-set smartindent
 set smarttab
 set softtabstop=2
 set splitright
@@ -86,6 +85,7 @@ function! LanguageSetup()
   if(&ft == 'c' || &ft == 'cpp')
     setlocal commentstring=//\ %s
   elseif(&ft == 'c' || &ft == 'cpp' || &ft == 'java')
+    setlocal smartindent
     setlocal cindent
     setlocal cinoptions+=g0,l1,N-s,E-s,(0,ks,(s,m1,j1,J1
   elseif(&ft == 'tex')
