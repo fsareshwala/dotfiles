@@ -210,9 +210,11 @@ autocmd VimEnter * :CHADopen
 nnoremap <leader>n :CHADopen<cr>
 let g:chadtree_settings = {
       \   'keymap': {
-      \     'v_split': ['s'],
-      \     'h_split': ['i'],
       \     'change_focus_up': ['u'],
+      \     'filter': ['/'],
+      \     'clear_filter': ['<esc>'],
+      \     'h_split': ['i'],
+      \     'v_split': ['s'],
       \   },
       \   'version_control': {
       \     'enable': 0
