@@ -43,6 +43,7 @@ export PATH=/usr/sbin:${PATH}
 export PATH=/home/fsareshwala/.local/bin/:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/home/fsareshwala/prefix/bin:${PATH}
+export PATH=/home/fsareshwala/personal/bin:${PATH}
 export PATH=.:${PATH}
 
 # command aliases
