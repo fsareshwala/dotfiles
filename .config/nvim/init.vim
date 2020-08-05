@@ -149,7 +149,6 @@ function! s:atwork()
 endfunction
 
 call plug#begin('~/.config/nvim/repos')
-Plug 'junegunn/vim-slash'              " search improvements (clear when move, visual star search)
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
 Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
