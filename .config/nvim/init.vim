@@ -16,6 +16,7 @@ set hlsearch
 set ignorecase
 set inccommand=split
 set incsearch
+set iskeyword+=-
 set laststatus=2
 set list
 set listchars=tab:\|-,trail:-,extends:>,precedes:<
@@ -34,6 +35,7 @@ set nowritebackup
 set nrformats+=alpha,octal
 set number
 set preserveindent
+set pumheight=10
 set shell=$SHELL
 set shiftwidth=2
 set shortmess+=c
@@ -44,12 +46,15 @@ set smartcase
 set smarttab
 set softtabstop=2
 set splitright
+set splitright
 set tabstop=2
 set tags=tags;
 set textwidth=100 wrap linebreak
+set timeoutlen=500
 set title
 set undodir=~/.config/nvim/tmp/undo
 set undofile
+set updatetime=300
 set virtualedit+=block
 set wildignore+=*.so,*.o
 set wildmenu
