@@ -119,16 +119,25 @@ if [[ -f ~/.work ]]; then
   alias clsubmit='hg submit'
   alias d='hg diff'
   alias ha='hg add'
-  alias ham='hg amend'
   alias hai='hg amend -i'
+  alias ham='hg amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
   alias st='hg status'
 
-  workdir='~code/google3/experimental/users/fsareshwala'
-  if [[ -f "$workdir/bash/bashrc" ]]; then
-    source "$workdir/bash/bashrc"
-  fi
+  alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
+  alias bgrep=/google/data/ro/teams/borgtools/bgrep
+  alias bkill=/google/data/ro/teams/borgtools/bkill
+  alias btail=/google/data/ro/teams/borgtools/btail
+
+  alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
+  alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
+  alias cd-fi='cd ~/code/google3/production/resources/warehouse'
+  alias cd-ff='cd ~/code/google3/production/resources/fleetforecast'
+  alias cd-me='cd ~/code/google3/experimental/users/$USER'
+
+  alias cd-ff-g3doc='cd ~/code/google3/production/resources/g3doc/eng/team/fleetforecast'
+  alias cd-ff-borg='cd ~/code/googlee/production/borg/fleet-forecast/'
 else
   # personal setup
   alias b='git branch'
