@@ -119,18 +119,13 @@ if [[ -f ~/.work ]]; then
   alias clsubmit='hg submit'
   alias d='hg diff'
   alias ha='hg add'
-  alias ham='hg amend'
   alias hai='hg amend -i'
+  alias ham='hg amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
   alias rpost='hg upload chain'
   alias rsubmit='hg submit'
   alias st='hg status'
-
-  workdir='~code/google3/experimental/users/fsareshwala'
-  if [[ -f "$workdir/bash/bashrc" ]]; then
-    source "$workdir/bash/bashrc"
-  fi
 else
   # personal setup
   alias b='git branch'
