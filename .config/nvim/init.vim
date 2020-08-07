@@ -177,6 +177,7 @@ let g:vim_markdown_new_list_item_indent = 0
 
 Plug 'junegunn/vim-easy-align'         " align text on character
 xnoremap ga <Plug>(EasyAlign)
+autocmd FileType markdown nnoremap <Bar> vip :EasyAlign*<Bar><cr>
 
 Plug 'vimwiki/vimwiki'                 " personal wiki on vim
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'}]
