@@ -179,7 +179,7 @@ Plug 'junegunn/vim-easy-align'         " align text on character
 xnoremap ga <Plug>(EasyAlign)
 
 Plug 'vimwiki/vimwiki'                 " personal wiki on vim
-let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md', 'auto_toc': 1}]
+let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
