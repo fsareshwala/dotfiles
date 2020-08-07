@@ -297,6 +297,10 @@ lua vim.api.nvim_set_var("chadtree_ignores", { name = {".*", ".git"} })
 " endif
 call plug#end()
 
+" personal settings: will get overwritten if loading work configuration
+nnoremap <leader>bb :w! \| !compile build <c-r>%<cr>
+nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
+
 " load work specific vim plugins
 if s:atwork()
   source /usr/share/vim/google/google.vim
@@ -361,10 +365,6 @@ if s:atwork()
   " kythe language server (codesearch based code jumps)
   " vigor (interactive java debugging from within vim)
 endif
-
-" personal settings
-nnoremap <leader>bb :w! \| !compile build <c-r>%<cr>
-nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
 
 " the following lines should always be last
 colorscheme fsareshwala
