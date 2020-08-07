@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-
 # vim: set tw=0:
-#
+
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
   *) return;;
 esac
 
+# set up bash, git completion
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
@@ -123,8 +123,12 @@ if [[ -f ~/.work ]]; then
   alias hai='hg amend -i'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
-  alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias st='hg status'
+
+  workdir='~code/google3/experimental/users/fsareshwala'
+  if [[ -f "$workdir/bash/bashrc" ]]; then
+    source "$workdir/bash/bashrc"
+  fi
 else
   # personal setup
   alias b='git branch'
