@@ -1,2 +1,43 @@
 #!/usr/bin/env bash
-xclip -o -selection clipboard | espeak -s 300
+
+# Use the Google Cloud Text to Speech API to synthesize clipboard text to audio. Requires the Google
+# Cloud SDK be installed first.
+#
+# Instructions to install are available here: https://cloud.google.com/sdk/docs/downloads-apt-get
+
+source ~/prefix/lib/utilities.sh
+ensure_exists gcloud
+ensure_exists jq
+ensure_exists xclip
+ensure_exists ffplay
+
+export GOOGLE_APPLICATION_CREDENTIALS='/home/fsareshwala/personal/keys/personal-project-285905.json'
+
+tmpdir=$(mktemp -d)
+trap "rm -rf $tmpdir" EXIT
+
+cd $tmpdir
+cat << EOF > request.json
+{
+  "input": {
+    "text": "$(xclip -o -selection clipboard)"
+  },
+  "voice": {
+    "languageCode": "en-US",
+    "name": "en-US-Wavenet-D",
+    "ssmlGender": "MALE"
+  },
+  "audioConfig": {
+    "audioEncoding": "MP3",
+    "speakingRate": 2.0
+  }
+}
+EOF
+
+api_url='https://texttospeech.googleapis.com/v1/text:synthesize'
+curl -X POST \
+-H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
+-H "Content-Type: application/json; charset=utf-8" \
+-d @request.json \
+$api_url | jq -r .audioContent | base64 --decode > out.mp3
+ffplay -autoexit -nodisp out.mp3
