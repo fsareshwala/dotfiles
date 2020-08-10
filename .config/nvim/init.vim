@@ -211,6 +211,19 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 
+Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
+Plug 'google/vim-codefmt'              " format source code
+autocmd FileType bzl AutoFormatBuffer buildifier
+autocmd FileType c,cpp AutoFormatBuffer clang-format
+autocmd FileType go AutoFormatBuffer gofmt
+autocmd FileType java AutoFormatBuffer google-java-format
+autocmd FileType markdown AutoFormatBuffer mdformat
+autocmd FileType proto AutoFormatBuffer protofmt
+autocmd FileType python AutoFormatBuffer pyformat
+autocmd FileType rust AutoFormatBuffer rustfmt
+autocmd FileType sql AutoFormatBuffer format_sql
+autocmd FileType textpb AutoFormatBuffer text-proto-format
+nnoremap <leader>f :FormatCode<cr>
 
 " install plugins incompaible wih work plugins
 if !s:atwork()
@@ -256,8 +269,8 @@ if !s:atwork()
   nnoremap <leader>qf <Plug>(coc-fix-current)
 
   " Formatting code
-  xnoremap <leader>f <Plug>(coc-format-selected)
-  nnoremap <leader>f :call CocAction('format')<cr>
+  xnoremap <leader>cf <Plug>(coc-format-selected)
+  nnoremap <leader>cf :call CocAction('format')<cr>
 
   " Organize imports
   nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -288,19 +301,8 @@ nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
 if s:atwork()
   source /usr/share/vim/google/google.vim
 
-  " automatically format build files with buildifier
-  Glug codefmt
+  " google specific code formatting
   Glug codefmt-google
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType markdown AutoFormatBuffer mdformat
-  autocmd FileType proto AutoFormatBuffer protofmt
-  autocmd FileType python AutoFormatBuffer pyformat
-  autocmd FileType sql AutoFormatBuffer format_sql
-  autocmd FileType textpb AutoFormatBuffer text-proto-format
-  nnoremap <leader>f :FormatCode<cr>
 
   " \pf: get a window of changed files
   Glug piper plugin[mappings]
