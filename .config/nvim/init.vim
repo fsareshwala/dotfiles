@@ -87,17 +87,16 @@ let php_sql_query = 1
 let php_htmlInStrings = 1
 
 function! LanguageSetup()
-  if(&ft == 'c' || &ft == 'cpp')
-    setlocal commentstring=//\ %s
-  elseif(&ft == 'c' || &ft == 'cpp' || &ft == 'java')
+  if(&ft == 'c' || &ft == 'cpp' || &ft == 'java')
     setlocal smartindent
     setlocal cindent
     setlocal cinoptions+=g0,l1,N-s,E-s,(0,ks,(s,m1,j1,J1
+
+    if(&ft == 'c' || &ft == 'cpp')
+      setlocal commentstring=//\ %s
+    endif
   elseif(&ft == 'tex')
     let b:surround_45 = '\\texttt{\r}'
-    " TODO: move to snippets
-    ab dsol \begin{solutionordottedlines}[1in]<cr><cr>\end{solutionordottedlines}
-    ab bsol \begin{solutionorbox}[2in]<cr><cr>\end{solutionorbox}
   endif
 endfunction
 autocmd BufEnter * call LanguageSetup()
