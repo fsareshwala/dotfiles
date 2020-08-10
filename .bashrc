@@ -112,6 +112,13 @@ function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
+function gsshfs() {
+  local cloudtop='fsareshwala.c.googlers.com'
+  local workspace='/google/src/cloud/fsareshwala/code/google3'
+  local localdir='/home/fsareshwala/code/google'
+  sshfs -f -o reconnect $cloudtop:$workspace $localdir
+}
+
 if [[ -f ~/.work ]]; then
   # work setup
   alias b='hg bookmark'
@@ -155,7 +162,9 @@ else
   alias gm='git commit -m'
   alias griom='git rebase -i origin/master'
   alias grom='git rebase origin/master'
+  alias gssh='ssh fsareshwala.c.googlers.com'
   alias st='git status'
+
   complete -A directory gm
 fi
 
