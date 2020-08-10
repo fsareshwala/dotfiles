@@ -211,23 +211,6 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 
-" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'} " Project drawer
-" autocmd VimEnter * :CHADopen
-" nnoremap <leader>n :CHADopen<cr>
-" let g:chadtree_settings = {
-"       \   'keymap': {
-"       \     'change_focus_up': ['u'],
-"       \     'filter': ['/'],
-"       \     'clear_filter': ['<esc>'],
-"       \     'h_split': ['i'],
-"       \     'v_split': ['s'],
-"       \   },
-"       \   'version_control': {
-"       \     'enable': 0
-"       \   },
-"       \ }
-"
-" lua vim.api.nvim_set_var("chadtree_ignores", { name = {".*", ".git"} })
 
 " install plugins incompaible wih work plugins
 if !s:atwork()
