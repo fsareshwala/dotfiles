@@ -80,8 +80,8 @@ function reswap() {
 }
 
 function dirdo() {
-  cwd=$(pwd)
-  directories="$(find . -maxdepth 1 -type d)"
+  local cwd=$(pwd)
+  local directories="$(find . -maxdepth 1 -type d)"
   for dir in $directories; do
     if [[ $dir == '.' ]]; then
       continue
@@ -103,8 +103,8 @@ function cal() {
 }
 
 function rreplace() {
-  old="$1"
-  new="$2"
+  local old="$1"
+  local new="$2"
   git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
