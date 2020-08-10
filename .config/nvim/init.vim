@@ -161,9 +161,10 @@ Plug 'vim-scripts/a.vim'               " switch to c/c++ header file
 
 Plug 'SirVer/ultisnips'                " automatic snippet insertion
 Plug 'honza/vim-snippets'              " collection of snippets
-let g:UltiSnipsExpandTrigger           = '<tab>'
-let g:UltiSnipsJumpForwardTrigger      = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 Plug 'tpope/vim-speeddating'           " ctrl-a ctrl-x on dates
 autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
