@@ -1,4 +1,4 @@
-font terminus normal 10
+set font "terminus normal 10"
 
 map R rotate
 map i recolor
@@ -8,4 +8,4 @@ map r reload
 set selection-clipboard clipboard
 set statusbar-h-padding 0
 set statusbar-v-padding 0
-set window-title-basename "true"
+set window-title-basename true
