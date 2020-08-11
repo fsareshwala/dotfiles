@@ -158,6 +158,8 @@ Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
 Plug 'vim-scripts/a.vim'               " switch to c/c++ header file
+Plug 'vim-airline/vim-airline'         " status line
+Plug 'vim-airline/vim-airline-themes'  " themes for the status line
 
 Plug 'SirVer/ultisnips'                " automatic snippet insertion
 Plug 'honza/vim-snippets'              " collection of snippets
