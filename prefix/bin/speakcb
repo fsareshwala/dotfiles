@@ -35,10 +35,16 @@ cat << EOF > request.json
 }
 EOF
 
-api_url='https://texttospeech.googleapis.com/v1/text:synthesize'
 curl -X POST \
 -H "Authorization: Bearer "$(gcloud auth application-default print-access-token) \
 -H "Content-Type: application/json; charset=utf-8" \
--d @request.json \
-$api_url | jq -r .audioContent | base64 --decode > out.mp3
+-d @request.json https://texttospeech.googleapis.com/v1/text:synthesize > response.json
+
+error_message=$(jq .error.message response.json)
+if [[ $error_message != "null" ]]; then
+  notify-send 'Failure: Speak Cliboard' "$error_message"
+  exit 1
+fi
+
+jq -r .audioContent response.json | base64 --decode > out.mp3
 ffplay -autoexit -nodisp out.mp3
