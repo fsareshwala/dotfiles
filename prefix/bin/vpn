@@ -17,4 +17,4 @@ while ! dig +short NS twitter.biz | grep twitter.com ; do
   sleep 1
 done
 
-keyring get vpn fsareshwala | kinit
+$password | kinit
