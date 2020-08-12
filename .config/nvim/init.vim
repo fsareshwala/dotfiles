@@ -319,6 +319,7 @@ if s:atwork()
   Glug youcompleteme-google
   let g:ycm_key_list_select_completion = ['<c-j>', '<c-n>', '<down>']
   let g:ycm_key_list_previous_completion = ['<c-k>', '<c-p>', '<up>']
+  let g:ycm_auto_hover = 0
 
   " google specific snippets
   " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
