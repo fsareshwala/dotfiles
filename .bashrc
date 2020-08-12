@@ -144,7 +144,7 @@ if [[ -f ~/.work ]]; then
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
 
   alias cd-ff-g3doc='cd ~/code/google3/production/resources/g3doc/eng/team/fleetforecast'
-  alias cd-ff-borg='cd ~/code/googlee/production/borg/fleet-forecast/'
+  alias cd-ff-borg='cd ~/code/google3/production/borg/fleet-forecast/'
   alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
 else
   # personal setup
