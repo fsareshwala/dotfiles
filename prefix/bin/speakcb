@@ -15,12 +15,13 @@ export GOOGLE_APPLICATION_CREDENTIALS="$(realpath ~/personal/keys/personal-proje
 
 tmpdir=$(mktemp -d)
 trap "rm -rf $tmpdir" EXIT
-
 cd $tmpdir
+
+text=$(xclip -o -selection clipboard | tr '\n' ' ' | sed -e 's/"/\\"/g')
 cat << EOF > request.json
 {
   "input": {
-    "text": "$(xclip -o -selection clipboard)"
+    "text": "$text"
   },
   "voice": {
     "languageCode": "en-US",
