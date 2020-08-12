@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function load_one() {
-  uptime | awk '{print $10}' | tr -d ','
+  cat /proc/loadavg | awk '{print $1}'
 }
 
 function cpu_usage() {
