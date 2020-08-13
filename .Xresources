@@ -4,6 +4,7 @@ Xft.dpi: 144
 URxvt.font: xft:TerminessTTF Nerd Font Mono:regular:size=10
 URxvt.boldFont:
 URxvt.letterSpace: 1
+URxvt.pointerBlank: true
 URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
