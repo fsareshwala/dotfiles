@@ -12,19 +12,20 @@ URxvt.saveLines: 65535
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
+URxvt.url-launcher: /usr/bin/google-chrome
 
 ! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
 URxvt.shading: 15
 URxvt.transparent: true
 URxvt.fading: 75
 
+! extensions configuration
 URxvt.perl-lib: /home/fsareshwala/prefix/usr/local/rxvt/perls
 URxvt.perl-ext-common: keyboard-select,url-select,clipboard,matcher,resize-font
 URxvt.keysym.C-i: perl:keyboard-select:activate
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-launcher: /usr/bin/google-chrome
 URxvt.url-select.launcher: /usr/bin/google-chrome
 URxvt.url-select.underline: true
 URxvt.keysym.C-minus: resize-font:smaller
