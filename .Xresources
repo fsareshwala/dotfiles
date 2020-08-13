@@ -49,7 +49,7 @@ URxvt.matcher.pattern.6: cs\/[a-zA-Z0-9-_.\/]+
 ! terminal.sexy: dotshare
 URxvt.foreground:   #ffffff
 URxvt.background:   #000000
-URxvt.cursorColor:  #ffffff
+URxvt.cursorColor:  #00ff00
 URxvt.color0:       #101010
 URxvt.color8:       #404040
 URxvt.color1:       #e84f4f
