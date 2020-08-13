@@ -157,7 +157,17 @@ Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
-Plug 'vim-scripts/a.vim'               " switch to c/c++ header file
+Plug 'tpope/vim-projectionist'         " easy switching to alternate files
+let g:projectionist_heuristics = {
+      \ '*': {
+      \ '*.c': {'alternate': '{}.h'},
+      \ '*.cc': {'alternate': '{}.h'},
+      \ '*.cpp': {'alternate': '{}.h'},
+      \ '*.h': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
+      \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
+      \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
+      \ }}
+
 Plug 'vim-airline/vim-airline'         " status line
 Plug 'vim-airline/vim-airline-themes'  " themes for the status line
 
