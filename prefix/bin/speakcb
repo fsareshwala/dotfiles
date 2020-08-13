@@ -30,7 +30,7 @@ cat << EOF > request.json
   },
   "audioConfig": {
     "audioEncoding": "MP3",
-    "speakingRate": 2.0
+    "speakingRate": 2.2
   }
 }
 EOF
