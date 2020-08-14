@@ -109,8 +109,8 @@ nnoremap * *<c-o>
 " resize buffers on vim resize
 autocmd VimResized * execute 'normal! \<c-w>='
 
-" underline current line
-nnoremap <leader>iu YpVr-
+" underline current line when only in normal mode
+nnoremap U YpVr-
 
 " print date and underline
 inoremap <expr> <leader>id strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
