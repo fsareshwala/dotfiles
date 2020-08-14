@@ -289,7 +289,9 @@ if !s:atwork()
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
+      execute 'h ' . expand('<cword>')
+    elseif (index(['c', 'cpp'], &filetype) >= 0)
+      execute 'Man ' . expand('<cword>')
     else
       call CocAction('doHover')
     endif
