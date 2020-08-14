@@ -269,7 +269,7 @@ if !s:atwork()
   nnoremap <silent> \gr <Plug>(coc-references)
 
   " Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  nnoremap <silent> K :call <SID>show_documentation()<cr>
 
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -285,7 +285,7 @@ if !s:atwork()
   nnoremap <leader>cf :call CocAction('format')<cr>
 
   " Organize imports
-  nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')
+  nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
