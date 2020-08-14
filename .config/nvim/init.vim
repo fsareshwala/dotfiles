@@ -303,9 +303,6 @@ endfunction
 if s:atwork()
   source /usr/share/vim/google/google.vim
 
-  " google specific code formatting
-  Glug codefmt-google
-
   " \pf: get a window of changed files
   Glug piper plugin[mappings]
 
