@@ -111,7 +111,7 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 nnoremap * *<c-o>
 
 " reload buffers on vim resize
-autocmd VimResized * exe 'normal! \<c-w>='
+autocmd VimResized * execute 'normal! \<c-w>='
 
 " underline current line
 nnoremap <leader>iu YpVr-
@@ -157,6 +157,9 @@ Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'vim-airline/vim-airline'         " status line
+Plug 'vim-airline/vim-airline-themes'  " themes for the status line
+
 Plug 'tpope/vim-projectionist'         " easy switching to alternate files
 let g:projectionist_heuristics = {
       \ '*': {
@@ -167,9 +170,6 @@ let g:projectionist_heuristics = {
       \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
       \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
       \ }}
-
-Plug 'vim-airline/vim-airline'         " status line
-Plug 'vim-airline/vim-airline-themes'  " themes for the status line
 
 Plug 'SirVer/ultisnips'                " automatic snippet insertion
 Plug 'honza/vim-snippets'              " collection of snippets
@@ -226,7 +226,7 @@ Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'google/vim-codefmt'              " format source code
 autocmd FileType bzl AutoFormatBuffer buildifier
-autocmd FileType c,cpp AutoFormatBuffer clang-format
+autocmd FileType c,cc,cpp AutoFormatBuffer clang-format
 autocmd FileType go AutoFormatBuffer gofmt
 autocmd FileType java AutoFormatBuffer google-java-format
 autocmd FileType markdown AutoFormatBuffer mdformat
@@ -264,7 +264,7 @@ if !s:atwork()
 
   " GoTo code navigation.
   nnoremap <silent> \gd <Plug>(coc-definition)
-  nnoremap <silent> \gy <Plug>(coc-type-definition)
+  nnoremap <silent> \gt <Plug>(coc-type-definition)
   nnoremap <silent> \gi <Plug>(coc-implementation)
   nnoremap <silent> \gr <Plug>(coc-references)
 
