@@ -143,10 +143,6 @@ if executable('rg')
 endif
 
 " --- Plugin installation
-function! s:atwork()
-  return filereadable('~/.work')
-endfunction
-
 call plug#begin('~/.config/nvim/repos')
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
 Plug 'tpope/vim-commentary'            " motions to comment lines out
@@ -233,71 +229,67 @@ autocmd FileType sql AutoFormatBuffer format_sql
 autocmd FileType textpb AutoFormatBuffer text-proto-format
 nnoremap <leader>f :FormatCode<cr>
 
-" install plugins incompaible wih work plugins
-if !s:atwork()
-  Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
-  " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
-
-  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-  " position. Coc only does snippet and additional edit on confirm.
-  " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-  if exists('*complete_info')
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-  else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-  endif
-
-  " Use `[g` and `]g` to navigate diagnostics
-  " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-  nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-  nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
-
-  " GoTo code navigation.
-  nnoremap <silent> \gd <Plug>(coc-definition)
-  nnoremap <silent> \gt <Plug>(coc-type-definition)
-  nnoremap <silent> \gi <Plug>(coc-implementation)
-  nnoremap <silent> \gr <Plug>(coc-references)
-
-  " Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<cr>
-
-  " Symbol renaming.
-  nnoremap <leader>rn <Plug>(coc-rename)
-
-  " Apply AutoFix to problem on the current line.
-  nnoremap <leader>qf <Plug>(coc-fix-current)
-
-  " Formatting code
-  xnoremap <leader>cf <Plug>(coc-format-selected)
-  nnoremap <leader>cf :call CocAction('format')<cr>
-
-  " Organize imports
-  nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
-
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h ' . expand('<cword>')
-    elseif (index(['c', 'cpp'], &filetype) >= 0)
-      execute 'Man ' . expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
-
-  augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder.
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  augroup end
-
-  Plug 'weirongxu/coc-explorer'        " project drawer
-  autocmd VimEnter * :CocCommand explorer --no-focus
-  autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nnoremap <silent> \gd <Plug>(coc-definition)
+nnoremap <silent> \gt <Plug>(coc-type-definition)
+nnoremap <silent> \gi <Plug>(coc-implementation)
+nnoremap <silent> \gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<cr>
+
+" Symbol renaming.
+nnoremap <leader>rn <Plug>(coc-rename)
+
+" Apply AutoFix to problem on the current line.
+nnoremap <leader>qf <Plug>(coc-fix-current)
+
+" Formatting code
+xnoremap <leader>cf <Plug>(coc-format-selected)
+nnoremap <leader>cf :call CocAction('format')<cr>
+
+" Organize imports
+nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h ' . expand('<cword>')
+  elseif (index(['c', 'cpp'], &filetype) >= 0)
+    execute 'Man ' . expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+Plug 'weirongxu/coc-explorer'        " project drawer
+autocmd VimEnter * :CocCommand explorer --no-focus
+autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 call plug#end()
 
 " personal settings: will get overwritten if loading work configuration
@@ -305,6 +297,10 @@ nnoremap <leader>bb :w! \| !compile build <c-r>%<cr>
 nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
 
 " load work specific vim plugins
+function! s:atwork()
+  return filereadable('~/.work')
+endfunction
+
 if s:atwork()
   source /usr/share/vim/google/google.vim
 
