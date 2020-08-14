@@ -10,7 +10,7 @@
   "explorer.icon.enableVimDevicons": true,
   "explorer.datetime.format": "MM/dd/yy HH:mm:ss",
   "explorer.previewAction.onHover": false,
-  "explorer.width": 30,
+  "explorer.width": 32,
   "explorer.toggle": true,
   "explorer.sources": [
     {
@@ -37,6 +37,7 @@
       "open"
     ],
     "d": "deleteForever",
-    "u": "gotoParent"
+    "u": "gotoParent",
+    "v": "open:vsplit"
   }
 }
