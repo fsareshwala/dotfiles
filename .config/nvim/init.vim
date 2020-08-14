@@ -236,10 +236,6 @@ nnoremap <leader>f :FormatCode<cr>
 " install plugins incompaible wih work plugins
 if !s:atwork()
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
-  Plug 'weirongxu/coc-explorer'        " project drawer
-
-  autocmd VimEnter * :CocCommand explorer --no-focus
-  autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 
   " Use <c-space> to trigger completion.
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -297,6 +293,10 @@ if !s:atwork()
     " Update signature help on jump placeholder.
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   augroup end
+
+  Plug 'weirongxu/coc-explorer'        " project drawer
+  autocmd VimEnter * :CocCommand explorer --no-focus
+  autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 endif
 call plug#end()
 
