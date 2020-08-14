@@ -112,9 +112,6 @@ autocmd VimResized * execute 'normal! \<c-w>='
 " underline current line when only in normal mode
 nnoremap U YpVr-
 
-" print date and underline
-inoremap <expr> <leader>id strftime('%A, %B %d, %Y') . '<esc>YpVr-$a<cr>'
-
 " load vimrc on save
 augroup vimrc
   autocmd!
