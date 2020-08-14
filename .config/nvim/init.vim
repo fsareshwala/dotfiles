@@ -163,13 +163,6 @@ let g:projectionist_heuristics = {
       \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
       \ }}
 
-Plug 'SirVer/ultisnips'                " automatic snippet insertion
-Plug 'honza/vim-snippets'              " collection of snippets
-let g:UltiSnipsEditSplit = "vertical"
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
 Plug 'tpope/vim-speeddating'           " ctrl-a ctrl-x on dates
 autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
 autocmd VimEnter * SpeedDatingFormat %B %d, %Y
