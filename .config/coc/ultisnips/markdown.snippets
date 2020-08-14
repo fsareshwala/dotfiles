@@ -23,3 +23,8 @@
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet udate "Insert current date underlined" b
+`export date=$(date +"%A, %B %d, %Y"); echo $date; echo $date | sed 's/./-/g'`
+$0
+endsnippet
