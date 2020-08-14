@@ -38,6 +38,7 @@
     ],
     "d": "deleteForever",
     "u": "gotoParent",
-    "v": "open:vsplit"
+    "s": "open:vsplit",
+    "i": "open:split"
   }
 }
