@@ -287,7 +287,13 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-Plug 'weirongxu/coc-explorer'        " project drawer
+let g:coc_global_extensions = [
+\ 'coc-explorer',
+\ 'coc-snippets',
+\ 'coc-json',
+\ ]
+
+" coc-explorer configuration
 autocmd VimEnter * :CocCommand explorer --no-focus
 autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 call plug#end()
