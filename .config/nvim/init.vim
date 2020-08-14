@@ -110,7 +110,7 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 " stay at current word when using star search
 nnoremap * *<c-o>
 
-" reload buffers on vim resize
+" resize buffers on vim resize
 autocmd VimResized * execute 'normal! \<c-w>='
 
 " underline current line
