@@ -271,9 +271,6 @@ if !s:atwork()
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call <SID>show_documentation()<cr>
 
-  " Highlight the symbol and its references when holding the cursor.
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-
   " Symbol renaming.
   nnoremap <leader>rn <Plug>(coc-rename)
 
