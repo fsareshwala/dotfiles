@@ -12,7 +12,6 @@
 # awk -F'\t' '{print "emoji_map[\"" $NF "\"]=" "\"" $2 "\""}' data | sed -e 's/\U+//g'
 
 source ~/prefix/lib/utilities.sh
-
 export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
 declare -A emoji_map
