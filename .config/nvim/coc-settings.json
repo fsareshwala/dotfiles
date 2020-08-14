@@ -2,6 +2,7 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "c",
     "cc",
+    "cpp",
     "md",
     "json",
     "sh"
