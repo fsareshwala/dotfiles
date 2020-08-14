@@ -7,7 +7,6 @@
     "json",
     "sh"
   ],
-  "explorer.icon.enableNerdfont": true,
   "explorer.icon.enableVimDevicons": true,
   "explorer.datetime.format": "MM/dd/yy HH:mm:ss",
   "explorer.previewAction.onHover": false,
