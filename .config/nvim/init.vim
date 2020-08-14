@@ -278,10 +278,14 @@ augroup mygroup
 augroup end
 
 let g:coc_global_extensions = [
+\ 'coc-dictionary',
 \ 'coc-explorer',
-\ 'coc-snippets',
 \ 'coc-json',
+\ 'coc-snippets',
 \ ]
+
+" coc-dictionary configuration
+let &dictionary = '/usr/share/dict/words'
 
 " coc-explorer configuration
 autocmd VimEnter * :CocCommand explorer --no-focus
