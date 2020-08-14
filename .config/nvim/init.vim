@@ -317,9 +317,9 @@ if s:atwork()
   " \aa: automatically add using declaration in c++ for current identifier
   Glug add_usings plugin[mappings]
 
-  " google specific snippets
+  " google specific snippets -- doesn't work with coc-snippets -- need to debug
   " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
-  Glug ultisnips-google
+  " Glug ultisnips-google
 
   " access corporate websites directly from vim
   " \cw: code search word
