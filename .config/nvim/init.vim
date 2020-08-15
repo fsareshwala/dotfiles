@@ -298,8 +298,8 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 call plug#end()
 
 " personal settings: will get overwritten if loading work configuration
-nnoremap <leader>bb :w! \| !compile build <c-r>%<cr>
-nnoremap <leader>bt :w! \| !compile test <c-r>%<cr>
+nnoremap <leader>bb :execute 'w! \| !compile build ' . fnamemodify(expand('%'), ':.')<cr>
+nnoremap <leader>bt :execute 'w! \| !compile test  ' . fnamemodify(expand('%'), ':.')<cr>
 
 " load work specific vim plugins
 function! s:atwork()
