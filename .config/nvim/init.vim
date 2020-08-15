@@ -141,6 +141,7 @@ endif
 
 " --- Plugin installation
 call plug#begin('~/.config/nvim/repos')
+Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
 Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
@@ -298,8 +299,8 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 call plug#end()
 
 " personal settings: will get overwritten if loading work configuration
-nnoremap <leader>bb :execute 'w! \| !compile build ' . fnamemodify(expand('%'), ':.')<cr>
-nnoremap <leader>bt :execute 'w! \| !compile test  ' . fnamemodify(expand('%'), ':.')<cr>
+nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
+nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
 
 " load work specific vim plugins
 function! s:atwork()
