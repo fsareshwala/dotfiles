@@ -3,7 +3,6 @@
 op=$1
 path=$2
 
-# TODO(fsareshwala): this doesn't work with test
 case $path in
   *.tex|*.c|*.cc|*.java)
     fullname=$(bazel query $path)
