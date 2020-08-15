@@ -12,4 +12,6 @@ numlockx &
 dunst -conf /home/fsareshwala/.dunstrc &
 /home/fsareshwala/prefix/bin/status &
 
-/home/fsareshwala/code/dwm/dwm
+while [[ true ]]; do
+  /home/fsareshwala/code/dwm/dwm
+done
