@@ -11,6 +11,19 @@
   "explorer.datetime.format": "MM/dd/yy HH:mm:ss",
   "explorer.previewAction.onHover": false,
   "explorer.width": 32,
+  "explorer.file.hiddenRules": {
+    "extensions": [
+      "o",
+      "a",
+      "obj",
+      "pyc"
+    ],
+    "filenames": [],
+    "patternMatches": [
+      "^\\.",
+      "bazel-*"
+    ]
+  },
   "explorer.toggle": true,
   "explorer.sources": [
     {
