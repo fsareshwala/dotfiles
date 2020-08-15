@@ -24,14 +24,18 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet dsol "Insert solution or dotted lines" b
-\begin{solutionordottedlines}[1in]
-	$0
+snippet dsol "insert solution or dotted lines" b
+\begin{solutionordottedlines}[${1:1}in]
+	$2
 \end{solutionordottedlines}
 endsnippet
 
-snippet bsol "Insertion solution or box" b
-\begin{solutionorbox}[2in]
-	$0
+snippet bsol "insertion solution or box" b
+\begin{solutionorbox}[${1:2}in]
+	$2
 \end{solutionorbox}
+endsnippet
+
+snippet q "Insert question" b
+\question $1
 endsnippet
