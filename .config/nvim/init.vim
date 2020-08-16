@@ -59,6 +59,8 @@ set virtualedit+=block
 set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
+set spellfile+=~/.config/nvim/spell/en.utf-8.add
+set spellfile+=~/personal/vim/en.utf-8.add
 set wrapscan
 
 nnoremap <c-h> <esc><c-w>h
