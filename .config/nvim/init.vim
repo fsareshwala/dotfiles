@@ -210,16 +210,16 @@ Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 
 Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'google/vim-codefmt'              " format source code
-autocmd FileType bzl AutoFormatBuffer buildifier
-autocmd FileType c,cc,cpp AutoFormatBuffer clang-format
-autocmd FileType go AutoFormatBuffer gofmt
-autocmd FileType java AutoFormatBuffer google-java-format
-autocmd FileType markdown AutoFormatBuffer mdformat
-autocmd FileType proto AutoFormatBuffer protofmt
-autocmd FileType python AutoFormatBuffer pyformat
-autocmd FileType rust AutoFormatBuffer rustfmt
-autocmd FileType sql AutoFormatBuffer format_sql
-autocmd FileType textpb AutoFormatBuffer text-proto-format
+" autocmd FileType bzl AutoFormatBuffer buildifier
+" autocmd FileType c,cc,cpp AutoFormatBuffer clang-format
+" autocmd FileType go AutoFormatBuffer gofmt
+" autocmd FileType java AutoFormatBuffer google-java-format
+" autocmd FileType markdown AutoFormatBuffer mdformat
+" autocmd FileType proto AutoFormatBuffer protofmt
+" autocmd FileType python AutoFormatBuffer pyformat
+" autocmd FileType rust AutoFormatBuffer rustfmt
+" autocmd FileType sql AutoFormatBuffer format_sql
+" autocmd FileType textpb AutoFormatBuffer text-proto-format
 nnoremap <leader>f :FormatCode<cr>
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
