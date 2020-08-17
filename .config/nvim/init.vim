@@ -156,9 +156,10 @@ Plug 'tpope/vim-projectionist'         " easy switching to alternate files
 let g:projectionist_heuristics = {
       \ '*': {
       \ '*.c': {'alternate': '{}.h'},
-      \ '*.cc': {'alternate': '{}.h'},
-      \ '*.cpp': {'alternate': '{}.h'},
+      \ '*.cc': {'alternate': ['{}.h', '{}.hpp']},
+      \ '*.cpp': {'alternate': ['{}.h', '{}.hpp']},
       \ '*.h': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
+      \ '*.hpp': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
       \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
       \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
       \ }}
