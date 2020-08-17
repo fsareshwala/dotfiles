@@ -71,6 +71,15 @@
         "python",
         "textproto"
       ]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": [
+        "c",
+        "cpp",
+        "objc",
+        "objcpp"
+      ]
     }
   }
 }
