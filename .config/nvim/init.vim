@@ -45,6 +45,8 @@ set signcolumn=yes
 set smartcase
 set smarttab
 set softtabstop=2
+set spellfile+=~/.config/nvim/spell/en.utf-8.add
+set spellfile+=~/personal/vim/en.utf-8.add
 set splitright
 set splitright
 set tabstop=2
@@ -59,8 +61,6 @@ set virtualedit+=block
 set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
-set spellfile+=~/.config/nvim/spell/en.utf-8.add
-set spellfile+=~/personal/vim/en.utf-8.add
 set wrapscan
 
 nnoremap <c-h> <esc><c-w>h
@@ -355,6 +355,6 @@ if s:atwork()
 endif
 
 " the following lines should always be last
-colorscheme fsareshwala
 filetype plugin indent on
 syntax on
+colorscheme fsareshwala
