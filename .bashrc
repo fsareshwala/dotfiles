@@ -132,10 +132,17 @@ if [[ -f ~/.work ]]; then
   alias hm='hg commit -m'
   alias st='hg status'
 
-  alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
   alias btail=/google/data/ro/teams/borgtools/btail
+  alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
+  alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
+  alias sqlp=/google/data/ro/teams/sqlp/sqlp
+
+  # team
+  alias chargeback=/home/build/google3/monitoring/utilization/tools/pipeline/chargeback.sh
+  alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
+  alias redwitch=~/code/google3/production/borg/raf/turbine/templates/redwitch/redwitch.sh
 
   alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
