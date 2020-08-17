@@ -1,0 +1,24 @@
+---
+Language:        Cpp
+BasedOnStyle:  Google
+
+AccessModifierOffset: -2
+AlignEscapedNewlines: Right
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: None
+BreakConstructorInitializers: BeforeComma
+ColumnLimit: 100
+DerivePointerAlignment: false
+IndentCaseLabels: true
+IndentWidth: 2
+PointerAlignment: Left
+SpaceAfterTemplateKeyword: true
+SpaceBeforeParens: ControlStatements
+SpacesInContainerLiterals: false
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeElse: true
+...
