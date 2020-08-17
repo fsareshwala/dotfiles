@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+source ~/prefix/lib/utilities.sh
+ensure_exists gs
+
 # default compression if user doesn't provide one
 if [[ $# -eq 1 ]]; then
   compression_type=ebook
