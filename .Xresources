@@ -46,23 +46,6 @@ URxvt.matcher.pattern.4: t\/[0-9]+
 URxvt.matcher.pattern.5: g\/[-_.a-z0-9]+
 URxvt.matcher.pattern.6: cs\/[a-zA-Z0-9-_.\/]+
 
-! terminal.sexy: dotshare
-URxvt.foreground:   #ffffff
-URxvt.background:   #000000
-URxvt.cursorColor:  #00ff00
-URxvt.color0:       #101010
-URxvt.color8:       #404040
-URxvt.color1:       #e84f4f
-URxvt.color9:       #d23d3d
-URxvt.color2:       #b8d68c
-URxvt.color10:      #a0cf5d
-URxvt.color3:       #e1aa5d
-URxvt.color11:      #f39d21
-URxvt.color4:       #7dc1cf
-URxvt.color12:      #4e9fb1
-URxvt.color5:       #9b64fb
-URxvt.color13:      #8542ff
-URxvt.color6:       #6d878d
-URxvt.color14:      #42717b
-URxvt.color7:       #dddddd
-URxvt.color15:      #dddddd
+#include "prefix/usr/local/rxvt/xresources/base16-default-dark.Xresources"
+! #include "prefix/usr/local/rxvt/xresources/base16-brewer.Xresources"
+! #include "prefix/usr/local/rxvt/xresources/base16-seti.Xresources"
