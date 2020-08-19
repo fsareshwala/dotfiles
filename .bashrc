@@ -20,7 +20,6 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 export BROWSER=google-chrome
-export COLORTERM=yes
 export EDITOR=nvim
 export FIGNORE='.o:~:.pyc'
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob='!.git' --color=never *"
