@@ -120,6 +120,10 @@ function gsshfs() {
 
 if [[ -f ~/.work ]]; then
   # work setup
+  function check_metadata() {
+    blaze run //devtools/metadata:metadata_format_check -- $(realpath $1)
+  }
+
   alias b='hg bookmark'
   alias clpost='hg upload chain'
   alias clsubmit='hg submit'
