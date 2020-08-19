@@ -145,6 +145,7 @@ endif
 " --- Plugin installation
 call plug#begin('~/.config/nvim/repos')
 Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
+Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
 Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
@@ -358,4 +359,5 @@ endif
 " the following lines should always be last
 filetype plugin indent on
 syntax on
-colorscheme fsareshwala
+
+colorscheme base16-default-dark
