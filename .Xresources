@@ -1,7 +1,8 @@
 Xcursor.size: 40
 Xft.dpi: 144
 
-URxvt.font: xft:TerminessTTF Nerd Font Mono:regular:size=10
+/* URxvt.font: xft:TerminessTTF Nerd Font Mono:regular:size=10 */
+URxvt.font: xft:terminus:regular:size=10
 URxvt.boldFont:
 URxvt.letterSpace: 1
 URxvt.pointerBlank: true
