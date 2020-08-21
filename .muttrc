@@ -1,21 +1,24 @@
 # Note: $folder should be set _before_ any other path vars where `+' or `=' is
 # used because paths are expanded when parsed
 
-set realname="Faraaz Sareshwala"
-set from="fsareshwala@quantcast.com"
-set hostname="quantcast.com"            # my DNS domain
-set envelope_from
+set realname='Faraaz Sareshwala'
+set from='fsareshwala@google.com'
+set hostname='google.com'
+set use_envelope_from
 
-set folder = "~/.mail"
-source ~/.mutt/mailboxes
-set spoolfile = "+INBOX"
-set record = "+Sent\ Items"
-set postponed = "+Drafts"
-set smtp_url="smtp://fsareshwala@quantcast.com@east.exch032.serverdata.net:587/"
+set folder = '~/.mail'
+set spoolfile = '+INBOX'
+set record = '+[Gmail]Sent\ Mail'
+set postponed = '+[Gmail]Drafts'
+set trash='=[Gmail]/Trash'
 
-bind editor "\t" complete-query
+set smtp_url='smtps://fsareshwala@google.com@smtp.gmail.com:465/'
+set smtp_authenticators='oauthbearer'
+set smtp_oauth_refresh_command='$HOME/prefix/bin/mailpass'
 
-set beep_new
+bind editor '\t' complete-query
+
+# set query_command='~/prefix/bin/mutt_ldap.py "%s"'
 set bounce=yes                          # don't ask about bouncing messages, just do it
 set copy=yes                            # always save a copy of outgoing messages
 set delete=yes                          # purge deleted messages without asking
@@ -29,11 +32,10 @@ set move=no
 set nomark_old                          # i don't care about whether a message is old
 set nosave_empty                        # remove files when no messages are left
 set pager_index_lines=20                # how many index lines to show in the pager
-# set query_command="~/prefix/bin/mutt_ldap.py '%s'"
 set read_inc=25                         # show progress when reading a mailbox
 set reply_to                            # always use reply-to if present
 set reverse_name                        # use my address as it appears in the message i am replying to
-set shell="/bin/bash"
+set shell='/bin/bash'
 set sleep_time=0
 set timeout=15                          # timeout for prompt in the index menu
 set use_from
@@ -43,12 +45,12 @@ auto_view text/html
 auto_view text/calendar
 alternative_order text/html text/plain
 
-set forward_format="FWD: %s"            # subject to use when forwarding messages
-set indent_string="> "                  # how to quote replied text
+set forward_format='FWD: %s'            # subject to use when forwarding messages
+set indent_string='> '                  # how to quote replied text
 set autoedit                            # go to the editor right away when composing
 set noconfirmappend                     # don't ask me if i want to append to mailboxes
 set noconfirmcreate
-set index_format="%5C %Z | %[%b %d, %I:%M %p] | %-15.15F | %s"
+set index_format='%5C %Z | %[%b %d, %I:%M %p] | %-15.15F | %s'
 set help                                # show the help lines
 set tmpdir=/tmp                         # where to store temp files
 set implicit_autoview=yes               # pager shows parts having a mailcap viewer
@@ -76,10 +78,10 @@ color tree  red default
 color error brightred default
 color message brightcyan default
 color search default green  # how to hilite search patterns in the pager
-color body magenta default "(ftp|http|https)://[^ ]+"   # point out URLs
+color body magenta default '(ftp|http|https)://[^ ]+'   # point out URLs
 color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+    # e-mail addresses
-color body brightred default "[Ff]araaz"
-color body brightred default "fsareshwala"
+color body brightred default '[Ff]araaz'
+color body brightred default 'fsareshwala'
 color underline brightgreen default
 
 color index red default '~f nagios ~s CR-'
@@ -90,6 +92,6 @@ color index red default '~f px-.* ~s ERROR'
 color index yellow default '~f px-.* ~s WARN'
 color index green default '~f px-.* ~s INFO'
 
-macro index x t
-macro index y ";s+archive\n$"
-macro pager y "s+archive\n"
+# macro index x t
+# macro index y ';s+archive\n$'
+# macro pager y 's+archive\n'
