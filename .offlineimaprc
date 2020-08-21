@@ -1,0 +1,33 @@
+[general]
+ui = basic
+accounts = google
+fsync = false
+pythonfile=~/prefix/bin/mailpass
+
+[Account google]
+localrepository = google-local
+remoterepository = google-remote
+autorefresh = 0.5
+quick = 3
+
+[Repository google-local]
+type = Maildir
+localfolders= ~/.mail/fsareshwala@google.com
+
+[Repository google-remote]
+keepalive = 60
+holdconnectionopen = yes
+maxconnections = 1
+type = Gmail
+starttls = no
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+remoteuser = fsareshwala@google.com
+createfolders = False
+folderfilter = lambda folder: folder not in ['[Gmail]/Spam']
+
+auth_mechanisms = XOAUTH2
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_client_id_eval = client_id()
+oauth2_client_secret_eval = client_secret()
+oauth2_refresh_token_eval = refresh_token()
