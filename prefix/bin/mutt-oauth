@@ -44,3 +44,6 @@ def access_token():
 
     response = get_token(client_id, client_secret, refresh_token)
     print(response['access_token'])
+
+if __name__ == '__main__':
+    access_token()
