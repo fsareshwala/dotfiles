@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+
+import os
+import json
+import urllib
+
+credentials_file = os.path.join(
+    os.path.expanduser('~'),
+    'personal/keys/work_email_credentials.json'
+)
+
+with open(credentials_file) as f:
+    data = json.loads(f.read())
+
+def get_token(client_id, client_secret, refresh_token):
+    """
+    Obtains a new token given a refresh token.
+    See https://developers.google.com/accounts/docs/OAuth2InstalledApp#refresh
+    """
+    params = {}
+    params['client_id'] = client_id
+    params['client_secret'] = client_secret
+    params['refresh_token'] = refresh_token
+    params['grant_type'] = 'refresh_token'
+
+    request_url = 'https://accounts.google.com/o/oauth2/token'
+    response = urllib.urlopen(request_url, urllib.urlencode(params)).read()
+
+    return json.loads(response)
+
+def client_id():
+    print(data['client_id'])
+
+def client_secret():
+    print(data['client_secret'])
+
+def refresh_token():
+    print(data['refresh_token'])
+
+def access_token():
+    client_id = data['client_id']
+    client_secret = data['client_secret']
+    refresh_token = data['refresh_token']
+
+    response = get_token(client_id, client_secret, refresh_token)
+    print(response['access_token'])
