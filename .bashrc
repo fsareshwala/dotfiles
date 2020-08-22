@@ -55,6 +55,8 @@ alias -- ......='cd ../../../../..'
 alias -- .......='cd ../../../../../..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
+alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
+alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="grep --color=auto"
 alias json='python -m json.tool'
@@ -62,16 +64,16 @@ alias ls='ls --color'
 alias mkdir='mkdir -p'
 alias p='cd ~/personal'
 alias patch='patch -merge --no-backup-if-mismatch'
+alias pkgupdate='sudo apt update && sudo apt upgrade'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias s='source ~/.bashrc'
 alias thes='aiksaurus'
 alias vi='vim'
 alias vim='nvim -O'
 alias vimf='vim $(fzf)'
-alias mdv='mdless $(rg --files -t md * | fzf)'
 alias watch='watch --color'
-alias which='type -p'
 alias weather='curl wttr.in'
+alias which='type -p'
 
 function reswap() {
   sudo /sbin/swapoff -a
