@@ -93,6 +93,10 @@ function! LanguageSetup()
     setlocal smartindent
     setlocal cindent
     setlocal cinoptions+=g0,l1,N-s,E-s,(0,ks,(s,m1,j1,J1
+
+    if(&ft == 'c' || &ft == 'cpp')
+      setlocal commentstring=//\ %s
+    endif
   elseif(&ft == 'tex')
     let b:surround_45 = '\\texttt{\r}'
   endif
