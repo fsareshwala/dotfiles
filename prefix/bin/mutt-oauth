@@ -29,21 +29,17 @@ def get_token(client_id, client_secret, refresh_token):
     return json.loads(response)
 
 def client_id():
-    print(data['client_id'])
+    return data['client_id']
 
 def client_secret():
-    print(data['client_secret'])
+    return data['client_secret']
 
 def refresh_token():
-    print(data['refresh_token'])
+    return data['refresh_token']
 
 def access_token():
     client_id = data['client_id']
     client_secret = data['client_secret']
     refresh_token = data['refresh_token']
-
     response = get_token(client_id, client_secret, refresh_token)
-    print(response['access_token'])
-
-if __name__ == '__main__':
-    access_token()
+    return response['access_token']
