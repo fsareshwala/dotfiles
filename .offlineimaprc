@@ -12,7 +12,7 @@ quick = 3
 
 [Repository google-local]
 type = Maildir
-localfolders= ~/.mail/work
+localfolders= ~/.mail/fsareshwala@google.com
 
 [Repository google-remote]
 keepalive = 60
@@ -24,7 +24,7 @@ ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = fsareshwala@google.com
 createfolders = False
-folderfilter = lambda folder: folder not in ['[Gmail]/Spam']
+folderfilter = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Starred']
 
 auth_mechanisms = XOAUTH2
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
