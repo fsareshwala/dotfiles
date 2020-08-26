@@ -140,6 +140,7 @@ if [[ -f ~/.work ]]; then
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
   alias btail=/google/data/ro/teams/borgtools/btail
+  alias ganpaticfg=/google/bin/releases/ganpaticfg/public/ganpaticfg
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
