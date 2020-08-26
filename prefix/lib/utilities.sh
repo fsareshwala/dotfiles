@@ -3,17 +3,45 @@
 # This file contains various utility functions that are used in other shell scripts
 
 function log_warn() {
-    echo "warn: $1"
+  echo "warn: $1"
 }
 
 function log_error() {
-    echo "error: $1"
-    exit
+  echo "error: $1"
+  exit
 }
 
 function ensure_exists() {
-    local program=$1
-    command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
+  local program=$1
+  command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
+}
+
+function basename() {
+  local path=$1
+  echo "${path##*/}"
+}
+
+function get_extension() {
+  local filename=$1
+  echo "${filename##*.}"
+}
+
+function remove_extension() {
+  local filename=$1
+  echo "${filename%.*}"
+}
+
+function min() {
+  local a=$1
+  local b=$2
+
+  if [[ $a -lt $b ]]; then
+    echo $a
+  elif [[ $b -lt $a ]]; then
+    echo $b
+  else
+    echo $a
+  fi
 }
 
 function trim() {
@@ -29,12 +57,12 @@ function pad() {
   local num_padchars=$(( $expected_length - $actual_length ))
 
   if [[ $num_padchars -le 0 ]]; then
-    echo -n $string
+    echo -n "$string"
   else
     for i in $(seq 1 $num_padchars); do
-      echo -n $padchar
+      echo -n "$padchar"
     done
 
-    echo -n $string
+    echo -n "$string"
   fi
 }
