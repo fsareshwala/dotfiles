@@ -24,7 +24,7 @@ ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteuser = fsareshwala@google.com
 createfolders = False
-folderfilter = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Starred']
+folderfilter = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Important', '[Gmail]/Starred']
 
 auth_mechanisms = XOAUTH2
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
