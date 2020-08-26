@@ -44,6 +44,19 @@ function min() {
   fi
 }
 
+function max() {
+  local a=$1
+  local b=$2
+
+  if [[ $a -gt $b ]]; then
+    echo $a
+  elif [[ $b -gt $a ]]; then
+    echo $b
+  else
+    echo $a
+  fi
+}
+
 function trim() {
   echo "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 }
