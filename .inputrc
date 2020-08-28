@@ -8,7 +8,7 @@ set skip-completed-text on
 
 Control-w: unix-filename-rubout
 
-set editing-mode vi
+# set editing-mode vi
 
 $if mode=vi
 set show-mode-in-prompt on
