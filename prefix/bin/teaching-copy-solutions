@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 
-# This script copies assignment solutions into the appropriate student assignment directories.
-
 source ~/prefix/lib/utilities.sh
 
 function usage() {
     echo "$(basename $0) copies solutions into the appropriate directories for each program.
-
-This script is meant to be used by the instructor. If you are a student, you may ignore this script
-entirely.
 
     Required arguments:
         -p|--program          The program number to copy solutions for
