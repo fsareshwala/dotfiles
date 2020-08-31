@@ -297,6 +297,7 @@ let g:coc_global_extensions = [
 \ ]
 
 " coc-explorer configuration
+nnoremap <leader>oe :CocCommand explorer --no-focus<cr>
 autocmd VimEnter * :CocCommand explorer --no-focus
 autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 
