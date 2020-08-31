@@ -320,6 +320,7 @@ function! s:atwork()
 endfunction
 
 if s:atwork()
+  set textwidth=80 wrap linebreak
   source /usr/share/vim/google/google.vim
 
   " \pf: get a window of changed files
