@@ -168,6 +168,8 @@ let g:projectionist_heuristics = {
       \ '*.hpp': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
       \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
       \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
+      \ '*.sqlm': {'alternate': '{}.sqlt'},
+      \ '*.sqlt': {'alternate': '{}.sqlm'},
       \ }}
 
 Plug 'tpope/vim-speeddating'           " ctrl-a ctrl-x on dates
