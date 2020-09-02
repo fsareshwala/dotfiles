@@ -264,10 +264,6 @@ nnoremap <leader>rn <Plug>(coc-rename)
 " Apply AutoFix to problem on the current line.
 nnoremap <leader>qf <Plug>(coc-fix-current)
 
-" Formatting code
-xnoremap <leader>cf <Plug>(coc-format-selected)
-nnoremap <leader>cf :call CocAction('format')<cr>
-
 " Organize imports
 nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 
@@ -310,13 +306,9 @@ let g:coc_snippet_prev = '<c-k>'
 imap <c-j> <Plug>(coc-snippets-expand-jump)
 call plug#end()
 
-" personal settings: will get overwritten if loading work configuration
-nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
-nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
-
 " load work specific vim plugins
 function! s:atwork()
-  return filereadable('~/.work')
+  return filereadable(glob('~/.work'))
 endfunction
 
 if s:atwork()
@@ -362,6 +354,13 @@ if s:atwork()
   " maybe install in the future
   " scampi (syntax analysis for java)
   " vigor (interactive java debugging from within vim)
+else
+  nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
+  nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
+
+  " Formatting code
+  xnoremap <leader>cf <Plug>(coc-format-selected)
+  nnoremap <leader>cf :call CocAction('format')<cr>
 endif
 
 " the following lines should always be last
