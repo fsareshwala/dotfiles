@@ -200,9 +200,6 @@ nnoremap <leader>u :UndotreeToggle<cr>
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
 
-Plug 'FooSoft/vim-argwrap'             " toggle one argument per line
-nnoremap <leader>a :ArgWrap<cr>
-
 " ciw - change inside word
 " yi) - yank inside parenthesis
 " vat - visually select around tag
