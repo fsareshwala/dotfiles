@@ -1,5 +1,6 @@
-build --linkopt -fsanitize=address
+build --compilation_mode=dbg
 
+build --linkopt -fsanitize=address
 build --cxxopt -DADDRESS_SANITIZER
 build --cxxopt -Werror
 build --cxxopt -fno-omit-frame-pointer
