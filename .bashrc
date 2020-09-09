@@ -161,7 +161,7 @@ if [[ -f ~/.work ]]; then
 
   alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
-  alias cd-fi='cd ~/code/google3/production/resources/warehouse'
+  alias cd-fi='cd ~/code/google3/production/resources/warehouse/sqlp'
   alias cd-ff='cd ~/code/google3/production/resources/fleetforecast'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
 
