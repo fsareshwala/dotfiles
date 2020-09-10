@@ -30,11 +30,20 @@ export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='nvim -c "set ft=man" -'
-export PS1='[\u@\h \e[34m\w\e[0m]\$ '
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+
+c_black="\[\033[0;30m\]"
+c_red="\[\033[0;31m\]"
+c_green="\[\033[0;32m\]"
+c_brown="\[\033[0;33m\]"
+c_blue="\[\033[0;34m\]"
+c_purple="\[\033[0;35m\]"
+c_cyan="\[\033[0;36m\]"
+c_white="\[\033[0;37m\]"
+export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 
 shopt -s checkwinsize
 
