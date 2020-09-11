@@ -8,6 +8,7 @@ BFS
 CMake
 COVID
 CVS
+Chargeback
 Chromebook
 Corasick
 DAGs
@@ -123,9 +124,11 @@ linearithmic
 livestream
 malware
 memcached
+memoization
 mentorship
 mergesort
 mergesort's
+modded
 monorepo
 monospace
 multicore
@@ -141,6 +144,7 @@ plagiaristically
 plaintext
 plugin
 plugins
+powerset
 preorder
 protip
 protips
@@ -185,6 +189,3 @@ wiki
 wildcard
 workflow
 workflows
-memoization
-modded
-powerset
