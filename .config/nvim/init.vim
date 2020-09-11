@@ -224,7 +224,7 @@ autocmd FileType markdown AutoFormatBuffer mdformat
 autocmd FileType proto AutoFormatBuffer protofmt
 autocmd FileType python AutoFormatBuffer pyformat
 autocmd FileType rust AutoFormatBuffer rustfmt
-autocmd FileType sql AutoFormatBuffer format_sql
+autocmd FileType sql,sqlm,sqlt,sqlp AutoFormatBuffer format_sql
 autocmd FileType textpb AutoFormatBuffer text-proto-format
 nnoremap <leader>f :FormatCode<cr>
 
