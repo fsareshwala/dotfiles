@@ -38,7 +38,7 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
 
-URxvt.matcher.pattern.0: https?:\/\/[a-zA-Z0-9-_.\/?&=+:#]+
+URxvt.matcher.pattern.0: https?:\/\/[a-zA-Z0-9-_.\/?&=+:#%]+
 URxvt.matcher.pattern.1: go\/[a-zA-Z0-9-_.\/]+
 URxvt.matcher.pattern.2: cl\/[0-9]+
 URxvt.matcher.pattern.3: b\/[0-9]+
