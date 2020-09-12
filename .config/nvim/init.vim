@@ -104,7 +104,7 @@ endfunction
 autocmd BufEnter * call LanguageSetup()
 
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
-autocmd BufRead,BufNewFile *.sqlp,*.sqlm,*.sqlt setlocal filetype=mysql
+autocmd BufRead,BufNewFile *.sqlp,*.sqlm setlocal filetype=sql
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
 autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
