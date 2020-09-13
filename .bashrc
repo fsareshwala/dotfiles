@@ -131,7 +131,7 @@ if [[ -f ~/.work ]]; then
   alias ha='hg add'
   alias hai='hg amend -i'
   alias ham='hg amend'
-  alias hca='hg comment --amend'
+  alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
   alias rpost='hg upload chain'
