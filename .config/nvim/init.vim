@@ -186,6 +186,7 @@ xnoremap ga <Plug>(EasyAlign)
 autocmd FileType markdown nnoremap <Bar> vip :EasyAlign*<Bar><cr>
 
 Plug 'vimwiki/vimwiki'                 " personal wiki on vim
+let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
