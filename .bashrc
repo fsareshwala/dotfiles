@@ -125,8 +125,8 @@ function gc() {
 if [[ -f ~/.work ]]; then
   # work setup
   alias b='hg bookmark'
-  alias clpost='hg upload chain'
-  alias clsubmit='hg submit'
+  alias rpost='hg upload chain'
+  alias rsubmit='hg submit'
   alias d='hg diff'
   alias ha='hg add'
   alias hai='hg amend -i'
