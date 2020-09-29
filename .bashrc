@@ -137,6 +137,8 @@ if [[ -f ~/.work ]]; then
   alias rpost='hg upload chain'
   alias rsubmit='hg submit'
   alias st='hg status'
+
+  alias cd-g3='cd ~/code/google3'
 else
   # personal setup
   alias b='git branch'
