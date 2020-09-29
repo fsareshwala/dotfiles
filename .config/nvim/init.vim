@@ -51,7 +51,6 @@ set splitright
 set splitright
 set tabstop=2
 set tags=tags;
-set textwidth=100 wrap linebreak
 set timeoutlen=500
 set title
 set undodir=~/.config/nvim/tmp/undo
@@ -353,6 +352,8 @@ if s:atwork()
   " scampi (syntax analysis for java)
   " vigor (interactive java debugging from within vim)
 else
+  set textwidth=100 wrap linebreak
+
   nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
   nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
 
