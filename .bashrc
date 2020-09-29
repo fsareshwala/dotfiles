@@ -155,6 +155,8 @@ if [[ -f ~/.work ]]; then
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
 
+  alias cd-g3='cd ~/code/google3'
+
   # team
   alias chargeback=/home/build/google3/monitoring/utilization/tools/pipeline/chargeback.sh
   alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
