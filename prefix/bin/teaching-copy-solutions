@@ -55,18 +55,18 @@ fi
 popd
 
 # all errors checked, let's continue
-solutions_map_path=$repo_path/solutions.map
+file_map_path=$repo_path/file.map
 
-declare -A solutions_map
+declare -A file_map
 while IFS=: read -r key value; do
     if [[ -z $key ]]; then
         continue
     fi
 
-    solutions_map[$key]="${solutions_map[$key]} $value"
-done < $solutions_map_path
+    file_map[$key]="${file_map[$key]} $value"
+done < $file_map_path
 
-for file in ${solutions_map[$program]}; do
+for file in ${file_map[$program]}; do
     directory=solutions/$program
     mkdir -p $directory
     cp $repo_path/$file $directory
