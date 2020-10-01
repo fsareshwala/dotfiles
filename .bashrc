@@ -154,6 +154,7 @@ if [[ -f ~/.work ]]; then
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
+  alias dropcl='hg cls-drop -p --skip-confirmation -c'
 
   alias cd-g3='cd ~/code/google3'
 
