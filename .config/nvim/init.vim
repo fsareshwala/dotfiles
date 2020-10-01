@@ -294,12 +294,12 @@ autocmd VimEnter * :CocCommand explorer --no-focus
 autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
 
 " coc-snippets configuration
-Plug 'honza/vim-snippets'              " collection of snippets
-imap <c-l> <Plug>(coc-snippets-expand)
-vmap <c-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-imap <c-j> <Plug>(coc-snippets-expand-jump)
+" Plug 'honza/vim-snippets'              " collection of snippets
+" imap <c-l> <Plug>(coc-snippets-expand)
+" vmap <c-j> <Plug>(coc-snippets-select)
+" let g:coc_snippet_next = '<c-j>'
+" let g:coc_snippet_prev = '<c-k>'
+" imap <c-j> <Plug>(coc-snippets-expand-jump)
 call plug#end()
 
 " load work specific vim plugins
