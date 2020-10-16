@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 xrdb /home/fsareshwala/.Xresources
-setxkbmap -layout us -option ctrl:nocaps # -variant colemak
+setxkbmap -layout us -option ctrl:nocaps -variant colemak
 
 xset r rate 150 100
 xset b off
