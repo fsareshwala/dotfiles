@@ -32,7 +32,7 @@ function speak() {
   },
   "audioConfig": {
     "audioEncoding": "MP3",
-    "speakingRate": 2.2
+    "speakingRate": 2.0
   }
 }
 EOF
