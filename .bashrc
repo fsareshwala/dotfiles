@@ -156,6 +156,7 @@ else
   alias griom='git rebase -i origin/master'
   alias grom='git rebase origin/master'
   alias st='git status'
+
   complete -A directory gm
 fi
 
