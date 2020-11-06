@@ -213,20 +213,6 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
 
-Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
-Plug 'google/vim-codefmt'              " format source code
-autocmd FileType bzl AutoFormatBuffer buildifier
-autocmd FileType c,cpp AutoFormatBuffer clang-format
-autocmd FileType go AutoFormatBuffer gofmt
-autocmd FileType java AutoFormatBuffer google-java-format
-autocmd FileType markdown AutoFormatBuffer mdformat
-autocmd FileType proto AutoFormatBuffer protofmt
-autocmd FileType python AutoFormatBuffer pyformat
-autocmd FileType rust AutoFormatBuffer rustfmt
-autocmd FileType sql,sqlm,sqlt,sqlp AutoFormatBuffer format_sql
-autocmd FileType textpb AutoFormatBuffer text-proto-format
-nnoremap <leader>f :FormatCode<cr>
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -309,6 +295,26 @@ endfunction
 
 if s:atwork()
   set textwidth=80 wrap linebreak
+
+  Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
+  Plug 'google/vim-codefmt'              " format source code
+  augroup autoformat
+    autocmd!
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType c,cpp AutoFormatBuffer clang-format
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType java AutoFormatBuffer google-java-format
+    autocmd FileType markdown AutoFormatBuffer mdformat
+    autocmd FileType proto AutoFormatBuffer protofmt
+    autocmd FileType python AutoFormatBuffer pyformat
+    autocmd FileType rust AutoFormatBuffer rustfmt
+    autocmd FileType sql,googlesql AutoFormatBuffer format_sql
+    autocmd FileType textpb AutoFormatBuffer text-proto-format
+
+    autocmd BufRead,BufNewFile *.sqlt setlocal filetype=mysql
+  augroup end
+  nnoremap <leader>f :FormatCode<cr>
+
   source /usr/share/vim/google/google.vim
 
   " \pf: get a window of changed files
