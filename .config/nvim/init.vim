@@ -298,21 +298,17 @@ if s:atwork()
 
   Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
   Plug 'google/vim-codefmt'              " format source code
-  augroup autoformat
-    autocmd!
-    autocmd FileType bzl AutoFormatBuffer buildifier
-    autocmd FileType c,cpp AutoFormatBuffer clang-format
-    autocmd FileType go AutoFormatBuffer gofmt
-    autocmd FileType java AutoFormatBuffer google-java-format
-    autocmd FileType markdown AutoFormatBuffer mdformat
-    autocmd FileType proto AutoFormatBuffer protofmt
-    autocmd FileType python AutoFormatBuffer pyformat
-    autocmd FileType rust AutoFormatBuffer rustfmt
-    autocmd FileType sql,googlesql AutoFormatBuffer format_sql
-    autocmd FileType textpb AutoFormatBuffer text-proto-format
-
-    autocmd BufRead,BufNewFile *.sqlt setlocal filetype=mysql
-  augroup end
+  autocmd FileType bzl AutoFormatBuffer buildifier
+  autocmd FileType c,cpp AutoFormatBuffer clang-format
+  autocmd FileType go AutoFormatBuffer gofmt
+  autocmd FileType java AutoFormatBuffer google-java-format
+  autocmd FileType markdown AutoFormatBuffer mdformat
+  autocmd FileType proto AutoFormatBuffer protofmt
+  autocmd FileType python AutoFormatBuffer pyformat
+  autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType sql,googlesql AutoFormatBuffer format_sql
+  autocmd FileType textpb AutoFormatBuffer text-proto-format
+  autocmd BufRead,BufNewFile *.sqlt NoAutoFormatBuffer
   nnoremap <leader>f :FormatCode<cr>
 
   source /usr/share/vim/google/google.vim
