@@ -1,2 +1,6 @@
 [google]
 changes.autoresolve=true
+
+[ui]
+interface.histedit=text
+interface.chunkselector=text
