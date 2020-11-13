@@ -306,9 +306,11 @@ if s:atwork()
   autocmd FileType proto AutoFormatBuffer protofmt
   autocmd FileType python AutoFormatBuffer pyformat
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType sql,googlesql AutoFormatBuffer format_sql
   autocmd FileType textpb AutoFormatBuffer text-proto-format
-  autocmd BufRead,BufNewFile *.sqlt NoAutoFormatBuffer
+
+  " autocmd FileType sql,googlesql AutoFormatBuffer format_sql
+  " autocmd BufEnter *.sqlt NoAutoFormatBuffer
+
   nnoremap <leader>f :FormatCode<cr>
 
   source /usr/share/vim/google/google.vim
