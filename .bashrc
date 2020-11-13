@@ -136,13 +136,14 @@ if [[ -f ~/.work ]]; then
   }
 
   alias b='hg bookmark'
+  alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
   alias clsubmit='hg submit'
-  alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias d='hg diff'
   alias ha='hg add'
   alias hai='hg amend -i'
   alias ham='hg amend'
+  alias hb='hg blame -udcw'
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
