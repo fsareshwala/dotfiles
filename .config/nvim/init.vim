@@ -103,7 +103,6 @@ autocmd BufEnter * call LanguageSetup()
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
 autocmd FileType gitcommit setlocal spell tw=72 wrap linebreak
 autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
-autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " --- improvements
 " stay at current word when using star search
@@ -132,6 +131,9 @@ augroup END
 
 " Save file as sudo on files that require root permission
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" Automatically load xresources on save
+autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 
 " automatically delete all trailing whitespace and newlines at end of file on save
 autocmd BufWritePre * %s/\s\+$//e
