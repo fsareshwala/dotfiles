@@ -1,6 +1,10 @@
 [google]
-changes.autoresolve=true
+changes.autoresolve = true
+
+[histedit]
+dropmissing = true
+singletransaction = true
 
 [ui]
-interface.histedit=text
-interface.chunkselector=text
+interface.histedit = text
+interface.chunkselector = text
