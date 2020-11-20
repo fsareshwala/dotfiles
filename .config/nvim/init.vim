@@ -165,6 +165,25 @@ Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
 
+Plug 'preservim/nerdtree'              " filesystem explorer
+autocmd VimEnter * NERDTree            " start nerdtree on vim start
+autocmd VimEnter * wincmd p
+autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+map <leader>n :NERDTreeMirror<CR>
+map <leader>l :NERDTreeFind<CR>
+let NERDTreeIgnore = []
+let NERDTreeIgnore += ['\.o$']
+let NERDTreeIgnore += ['\.a$']
+let NERDTreeIgnore += ['\.pyc$']
+let NERDTreeIgnore += ['\~$']
+let NERDTreeIgnore += ['\.pdf$']
+let NERDTreeIgnore += ['\.class$']
+let NERDTreeIgnore += ['tags']
+let NERDTreeIgnore += ['__pycache__']
+let NERDTreeIgnore += ['__init__.py']
+let NERDTreeIgnore += ['bazel-*']
+let NERDTreeWinSize = 31
+
 Plug 'tpope/vim-projectionist'         " easy switching to alternate files
 let g:projectionist_heuristics = {
       \ '*': {
