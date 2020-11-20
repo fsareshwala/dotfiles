@@ -148,13 +148,11 @@ endif
 call plug#begin('~/.config/nvim/repos')
 Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
 Plug 'chriskempson/base16-vim'         " Colorscheme
-Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change
+Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
 Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
-Plug 'vim-airline/vim-airline'         " status line
-Plug 'vim-airline/vim-airline-themes'  " themes for the status line
 
 Plug 'tpope/vim-projectionist'         " easy switching to alternate files
 let g:projectionist_heuristics = {
