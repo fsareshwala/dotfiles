@@ -139,6 +139,17 @@ autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
 
+" Use K to show documentation in preview window.
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h ' . expand('<cword>')
+  elseif (index(['c', 'cpp'], &filetype) >= 0)
+    execute 'Man ' . expand('<cword>')
+  endif
+endfunction
+
+nnoremap <silent> K :call <SID>show_documentation()<cr>
+
 if executable('rg')
   set grepprg=rg\ --vimgrep
   nnoremap <leader>g :execute "grep " . expand('<cword>') . " *"<cr>
@@ -235,9 +246,6 @@ nnoremap <silent> \gt <Plug>(coc-type-definition)
 nnoremap <silent> \gi <Plug>(coc-implementation)
 nnoremap <silent> \gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<cr>
-
 " Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
 
@@ -246,16 +254,6 @@ nnoremap <leader>qf <Plug>(coc-fix-current)
 
 " Organize imports
 nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h ' . expand('<cword>')
-  elseif (index(['c', 'cpp'], &filetype) >= 0)
-    execute 'Man ' . expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 augroup mygroup
   autocmd!
