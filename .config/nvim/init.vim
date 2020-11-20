@@ -198,7 +198,7 @@ let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-Plug 'junegunn/fzf'                    " fuzzy file finder
+Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
 Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
 nnoremap <leader>e :Files<cr>
 
@@ -220,68 +220,6 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
-Plug 'ryanoasis/vim-devicons'          " filetype glyphs for various plugins
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " completion engine
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
-nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nnoremap <silent> \gd <Plug>(coc-definition)
-nnoremap <silent> \gt <Plug>(coc-type-definition)
-nnoremap <silent> \gi <Plug>(coc-implementation)
-nnoremap <silent> \gr <Plug>(coc-references)
-
-" Symbol renaming.
-nnoremap <leader>rn <Plug>(coc-rename)
-
-" Apply AutoFix to problem on the current line.
-nnoremap <leader>qf <Plug>(coc-fix-current)
-
-" Organize imports
-nnoremap <leader>oi :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setlocal formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-let g:coc_global_extensions = [
-\ 'coc-explorer',
-\ 'coc-json',
-\ 'coc-snippets',
-\ 'coc-word',
-\ ]
-
-" coc-explorer configuration
-nnoremap <leader>oe :CocCommand explorer --no-focus<cr>
-autocmd VimEnter * :CocCommand explorer --no-focus
-autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'coc-explorer') | q | endif
-
-" coc-snippets configuration
-" Plug 'honza/vim-snippets'              " collection of snippets
-" imap <c-l> <Plug>(coc-snippets-expand)
-" vmap <c-j> <Plug>(coc-snippets-select)
-" let g:coc_snippet_next = '<c-j>'
-" let g:coc_snippet_prev = '<c-k>'
-" imap <c-j> <Plug>(coc-snippets-expand-jump)
 call plug#end()
 
 " load work specific vim plugins
@@ -355,10 +293,6 @@ else
 
   nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
   nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
-
-  " Formatting code
-  xnoremap <leader>cf <Plug>(coc-format-selected)
-  nnoremap <leader>cf :call CocAction('format')<cr>
 endif
 
 " the following lines should always be last
