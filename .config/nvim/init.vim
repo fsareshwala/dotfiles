@@ -96,8 +96,6 @@ function! LanguageSetup()
     if(&ft == 'c' || &ft == 'cpp')
       setlocal commentstring=//\ %s
     endif
-  elseif(&ft == 'tex')
-    let b:surround_45 = '\\texttt{\r}'
   endif
 endfunction
 autocmd BufEnter * call LanguageSetup()
