@@ -259,6 +259,7 @@ if s:atwork()
   autocmd FileType proto AutoFormatBuffer protofmt
   autocmd FileType python AutoFormatBuffer pyformat
   autocmd FileType rust AutoFormatBuffer rustfmt
+  autocmd FileType sh AutoFormatBuffer shfmt
   autocmd FileType textpb AutoFormatBuffer text-proto-format
 
   " autocmd FileType sql,googlesql AutoFormatBuffer format_sql
