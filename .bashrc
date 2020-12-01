@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
-  *) return;;
+  *) return ;;
 esac
 
 # set up bash, git completion
