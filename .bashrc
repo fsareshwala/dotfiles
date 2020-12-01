@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
-  *) return;;
+  *) return ;;
 esac
 
 # set up bash, git completion
@@ -164,16 +164,11 @@ if [[ -f ~/.work ]]; then
   alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
   alias redwitch=~/code/google3/production/borg/raf/turbine/templates/redwitch/redwitch.sh
 
+  alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
   alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
-  alias cd-fi='cd ~/code/google3/production/resources/warehouse/sqlp'
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
-  alias cd-ff='cd ~/code/google3/production/resources/fleetforecast'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
-
-  alias cd-ff-g3doc='cd ~/code/google3/production/resources/g3doc/eng/team/fleetforecast'
-  alias cd-ff-borg='cd ~/code/google3/production/borg/fleet-forecast/'
-  alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
 else
   # personal setup
   alias b='git branch'
