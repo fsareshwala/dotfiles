@@ -137,8 +137,8 @@ if [[ -f ~/.work ]]; then
 
   function ocscript() {
     local reason=$1
-    local timestamp=$(date +"%m%d%y_%H%M")
-    local filename="$timestamp_$reason.sh"
+    local timestamp="$(date +"%Y%m%d_%H%M")"
+    local filename="${timestamp}_${reason}.sh"
     touch $filename
     vim $filename
   }
