@@ -135,6 +135,14 @@ if [[ -f ~/.work ]]; then
     blaze run //devtools/metadata:metadata_format_check -- $(realpath $1)
   }
 
+  function ocscript() {
+    local reason=$1
+    local timestamp=$(date +"%m%d%y_%H%M")
+    local filename="$timestamp_$reason.sh"
+    touch $filename
+    vim $filename
+  }
+
   alias b='hg bookmark'
   alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
