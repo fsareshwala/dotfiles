@@ -177,7 +177,7 @@ if [[ -f ~/.work ]]; then
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
-  alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/12'
+  alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
 else
   # personal setup
   alias b='git branch'
