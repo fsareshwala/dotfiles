@@ -141,6 +141,8 @@ if [[ -f ~/.work ]]; then
     local filename="${timestamp}_${reason}.sh"
     touch $filename
     vim $filename
+    hg add $filename
+    hg commit -m "oncall: address $reason"
   }
 
   alias b='hg bookmark'
