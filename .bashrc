@@ -145,6 +145,12 @@ if [[ -f ~/.work ]]; then
     hg commit -m "oncall: address $reason"
   }
 
+  function serviceinfo() {
+    stubby call blade:resource-portal-metadata \
+      ProductCatalogService.LookupProductOfferings \
+      "match { identifier { name: '$1' } } options { include_contact_information: true }"
+  }
+
   alias b='hg bookmark'
   alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
