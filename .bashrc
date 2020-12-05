@@ -67,7 +67,7 @@ alias diff="diff --color=auto"
 alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
-alias grep="grep --color=auto"
+alias grep="rg --color=auto"
 alias json='python -m json.tool'
 alias ls='ls --color'
 alias mkdir='mkdir -p'
@@ -115,7 +115,7 @@ function cal() {
 function rreplace() {
   local old="$1"
   local new="$2"
-  git grep -l "$old" . | xargs sed -i "s/$old/$new/g"
+  rg -l "$old" . | xargs sed -i "s/$old/$new/g"
 }
 
 function gc() {
