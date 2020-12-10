@@ -45,6 +45,7 @@ URxvt.matcher.pattern.3: b\/[0-9]+
 URxvt.matcher.pattern.4: t\/[0-9]+
 URxvt.matcher.pattern.5: g\/[-_.a-z0-9]+
 URxvt.matcher.pattern.6: cs\/[a-zA-Z0-9-_.\/]+
+URxvt.matcher.pattern.7: doc\/[a-zA-Z0-9-_]+
 
 /* #include "prefix/usr/local/rxvt/xresources/base16-default-dark.Xresources" */
 #include "prefix/usr/local/rxvt/xresources/base16-brewer.Xresources"
