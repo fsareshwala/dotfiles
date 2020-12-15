@@ -254,8 +254,6 @@ function! s:atwork()
 endfunction
 
 if s:atwork()
-  set textwidth=80 wrap linebreak
-
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType markdown AutoFormatBuffer mdformat
