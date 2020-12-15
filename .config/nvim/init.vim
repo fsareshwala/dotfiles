@@ -164,6 +164,8 @@ Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
+Plug 'google/vim-codefmt'              " format source code
 
 Plug 'preservim/nerdtree'              " filesystem explorer
 autocmd VimEnter * NERDTree            " start nerdtree on vim start
@@ -241,6 +243,11 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
 call plug#end()
 
+" (shared with work) automatically format code
+autocmd FileType bzl AutoFormatBuffer buildifier
+autocmd FileType go AutoFormatBuffer gofmt
+autocmd FileType sh AutoFormatBuffer shfmt
+
 " load work specific vim plugins
 function! s:atwork()
   return filereadable(glob('~/.work'))
@@ -249,17 +256,12 @@ endfunction
 if s:atwork()
   set textwidth=80 wrap linebreak
 
-  Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
-  Plug 'google/vim-codefmt'              " format source code
-  autocmd FileType bzl AutoFormatBuffer buildifier
   autocmd FileType c,cpp AutoFormatBuffer clang-format
-  autocmd FileType go AutoFormatBuffer gofmt
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType markdown AutoFormatBuffer mdformat
   autocmd FileType proto AutoFormatBuffer protofmt
   autocmd FileType python AutoFormatBuffer pyformat
   autocmd FileType rust AutoFormatBuffer rustfmt
-  autocmd FileType sh AutoFormatBuffer shfmt
   autocmd FileType textpb AutoFormatBuffer text-proto-format
 
   " autocmd FileType sql,googlesql AutoFormatBuffer format_sql
