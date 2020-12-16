@@ -172,6 +172,7 @@ if [[ -f ~/.work ]]; then
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
+  alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
 
   alias cd-g3='cd ~/code/google3'
 
