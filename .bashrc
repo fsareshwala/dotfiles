@@ -129,6 +129,25 @@ function gsshfs() {
   sshfs -f -o reconnect $cloudtop:$workspace $localdir
 }
 
+alias b='git branch'
+alias ba='git branch -a'
+alias d='git diff'
+alias dc='git diff --cached'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git checkout @{-1}'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gf='git fx'
+alias gignore='git update-index --assume-unchanged'
+alias gm='git commit -m'
+alias griom='git rebase -i origin/master'
+alias grom='git rebase origin/master'
+alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
+alias st='git status'
+
+complete -A directory gm
+
 if [[ -f ~/.work ]]; then
   # work setup
   function check_metadata() {
@@ -151,11 +170,25 @@ if [[ -f ~/.work ]]; then
       "match { identifier { name: '$1' } } options { include_contact_information: true }"
   }
 
-  alias b='hg bookmark'
+  function st() {
+    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+      hg status
+    else
+      git status
+    fi
+  }
+
+  function d() {
+    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+      hg diff
+    else
+      git diff
+    fi
+  }
+
   alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
   alias clsubmit='hg submit'
-  alias d='hg diff'
   alias ha='hg add'
   alias hai='hg amend -i'
   alias ham='hg amend'
@@ -163,20 +196,19 @@ if [[ -f ~/.work ]]; then
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
-  alias st='hg status'
 
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
   alias btail=/google/data/ro/teams/borgtools/btail
   alias ganpaticfg=/google/bin/releases/ganpaticfg/public/ganpaticfg
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
-  alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
-  alias sqlp=/google/data/ro/teams/sqlp/sqlp
   alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
 
   alias cd-g3='cd ~/code/google3'
 
   # team
+  alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
+  alias sqlp=/google/data/ro/teams/sqlp/sqlp
   alias chargeback=/home/build/google3/monitoring/utilization/tools/pipeline/chargeback.sh
   alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
   alias redwitch=~/code/google3/production/borg/raf/turbine/templates/redwitch/redwitch.sh
@@ -187,26 +219,6 @@ if [[ -f ~/.work ]]; then
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
   alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
-else
-  # personal setup
-  alias b='git branch'
-  alias ba='git branch -a'
-  alias d='git diff'
-  alias dc='git diff --cached'
-  alias ga='git add'
-  alias gap='git add -p'
-  alias gb='git checkout @{-1}'
-  alias gca='git commit --amend'
-  alias gcan='git commit --amend --no-edit'
-  alias gf='git fx'
-  alias gignore='git update-index --assume-unchanged'
-  alias gm='git commit -m'
-  alias griom='git rebase -i origin/master'
-  alias grom='git rebase origin/master'
-  alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
-  alias st='git status'
-
-  complete -A directory gm
 fi
 
 # TODO(fsareshwala): get these figured out
