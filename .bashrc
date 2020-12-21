@@ -122,13 +122,45 @@ function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
+alias b='git branch'
+alias ba='git branch -a'
+alias d='git diff'
+alias dc='git diff --cached'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git checkout @{-1}'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gf='git fx'
+alias gignore='git update-index --assume-unchanged'
+alias gm='git commit -m'
+alias griom='git rebase -i origin/master'
+alias grom='git rebase origin/master'
+alias st='git status'
+
+complete -A directory gm
+
 if [[ -f ~/.work ]]; then
   # work setup
-  alias b='hg bookmark'
+  function st() {
+    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+      hg status
+    else
+      git status
+    fi
+  }
+
+  function d() {
+    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+      hg diff
+    else
+      git diff
+    fi
+  }
+
   alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
   alias clsubmit='hg submit'
-  alias d='hg diff'
   alias ha='hg add'
   alias hai='hg amend -i'
   alias ham='hg amend'
@@ -136,30 +168,8 @@ if [[ -f ~/.work ]]; then
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
-  alias rpost='hg upload chain'
-  alias rsubmit='hg submit'
-  alias st='hg status'
 
   alias cd-g3='cd ~/code/google3'
-else
-  # personal setup
-  alias b='git branch'
-  alias ba='git branch -a'
-  alias d='git diff'
-  alias dc='git diff --cached'
-  alias ga='git add'
-  alias gap='git add -p'
-  alias gb='git checkout @{-1}'
-  alias gca='git commit --amend'
-  alias gcan='git commit --amend --no-edit'
-  alias gf='git fx'
-  alias gignore='git update-index --assume-unchanged'
-  alias gm='git commit -m'
-  alias griom='git rebase -i origin/master'
-  alias grom='git rebase origin/master'
-  alias st='git status'
-
-  complete -A directory gm
 fi
 
 # TODO(fsareshwala): get these figured out
