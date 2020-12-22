@@ -1,13 +1,25 @@
 [google]
 changes.autoresolve = true
 
+[defaults]
+blame = -udcw
+
+[diff]
+git = true
+nobinary = true
+noprefix = true
+showfunc = true
+ignorews = true
+
 [histedit]
 dropmissing = true
 singletransaction = true
 
 [ui]
-interface.histedit = text
-interface.chunkselector = text
+interface = text
+quiet = true
+strict = true
+textwidth = 100
 
 [rebase]
 experimental.inmemory = true
