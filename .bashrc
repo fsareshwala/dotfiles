@@ -56,18 +56,19 @@ export PATH=.:${PATH}
 
 # command aliases
 alias -- -='cd -'
-alias -- ..='cd ..'
-alias -- ...='cd ../..'
-alias -- ....='cd ../../..'
-alias -- .....='cd ../../../..'
-alias -- ......='cd ../../../../..'
 alias -- .......='cd ../../../../../..'
+alias -- ......='cd ../../../../..'
+alias -- .....='cd ../../../..'
+alias -- ....='cd ../../..'
+alias -- ...='cd ../..'
+alias -- ..='cd ..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
+alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
 alias json='python -m json.tool'
 alias ls='ls --color'
 alias mkdir='mkdir -p'
@@ -83,6 +84,22 @@ alias vimf='vim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+
+# git aliases
+alias b='git branch'
+alias ba='git branch -a'
+alias dc='git diff --cached'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git checkout @{-1}'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gf='git fx'
+alias gignore='git update-index --assume-unchanged'
+alias gm='git commit -m'
+alias griom='git rebase -i origin/master'
+alias grom='git rebase origin/master'
+alias gs='git show'
 
 function reswap() {
   sudo /sbin/swapoff -a
@@ -128,23 +145,6 @@ function gsshfs() {
   local localdir='/home/fsareshwala/code/google'
   sshfs -f -o reconnect $cloudtop:$workspace $localdir
 }
-
-alias b='git branch'
-alias ba='git branch -a'
-alias d='git diff'
-alias dc='git diff --cached'
-alias ga='git add'
-alias gap='git add -p'
-alias gb='git checkout @{-1}'
-alias gca='git commit --amend'
-alias gcan='git commit --amend --no-edit'
-alias gf='git fx'
-alias gignore='git update-index --assume-unchanged'
-alias gm='git commit -m'
-alias griom='git rebase -i origin/master'
-alias grom='git rebase origin/master'
-alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
-alias st='git status'
 
 complete -A directory gm
 
@@ -196,6 +196,7 @@ if [[ -f ~/.work ]]; then
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
+  alias hs='hg export'
 
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
@@ -219,6 +220,9 @@ if [[ -f ~/.work ]]; then
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
   alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
+else
+  alias d='git diff'
+  alias st='git status'
 fi
 
 # TODO(fsareshwala): get these figured out
