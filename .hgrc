@@ -8,3 +8,6 @@ singletransaction = true
 [ui]
 interface.histedit = text
 interface.chunkselector = text
+
+[rebase]
+experimental.inmemory = true
