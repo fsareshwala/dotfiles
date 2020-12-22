@@ -143,7 +143,7 @@ complete -A directory gm
 if [[ -f ~/.work ]]; then
   # work setup
   function st() {
-    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+    if [[ "$PWD" == "$HOME/code"* ]]; then
       hg status
     else
       git status
@@ -151,7 +151,7 @@ if [[ -f ~/.work ]]; then
   }
 
   function d() {
-    if [[ "$PWD" =~ "$HOME/code*" ]]; then
+    if [[ "$PWD" == "$HOME/code"* ]]; then
       hg diff
     else
       git diff
