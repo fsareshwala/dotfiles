@@ -56,12 +56,12 @@ export PATH=.:${PATH}
 
 # command aliases
 alias -- -='cd -'
-alias -- ..='cd ..'
-alias -- ...='cd ../..'
-alias -- ....='cd ../../..'
-alias -- .....='cd ../../../..'
-alias -- ......='cd ../../../../..'
 alias -- .......='cd ../../../../../..'
+alias -- ......='cd ../../../../..'
+alias -- .....='cd ../../../..'
+alias -- ....='cd ../../..'
+alias -- ...='cd ../..'
+alias -- ..='cd ..'
 alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
@@ -83,6 +83,22 @@ alias vimf='vim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+
+# git aliases
+alias b='git branch'
+alias ba='git branch -a'
+alias dc='git diff --cached'
+alias ga='git add'
+alias gap='git add -p'
+alias gb='git checkout @{-1}'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gf='git fx'
+alias gignore='git update-index --assume-unchanged'
+alias gm='git commit -m'
+alias griom='git rebase -i origin/master'
+alias grom='git rebase origin/master'
+alias gs='git show'
 
 function reswap() {
   sudo /sbin/swapoff -a
@@ -168,6 +184,7 @@ if [[ -f ~/.work ]]; then
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
   alias hm='hg commit -m'
+  alias hs='hg export'
 
   alias cd-g3='cd ~/code/google3'
 fi
