@@ -194,6 +194,14 @@ if [[ -f ~/.work ]]; then
     fi
   }
 
+  function tig() {
+    if in_google3; then
+      hg xl
+    else
+      /usr/bin/tig
+    fi
+  }
+
   alias cldrop='hg cls-drop -p --skip-confirmation -c'
   alias clpost='hg upload chain'
   alias clsubmit='hg submit'
