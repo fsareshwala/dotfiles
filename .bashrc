@@ -170,8 +170,16 @@ if [[ -f ~/.work ]]; then
       "match { identifier { name: '$1' } } options { include_contact_information: true }"
   }
 
-  function st() {
+  function in_google3() {
     if [[ "$PWD" == "$HOME/code"* ]]; then
+      return 0
+    else
+      return 1
+    fi
+  }
+
+  function st() {
+    if in_google3; then
       hg status
     else
       git status
@@ -179,7 +187,7 @@ if [[ -f ~/.work ]]; then
   }
 
   function d() {
-    if [[ "$PWD" == "$HOME/code"* ]]; then
+    if in_google3; then
       hg diff
     else
       git diff
