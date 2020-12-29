@@ -256,6 +256,7 @@ function! s:atwork()
 endfunction
 
 if s:atwork()
+  autocmd FileType borg,gcl AutoFormatBuffer gclfmt
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType markdown AutoFormatBuffer mdformat
