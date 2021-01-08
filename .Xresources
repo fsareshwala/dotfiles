@@ -15,9 +15,9 @@ URxvt.scrollTtyKeypress: true
 URxvt.url-launcher: /usr/bin/google-chrome
 
 ! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
-URxvt.shading: 15
-URxvt.transparent: true
-URxvt.fading: 75
+! URxvt.shading: 15
+! URxvt.transparent: true
+! URxvt.fading: 75
 
 ! extensions configuration
 URxvt.perl-lib: /home/fsareshwala/prefix/usr/local/rxvt/perls
