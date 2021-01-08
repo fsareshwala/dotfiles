@@ -18,6 +18,7 @@ set inccommand=split
 set incsearch
 set iskeyword+=-
 set laststatus=2
+set linebreak
 set list
 set listchars=tab:\|-,trail:-,extends:>,precedes:<
 set matchtime=3
@@ -30,7 +31,6 @@ set nojoinspaces
 set noshowmode
 set nostartofline
 set noswapfile
-set nowrap
 set nowritebackup
 set nrformats+=alpha,octal
 set number
@@ -60,6 +60,7 @@ set virtualedit+=block
 set wildignore+=*.so,*.o
 set wildmenu
 set wildmode=list:longest,full
+set wrap
 set wrapscan
 
 nnoremap <c-h> <esc><c-w>h
@@ -102,7 +103,7 @@ endfunction
 autocmd BufEnter * call LanguageSetup()
 
 autocmd BufRead,BufNewFile README setlocal filetype=markdown
-autocmd FileType gitcommit,hgcommit setlocal spell tw=72 wrap linebreak
+autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
 autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
 
 " --- improvements
@@ -312,7 +313,7 @@ if s:atwork()
   " scampi (syntax analysis for java)
   " vigor (interactive java debugging from within vim)
 else
-  set textwidth=100 wrap linebreak
+  set textwidth=100
 
   nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
   nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
