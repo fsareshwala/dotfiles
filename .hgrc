@@ -16,10 +16,10 @@ dropmissing = true
 singletransaction = true
 
 [ui]
-interface = text
+interface = curses
 quiet = true
-strict = true
-textwidth = 100
+# strict = true
+textwidth = 120
 
 [rebase]
 experimental.inmemory = true
