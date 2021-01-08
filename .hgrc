@@ -23,3 +23,19 @@ textwidth = 120
 
 [rebase]
 experimental.inmemory = true
+
+[color]
+diff.diffline = white
+diff.file_a = blue
+diff.file_b = blue
+diff.hunk = yellow
+diff.extended = green
+diff.trailingwhitespace = red_background
+
+diff.deleted = red
+diff.deleted.changed = red
+diff.deleted.unchanged = red
+
+diff.inserted = green
+diff.inserted.changed = green
+diff.inserted.unchanged = green
