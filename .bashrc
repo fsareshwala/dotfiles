@@ -66,6 +66,7 @@ alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
+alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
