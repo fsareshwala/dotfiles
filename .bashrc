@@ -206,6 +206,7 @@ if [[ -f ~/.work ]]; then
   alias hs='hg export'
   alias hrm='hg resolve --mark'
   alias he='hg histedit'
+  alias hst='hg diff -r .^:. --stat'
 
   alias cd-g3='cd ~/code/google3'
 fi
