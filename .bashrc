@@ -204,10 +204,11 @@ if [[ -f ~/.work ]]; then
     fi
   }
 
-  alias cldrop='hg cls-drop -p --skip-confirmation -c'
-  alias clpost='hg upload chain'
-  alias clsubmit='hg submit'
+  alias rdrop='hg cls-drop -p --skip-confirmation -c'
+  alias rpost='hg upload chain'
+  alias rsubmit='hg submit'
   alias ha='hg add'
+  alias hab='hg absorb'
   alias hai='hg amend -i'
   alias ham='hg amend'
   alias hb='hg blame -udcw'
@@ -215,6 +216,8 @@ if [[ -f ~/.work ]]; then
   alias hci='hg commit -i'
   alias hm='hg commit -m'
   alias hs='hg export'
+  alias hrm='hg resolve --mark'
+  alias he='hg histedit'
 
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
