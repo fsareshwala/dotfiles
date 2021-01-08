@@ -170,25 +170,25 @@ if [[ -f ~/.work ]]; then
 
   function st() {
     if in_google3; then
-      hg status
+      hg status $@
     else
-      git status
+      git status $@
     fi
   }
 
   function d() {
     if in_google3; then
-      hg diff
+      hg diff $@
     else
-      git diff
+      git diff $@
     fi
   }
 
   function tig() {
     if in_google3; then
-      hg xl
+      hg xl $@
     else
-      /usr/bin/tig
+      /usr/bin/tig $@
     fi
   }
 
