@@ -3,7 +3,7 @@
 source ~/prefix/lib/utilities.sh
 
 function usage() {
-    echo "$(basename $0) copies solutions into the appropriate directories for each program.
+  echo "$(basename $0) copies solutions into the appropriate directories for each program.
 
     Required arguments:
         -p|--program          The program number to copy solutions for
@@ -15,42 +15,44 @@ function usage() {
 }
 
 while [[ $# -gt 0 ]]; do
-    key="$1"
-    case $key in
-        -p|--program)
-            program="$2"
-            shift; shift
-            ;;
-        -r|--repo-path)
-            repo_path="$2"
-            shift; shift
-            ;;
-        -h|--help)
-            usage
-            exit
-            ;;
-        *)
-            shift
-            ;;
-    esac
+  key="$1"
+  case $key in
+    -p | --program)
+      program="$2"
+      shift
+      shift
+      ;;
+    -r | --repo-path)
+      repo_path="$2"
+      shift
+      shift
+      ;;
+    -h | --help)
+      usage
+      exit
+      ;;
+    *)
+      shift
+      ;;
+  esac
 done
 
 # require a program value
 if [[ -z "$program" ]]; then
-    log_error "no program value provided"
+  log_error "no program value provided"
 fi
 
 # require a repository path
 if [[ -z "$repo_path" ]]; then
-    log_error "no repository path provided"
+  log_error "no repository path provided"
 fi
 
 # require the repository to be on the solutions branch
 pushd $repo_path
 branch=$(git symbolic-ref --short -q HEAD)
 if [[ $branch != "solutions" ]]; then
-    echo "$repo_path is on branch $branch, requires branch solution"
-    exit 1
+  echo "$repo_path is on branch $branch, requires branch solution"
+  exit 1
 fi
 popd
 
@@ -59,15 +61,15 @@ file_map_path=$repo_path/file.map
 
 declare -A file_map
 while IFS=: read -r key value; do
-    if [[ -z $key ]]; then
-        continue
-    fi
+  if [[ -z $key ]]; then
+    continue
+  fi
 
-    file_map[$key]="${file_map[$key]} $value"
+  file_map[$key]="${file_map[$key]} $value"
 done < $file_map_path
 
 for file in ${file_map[$program]}; do
-    directory=solutions/$program
-    mkdir -p $directory
-    cp $repo_path/$file $directory
+  directory=solutions/$program
+  mkdir -p $directory
+  cp $repo_path/$file $directory
 done
