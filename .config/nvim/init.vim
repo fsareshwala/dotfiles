@@ -37,6 +37,7 @@ set number
 set preserveindent
 set pumheight=10
 set shell=$SHELL
+set shiftround
 set shiftwidth=2
 set shortmess+=c
 set showmatch
