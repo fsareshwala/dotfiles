@@ -1,0 +1,14 @@
+# Signal desktop requires libappindicator1 but it's not available on debian systems (debian installs
+# libappindicator3-1 for the gtk version). This file creates an equivs version so that we can create
+# a dummy package, satisfy the dependency, and circumvent the issue.
+#
+# sudo apt install equivs
+# equivs-build libappindicator1.equivs
+
+Package: libappindicator1
+Version: 99:99
+Maintainer: Faraaz Sareshwala <faraazs@gmail.com>
+Architecture: all
+Description: dummy libappindicator1 package
+ A dummy package with a version number so high that the real libappindicator1 packages will never
+ reach it.
