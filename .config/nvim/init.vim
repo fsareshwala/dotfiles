@@ -167,6 +167,7 @@ Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'jiangmiao/auto-pairs'            " automatically insert/delete parenthesis, brackets, quotes
 Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'google/vim-codefmt'              " format source code
 
