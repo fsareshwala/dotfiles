@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Reports the number of tests given a programming assignment
+
+gitroot=$(git rev-parse --show-toplevel)
+cd $gitroot
+
+program=$1
+
+echo $(cat file.map | grep $program | awk '{print $2}' |
+  sed 's,/src/,/test/, ; s/.java$/_T.java/' |
+  xargs cat | grep '@Test' | wc -l)
