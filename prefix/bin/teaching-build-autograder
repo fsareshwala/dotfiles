@@ -20,7 +20,7 @@ function generate_setup_sh() {
 
 curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel.gpg
 mv bazel.gpg /etc/apt/trusted.gpg.d/
-echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+echo 'deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8' | tee /etc/apt/sources.list.d/bazel.list
 
 apt update
 apt install -y bazel
@@ -45,12 +45,12 @@ cp -r '/autograder/source/java' '/autograder/submission'
 numtests=\$(find /autograder/source/java -name '*_T.java' | xargs cat | grep '@Test' | wc -l)
 
 cd /autograder/submission
-bazel test $tests | tee results
+bazel test $tests 2>&1 | tee results
 
 score=\$numtests
-if grep 'FAILURES!!!' results; then
-  failures=\$(grep 'Failures:' results | wc -l)
-  score=\$(( \$failures / \$numtests ))
+if grep 'FAILURES' results; then
+  failures=\$(grep 'Failures:' results | awk '{s+=\$5} END {print s}')
+  score=\$(( \$numtests - \$failures ))
 fi
 
 jo stdout_visibility=visible score=\$score > /autograder/results/results.json
