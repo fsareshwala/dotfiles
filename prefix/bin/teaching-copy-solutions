@@ -68,7 +68,7 @@ while IFS=: read -r key value; do
   file_map[$key]="${file_map[$key]} $value"
 done < $file_map_path
 
-for file in ${file_map[$program]}; do
+for file in ${file_map["$program-src"]}; do
   directory=solutions/$program
   mkdir -p $directory
   cp $repo_path/$file $directory
