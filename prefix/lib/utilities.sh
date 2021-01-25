@@ -72,7 +72,7 @@ function pad() {
   local padchar=$3
 
   local actual_length=${#string}
-  local num_padchars=$(( $expected_length - $actual_length ))
+  local num_padchars=$(($expected_length - $actual_length))
 
   if [[ $num_padchars -le 0 ]]; then
     echo -n "$string"
