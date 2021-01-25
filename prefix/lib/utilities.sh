@@ -16,6 +16,11 @@ function ensure_exists() {
   command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
 }
 
+function dirname() {
+  local path=$1
+  echo "${path%/*}"
+}
+
 function basename() {
   local path=$1
   echo "${path##*/}"
