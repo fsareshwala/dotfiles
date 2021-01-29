@@ -228,6 +228,8 @@ if [[ -f ~/.work ]]; then
   alias ganpaticfg=/google/bin/releases/ganpaticfg/public/ganpaticfg
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
   alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
+  alias placercfg=/google/data/ro/teams/ads-sre-build/placercfg/placercfg
+  alias dreampipe=/google/data/ro/teams/dreampipe/dreampipe_cli_client/live/dreampipe
 
   alias cd-g3='cd ~/code/google3'
 
