@@ -72,6 +72,7 @@ alias grep="rg --color=auto"
 alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
 alias json='python -m json.tool'
 alias ls='ls --color'
+alias ll='ls -l'
 alias mkdir='mkdir -p'
 alias p='cd ~/personal'
 alias patch='patch -merge --no-backup-if-mismatch'
