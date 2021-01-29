@@ -86,6 +86,7 @@ alias vimf='vim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+alias cat='batcat'
 
 # git aliases
 alias b='git branch'
