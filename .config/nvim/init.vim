@@ -258,6 +258,8 @@ function! s:atwork()
 endfunction
 
 if s:atwork()
+  source /usr/share/vim/google/google.vim
+
   autocmd FileType borg,gcl AutoFormatBuffer gclfmt
   autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType java AutoFormatBuffer google-java-format
@@ -266,13 +268,9 @@ if s:atwork()
   autocmd FileType python AutoFormatBuffer pyformat
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType textpb AutoFormatBuffer text-proto-format
-
   " autocmd FileType sql,googlesql AutoFormatBuffer format_sql
   " autocmd BufEnter *.sqlt NoAutoFormatBuffer
-
   nnoremap <leader>f :FormatCode<cr>
-
-  source /usr/share/vim/google/google.vim
 
   " \pf: get a window of changed files
   Glug piper plugin[mappings]
