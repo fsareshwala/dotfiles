@@ -57,19 +57,11 @@ fi
 popd
 
 # all errors checked, let's continue
-file_map_path=$repo_path/file.map
-
-declare -A file_map
-while IFS=: read -r key value; do
-  if [[ -z $key ]]; then
-    continue
-  fi
-
-  file_map[$key]="${file_map[$key]} $value"
-done < $file_map_path
-
-for file in ${file_map["$program-src"]}; do
-  directory=solutions/$program
+files="$(bazel query "kind('source file', deps(java:$program))" 2> /dev/null | grep '.java' |
+  grep '//java/src/' | sed 's,^//,,g; s,:,/,g')"
+for file in $files; do
+  dirpath=$(dirname $file)
+  directory=solutions/$dirpath
   mkdir -p $directory
   cp $repo_path/$file $directory
 done
