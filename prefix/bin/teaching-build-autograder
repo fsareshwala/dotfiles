@@ -34,7 +34,6 @@ apt install -y openjdk-11-jdk
 function generate_run_autograder() {
   local gitroot=$1
   local program=$2
-  local tests="$(cat $gitroot/file.map | grep $program-test | awk '{print $2}' | tr '\n' ' ')"
 
   echo "\
 #!/usr/bin/env bash
@@ -45,11 +44,12 @@ cp -r '/autograder/source/java' '/autograder/submission'
 numtests=\$(find /autograder/source/java -name '*_T.java' | xargs cat | grep '@Test' | wc -l)
 
 cd /autograder/submission
-bazel test $tests 2>&1 | tee results
+bazel test :$program 2>&1 | tee results
 
 score=\$numtests
-if grep 'FAILURES' results; then
-  failures=\$(grep 'Failures:' results | awk '{s+=\$5} END {print s}')
+failures='Failures:'
+if grep "\$failures" results; then
+  failures=\$(grep "\$failures" results | awk '{s+=\$5} END {print s}')
   score=\$(( \$numtests - \$failures ))
 fi
 
@@ -59,6 +59,10 @@ jo stdout_visibility=visible score=\$score > /autograder/results/results.json
 
 # documentation: https://gradescope-autograders.readthedocs.io/en/latest/specs
 function build_autograder() {
+  local program="$1"
+  local tests="$(bazel query "kind('source file', deps(java:$program))" 2> /dev/null |
+    grep '.java' | grep '/test/' | sed 's,^//,,g; s,:,/,g')"
+
   local tempdir=$(mktemp -d)
   cd $tempdir
 
@@ -71,8 +75,6 @@ function build_autograder() {
   chmod 700 $run_autograder_path
 
   # copy tests from base repository to prevent students from modifying tests, forcing them to pass
-  tests=$(cat $gitroot/file.map | grep $program-src | awk '{print $2}' |
-    sed 's,java/src,java/test,g; s/.java$/_T.java/g')
   for test in $tests; do
     destination=$(dirname $test)
     mkdir -p $destination
@@ -87,7 +89,7 @@ function build_autograder() {
 }
 
 function main() {
-  local programs="$(cat file.map | awk -F':' '{print $1}' | awk -F'-' '{print $1}' | sort | uniq)"
+  local programs="$(bazel query 'kind(rule, ...)' 2> /dev/null | grep '//java:' | sed 's,.*:,,g')"
   for program in $programs; do
     echo "building autograder for $program"
     build_autograder $program
