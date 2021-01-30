@@ -10,10 +10,6 @@ ensure_exists git
 gitroot=$(git rev-parse --show-toplevel)
 cd $gitroot
 
-if [[ ! -e "$gitroot/file.map" ]]; then
-  log_error "file.map missing in gitroot"
-fi
-
 function generate_setup_sh() {
   echo "\
 #!/usr/bin/env bash
