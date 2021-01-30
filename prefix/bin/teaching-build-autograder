@@ -57,7 +57,7 @@ jo stdout_visibility=visible score=\$score > /autograder/results/results.json
 function build_autograder() {
   local program="$1"
   local tests="$(bazel query "kind('source file', deps(java:$program))" 2> /dev/null |
-    grep '.java' | grep '/test/' | sed 's,^//,,g; s,:,/,g')"
+    grep '.java' | grep '//java/test/' | sed 's,^//,,g; s,:,/,g')"
 
   local tempdir=$(mktemp -d)
   cd $tempdir
