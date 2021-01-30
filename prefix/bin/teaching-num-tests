@@ -2,11 +2,15 @@
 
 # Reports the number of tests given a programming assignment
 
+source ~/prefix/lib/utilities.sh
+
+if [[ $# -ne 1 ]]; then
+  log_error "usage: $0 program"
+fi
+
 gitroot=$(git rev-parse --show-toplevel)
 cd $gitroot
 
 program=$1
-
-echo $(cat file.map | grep $program-src | awk '{print $2}' |
-  sed 's,/src/,/test/, ; s/.java$/_T.java/' |
-  xargs cat | grep '@Test' | wc -l)
+bazel query "kind('source file', deps(java:$program))" 2> /dev/null | grep java | grep test |
+  sed 's,^//,,g; s,:,/,g' | xargs cat | grep '@Test' | wc -l
