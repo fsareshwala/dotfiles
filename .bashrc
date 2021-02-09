@@ -87,6 +87,7 @@ alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
 alias cat='batcat'
+alias sxiv='sxiv -atop'
 
 # git aliases
 alias b='git branch'
