@@ -69,7 +69,7 @@ alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
 alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
-alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
+alias gssh='ssh -XY fsareshwala-cloudtop.c.googlers.com'
 alias json='python -m json.tool'
 alias ls='ls --color'
 alias ll='ls -l'
