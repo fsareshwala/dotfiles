@@ -46,7 +46,7 @@ cd /autograder/submission
 echo 'test --test_output=errors' > .bazelrc
 
 # run student code and score results
-bazel test :$program 2>&1 | tee results
+bazel test java:$program 2>&1 | tee results
 
 score=\$numtests
 failures='Failures:'
