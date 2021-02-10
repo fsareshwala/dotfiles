@@ -34,12 +34,18 @@ function generate_run_autograder() {
   echo "\
 #!/usr/bin/env bash
 
+numtests=\$(find /autograder/source/java -name '*_T.java' | xargs cat | grep '@Test' | wc -l)
+
 # copy tests from base repository to prevent students from modifying tests, forcing them to pass
 cp -r '/autograder/source/java' '/autograder/submission'
 
-numtests=\$(find /autograder/source/java -name '*_T.java' | xargs cat | grep '@Test' | wc -l)
-
+# move to student code submission
 cd /autograder/submission
+
+# windows users may add elements to their bazelrc that don't work on linux
+echo 'test --test_output=errors' > .bazelrc
+
+# run student code and score results
 bazel test :$program 2>&1 | tee results
 
 score=\$numtests
