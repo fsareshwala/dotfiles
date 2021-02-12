@@ -154,9 +154,9 @@ function gsshfs() {
 
 function at_work() {
   hostname=$(hostname)
-  if [[ $hostname == 'fsareshwala-glaptop' ]]; then
+  if [[ $hostname == 'fsareshwala-glaptop'* ]]; then
     return 0
-  elif [[ $hostname == 'fsareshwala-cloudtop' ]]; then
+  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
     return 0
   else
     return 1
