@@ -288,19 +288,6 @@ if s:atwork()
   " \r: get a list of related files
   Glug relatedfiles plugin[mappings]
 
-  " \aa: automatically add using declaration in c++ for current identifier
-  Glug add_usings plugin[mappings]
-
-  " google specific snippets
-  " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
-  " Glug ultisnips-google
-
-  " access corporate websites directly from vim
-  " \cw: code search word
-  " \cf: code search file
-  Glug corpweb plugin[mappings]
-  noremap <leader>cs :CorpWebCs<Space>
-
   " \be: Load errors from blaze
   " \bl: View build log
   " \bd: Run blaze on targets
@@ -310,6 +297,7 @@ if s:atwork()
   let g:blazevim_quickfix_autoopen = 1
 
   " \d: update build files with dependencies
+  "Glug blazedeps auto_filetypes=`['go']`
   Glug blazedeps plugin[mappings]
 
   " \ji: create java import for class under cursor
@@ -321,6 +309,12 @@ if s:atwork()
   " maybe install in the future
   " scampi (syntax analysis for java)
   " vigor (interactive java debugging from within vim)
+
+  " google specific snippets
+  " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
+  " Glug ultisnips-google
+  " Glug youcompleteme-google
+  " Glug add_usings plugin[mappings]
 else
   set textwidth=100
 
