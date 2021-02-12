@@ -268,8 +268,8 @@ if s:atwork()
   autocmd FileType python AutoFormatBuffer pyformat
   autocmd FileType rust AutoFormatBuffer rustfmt
   autocmd FileType textpb AutoFormatBuffer text-proto-format
-  " autocmd FileType sql,googlesql AutoFormatBuffer format_sql
-  " autocmd BufEnter *.sqlt NoAutoFormatBuffer
+  autocmd FileType sql,googlesql AutoFormatBuffer format_sql
+  autocmd BufEnter *.sqlt NoAutoFormatBuffer
   nnoremap <leader>f :FormatCode<cr>
 
   " \pf: get a window of changed files
