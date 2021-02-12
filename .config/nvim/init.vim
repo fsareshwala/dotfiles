@@ -254,7 +254,15 @@ autocmd FileType sh AutoFormatBuffer shfmt
 
 " load work specific vim plugins
 function! s:atwork()
-  return filereadable(glob('~/.work'))
+  let s:hostname = substitute(system('hostname'), '\n', '', '')
+
+  if s:hostname =~ 'fsareshwala-glaptop'
+    return 1
+  elseif s:hostname =~ 'fsareshwala-cloudtop'
+    return 1
+  else
+    return 0
+  endif
 endfunction
 
 if s:atwork()
