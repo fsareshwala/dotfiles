@@ -20,7 +20,7 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 export BROWSER=google-chrome
-export EDITOR=nvim
+export EDITOR=vim
 export FIGNORE='.o:~:.pyc'
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --glob='!.git' --color=never *"
 export FZF_DEFAULT_OPTS='--height 20% --reverse'
@@ -29,11 +29,11 @@ export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 export MAILCAPS=${HOME}/.mailcap
-export MANPAGER='nvim -c "set ft=man" -'
+export MANPAGER='vim -c "set ft=man" -'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
-export VISUAL=nvim
+export VISUAL=vim
 
 c_black="\[\033[0;30m\]"
 c_red="\[\033[0;31m\]"
@@ -81,7 +81,7 @@ alias s='source ~/.bashrc'
 alias thes='aiksaurus'
 alias vb='vim ~/.bashrc'
 alias vi='vim'
-alias vim='nvim -O'
+alias vim='vim -O'
 alias vimf='vim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
