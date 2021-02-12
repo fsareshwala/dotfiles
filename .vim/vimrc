@@ -45,7 +45,7 @@ set signcolumn=yes
 set smartcase
 set smarttab
 set softtabstop=2
-set spellfile+=~/.config/nvim/spell/en.utf-8.add
+set spellfile+=~/.vim/spell/en.utf-8.add
 set spellfile+=~/personal/vim/en.utf-8.add
 set splitright
 set splitright
@@ -53,7 +53,7 @@ set tabstop=2
 set tags=tags;
 set timeoutlen=500
 set title
-set undodir=~/.config/nvim/tmp/undo
+set undodir=~/.vim/tmp/undo
 set undofile
 set updatetime=300
 set virtualedit+=block
@@ -161,7 +161,7 @@ if executable('rg')
 endif
 
 " --- Plugin installation
-call plug#begin('~/.config/nvim/repos')
+call plug#begin('~/.vim/repos')
 Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
