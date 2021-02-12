@@ -105,6 +105,7 @@ alias gm='git commit -m'
 alias griom='git rebase -i origin/master'
 alias grom='git rebase origin/master'
 alias gs='git show'
+complete -A directory gm
 
 function reswap() {
   sudo /sbin/swapoff -a
@@ -151,9 +152,18 @@ function gsshfs() {
   sshfs -f -o reconnect $cloudtop:$workspace $localdir
 }
 
-complete -A directory gm
+function at_work() {
+  hostname=$(hostname)
+  if [[ $hostname == 'fsareshwala-glaptop' ]]; then
+    return 0
+  elif [[ $hostname == 'fsareshwala-cloudtop' ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
 
-if [[ -f ~/.work ]]; then
+if at_work; then
   # work setup
   function check_metadata() {
     blaze run //devtools/metadata:metadata_format_check -- $(realpath $1)
