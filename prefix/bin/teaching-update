@@ -17,4 +17,4 @@ else
 fi
 
 git fetch upstream
-git merge --no-edit --ff upstream/master
+git merge -s ours --allow-unrelated-histories --no-edit --ff upstream/master
