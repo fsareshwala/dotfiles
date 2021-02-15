@@ -45,6 +45,15 @@ cd /autograder/submission
 # windows users may add elements to their bazelrc that don't work on linux
 echo 'test --test_output=errors' > .bazelrc
 
+# build student code -- ensure it builds before we assign a grade
+bazel build java:$program 2>&1 > results
+if [[ \$? -ne 0 ]]; then
+  cat results
+  echo 'error: build failure, zero points assigned to solutions that do not build properly'
+  jo stdout_visibility=visible score=0 > /autograder/results/results.json
+  exit
+fi
+
 # run student code and score results
 bazel test java:$program 2>&1 | tee results
 
