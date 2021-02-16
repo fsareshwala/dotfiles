@@ -81,7 +81,7 @@ nnoremap <silent> <leader>- :vertical resize -5<cr>
 nnoremap <silent> <leader>= :vertical resize +5<cr>
 nnoremap <silent> <leader>s :vsplit<cr>
 nnoremap <silent> <leader>t :tabnew<cr>
-nnoremap <silent> <leader>v :e  ~/.vim/vimrc<cr>
+nnoremap <silent> <leader>v :e  ~/.config/nvim/init.vim<cr>
 nnoremap <silent> <leader>wj :e ~/personal/journal.md<cr>
 nnoremap <silent> <leader>wk :e ~/personal/career/google.md<cr>
 nnoremap <silent> <leader>wn :e ~/personal/career/notes.md<cr>
@@ -161,7 +161,7 @@ if executable('rg')
 endif
 
 " --- Plugin installation
-call plug#begin('~/.vim/repos')
+call plug#begin('~/.config/nvim/repos')
 Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
