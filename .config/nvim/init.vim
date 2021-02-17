@@ -14,6 +14,7 @@ set formatoptions=cjlnqrt
 set gdefault
 set hlsearch
 set ignorecase
+set inccommand=split
 set incsearch
 set iskeyword+=-
 set laststatus=2
@@ -62,9 +63,6 @@ set wildmenu
 set wildmode=list:longest,full
 set wrap
 set wrapscan
-
-" settings available in neovim only
-" set inccommand=split
 
 nnoremap <c-h> <esc><c-w>h
 nnoremap <c-j> <esc><c-w>j
