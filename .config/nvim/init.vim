@@ -280,6 +280,9 @@ if s:atwork()
   autocmd BufEnter *.sqlt NoAutoFormatBuffer
   nnoremap <leader>f :FormatCode<cr>
 
+  Glug codefmt-google plugin[mappings]
+  Glug corpweb plugin[mappings]
+
   " \be: Load errors from blaze
   " \bl: View build log
   " \bd: Run blaze on targets
@@ -301,6 +304,7 @@ if s:atwork()
   " Glug ultisnips-google
   " Glug youcompleteme-google
   " Glug add_usings plugin[mappings]
+  " vim-lsp and cider-lsp
 else
   set textwidth=100
 
