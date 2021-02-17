@@ -260,9 +260,9 @@ function! s:atwork()
     return 1
   elseif s:hostname =~ 'fsareshwala-cloudtop'
     return 1
-  else
-    return 0
   endif
+
+  return 0
 endfunction
 
 if s:atwork()
@@ -280,12 +280,6 @@ if s:atwork()
   autocmd BufEnter *.sqlt NoAutoFormatBuffer
   nnoremap <leader>f :FormatCode<cr>
 
-  " \pf: get a window of changed files
-  Glug piper plugin[mappings]
-
-  " \r: get a list of related files
-  Glug relatedfiles plugin[mappings]
-
   " \be: Load errors from blaze
   " \bl: View build log
   " \bd: Run blaze on targets
@@ -297,12 +291,6 @@ if s:atwork()
   " \d: update build files with dependencies
   "Glug blazedeps auto_filetypes=`['go']`
   Glug blazedeps plugin[mappings]
-
-  " \ji: create java import for class under cursor
-  " \js: sort java imports
-  Glug google-csimporter
-  nnoremap <leader>ji :CsImporter<cr>
-  nnoremap <leader>js :CsImporterSort<cr>
 
   " maybe install in the future
   " scampi (syntax analysis for java)
