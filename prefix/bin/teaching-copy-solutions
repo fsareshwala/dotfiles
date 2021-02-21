@@ -56,6 +56,9 @@ if [[ $branch != "solutions" ]]; then
 fi
 popd
 
+# remove windows specific bazelrc settings that cause errors on linux
+rm .bazelrc
+
 # all errors checked, let's continue
 files="$(bazel query "kind('source file', deps(java:$program))" 2> /dev/null | grep '.java' |
   grep '//java/src/' | sed 's,^//,,g; s,:,/,g')"
@@ -65,3 +68,6 @@ for file in $files; do
   mkdir -p $directory
   cp $repo_path/$file $directory
 done
+
+# replace removed files
+git checkout .bazelrc
