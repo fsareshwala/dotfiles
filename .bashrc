@@ -170,7 +170,7 @@ if at_work; then
   }
 
   function ocscript() {
-    local reason=$1
+    local reason="$1"
     local timestamp="$(date +"%Y%m%d_%H%M")"
     local filename="${timestamp}_${reason}.sh"
     touch $filename
