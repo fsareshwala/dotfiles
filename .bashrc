@@ -88,6 +88,7 @@ alias weather='curl wttr.in'
 alias which='type -p'
 alias cat='batcat'
 alias sxiv='sxiv -atop'
+alias bug='bugged create --format=MARKDOWN 943069'
 
 # git aliases
 alias b='git branch'
