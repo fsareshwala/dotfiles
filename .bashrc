@@ -175,7 +175,7 @@ function at_work() {
 if at_work; then
   # work setup
   function in_google3() {
-    if [[ "$PWD" == "$HOME/code"* ]]; then
+    if [[ "$PWD" == "$HOME/code/google3"* ]]; then
       return 0
     else
       return 1
