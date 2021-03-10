@@ -47,8 +47,9 @@ export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 
 shopt -s checkwinsize
 
+export PATH=/home/fsareshwala/code/fuchsia/.jiri_root/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
-export PATH=/home/fsareshwala/.local/bin/:${PATH}
+export PATH=/home/fsareshwala/.local/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
 export PATH=/home/fsareshwala/prefix/bin:${PATH}
 export PATH=/home/fsareshwala/personal/bin:${PATH}
