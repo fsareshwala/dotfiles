@@ -187,7 +187,7 @@ if at_work; then
   }
 
   function in_google3() {
-    if [[ "$PWD" == "$HOME/code"* ]]; then
+    if [[ "$PWD" == "$HOME/code/google3"* ]]; then
       return 0
     else
       return 1
