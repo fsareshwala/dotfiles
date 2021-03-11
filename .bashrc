@@ -47,7 +47,6 @@ export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 
 shopt -s checkwinsize
 
-export PATH=/home/fsareshwala/code/fuchsia/.jiri_root/bin:${PATH}
 export PATH=/usr/sbin:${PATH}
 export PATH=/home/fsareshwala/.local/bin:${PATH}
 export PATH=$GOPATH/bin:${PATH}
@@ -173,6 +172,9 @@ function at_work() {
 }
 
 if at_work; then
+  export PATH=/home/fsareshwala/code/fuchsia/.jiri_root/bin:${PATH}
+  source ~/code/fuchsia/scripts/fx-env.sh
+
   # work setup
   function in_google3() {
     if [[ "$PWD" == "$HOME/code/google3"* ]]; then
