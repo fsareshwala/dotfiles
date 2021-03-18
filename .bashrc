@@ -249,7 +249,7 @@ if at_work; then
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
   alias btail=/google/data/ro/teams/borgtools/btail
-  alias bug='bugged create --format=MARKDOWN 943069'
+  alias cdmbug='bugged create --format=MARKDOWN 943069'
   alias dreampipe=/google/data/ro/teams/dreampipe/dreampipe_cli_client/live/dreampipe
   alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
   alias ganpaticfg=/google/bin/releases/ganpaticfg/public/ganpaticfg
@@ -269,6 +269,9 @@ if at_work; then
   alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
   alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
+  alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
+  alias cd-foundation='cd ~/code/google3/production/resources/warehouse/sqlp/foundation/borg'
+  alias cd-transformation='cd ~/code/google3/production/resources/warehouse/sqlp/transformation/borg'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
   alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
 else
