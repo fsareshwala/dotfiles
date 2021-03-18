@@ -11,6 +11,62 @@ esac
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
+function add_to_path() {
+  dir=$1
+  if [[ $PATH != *$1* ]]; then
+    export PATH=$dir:${PATH}
+  fi
+}
+
+function reswap() {
+  sudo /sbin/swapoff -a
+  sudo /sbin/swapon -a
+}
+
+function dirdo() {
+  local cwd=$(pwd)
+  local directories="$(find . -maxdepth 1 -type d)"
+  for dir in $directories; do
+    if [[ $dir == '.' ]]; then
+      continue
+    fi
+
+    cd $dir
+    echo $(basename $dir):
+    "$@" | sed -e 's/^/    /'
+    cd $cwd
+  done
+}
+
+function cal() {
+  if [[ $# -eq 0 ]]; then
+    /usr/bin/cal -3
+  else
+    /usr/bin/cal $@
+  fi
+}
+
+function rreplace() {
+  local old="$1"
+  local new="$2"
+  rg -l "$old" . | xargs sed -i "s/$old/$new/g"
+}
+
+function gc() {
+  git checkout -b fsareshwala/${1} -t origin/master
+}
+
+function at_work() {
+  hostname=$(hostname)
+  if [[ $hostname == 'fsareshwala-glaptop'* ]]; then
+    return 0
+  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 stty werase undef
 
 # Share bash history across terminal sessions
@@ -35,6 +91,12 @@ export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
+add_to_path /usr/sbin
+add_to_path /home/fsareshwala/.local/bin
+add_to_path $GOPATH/bin
+add_to_path /home/fsareshwala/prefix/bin
+add_to_path /home/fsareshwala/personal/bin
+
 c_black="\[\033[0;30m\]"
 c_red="\[\033[0;31m\]"
 c_green="\[\033[0;32m\]"
@@ -46,13 +108,6 @@ c_white="\[\033[0;37m\]"
 export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 
 shopt -s checkwinsize
-
-export PATH=/usr/sbin:${PATH}
-export PATH=/home/fsareshwala/.local/bin:${PATH}
-export PATH=$GOPATH/bin:${PATH}
-export PATH=/home/fsareshwala/prefix/bin:${PATH}
-export PATH=/home/fsareshwala/personal/bin:${PATH}
-export PATH=.:${PATH}
 
 # command aliases
 alias -- -='cd -'
@@ -106,76 +161,19 @@ alias grom='git rebase origin/master'
 alias gs='git show'
 complete -A directory gm
 
-function reswap() {
-  sudo /sbin/swapoff -a
-  sudo /sbin/swapon -a
-}
-
-function dirdo() {
-  local cwd=$(pwd)
-  local directories="$(find . -maxdepth 1 -type d)"
-  for dir in $directories; do
-    if [[ $dir == '.' ]]; then
-      continue
-    fi
-
-    cd $dir
-    echo $(basename $dir):
-    "$@" | sed -e 's/^/    /'
-    cd $cwd
-  done
-}
-
-function cal() {
-  if [[ $# -eq 0 ]]; then
-    /usr/bin/cal -3
-  else
-    /usr/bin/cal $@
-  fi
-}
-
-function rreplace() {
-  local old="$1"
-  local new="$2"
-  rg -l "$old" . | xargs sed -i "s/$old/$new/g"
-}
-
-function gc() {
-  git checkout -b fsareshwala/${1} -t origin/master
-}
-
-alias b='git branch'
-alias ba='git branch -a'
-alias d='git diff'
-alias dc='git diff --cached'
-alias ga='git add'
-alias gap='git add -p'
-alias gb='git checkout @{-1}'
-alias gca='git commit --amend'
-alias gcan='git commit --amend --no-edit'
-alias gf='git fx'
-alias gignore='git update-index --assume-unchanged'
-alias gm='git commit -m'
-alias griom='git rebase -i origin/master'
-alias grom='git rebase origin/master'
-alias st='git status'
-
-function at_work() {
-  hostname=$(hostname)
-  if [[ $hostname == 'fsareshwala-glaptop'* ]]; then
-    return 0
-  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
-    return 0
-  else
-    return 1
-  fi
-}
-
 if at_work; then
-  export PATH=/home/fsareshwala/code/fuchsia/.jiri_root/bin:${PATH}
+  add_to_path /home/fsareshwala/code/fuchsia/.jiri_root/bin
   source ~/code/fuchsia/scripts/fx-env.sh
 
   # work setup
+  function in_fuchsia() {
+    if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
+      return 0
+    else
+      return 1
+    fi
+  }
+
   function in_google3() {
     if [[ "$PWD" == "$HOME/code/google3"* ]]; then
       return 0
@@ -207,6 +205,10 @@ if at_work; then
       /usr/bin/tig $@
     fi
   }
+
+  if ! in_fuchsia; then
+    add_to_path .
+  fi
 
   alias rdrop='hg cls-drop -p --skip-confirmation -c'
   alias rpost='hg upload chain'
