@@ -118,6 +118,7 @@ alias -- ....='cd ../../..'
 alias -- ...='cd ../..'
 alias -- ..='cd ..'
 alias bc='bc -lq'
+alias cat='batcat'
 alias diff="diff --color=auto"
 alias dlmp3='youtube-dl -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='youtube-dl --recode-video mp4 --add-metadata'
@@ -126,14 +127,15 @@ alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias gssh='ssh -XY fsareshwala-cloudtop.c.googlers.com'
 alias json='python -m json.tool'
-alias ls='ls --color'
 alias ll='ls -l'
+alias ls='ls --color'
 alias mkdir='mkdir -p'
 alias p='cd ~/personal'
 alias patch='patch -merge --no-backup-if-mismatch'
 alias pkgupdate='sudo apt update && sudo apt upgrade'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias s='source ~/.bashrc'
+alias sxiv='sxiv -atop'
 alias thes='aiksaurus'
 alias vi='nvim'
 alias vim='nvim -O'
@@ -141,9 +143,6 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
-alias cat='batcat'
-alias sxiv='sxiv -atop'
-alias bug='bugged create --format=MARKDOWN 943069'
 
 # git aliases
 alias b='git branch'
@@ -231,9 +230,6 @@ if at_work; then
     add_to_path .
   fi
 
-  alias rdrop='hg cls-drop -p --skip-confirmation -c'
-  alias rpost='hg upload chain'
-  alias rsubmit='hg submit'
   alias ha='hg add'
   alias hab='hg absorb'
   alias hai='hg amend -i'
@@ -241,34 +237,38 @@ if at_work; then
   alias hb='hg blame -udcw'
   alias hca='hg commit --amend'
   alias hci='hg commit -i'
-  alias hm='hg commit -m'
-  alias hs='hg export'
-  alias hrm='hg resolve --mark'
   alias he='hg histedit'
+  alias hm='hg commit -m'
+  alias hrm='hg resolve --mark'
+  alias hs='hg export'
   alias hst='hg diff -r .^:. --stat'
+  alias rdrop='hg cls-drop -p --skip-confirmation -c'
+  alias rpost='hg upload chain'
+  alias rsubmit='hg submit'
 
   alias bgrep=/google/data/ro/teams/borgtools/bgrep
   alias bkill=/google/data/ro/teams/borgtools/bkill
   alias btail=/google/data/ro/teams/borgtools/btail
+  alias bug='bugged create --format=MARKDOWN 943069'
+  alias dreampipe=/google/data/ro/teams/dreampipe/dreampipe_cli_client/live/dreampipe
+  alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
   alias ganpaticfg=/google/bin/releases/ganpaticfg/public/ganpaticfg
   alias mdformat=/google/bin/releases/corpeng-engdoc/tools/mdformat
-  alias g3doc-preview='/google/src/head/depot/google3/experimental/users/gagern/g3doc_preview/g3doc-preview.sh -p'
   alias placercfg=/google/data/ro/teams/ads-sre-build/placercfg/placercfg
-  alias dreampipe=/google/data/ro/teams/dreampipe/dreampipe_cli_client/live/dreampipe
 
   alias cd-g3='cd ~/code/google3'
 
   # team
-  alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
-  alias sqlp=/google/data/ro/teams/sqlp/sqlp
   alias chargeback=/home/build/google3/monitoring/utilization/tools/pipeline/chargeback.sh
   alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
   alias redwitch=~/code/google3/production/borg/raf/turbine/templates/redwitch/redwitch.sh
+  alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
+  alias sqlp=/google/data/ro/teams/sqlp/sqlp
 
+  alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
   alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
   alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
-  alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
   alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
 else
