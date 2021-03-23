@@ -273,7 +273,7 @@ if at_work; then
   alias cd-foundation='cd ~/code/google3/production/resources/warehouse/sqlp/foundation/borg'
   alias cd-transformation='cd ~/code/google3/production/resources/warehouse/sqlp/transformation/borg'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
-  alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2020/11/30'
+  alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2021/03/22'
 else
   alias d='git diff'
   alias st='git status'
