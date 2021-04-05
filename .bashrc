@@ -266,14 +266,11 @@ if at_work; then
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
 
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
-  alias cd-fi-config='cd ~/code/google3/production/borg/raf/turbine'
-  alias cd-fi-exp='cd ~/code/google3/experimental/resources/warehouse'
-  alias cd-fi-java='cd ~/code/google3/java/com/google/prod/resources/warehouse'
-  alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
+  alias cd-dumper-config='cd ~/code/google3/production/borgcron/prod/raf-dumpers'
   alias cd-foundation='cd ~/code/google3/production/resources/warehouse/sqlp/foundation/borg'
-  alias cd-transformation='cd ~/code/google3/production/resources/warehouse/sqlp/transformation/borg'
   alias cd-me='cd ~/code/google3/experimental/users/$USER'
   alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2021/03/22'
+  alias cd-transformation='cd ~/code/google3/production/resources/warehouse/sqlp/transformation/borg'
 else
   alias d='git diff'
   alias st='git status'
