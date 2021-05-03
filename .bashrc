@@ -11,13 +11,6 @@ esac
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
-function add_to_path() {
-  dir=$1
-  if [[ $PATH != *$1* ]]; then
-    export PATH=$dir:${PATH}
-  fi
-}
-
 function reswap() {
   sudo /sbin/swapoff -a
   sudo /sbin/swapon -a
@@ -68,6 +61,7 @@ function at_work() {
 }
 
 stty werase undef
+shopt -s checkwinsize
 
 # Share bash history across terminal sessions
 export HISTFILESIZE=
@@ -91,12 +85,6 @@ export RSYNC_RSH=/usr/bin/ssh
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
-add_to_path /usr/sbin
-add_to_path /home/fsareshwala/.local/bin
-add_to_path $GOPATH/bin
-add_to_path /home/fsareshwala/prefix/bin
-add_to_path /home/fsareshwala/personal/bin
-
 c_black="\[\033[0;30m\]"
 c_red="\[\033[0;31m\]"
 c_green="\[\033[0;32m\]"
@@ -107,7 +95,26 @@ c_cyan="\[\033[0;36m\]"
 c_white="\[\033[0;37m\]"
 export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 
-shopt -s checkwinsize
+function set_path() {
+  # build path entirely from scartch to prevent unnecessary duplicates and
+  # support directory based path elements
+  export PATH=""
+  export PATH="/bin:$PATH"
+  export PATH="/sbin:$PATH"
+  export PATH="/usr/bin:$PATH"
+  export PATH="/usr/sbin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="$GOPATH/bin:$PATH"
+  export PATH="$HOME/prefix/bin:$PATH"
+  export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
+
+  if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
+    export PATH=".:$PATH"
+  fi
+}
+
+export PROMPT_COMMAND="$PROMPT_COMMAND; set_path"
 
 # command aliases
 alias -- -='cd -'
@@ -132,12 +139,10 @@ alias ls='ls --color'
 alias mkdir='mkdir -p'
 alias p='cd ~/personal'
 alias patch='patch -merge --no-backup-if-mismatch'
-alias pkgupdate='sudo apt update && sudo apt upgrade'
 alias pmake='cores=$(grep -c "^processor" /proc/cpuinfo); make -j ${cores}'
 alias s='source ~/.bashrc'
 alias sxiv='sxiv -atop'
 alias thes='aiksaurus'
-alias vi='nvim'
 alias vim='nvim -O'
 alias vimf='nvim $(fzf)'
 alias watch='watch --color'
@@ -162,36 +167,13 @@ alias gs='git show'
 complete -A directory gm
 
 if at_work; then
-  add_to_path /home/fsareshwala/code/fuchsia/.jiri_root/bin
-  source ~/code/fuchsia/scripts/fx-env.sh
-
-  # work setup
-  function check_metadata() {
-    blaze run //devtools/metadata:metadata_format_check -- $(realpath $1)
-  }
-
-  function ocscript() {
-    local reason="$1"
-    local timestamp="$(date +"%Y%m%d_%H%M")"
-    local filename="${timestamp}_${reason}.sh"
-    touch $filename
-    vim $filename
-    hg add $filename
-    hg commit -m "oncall: address $reason"
-  }
+  FX_ENV=~/code/fuchsia/scripts/fx-env.sh
+  test -e $FX_ENV && source $FX_ENV
 
   function serviceinfo() {
     stubby call blade:resource-portal-metadata \
       ProductCatalogService.LookupProductOfferings \
       "match { identifier { name: '$1' } } options { include_contact_information: true }"
-  }
-
-  function in_fuchsia() {
-    if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
-      return 0
-    else
-      return 1
-    fi
   }
 
   function in_google3() {
@@ -226,10 +208,6 @@ if at_work; then
     fi
   }
 
-  if ! in_fuchsia; then
-    add_to_path .
-  fi
-
   alias ha='hg add'
   alias hab='hg absorb'
   alias hai='hg amend -i'
@@ -259,22 +237,17 @@ if at_work; then
   alias cd-g3='cd ~/code/google3'
 
   # team
-  alias chargeback=/home/build/google3/monitoring/utilization/tools/pipeline/chargeback.sh
-  alias murdorp=~/code/google3/production/borg/raf/turbine/templates/murdorp/murdorp.sh
   alias redwitch=~/code/google3/production/borg/raf/turbine/templates/redwitch/redwitch.sh
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
 
+  alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
-  alias cd-dumper-config='cd ~/code/google3/production/borgcron/prod/raf-dumpers'
   alias cd-foundation='cd ~/code/google3/production/resources/warehouse/sqlp/foundation/borg'
-  alias cd-me='cd ~/code/google3/experimental/users/$USER'
-  alias cd-oncall='cd ~/code/google3/production/resources/warehouse/scripts/oncall/2021/03/22'
   alias cd-transformation='cd ~/code/google3/production/resources/warehouse/sqlp/transformation/borg'
 else
   alias d='git diff'
   alias st='git status'
-  add_to_path .
 fi
 
 # TODO(fsareshwala): get these figured out
