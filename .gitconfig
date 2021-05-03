@@ -61,6 +61,7 @@
 
 [http]
   postBuffer = 524288000
+  cookiefile = /home/fsareshwala/.gitcookies
 
 [rebase]
   autoSquash = true
