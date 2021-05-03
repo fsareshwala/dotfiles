@@ -241,6 +241,7 @@ if at_work; then
   alias sqlaze=/google/data/ro/projects/storage/googlesql/sqlaze
   alias sqlp=/google/data/ro/teams/sqlp/sqlp
 
+  alias cd-f='cd ~/code/fuchsia'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-cdm='cd ~/code/google3/production/resources/warehouse/sqlp/cdmv2'
   alias cd-foundation='cd ~/code/google3/production/resources/warehouse/sqlp/foundation/borg'
