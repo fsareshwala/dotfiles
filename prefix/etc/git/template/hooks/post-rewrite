@@ -1,7 +1,0 @@
-#!/bin/sh
-
-# This is commented out for now since it creates a huge storm of ctags processes when performing
-# large rebases
-# case "$1" in
-#   rebase) exec .git/hooks/post-merge ;;
-# esac
