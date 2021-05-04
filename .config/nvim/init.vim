@@ -280,6 +280,10 @@ if s:atwork()
   autocmd BufEnter *.sqlt NoAutoFormatBuffer
   nnoremap <leader>f :FormatCode<cr>
 
+  if $FUCHSIA_DIR != ""
+    source $FUCHSIA_DIR/scripts/vim/fuchsia.vim
+  endif
+
   Glug codefmt-google plugin[mappings]
   Glug corpweb plugin[mappings]
 
