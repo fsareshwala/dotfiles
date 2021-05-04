@@ -160,7 +160,6 @@ endif
 
 " --- Plugin installation
 call plug#begin('~/.config/nvim/repos')
-Plug 'skywind3000/asyncrun.vim'        " Run commands asynchronously with :AsyncRun
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
 Plug 'tpope/vim-commentary'            " motions to comment lines out
@@ -312,8 +311,8 @@ if s:atwork()
 else
   set textwidth=100
 
-  nnoremap <leader>bb :execute 'w! \| AsyncRun compile build ' . fnamemodify(expand('%'), ':.')<cr>
-  nnoremap <leader>bt :execute 'w! \| AsyncRun compile test  ' . fnamemodify(expand('%'), ':.')<cr>
+  nnoremap <leader>bb :execute 'w! \| compile build ' . fnamemodify(expand('%'), ':.')<cr>
+  nnoremap <leader>bt :execute 'w! \| compile test  ' . fnamemodify(expand('%'), ':.')<cr>
 endif
 
 " the following lines should always be last
