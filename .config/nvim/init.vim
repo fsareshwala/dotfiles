@@ -172,6 +172,7 @@ Plug 'tpope/vim-commentary'            " motions to comment lines out
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'ycm-core/YouCompleteMe'
 
 Plug 'preservim/nerdtree'              " filesystem explorer
 autocmd VimEnter * NERDTree            " start nerdtree on vim start
