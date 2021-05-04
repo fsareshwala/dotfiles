@@ -98,8 +98,7 @@ export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
 function set_path() {
   # build path entirely from scartch to prevent unnecessary duplicates and
   # support directory based path elements
-  export PATH=""
-  export PATH="/bin:$PATH"
+  export PATH="/bin"
   export PATH="/sbin:$PATH"
   export PATH="/usr/bin:$PATH"
   export PATH="/usr/sbin:$PATH"
