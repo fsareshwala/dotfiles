@@ -165,6 +165,7 @@ call plug#begin('~/.config/nvim/repos')
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'google/vim-codefmt'              " format source code
 Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
+Plug 'google/vim-glaive'              " dependency for google/vim-codefmt
 Plug 'jiangmiao/auto-pairs'            " automatically insert/delete parenthesis, brackets, quotes
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
 Plug 'tpope/vim-commentary'            " motions to comment lines out
@@ -246,7 +247,11 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 " [<Space> / ]<Space> - add a blank line above or below the current line
 " [p / ]p - linewise paste above or below the current line
 Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
+
+" work plugins
+Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
+call glaive#Install()
 
 " (shared with work) automatically format code
 autocmd FileType bzl AutoFormatBuffer buildifier
@@ -268,6 +273,10 @@ endfunction
 
 if s:atwork()
   source /usr/share/vim/google/google.vim
+  source /home/fsareshwala/code/fuchsia/scripts/vim/fuchsia.vim
+
+  let g:gn_path = systemlist('source /home/fsareshwala/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
+  execute ':Glaive codefmt gn_executable="' . g:gn_path . '"'
 
   autocmd FileType borg,gcl AutoFormatBuffer gclfmt
   autocmd FileType c,cpp AutoFormatBuffer clang-format
@@ -279,11 +288,8 @@ if s:atwork()
   autocmd FileType textpb AutoFormatBuffer text-proto-format
   autocmd FileType sql,googlesql AutoFormatBuffer format_sql
   autocmd BufEnter *.sqlt NoAutoFormatBuffer
+  autocmd FileType gn AutoFormatBuffer gn
   nnoremap <leader>f :FormatCode<cr>
-
-  if $FUCHSIA_DIR != ""
-    source $FUCHSIA_DIR/scripts/vim/fuchsia.vim
-  endif
 
   Glug codefmt-google plugin[mappings]
   Glug corpweb plugin[mappings]
