@@ -2,17 +2,17 @@ Xcursor.size: 40
 Xft.dpi: 144
 
 /* URxvt.font: xft:terminus:size=10 */
-URxvt.font: xft:Terminess TTF Nerd Font Mono:regular:size=10
-URxvt.boldFont:
-URxvt.letterSpace: 1
-URxvt.pointerBlank: true
-URxvt.scrollBar: false
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
+URxvt.boldFont:
+URxvt.font: xft:Terminess TTF Nerd Font Mono:regular:size=10
+URxvt.letterSpace: 1
+URxvt.pointerBlank: true
 URxvt.saveLines: 65535
+URxvt.scrollBar: false
+URxvt.scrollTtyKeypress: true
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
-URxvt.scrollTtyKeypress: true
 URxvt.url-launcher: /usr/bin/google-chrome
 
 ! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
