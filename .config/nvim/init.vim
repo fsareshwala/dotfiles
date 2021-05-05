@@ -54,7 +54,7 @@ set tabstop=2
 set tags=tags;
 set timeoutlen=500
 set title
-set undodir=~/.vim/tmp/undo
+set undodir=~/.config/nvim/tmp/undo
 set undofile
 set updatetime=300
 set virtualedit+=block
