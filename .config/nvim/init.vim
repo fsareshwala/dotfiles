@@ -174,24 +174,31 @@ Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and exp
 Plug 'tpope/vim-surround'              " motions to surround text with other text
 Plug 'ycm-core/YouCompleteMe'
 
-Plug 'preservim/nerdtree'              " filesystem explorer
-autocmd VimEnter * NERDTree            " start nerdtree on vim start
-autocmd VimEnter * wincmd p
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <leader>n :NERDTreeMirror<CR>
-map <leader>l :NERDTreeFind<CR>
-let NERDTreeIgnore = []
-let NERDTreeIgnore += ['\.o$']
-let NERDTreeIgnore += ['\.a$']
-let NERDTreeIgnore += ['\.pyc$']
-let NERDTreeIgnore += ['\~$']
-let NERDTreeIgnore += ['\.pdf$']
-let NERDTreeIgnore += ['\.class$']
-let NERDTreeIgnore += ['tags']
-let NERDTreeIgnore += ['__pycache__']
-let NERDTreeIgnore += ['__init__.py']
-let NERDTreeIgnore += ['bazel-*']
-let NERDTreeWinSize = 31
+Plug 'kyazdani42/nvim-web-devicons'    " for file icons
+Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
+let g:nvim_tree_width = 31
+let g:nvim_tree_ignore = []
+let g:nvim_tree_ignore += ['.git']
+let g:nvim_tree_gitignore = 0
+let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_quit_on_open = 0
+let g:nvim_tree_follow = 1
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_root_folder_modifier = ':~' " See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1
+let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
+let g:nvim_tree_disable_netrw = 1
+let g:nvim_tree_hijack_netrw = 1
+let g:nvim_tree_add_trailing = 0
+let g:nvim_tree_group_empty = 1
+let g:nvim_tree_lsp_diagnostics = 1
+let g:nvim_tree_special_files = ['README.md', 'Makefile', 'MAKEFILE'] " List of filenames that gets highlighted with NvimTreeSpecialFile
+let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 0 }
+nnoremap <leader>n :NvimTreeToggle<CR>
+nnoremap <leader>l :NvimTreeFindFile<CR>
 
 Plug 'tpope/vim-projectionist'         " easy switching to alternate files
 let g:projectionist_heuristics = {
@@ -314,7 +321,6 @@ if s:atwork()
   " google specific snippets
   " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
   " Glug ultisnips-google
-  " Glug youcompleteme-google
   " Glug add_usings plugin[mappings]
   " vim-lsp and cider-lsp
 else
