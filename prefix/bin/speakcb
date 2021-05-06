@@ -27,7 +27,7 @@ function speak() {
   },
   "voice": {
     "languageCode": "en-US",
-    "name": "en-US-Wavenet-D",
+    "name": "en-US-Wavenet-J",
     "ssmlGender": "MALE"
   },
   "audioConfig": {
