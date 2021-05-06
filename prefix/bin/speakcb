@@ -38,9 +38,9 @@ function speak() {
 EOF
 
   curl -X POST \
-  -H "Authorization: Bearer $access_token" \
-  -H "Content-Type: application/json; charset=utf-8" \
-  -d @request.json https://texttospeech.googleapis.com/v1/text:synthesize > response.json
+    -H "Authorization: Bearer $access_token" \
+    -H "Content-Type: application/json; charset=utf-8" \
+    -d @request.json https://texttospeech.googleapis.com/v1/text:synthesize > response.json
 
   error_message=$(jq .error.message response.json)
   if [[ $error_message != "null" ]]; then
@@ -55,7 +55,7 @@ EOF
 words="$(xclip -o -selection clipboard | sed -e 's/"/\\"/g' | tr -s '[:space:]' '\n')"
 text=''
 for word in $words; do
-  if [[ $(( ${#text} + ${#word} )) -gt 4800 ]]; then # api has 5000 char limit, pad a bit
+  if [[ $((${#text} + ${#word})) -gt 4800 ]]; then # api has 5000 char limit, pad a bit
     speak "$text"
     text=''
   fi
