@@ -262,13 +262,45 @@ Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
 call glaive#Install()
 
+" lsp server configuration
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+
+  if exists('+tagfunc')
+    setlocal tagfunc=lsp#tagfunc
+  endif
+
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  inoremap <buffer> <expr><c-f> lsp#scroll(+4)
+  inoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+  let g:lsp_format_sync_timeout = 1000
+  " autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+endfunction
+
+augroup lsp_install
+  au!
+  " call s:lsp_setup only for languages that have the server registered
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
 " (shared with work) automatically format code
 autocmd FileType bzl AutoFormatBuffer buildifier
 autocmd FileType go AutoFormatBuffer gofmt
 autocmd FileType sh AutoFormatBuffer shfmt
 
 " load work specific vim plugins
-function! s:atwork()
+function! s:atwork() abort
   let s:hostname = substitute(system('hostname'), '\n', '', '')
 
   if s:hostname =~ 'fsareshwala-glaptop'
@@ -314,10 +346,6 @@ if s:atwork()
   " \d: update build files with dependencies
   "Glug blazedeps auto_filetypes=`['go']`
   Glug blazedeps plugin[mappings]
-
-  " maybe install in the future
-  " scampi (syntax analysis for java)
-  " vigor (interactive java debugging from within vim)
 
   " google specific snippets
   " https://g3doc.corp.google.com/company/editors/vim/plugins/ultisnips-google.md
