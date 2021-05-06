@@ -68,8 +68,6 @@ nnoremap <c-h> <esc><c-w>h
 nnoremap <c-j> <esc><c-w>j
 nnoremap <c-k> <esc><c-w>k
 nnoremap <c-l> <esc><c-w>l
-nnoremap <c-t> <c-o>
-nnoremap <c-y> <c-i>
 nnoremap <c-o> i<cr><esc>0
 nnoremap <c-p> "_cw"<esc>
 xnoremap <c-\> gc
