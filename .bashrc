@@ -114,7 +114,11 @@ function set_path() {
   fi
 }
 
-export PROMPT_COMMAND="$PROMPT_COMMAND; set_path"
+if [[ -z $PROMPT_COMMAND ]]; then
+  export PROMPT_COMMAND="set_path"
+else
+  export PROMPT_COMMAND="$PROMPT_COMMAND; set_path"
+fi
 
 # command aliases
 alias -- -='cd -'
