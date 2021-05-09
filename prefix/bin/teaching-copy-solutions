@@ -68,6 +68,9 @@ for file in $files; do
   mkdir -p $directory
   cp $repo_path/$file $directory
 done
+bazel shutdown
 
 # replace removed files
 git checkout .bazelrc
+git add .
+git commit -m "$program: add solutions"
