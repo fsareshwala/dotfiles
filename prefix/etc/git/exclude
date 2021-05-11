@@ -6,7 +6,9 @@
 tags
 ctags
 
+# ignore core files but not directories named core
 core
+!core/
 core.\d*
 
 CMakeCache.txt
