@@ -177,7 +177,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
-let g:nvim_tree_width = 31
+let g:nvim_tree_width = 40
 let g:nvim_tree_ignore = []
 let g:nvim_tree_ignore += ['.git']
 let g:nvim_tree_gitignore = 0
