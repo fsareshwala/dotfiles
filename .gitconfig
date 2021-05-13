@@ -4,7 +4,7 @@
 
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-  excludesfile = /home/fsareshwala/prefix/etc/git/exclude
+  excludesfile = ~/prefix/etc/git/exclude
   pager = less
   autocrlf = input
   preloadindex = true
@@ -61,7 +61,7 @@
 
 [http]
   postBuffer = 524288000
-  cookiefile = /home/fsareshwala/.gitcookies
+  cookiefile = ~/.gitcookies
 
 [rebase]
   autoSquash = true
