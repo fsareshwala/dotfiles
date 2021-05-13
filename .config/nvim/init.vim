@@ -197,7 +197,7 @@ let g:nvim_tree_add_trailing = 0
 let g:nvim_tree_group_empty = 1
 let g:nvim_tree_lsp_diagnostics = 1
 let g:nvim_tree_special_files = ['README.md', 'Makefile', 'MAKEFILE'] " List of filenames that gets highlighted with NvimTreeSpecialFile
-let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 0 }
+let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1 }
 nnoremap <leader>n :NvimTreeToggle<CR>
 nnoremap <leader>l :NvimTreeFindFile<CR>
 
