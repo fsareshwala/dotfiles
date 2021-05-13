@@ -331,6 +331,9 @@ if at_work; then
   # enable targeting gn labels directly
   export FX_BUILD_WITH_LABELS=1
 
+  alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
+  alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
+
   alias ha='hg add'
   alias hab='hg absorb'
   alias hai='hg amend -i'
@@ -429,6 +432,8 @@ if at_work; then
   alias fx-pw-femu-asan="$fx_set hsp.x64 $fx_asan"
 
   alias btnew='bugged create --format=MARKDOWN 1472729'
+  alias cd-g3='cd ~/code/google3'
+  alias mdformat='/google/bin/releases/corpeng-engdoc/tools/mdformat'
 else
   alias d='git diff'
   alias st='git status'
