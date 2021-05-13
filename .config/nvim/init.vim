@@ -314,9 +314,9 @@ endfunction
 
 if s:atwork()
   source /usr/share/vim/google/google.vim
-  source /home/fsareshwala/code/fuchsia/scripts/vim/fuchsia.vim
+  source ~/code/fuchsia/scripts/vim/fuchsia.vim
 
-  let g:gn_path = systemlist('source /home/fsareshwala/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
+  let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
   execute ':Glaive codefmt gn_executable="' . g:gn_path . '"'
 
   autocmd FileType borg,gcl AutoFormatBuffer gclfmt
