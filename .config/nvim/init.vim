@@ -301,11 +301,11 @@ autocmd FileType sh AutoFormatBuffer shfmt
 
 " load work specific vim plugins
 function! s:atwork() abort
-  let s:hostname = substitute(system('hostname'), '\n', '', '')
+  let l:hostname = substitute(system('hostname'), '\n', '', '')
 
-  if s:hostname =~ 'fsareshwala-glaptop'
+  if l:hostname =~ 'fsareshwala-glaptop'
     return 1
-  elseif s:hostname =~ 'fsareshwala-cloudtop'
+  elseif l:hostname =~ 'fsareshwala-cloudtop'
     return 1
   endif
 
