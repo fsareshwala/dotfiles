@@ -137,6 +137,7 @@ alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias gssh='ssh -XY fsareshwala-cloudtop.c.googlers.com'
+alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
 alias json='python -m json.tool'
 alias ll='ls -l'
 alias ls='ls --color'
