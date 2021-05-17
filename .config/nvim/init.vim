@@ -151,6 +151,21 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Copy file path
+function! s:get_file_path()
+  let l:homedir = expand('~')
+  let l:absolute_path = expand("%")
+  let l:path = substitute(l:absolute_path, l:homedir . '/', '', '')
+
+  let l:regex_code = '^code/'
+  if l:path =~ l:regex_code
+    let l:path = substitute(l:path, l:regex_code, '', '')
+  endif
+
+  let @+ = l:path
+endfunction
+
+nnoremap <silent> <leader>cl :call <SID>get_file_path()<cr>
 nnoremap <silent> K :call <SID>show_documentation()<cr>
 
 if executable('rg')
