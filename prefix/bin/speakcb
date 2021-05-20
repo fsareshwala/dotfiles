@@ -52,10 +52,10 @@ EOF
   ffplay -autoexit -nodisp out.mp3
 }
 
-words="$(xclip -o -selection clipboard | sed -e 's/"/\\"/g' | tr -s '[:space:]' '\n')"
+words="$(xclip -o -selection clipboard | tr '\n' ' ' | sed -e 's/- //g; s/"/\\"/g')"
 text=''
 for word in $words; do
-  if [[ $((${#text} + ${#word})) -gt 4800 ]]; then # api has 5000 char limit, pad a bit
+  if [[ $((${#text} + ${#word})) -gt 4900 ]]; then # api has 5000 char limit, pad a bit
     speak "$text"
     text=''
   fi
