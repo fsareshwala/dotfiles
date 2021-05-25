@@ -73,6 +73,9 @@ nnoremap <c-p> "_cw"<esc>
 xnoremap <c-\> gc
 nnoremap H :tabprev<cr>
 nnoremap L :tabnext<cr>
+nnoremap $ g$
+nnoremap 0 g0
+nnoremap Q gq
 nnoremap j gj
 nnoremap k gk
 nnoremap <silent> <leader>- :vertical resize -5<cr>
