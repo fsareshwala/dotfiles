@@ -180,11 +180,12 @@ endif
 call plug#begin('~/.config/nvim/repos')
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'google/vim-codefmt'              " format source code
-Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'google/vim-glaive'              " dependency for google/vim-codefmt
+Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'jiangmiao/auto-pairs'            " automatically insert/delete parenthesis, brackets, quotes
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
 Plug 'tpope/vim-commentary'            " motions to comment lines out
+Plug 'tpope/vim-fugitive'              " git bidings
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
