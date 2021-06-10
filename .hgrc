@@ -24,6 +24,12 @@ textwidth = 120
 [rebase]
 experimental.inmemory = true
 
+[templatealias]
+google_default_commit_description = 'BUG='
+
+[google-change-tags]
+default.markdown=true
+
 [color]
 diff.diffline = white
 diff.file_a = blue
