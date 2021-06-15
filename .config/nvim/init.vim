@@ -180,7 +180,7 @@ endif
 call plug#begin('~/.config/nvim/repos')
 Plug 'chriskempson/base16-vim'         " Colorscheme
 Plug 'google/vim-codefmt'              " format source code
-Plug 'google/vim-glaive'              " dependency for google/vim-codefmt
+Plug 'google/vim-glaive'               " dependency for google/vim-codefmt
 Plug 'google/vim-maktaba'              " dependency for google/vim-codefmt
 Plug 'jiangmiao/auto-pairs'            " automatically insert/delete parenthesis, brackets, quotes
 Plug 'tpope/vim-abolish'               " {} syntax (:Abolish, :Subvert), case style change (crc)
