@@ -92,6 +92,7 @@ runtime! ftplugin/man.vim
 let g:tex_flavor = 'latex'
 let php_sql_query = 1
 let php_htmlInStrings = 1
+let g:markdown_fenced_languages = ['python', 'vim', 'cpp', 'java']
 
 function! LanguageSetup()
   if(&ft == 'c' || &ft == 'cpp' || &ft == 'java')
