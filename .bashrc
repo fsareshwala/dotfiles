@@ -171,20 +171,8 @@ alias gs='git show'
 complete -A directory gm
 
 if at_work; then
-  add_to_path /home/fsareshwala/code/fuchsia/.jiri_root/bin
-  source ~/code/fuchsia/scripts/fx-env.sh
-
   FX_ENV=~/code/fuchsia/scripts/fx-env.sh
   test -e $FX_ENV && source $FX_ENV
-
-  # work setup
-  function in_fuchsia() {
-    if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
-      return 0
-    else
-      return 1
-    fi
-  }
 
   function in_google3() {
     if [[ "$PWD" == "$HOME/code/google3"* ]]; then
@@ -235,6 +223,11 @@ if at_work; then
   alias rsubmit='hg submit'
 
   alias cd-g3='cd ~/code/google3'
+  alias cd-f='cd ~/code/fuchsia'
+  alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
+else
+  alias d='git diff'
+  alias st='git status'
 fi
 
 # TODO(fsareshwala): get these figured out
