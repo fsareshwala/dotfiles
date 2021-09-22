@@ -60,6 +60,7 @@ function at_work() {
   fi
 }
 
+stty -ixon # disable software control flow (ctrl-s and ctrl-q, urxvt support)
 stty werase undef
 shopt -s checkwinsize
 
