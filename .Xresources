@@ -1,5 +1,5 @@
-Xcursor.size: 40
-Xft.dpi: 144
+Xcursor.size: 16
+! Xft.dpi: 144  # when using a 4k monitor
 
 /* URxvt.font: xft:terminus:size=10 */
 URxvt.allowBoldFonts: false
