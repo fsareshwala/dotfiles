@@ -194,6 +194,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'fuchsia/fidl', {'dir': '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'}
 
 Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
