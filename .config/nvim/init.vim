@@ -177,6 +177,18 @@ if executable('rg')
   nnoremap <leader>g :execute "grep " . expand('<cword>') . " *"<cr>
 endif
 
+function! s:atwork() abort
+  let l:hostname = substitute(system('hostname'), '\n', '', '')
+
+  if l:hostname =~ 'fsareshwala-glaptop'
+    return 1
+  elseif l:hostname =~ 'fsareshwala-cloudtop'
+    return 1
+  endif
+
+  return 0
+endfunction
+
 " --- Plugin installation
 call plug#begin('~/.config/nvim/repos')
 Plug 'chriskempson/base16-vim'         " Colorscheme
@@ -194,7 +206,13 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'fuchsia/fidl', {'dir': '~/code/fuchsia/garnet/public/lib/fidl/tools/vim', 'frozen': 1}
+
+if s:atwork()
+  Plug 'fuchsia/fidl', {
+        \ 'dir': '~/code/fuchsia/garnet/public/lib/fidl/tools/vim',
+        \ 'frozen': 1
+        \ }
+endif
 
 Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
@@ -309,19 +327,6 @@ augroup END
 autocmd FileType bzl AutoFormatBuffer buildifier
 autocmd FileType go AutoFormatBuffer gofmt
 autocmd FileType sh AutoFormatBuffer shfmt
-
-" load work specific vim plugins
-function! s:atwork() abort
-  let l:hostname = substitute(system('hostname'), '\n', '', '')
-
-  if l:hostname =~ 'fsareshwala-glaptop'
-    return 1
-  elseif l:hostname =~ 'fsareshwala-cloudtop'
-    return 1
-  endif
-
-  return 0
-endfunction
 
 if s:atwork()
   source /usr/share/vim/google/google.vim
