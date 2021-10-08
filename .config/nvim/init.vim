@@ -252,9 +252,9 @@ let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-" Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
-" Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
-" nnoremap <leader>e :Files<cr>
+Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
+Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
+nnoremap <leader>e :Files<cr>
 
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
