@@ -216,27 +216,6 @@ endif
 
 Plug 'kyazdani42/nvim-web-devicons'    " for file icons
 Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
-let g:nvim_tree_width = 40
-let g:nvim_tree_ignore = []
-let g:nvim_tree_ignore += ['.git']
-let g:nvim_tree_gitignore = 0
-let g:nvim_tree_auto_open = 1
-let g:nvim_tree_auto_close = 1
-let g:nvim_tree_quit_on_open = 0
-let g:nvim_tree_follow = 0
-let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_hide_dotfiles = 1
-let g:nvim_tree_git_hl = 1
-let g:nvim_tree_root_folder_modifier = ':~' " See :help filename-modifiers for more options
-let g:nvim_tree_tab_open = 1
-let g:nvim_tree_width_allow_resize  = 1 "0 by default, will not resize the tree when opening a file
-let g:nvim_tree_disable_netrw = 1
-let g:nvim_tree_hijack_netrw = 1
-let g:nvim_tree_add_trailing = 0
-let g:nvim_tree_group_empty = 1
-let g:nvim_tree_lsp_diagnostics = 1
-let g:nvim_tree_special_files = ['README.md', 'Makefile', 'MAKEFILE'] " List of filenames that gets highlighted with NvimTreeSpecialFile
-let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1 }
 nnoremap <leader>n :NvimTreeToggle<CR>
 nnoremap <leader>l :NvimTreeFindFile<CR>
 
@@ -273,9 +252,9 @@ let g:vimwiki_list = [{'path': '~/personal/', 'syntax': 'markdown', 'ext': '.md'
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_conceallevel = 0
 
-Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
-Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
-nnoremap <leader>e :Files<cr>
+" Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
+" Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
+" nnoremap <leader>e :Files<cr>
 
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
@@ -290,6 +269,38 @@ Plug 'wellle/targets.vim'              " additional text objects to operate on
 Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
 call glaive#Install()
+
+" nvim-tree configuration has to happen after we load all plugins
+let g:nvim_tree_ignore = []
+let g:nvim_tree_ignore += ['.git']
+let g:nvim_tree_gitignore = 0
+let g:nvim_tree_quit_on_open = 0
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_root_folder_modifier = ':~' " See :help filename-modifiers for more options
+let g:nvim_tree_add_trailing = 0
+let g:nvim_tree_group_empty = 1
+let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1 }
+
+" nvim-tree documentation: As options are currently being migrated,
+" configuration of global options in nvim-tree-options should be done before the
+" setup call.
+lua << EOF
+require'nvim-tree'.setup {
+  disable_netrw   = true,
+  open_on_setup   = true,
+  auto_close      = true,
+  open_on_tab     = true,
+  hijack_cursor   = true,
+  lsp_diagnostics = true,
+  view = {
+    width = 30,
+    side = 'left',
+    auto_resize = true,
+  }
+}
+EOF
 
 " lsp server configuration
 function! s:on_lsp_buffer_enabled() abort
