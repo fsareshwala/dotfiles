@@ -259,9 +259,6 @@ Plug 'junegunn/fzf'                    " fuzzy file finder (not vimscript)
 Plug 'junegunn/fzf.vim'                " fuzzy file finder (depends on junegunn/fzf)
 nnoremap <leader>e :Files<cr>
 
-Plug 'mbbill/undotree'                 " restore files to a previous moment in time
-nnoremap <leader>u :UndotreeToggle<cr>
-
 Plug 'chaoren/vim-wordmotion'          " better word motions through long strings
 let g:wordmotion_spaces = '_-.'
 
