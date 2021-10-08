@@ -268,13 +268,6 @@ let g:wordmotion_spaces = '_-.'
 " di" - delete inside double quotes
 Plug 'wellle/targets.vim'              " additional text objects to operate on
 
-" [q / ]q - navigate up and down through the quickfix list, for instance through vim-grepper results
-" [l / ]l - navigate up and down through the location list, for instance through neomake results
-" [a / ]a - navigate backward and forward through the file list
-" [<Space> / ]<Space> - add a blank line above or below the current line
-" [p / ]p - linewise paste above or below the current line
-Plug 'tpope/vim-unimpaired'            " complementary pairs of mappings
-
 " work plugins
 Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
 call plug#end()
