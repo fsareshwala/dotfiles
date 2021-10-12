@@ -336,6 +336,7 @@ augroup END
 
 " (shared with work) automatically format code
 autocmd FileType bzl AutoFormatBuffer buildifier
+autocmd FileType c,cpp AutoFormatBuffer clang-format
 autocmd FileType go AutoFormatBuffer gofmt
 autocmd FileType sh AutoFormatBuffer shfmt
 
@@ -347,7 +348,6 @@ if s:atwork()
   execute ':Glaive codefmt gn_executable="' . g:gn_path . '"'
 
   autocmd FileType borg,gcl AutoFormatBuffer gclfmt
-  autocmd FileType c,cpp AutoFormatBuffer clang-format
   autocmd FileType java AutoFormatBuffer google-java-format
   autocmd FileType markdown AutoFormatBuffer mdformat
   autocmd FileType proto AutoFormatBuffer protofmt
