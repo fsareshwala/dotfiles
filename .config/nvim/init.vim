@@ -276,7 +276,6 @@ let g:nvim_tree_ignore += ['.git']
 let g:nvim_tree_gitignore = 0
 let g:nvim_tree_quit_on_open = 0
 let g:nvim_tree_indent_markers = 1
-let g:nvim_tree_hide_dotfiles = 1
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_root_folder_modifier = ':~' " See :help filename-modifiers for more options
 let g:nvim_tree_add_trailing = 0
@@ -288,16 +287,19 @@ let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1 }
 " setup call.
 lua << EOF
 require'nvim-tree'.setup {
-  disable_netrw   = true,
-  open_on_setup   = true,
   auto_close      = true,
-  open_on_tab     = true,
+  disable_netrw   = true,
   hijack_cursor   = true,
-  lsp_diagnostics = true,
+  open_on_setup   = true,
+  open_on_tab     = true,
+  diagnostics = {
+    enable = true,
+  },
   view = {
-    width = 30,
-    side = 'left',
     auto_resize = true,
+    hide_dotfiles = true,
+    side = 'left',
+    width = 30,
   }
 }
 EOF
