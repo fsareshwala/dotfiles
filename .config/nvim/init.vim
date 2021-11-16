@@ -212,6 +212,11 @@ if s:atwork()
         \ 'dir': '~/code/fuchsia/garnet/public/lib/fidl/tools/vim',
         \ 'frozen': 1
         \ }
+
+  Plug 'google/emboss', {
+        \ 'dir': '~/code/emboss/integration/vim/ft-emboss',
+        \ 'frozen': 1
+        \ }
 endif
 
 Plug 'kyazdani42/nvim-web-devicons'    " for file icons
