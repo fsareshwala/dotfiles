@@ -224,19 +224,19 @@ Plug 'kyazdani42/nvim-tree.lua'        " filesystem explorer
 nnoremap <leader>n :NvimTreeToggle<CR>
 nnoremap <leader>l :NvimTreeFindFile<CR>
 
-Plug 'tpope/vim-projectionist'         " easy switching to alternate files
-let g:projectionist_heuristics = {
-      \ '*': {
-      \ '*.c': {'alternate': '{}.h'},
-      \ '*.cc': {'alternate': ['{}.h', '{}.hpp']},
-      \ '*.cpp': {'alternate': ['{}.h', '{}.hpp']},
-      \ '*.h': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
-      \ '*.hpp': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
-      \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
-      \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
-      \ '*.sqlm': {'alternate': '{}.sqlt'},
-      \ '*.sqlt': {'alternate': '{}.sqlm'},
-      \ }}
+" Plug 'tpope/vim-projectionist'         " easy switching to alternate files
+" let g:projectionist_heuristics = {
+"       \ '*': {
+"       \ '*.c': {'alternate': '{}.h'},
+"       \ '*.cc': {'alternate': ['{}.h', '{}.hpp']},
+"       \ '*.cpp': {'alternate': ['{}.h', '{}.hpp']},
+"       \ '*.h': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
+"       \ '*.hpp': {'alternate': ['{}.c', '{}.cc', '{}.cpp']},
+"       \ 'java/src/*.java': {'alternate': 'java/test/{}_T.java'},
+"       \ 'java/test/*_T.java': {'alternate': 'java/src/{}.java'},
+"       \ '*.sqlm': {'alternate': '{}.sqlt'},
+"       \ '*.sqlt': {'alternate': '{}.sqlm'},
+"       \ }}
 
 Plug 'tpope/vim-speeddating'           " ctrl-a ctrl-x on dates
 autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
@@ -324,6 +324,7 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> gt <plug>(lsp-definition)
   nmap <buffer> <leader>ca <plug>(lsp-code-action)
   nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> <leader>a :LspDocumentSwitchSourceHeader<cr><cr>
   nmap <buffer> [g <plug>(lsp-previous-diagnostic)
   nmap <buffer> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> K <plug>(lsp-hover)
