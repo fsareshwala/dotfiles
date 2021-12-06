@@ -206,6 +206,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+let g:lsp_settings = { 'clangd': {'args': ['--enable-config']} }
 
 if s:atwork()
   Plug 'fuchsia/fidl', {
