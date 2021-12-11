@@ -22,7 +22,7 @@ URxvt.url-launcher: /usr/bin/google-chrome
 
 ! extensions configuration
 URxvt.perl-lib: /home/fsareshwala/prefix/usr/local/rxvt/perls
-URxvt.perl-ext-common: keyboard-select,url-select,clipboard,matcher,resize-font
+URxvt.perl-ext-common: keyboard-select,url-select,clipboard,matcher,resize-font,52-osc
 URxvt.keysym.C-i: perl:keyboard-select:activate
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
