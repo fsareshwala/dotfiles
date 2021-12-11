@@ -202,6 +202,7 @@ Plug 'tpope/vim-fugitive'              " git bidings
 Plug 'tpope/vim-repeat'                " allow plugins to override .
 Plug 'tpope/vim-sleuth'                " automatically adjust shiftwidth and expandtab
 Plug 'tpope/vim-surround'              " motions to surround text with other text
+Plug 'ojroques/vim-oscyank'            " osc52 location independent clipboard
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
