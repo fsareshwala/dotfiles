@@ -77,3 +77,7 @@
 
 [advice]
   skippedCherryPicks = false
+
+[repo]
+  superprojectChoiceExpire = 1634250339
+  superprojectChoice = true
