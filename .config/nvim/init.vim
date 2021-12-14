@@ -280,9 +280,6 @@ call plug#end()
 call glaive#Install()
 
 " nvim-tree configuration has to happen after we load all plugins
-let g:nvim_tree_ignore = []
-let g:nvim_tree_ignore += ['.git']
-let g:nvim_tree_gitignore = 0
 let g:nvim_tree_quit_on_open = 0
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_git_hl = 1
@@ -309,6 +306,13 @@ require'nvim-tree'.setup {
     hide_dotfiles = true,
     side = 'left',
     width = 30,
+  },
+  git = {
+    ignore = false,
+  },
+  filters = {
+    dotfiles = true,
+    custom = {'.git'},
   }
 }
 EOF
