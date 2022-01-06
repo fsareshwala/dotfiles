@@ -83,6 +83,7 @@ export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='nvim --appimage-extract-and-run +Man! -'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
+export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
