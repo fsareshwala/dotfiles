@@ -39,6 +39,10 @@ URxvt.clipboard.copycmd: xclip -i -selection clipboard
 URxvt.clipboard.pastecmd: xclip -o -selection clipboard
 URxvt.clipboard.autocopy: true
 
+! set shift+enter and ctrl+enter to behave like vim expects them to
+URxvt.keysym.S-Return:     \033[13;2u
+URxvt.keysym.C-Return:     \033[13;5u
+
 URxvt.matcher.pattern.0: https?:\/\/[a-zA-Z0-9-_.\/?&=+:#%;]+
 URxvt.matcher.pattern.1: go\/[a-zA-Z0-9-_.\/]+
 URxvt.matcher.pattern.2: cl\/[0-9]+
