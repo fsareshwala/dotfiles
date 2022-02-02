@@ -68,6 +68,7 @@ local function set_options()
   vim.opt.swapfile = false
   vim.opt.tabstop = 2
   vim.opt.tags = 'tags;'
+  vim.opt.textwidth = 100
   vim.opt.timeoutlen = 500
   vim.opt.title = true
   vim.opt.undodir = vim.fn.glob('~/.config/nvim/tmp/undo')
