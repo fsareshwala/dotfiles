@@ -35,7 +35,7 @@ local function set_options()
   vim.opt.ignorecase = true
   vim.opt.inccommand = 'split'
   vim.opt.incsearch = true
-  vim.opt.iskeyword:append '-'
+  vim.opt.iskeyword:append('-')
   vim.opt.joinspaces = false
   vim.opt.laststatus = 2
   vim.opt.linebreak = true
@@ -45,14 +45,14 @@ local function set_options()
   vim.opt.modeline = true
   vim.opt.modelines = 5
   vim.opt.mouse = ''
-  vim.opt.nrformats:append {'alpha', 'octal'}
+  vim.opt.nrformats:append({'alpha', 'octal'})
   vim.opt.number = true
   vim.opt.preserveindent = true
   vim.opt.pumheight = 10
   vim.opt.shell = '/bin/bash'
   vim.opt.shiftround = true
   vim.opt.shiftwidth = 2
-  vim.opt.shortmess:append 'c'
+  vim.opt.shortmess:append('c')
   vim.opt.showmatch = true
   vim.opt.showmode = false
   vim.opt.showtabline = 2
@@ -74,8 +74,8 @@ local function set_options()
   vim.opt.undodir = vim.fn.glob('~/.config/nvim/tmp/undo')
   vim.opt.undofile = true
   vim.opt.updatetime = 300
-  vim.opt.virtualedit:append 'block'
-  vim.opt.wildignore:append {'*.so', '*.o'}
+  vim.opt.virtualedit:append('block')
+  vim.opt.wildignore:append({'*.so', '*.o'})
   vim.opt.wildmenu = true
   vim.opt.wildmode = 'list:longest,full'
   vim.opt.wrap = true
@@ -525,9 +525,7 @@ local function main()
   vim.cmd('colorscheme base16-default-dark')
 
   if at_work() then
-    vim.cmd [[
-      source ~/code/fuchsia/scripts/vim/fuchsia.vim
-    ]]
+    vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
   end
 end
 
