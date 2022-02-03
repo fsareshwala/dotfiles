@@ -1,3 +1,7 @@
+function string.starts(haystack, needle)
+   return string.sub(haystack, 0, string.len(needle)) == needle
+end
+
 local function get_hostname()
   local f = io.popen ("/bin/hostname")
   local value = f:read("*a")
@@ -8,9 +12,9 @@ end
 local function at_work()
   local hostname = get_hostname()
 
-  if hostname == 'fsareshwala-glaptop' then
+  if string.starts(hostname, 'fsareshwala-glaptop') then
     return true
-  elseif hostname == 'fsareshwala-cloudtop' then
+  elseif string.starts(hostname, 'fsareshwala-cloudtop') then
     return true
   end
 
@@ -158,7 +162,7 @@ local function set_keymaps()
   keymap(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
 end
 
-local function install_plugins()
+local function install_plugins(working)
   local data_path = vim.fn.stdpath('data')
   local packer_subfile = '/site/pack/packer/start/packer.nvim'
   local install_path = data_path .. packer_subfile
@@ -228,7 +232,7 @@ local function install_plugins()
     }
 
     -- work plugins
-    if at_work() then
+    if working then
       use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
       use '~/code/emboss/integration/vim/ft-emboss'
       use {
@@ -510,6 +514,8 @@ local function setup_autocmds()
 end
 
 local function main()
+  local working = at_work()
+
   set_options()
   set_keymaps()
   install_plugins()
@@ -523,7 +529,7 @@ local function main()
 
   vim.cmd('colorscheme base16-default-dark')
 
-  if at_work() then
+  if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
   end
 end
