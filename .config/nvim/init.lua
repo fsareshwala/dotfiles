@@ -529,8 +529,3 @@ local function main()
 end
 
 main()
-
--- we don't need these in neovim?
--- the following lines should always be last
--- filetype plugin indent on
--- syntax on
