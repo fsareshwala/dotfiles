@@ -210,9 +210,11 @@ local function install_plugins(working)
     use {
       'hrsh7th/nvim-cmp',
       requires = {
-        'hrsh7th/cmp-buffer',     -- text in current buffer
-        'hrsh7th/cmp-nvim-lua',   -- neovim lua api
-        'hrsh7th/cmp-path'        -- filesystem paths
+        'hrsh7th/cmp-buffer',       -- text in current buffer
+        'hrsh7th/cmp-nvim-lua',     -- neovim lua api
+        'hrsh7th/cmp-path',         -- filesystem paths
+        'L3MON4D3/LuaSnip',         -- nvim-cmp requires a snippet engine for expansion
+        'saadparwaiz1/cmp_luasnip'  -- completion source for luasnip
       }
     }
 
@@ -275,6 +277,12 @@ local function setup_completions()
   }
 
   cmp.setup {
+    snippet = {
+      expand = function(args)
+        local luasnip = require('luasnip')
+        luasnip.lsp_expand(args.body)
+      end
+    },
     mapping = {
       ['<c-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), {'i', 'c'}),
       ['<c-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), {'i', 'c'}),
@@ -292,16 +300,16 @@ local function setup_completions()
       end
     },
     sources = {
-    {name = 'nvim_lsp'},
+      {name = 'nvim_lsp'},
       {name = 'nvim_lua'},
-      {name = 'buffer'},
       {name = 'path'},
-},
-confirm_opts = {
-  behavior = cmp.ConfirmBehavior.Replace,
-select = false,
-}
-}
+      {name = 'buffer'}
+    },
+    confirm_opts = {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    }
+  }
 end
 
 local function setup_lsp_keymaps(bufnr)
