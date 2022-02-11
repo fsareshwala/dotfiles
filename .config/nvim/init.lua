@@ -156,6 +156,7 @@ local function set_keymaps()
   keymap(normal, '<leader>f', '<cmd>Telescope live_grep<cr>', opts)
   keymap(normal, '<leader>g', '<cmd>Telescope grep_string<cr>', opts)
   keymap(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
+  keymap(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
 
   -- file tree keymaps
   keymap(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
