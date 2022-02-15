@@ -429,7 +429,7 @@ local function setup_filetree()
       auto_resize = true,
       hide_dotfiles = true,
       side = 'left',
-      width = 30,
+      width = 32,
     },
     git = {
       ignore = false,
