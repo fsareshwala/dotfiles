@@ -59,7 +59,7 @@ local function set_options()
   vim.opt.shortmess:append('c')
   vim.opt.showmatch = true
   vim.opt.showmode = false
-  vim.opt.showtabline = 2
+  vim.opt.showtabline = 1
   vim.opt.signcolumn = 'yes'
   vim.opt.smartcase = true
   vim.opt.smarttab = true
