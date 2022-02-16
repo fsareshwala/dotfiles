@@ -130,9 +130,8 @@ local function set_keymaps()
   keymap(visual, '<', '<gv', opts)
   keymap(visual, '>', '>gv', opts)
 
-  -- insert an empty lines before and after the current line
-  keymap(normal, '<s-enter>', 'O<esc>', opts)
-  keymap(normal, '<enter>', 'o<esc>', opts)
+  -- insert an empty line
+  keymap(normal, '<c-o>', 'o<esc>', opts)
 
   -- replace current word with contents of paste buffer
   keymap(normal, '<c-p>', '"_cw"<esc>', opts)
