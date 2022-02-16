@@ -243,6 +243,25 @@ local function install_plugins(working)
     if working then
       use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
       use '~/code/emboss/integration/vim/ft-emboss'
+
+      -- code formatting
+      use {
+        'google/vim-codefmt',
+        requires = {
+          'google/vim-glaive',
+          'google/vim-maktaba'
+        },
+        config = function()
+          vim.cmd('call glaive#Install()')
+
+          local command = 'source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN'
+          local handle = io.popen(command)
+          local gn_path = handle:read('*l')
+          vim.cmd(':Glaive codefmt gn_executable=' .. gn_path)
+        end
+      }
+
+      -- fuchsia build system
       use {
         'https://gn.googlesource.com/gn',
         rtp = 'misc/vim'
@@ -456,7 +475,7 @@ local function setup_filetree()
   vim.g.nvim_tree_group_empty = 1
 end
 
-local function setup_autocmds()
+local function setup_autocmds(working)
   vim.cmd [[
     augroup general_settings
     autocmd!
@@ -520,12 +539,27 @@ local function setup_autocmds()
   ]]
 
   -- format code on save
-  vim.cmd [[
-    augroup formatting
-    autocmd!
-    autocmd BufWritePre *.h,*.cc lua vim.lsp.buf.formatting_sync()
-    augroup end
-  ]]
+  -- use vim-codefmt while working, otherwise lsp formatting
+  if working then
+    vim.cmd [[
+      autocmd FileType bzl AutoFormatBuffer buildifier
+      autocmd FileType c,cpp AutoFormatBuffer clang-format
+      autocmd FileType gn AutoFormatBuffer gn
+      autocmd FileType go AutoFormatBuffer gofmt
+      autocmd FileType markdown AutoFormatBuffer mdformat
+      autocmd FileType proto AutoFormatBuffer protofmt
+      autocmd FileType python AutoFormatBuffer pyformat
+      autocmd FileType rust AutoFormatBuffer rustfmt
+      autocmd FileType sh AutoFormatBuffer shfmt
+    ]]
+  else
+    vim.cmd [[
+      augroup formatting
+      autocmd!
+      autocmd BufWritePre *.h,*.cc lua vim.lsp.buf.formatting_sync()
+      augroup end
+    ]]
+  end
 end
 
 local function main()
@@ -540,7 +574,7 @@ local function main()
   setup_telescope()
   setup_treesitter()
   setup_filetree()
-  setup_autocmds()
+  setup_autocmds(working)
 
   -- disable all ui elements within firenvim
   if vim.g.started_by_firenvim then
