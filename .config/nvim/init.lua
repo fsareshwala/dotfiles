@@ -533,7 +533,7 @@ local function main()
 
   set_options()
   set_keymaps()
-  install_plugins()
+  install_plugins(working)
   setup_completions()
   setup_lsp_settings()
   install_lsp_servers()
