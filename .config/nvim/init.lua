@@ -115,10 +115,10 @@ local function set_keymaps()
   keymap(normal, 'L', ':tabnext<cr>', opts)
 
   -- resize with arrows
-  keymap(normal, '<c-up>', ':resize +2<cr>', opts)
-  keymap(normal, '<c-down>', ':resize -2<cr>', opts)
-  keymap(normal, '<c-left>', ':vertical resize -2<cr>', opts)
-  keymap(normal, '<c-right>', ':vertical resize +2<cr>', opts)
+  keymap(normal, '<up>', ':resize +2<cr>', opts)
+  keymap(normal, '<down>', ':resize -2<cr>', opts)
+  keymap(normal, '<left>', ':vertical resize -2<cr>', opts)
+  keymap(normal, '<right>', ':vertical resize +2<cr>', opts)
 
   -- movement across virtually wrapped lines
   keymap(normal, '0', 'g0', opts)
