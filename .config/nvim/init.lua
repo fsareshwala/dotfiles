@@ -131,7 +131,7 @@ local function set_keymaps()
   keymap(visual, '>', '>gv', opts)
 
   -- insert an empty line
-  keymap(normal, '<c-o>', 'o<esc>', opts)
+  keymap(normal, '<c-o>', 'i<cr><esc>0', opts)
 
   -- replace current word with contents of paste buffer
   keymap(normal, '<c-p>', '"_cw"<esc>', opts)
