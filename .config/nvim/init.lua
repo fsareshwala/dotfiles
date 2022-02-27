@@ -481,6 +481,7 @@ local function setup_autocmds(working)
     autocmd BufRead,BufNewFile README setlocal filetype=markdown
     autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
     autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
     augroup end
   ]]
 
