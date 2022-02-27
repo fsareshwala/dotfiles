@@ -184,7 +184,6 @@ local function install_plugins(working)
     use 'tpope/vim-commentary'    -- motions to comment lines out
     use 'tpope/vim-fugitive'      -- git bidings
     use 'tpope/vim-repeat'        -- allow plugins to override .
-    use 'tpope/vim-sleuth'        -- automatically adjust shiftwidth and expandtab
     use 'tpope/vim-speeddating'   -- ctrl+a and ctrl+x on dates
     use 'tpope/vim-surround'      -- motions to surround text with other text
 
