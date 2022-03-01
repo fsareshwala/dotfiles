@@ -108,6 +108,7 @@ function set_path() {
   export PATH="/usr/local/sbin:$PATH"
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/prefix/bin:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
   export PATH="$HOME/code/fuchsia/scripts:$PATH"
 
