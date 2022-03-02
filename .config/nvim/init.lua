@@ -232,12 +232,6 @@ local function install_plugins(working)
       requires = {'kyazdani42/nvim-web-devicons'}
     }
 
-    -- vim in browser textareas
-    use {
-      'glacambre/firenvim',
-      run = function() vim.fn['firenvim#install'](0) end
-    }
-
     -- work plugins
     if working then
       use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
@@ -440,7 +434,7 @@ local function setup_filetree()
   local filetree = require('nvim-tree')
 
   filetree.setup({
-    open_on_setup = not vim.g.started_by_firenvim,
+    open_on_setup = true,
     hijack_cursor = true,
     auto_close = true,
     open_on_tab = true,
@@ -575,23 +569,6 @@ local function main()
   setup_treesitter()
   setup_filetree()
   setup_autocmds(working)
-
-  -- disable all ui elements within firenvim
-  if vim.g.started_by_firenvim then
-    vim.opt.laststatus = 0
-    vim.opt.number = false
-    vim.opt.ruler = false
-    vim.opt.showcmd = false
-    vim.opt.showmode = false
-
-    vim.g.firenvim_config = {
-      localSettings = {
-        ['.*'] = {
-          takeover = 'never'
-        }
-      }
-    }
-  end
 
   vim.cmd('colorscheme base16-default-dark')
 
