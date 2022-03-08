@@ -232,6 +232,12 @@ local function install_plugins(working)
       requires = {'kyazdani42/nvim-web-devicons'}
     }
 
+    -- fuchsia build system
+    use {
+      'https://gn.googlesource.com/gn',
+      rtp = 'misc/vim'
+    }
+
     -- work plugins
     if working then
       use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
@@ -252,12 +258,6 @@ local function install_plugins(working)
           local gn_path = handle:read('*l')
           vim.cmd(':Glaive codefmt gn_executable=' .. gn_path)
         end
-      }
-
-      -- fuchsia build system
-      use {
-        'https://gn.googlesource.com/gn',
-        rtp = 'misc/vim'
       }
     end
   end)
