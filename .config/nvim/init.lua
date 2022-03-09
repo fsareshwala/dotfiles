@@ -47,7 +47,6 @@ local function set_options()
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
   vim.opt.matchtime = 3
   vim.opt.modeline = true
-  vim.opt.modelines = 5
   vim.opt.mouse = ''
   vim.opt.nrformats:append({'alpha', 'octal'})
   vim.opt.number = true
