@@ -41,7 +41,7 @@ local function set_options()
   vim.opt.incsearch = true
   vim.opt.iskeyword:append('-')
   vim.opt.joinspaces = false
-  vim.opt.laststatus = 2
+  vim.opt.laststatus = 0
   vim.opt.linebreak = true
   vim.opt.list = true
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
@@ -52,10 +52,12 @@ local function set_options()
   vim.opt.number = true
   vim.opt.preserveindent = true
   vim.opt.pumheight = 10
+  vim.opt.ruler = false
   vim.opt.shell = '/bin/bash'
   vim.opt.shiftround = true
   vim.opt.shiftwidth = 2
   vim.opt.shortmess:append('c')
+  vim.opt.showcmd = false
   vim.opt.showmatch = true
   vim.opt.showmode = false
   vim.opt.showtabline = 1
