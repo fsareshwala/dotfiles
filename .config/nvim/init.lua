@@ -41,7 +41,7 @@ local function set_options()
   vim.opt.incsearch = true
   vim.opt.iskeyword:append('-')
   vim.opt.joinspaces = false
-  vim.opt.laststatus = 0
+  vim.opt.laststatus = 2
   vim.opt.linebreak = true
   vim.opt.list = true
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
