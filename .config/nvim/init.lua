@@ -254,10 +254,9 @@ local function install_plugins(working)
         config = function()
           vim.cmd('call glaive#Install()')
 
-          local command = 'source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN'
-          local handle = io.popen(command)
-          local gn_path = handle:read('*l')
-          vim.cmd(':Glaive codefmt gn_executable=' .. gn_path)
+          -- source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN
+          local gn_path = '/home/fsareshwala/code/fuchsia/prebuilt/third_party/gn/linux-x64/gn'
+          vim.cmd('Glaive codefmt gn_executable=' .. gn_path)
         end
       }
     end
