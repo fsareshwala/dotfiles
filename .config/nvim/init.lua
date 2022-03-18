@@ -41,7 +41,7 @@ local function set_options()
   vim.opt.incsearch = true
   vim.opt.iskeyword:append('-')
   vim.opt.joinspaces = false
-  vim.opt.laststatus = 2
+  vim.opt.laststatus = 3 -- enable global status line
   vim.opt.linebreak = true
   vim.opt.list = true
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
@@ -89,6 +89,9 @@ local function set_options()
 
   -- integrate builtin lsp with tags
   vim.cmd [[set tagfunc=v:lua.vim.lsp.tagfunc]]
+
+  -- single pixel window separator lines
+  vim.cmd('highlight WinSeparator guibg=None')
 
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
