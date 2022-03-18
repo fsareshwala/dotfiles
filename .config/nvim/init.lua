@@ -88,10 +88,7 @@ local function set_options()
   vim.opt.writebackup = false
 
   -- integrate builtin lsp with tags
-  vim.cmd [[set tagfunc=v:lua.vim.lsp.tagfunc]]
-
-  -- single pixel window separator lines
-  vim.cmd('highlight WinSeparator guibg=None')
+  vim.cmd('set tagfunc=v:lua.vim.lsp.tagfunc')
 
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
@@ -574,6 +571,9 @@ local function main()
   setup_autocmds(working)
 
   vim.cmd('colorscheme base16-default-dark')
+
+  -- single pixel window separator lines
+  vim.cmd('highlight WinSeparator guibg=None')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
