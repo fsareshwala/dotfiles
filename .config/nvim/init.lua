@@ -181,6 +181,7 @@ local function install_plugins(working)
 
     use 'chriskempson/base16-vim' -- colorscheme
     use 'jiangmiao/auto-pairs'    -- automatically insert/delete parenthesis, brackets, quotes
+    use 'ojroques/vim-oscyank'    -- osc52 location independent clipboard
     use 'tpope/vim-abolish'       -- {} syntax (:Abolish, :Subvert), case style change (crc)
     use 'tpope/vim-commentary'    -- motions to comment lines out
     use 'tpope/vim-fugitive'      -- git bidings
@@ -529,6 +530,17 @@ local function setup_autocmds(working)
     autocmd!
     autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
     autocmd VimEnter * SpeedDatingFormat %B %d, %Y
+    augroup end
+  ]]
+
+  -- yank through osc52 by default
+  vim.cmd [[
+    augroup oscyank
+    autocmd!
+    autocmd TextYankPost *
+      \ if v:event.operator is 'y' && v:event.regname is '+' |
+      \   execute 'OSCYankReg +' |
+      \ endif
     augroup end
   ]]
 
