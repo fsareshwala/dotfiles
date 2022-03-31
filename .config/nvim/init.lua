@@ -171,7 +171,7 @@ local function install_plugins(working)
 
   if vim.fn.empty(vim.fn.glob(install_path)) then
     vim.fn.system({'git', 'clone', packer_repo, install_path})
-    vim.cmd [[packadd packer.nvim]]
+    vim.cmd('packadd packer.nvim')
   end
 
   local packer = require('packer')
