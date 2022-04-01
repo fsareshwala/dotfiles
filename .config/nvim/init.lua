@@ -252,11 +252,6 @@ local function install_plugins(working)
         },
         config = function()
           vim.cmd('call glaive#Install()')
-
-          -- source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN
-          local homedir = os.getenv('HOME')
-          local gn_path = homedir .. '/code/fuchsia/prebuilt/third_party/gn/linux-x64/gn'
-          vim.cmd('Glaive codefmt gn_executable=' .. gn_path)
         end
       }
     end
@@ -557,6 +552,11 @@ local function setup_autocmds(working)
   -- use vim-codefmt while working, otherwise lsp formatting
   if working then
     vim.cmd [[
+      let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
+
+      augroup formatting
+      autocmd!
+      autocmd FileType gn ++once execute ':Glaive codefmt gn_executable=' . g:gn_path
       autocmd FileType bzl AutoFormatBuffer buildifier
       autocmd FileType c,cpp AutoFormatBuffer clang-format
       autocmd FileType gn AutoFormatBuffer gn
@@ -566,6 +566,7 @@ local function setup_autocmds(working)
       autocmd FileType python AutoFormatBuffer pyformat
       autocmd FileType rust AutoFormatBuffer rustfmt
       autocmd FileType sh AutoFormatBuffer shfmt
+      augroup end
     ]]
   else
     vim.cmd [[
