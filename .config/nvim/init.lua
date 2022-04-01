@@ -489,7 +489,7 @@ local function setup_autocmds(working)
   vim.cmd [[
     augroup vim_configuration
     autocmd!
-    autocmd BufWritePost init.lua source ~/.config/nvim/init.lua
+    autocmd BufWritePost init.lua source ~/.config/nvim/init.lua | PackerCompile
     augroup end
   ]]
 
