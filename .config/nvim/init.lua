@@ -458,7 +458,6 @@ local function setup_filetree()
     },
   })
 
-  vim.g.nvim_tree_indent_markers = 1
   vim.g.nvim_tree_group_empty = 1
 end
 
