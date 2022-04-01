@@ -437,7 +437,6 @@ local function setup_filetree()
   filetree.setup({
     open_on_setup = true,
     hijack_cursor = true,
-    auto_close = true,
     open_on_tab = true,
     quit_on_open = true,
     group_empty = true,
@@ -540,6 +539,17 @@ local function setup_autocmds(working)
     autocmd TextYankPost *
       \ if v:event.operator is 'y' && v:event.regname is '+' |
       \   execute 'OSCYankReg +' |
+      \ endif
+    augroup end
+  ]]
+
+  -- autoclose nvim-tree if it's the last buffer open
+  vim.cmd [[
+    augroup autoclose_nvim_tree
+    autocmd!
+    autocmd BufEnter * ++nested
+      \ if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() |
+      \   quit |
       \ endif
     augroup end
   ]]
