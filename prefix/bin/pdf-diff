@@ -19,7 +19,7 @@ function last_page() {
   local prefix=$1
   local filename=$(ls $prefix-* | sort | tail -1)
   local last=$(remove_extension ${filename#$prefix-})
-  echo $(( $last ))
+  echo $(($last))
 }
 
 pwd=$PWD
