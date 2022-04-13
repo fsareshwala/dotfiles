@@ -210,6 +210,9 @@ if at_work; then
     fi
   }
 
+  # use remote build execution to speed up builds
+  export USE_RBE=true
+
   alias ha='hg add'
   alias hab='hg absorb'
   alias hai='hg amend -i'
