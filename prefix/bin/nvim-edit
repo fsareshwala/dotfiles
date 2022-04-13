@@ -6,18 +6,11 @@
 #   - user completes their edits and closes vim
 #   - replace the text area with the newly edited text
 
-source ~/prefix/lib/utilities.sh
-ensure_exists urxvt
-ensure_exists xclip
-ensure_exists xdotool
+temp=$(mktemp)
+trap "rm -rf $temp" EXIT
 
-tmpdir=$(mktemp -d)
-trap "rm -rf $tmpdir" EXIT
-cd $tmpdir
-
-xdotool key --clearmodifiers ctrl+a
-xdotool key --clearmodifiers ctrl+x
-xclip -r -o -selection clipboard > out
-urxvt -e nvim out
-xclip -r -i -selection clipboard out
-xdotool key --clearmodifiers ctrl+v
+xdotool key --clearmodifiers --delay 100 ctrl+a
+xclip -r -o -selection primary > $temp
+urxvt -e nvim $temp
+xclip -r -i -selection primary $temp
+xdotool key --clearmodifiers shift+insert
