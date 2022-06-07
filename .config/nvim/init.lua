@@ -433,33 +433,26 @@ local function setup_filetree()
     open_on_setup = true,
     hijack_cursor = true,
     open_on_tab = true,
-    quit_on_open = true,
-    group_empty = true,
+    reload_on_bufenter = true,
     diagnostics = {
       enable = true,
     },
     view = {
-      auto_resize = true,
-      hide_dotfiles = true,
       side = 'left',
       width = 32,
     },
     git = {
-      ignore = false,
+      enable = false,
     },
     filters = {
       dotfiles = true,
       custom = {'.git'},
     },
-    show_icons = {
-      git = false,
-      folders = true,
-      files = true,
-      folder_arrows = true,
-    },
+    renderer = {
+      group_empty = true,
+      full_name = true,
+    }
   })
-
-  vim.g.nvim_tree_group_empty = 1
 end
 
 local function setup_autocmds(working)
