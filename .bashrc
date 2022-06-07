@@ -111,6 +111,7 @@ function set_path() {
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
   export PATH="$HOME/code/fuchsia/scripts:$PATH"
+  export PATH="$HOME/.cargo/bin:$PATH"
 
   if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
     export PATH=".:$PATH"
