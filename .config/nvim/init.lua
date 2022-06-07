@@ -233,16 +233,16 @@ local function install_plugins(working)
       requires = {'kyazdani42/nvim-web-devicons'}
     }
 
-    -- fuchsia build system
-    use {
-      'https://gn.googlesource.com/gn',
-      rtp = 'misc/vim'
-    }
-
     -- work plugins
     if working then
       use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
       use '~/code/emboss/integration/vim/ft-emboss'
+
+      -- fuchsia build system
+      use {
+        'https://gn.googlesource.com/gn',
+        rtp = 'misc/vim'
+      }
 
       -- code formatting
       use {
