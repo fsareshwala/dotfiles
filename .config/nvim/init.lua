@@ -186,6 +186,7 @@ local function install_plugins(working)
     use 'tpope/vim-repeat'        -- allow plugins to override .
     use 'tpope/vim-speeddating'   -- ctrl+a and ctrl+x on dates
     use 'tpope/vim-surround'      -- motions to surround text with other text
+    use 'rust-lang/rust.vim'      -- rust vim integration
 
     use 'chaoren/vim-wordmotion'  -- better word motions through long strings
     vim.g.wordmotion_spaces = '_-.'
