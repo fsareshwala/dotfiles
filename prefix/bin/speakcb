@@ -49,7 +49,7 @@ EOF
   fi
 
   jq -r .audioContent response.json | base64 --decode > out.mp3
-  ffplay -autoexit -nodisp out.mp3
+  flock -n /tmp/speakcb ffplay -autoexit -nodisp out.mp3
 }
 
 words="$(xclip -o -selection primary | tr '\n' ' ' | sed -e 's/- //g; s/"/\\"/g')"
