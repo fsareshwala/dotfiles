@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 export PATH=~fsareshwala/prefix/bin:$PATH
-export PATH=/snap/bin:$PATH
 export _JAVA_AWT_WM_NONREPARENTING=1 # so that intellij can start up correctly in dwm
 
 source ~fsareshwala/.xprofile
