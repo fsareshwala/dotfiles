@@ -16,7 +16,7 @@
     horizontal_padding = 5
     separator_color = frame
     startup_notification = false
-    dmenu = "/usr/bin/dmenu -p dunst: -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
+    dmenu = "/usr/local/bin/dmenu -p dunst: -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
     browser = /etc/alternatives/www-browser
 
 [frame]
