@@ -12,7 +12,6 @@
 # awk -F'\t' '{print "emoji_map[\"" $NF "\"]=" "\"" $2 "\""}' data | sed -e 's/\U+//g'
 
 source ~/prefix/lib/utilities.sh
-export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
 declare -A emoji_map
 emoji_map["grinning face"]="1F600"
@@ -1825,7 +1824,7 @@ emoji_map["flag: England"]="1F3F4 E0067 E0062 E0065 E006E E0067 E007F"
 emoji_map["flag: Scotland"]="1F3F4 E0067 E0062 E0073 E0063 E0074 E007F"
 emoji_map["flag: Walesweofinwefion"]="1F3F4 E0067 E0062 E0077 E006C E0073 E007F"
 
-selection=$(for key in "${!emoji_map[@]}"; do echo $key; done | dmenu -F -f -c -l 50)
+selection=$(for key in "${!emoji_map[@]}"; do echo $key; done | /usr/local/bin/dmenu -F -f -c -l 50)
 codepoints="${emoji_map[$selection]}"
 for codepoint in $codepoints; do
   padded=$(pad $codepoint 8 0)
