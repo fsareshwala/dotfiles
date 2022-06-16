@@ -90,6 +90,8 @@ local function set_options()
 
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
+  vim.g.homedir = os.getenv('HOME')
+
 end
 
 local function set_keymaps()
@@ -497,7 +499,7 @@ local function setup_autocmds(working)
   vim.cmd [[
     augroup xresources
     autocmd!
-    autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+    autocmd BufWritePost *Xresources,*Xdefaults execute '!xrdb -DHOME=' . g:homedir . ' %'
     augroup end
   ]]
 
