@@ -3,4 +3,5 @@
 filename=$(date '+screenshot-%m-%d-%Y-%I:%M:%S%P.png')
 path=~/$filename
 maim -s $path
+xclip -selection clipboard -target image/png -i $path
 notify-send screenshot "screenshot captured: $path"
