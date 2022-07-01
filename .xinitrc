@@ -10,6 +10,4 @@ numlockx &
 dunst -conf ~fsareshwala/.dunstrc &
 ~fsareshwala/prefix/bin/status &
 
-while [[ true ]]; do
-  /usr/local/bin/dwm
-done
+/usr/local/bin/dwm
