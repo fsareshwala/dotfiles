@@ -437,9 +437,6 @@ local function setup_filetree()
     hijack_cursor = true,
     open_on_tab = true,
     reload_on_bufenter = true,
-    diagnostics = {
-      enable = true,
-    },
     view = {
       side = 'left',
       width = 32,
