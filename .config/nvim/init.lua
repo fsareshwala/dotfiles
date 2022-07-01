@@ -439,7 +439,7 @@ local function setup_filetree()
     reload_on_bufenter = true,
     view = {
       side = 'left',
-      width = 32,
+      width = 35,
     },
     git = {
       enable = false,
