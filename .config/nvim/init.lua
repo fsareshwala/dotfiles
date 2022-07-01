@@ -451,6 +451,11 @@ local function setup_filetree()
     renderer = {
       group_empty = true,
       full_name = true,
+    },
+    actions = {
+      open_file = {
+        resize_window = false,
+      },
     }
   })
 end
