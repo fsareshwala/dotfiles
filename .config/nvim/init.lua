@@ -388,6 +388,20 @@ local function setup_lsp()
       options = vim.tbl_deep_extend('force', additional_options, options)
     end
 
+    if server == 'rust_analyzer' then
+      local additional_options = {
+        settings = {
+          ['rust-analyzer'] = {
+            checkOnSave = {
+              command = "clippy"
+            }
+          }
+        }
+      }
+
+      options = vim.tbl_deep_extend('force', additional_options, options)
+    end
+
     lspconfig[server].setup(options)
   end
 end
