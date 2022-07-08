@@ -352,47 +352,43 @@ local function setup_lsp_keymaps(bufnr)
   keymap(bufnr, normal, 'gt', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
 end
 
-local function setup_lsp_settings()
-  local lsp_installer = require('nvim-lsp-installer')
+local function setup_lsp()
+  local lsp_installer = require("nvim-lsp-installer")
+  lsp_installer.setup()
 
-  lsp_installer.on_server_ready(function(server)
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    local opts = {
-      on_attach = function(_, bufnr) setup_lsp_keymaps(bufnr) end,
-      capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-    }
-
-    if server.name == 'sumneko_lua' then
-      opts.settings = {
-        Lua = {
-          diagnostics = {
-            globals = {'vim'}
-          }
-        }
-      }
-    end
-
-    server:setup(opts)
-  end)
-end
-
-local function install_lsp_servers()
-  local lsp_installer_servers = require('nvim-lsp-installer.servers')
+  local lspconfig = require('lspconfig')
+  local cmp_nvim_lsp = require('cmp_nvim_lsp')
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   local servers = {
     'bashls',
     'clangd',
     'rust_analyzer',
     'sumneko_lua',
+    'taplo',
   }
 
-  for _, server_name in pairs(servers) do
-    local available, server = lsp_installer_servers.get_server(server_name)
-    if available and not server:is_installed() then
-      server:install()
+  for _, server in pairs(servers) do
+    local options = {
+      on_attach = function(_, bufnr) setup_lsp_keymaps(bufnr) end,
+      capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+    }
+
+    if server == 'sumneko_lua' then
+      local additional_options = {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = {'vim'}
+            }
+          }
+        }
+      }
+
+      options = vim.tbl_deep_extend('force', additional_options, options)
     end
+
+    lspconfig[server].setup(options)
   end
 end
 
@@ -583,8 +579,7 @@ local function main()
   set_keymaps()
   install_plugins(working)
   setup_completions()
-  setup_lsp_settings()
-  install_lsp_servers()
+  setup_lsp()
   setup_telescope()
   setup_treesitter()
   setup_filetree()
