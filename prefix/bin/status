@@ -19,7 +19,7 @@ function india_time() {
 }
 
 function local_time() {
-  TZ=America/Los_Angeles date +"%A, %B %d, %Y, %I:%M:%S %p"
+  TZ=America/Los_Angeles date +"%A, %B %d, %I:%M:%S %p"
 }
 
 function volume() {
