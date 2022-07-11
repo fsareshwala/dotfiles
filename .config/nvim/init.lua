@@ -237,7 +237,7 @@ local function install_plugins(working)
 
     -- work plugins
     if working then
-      use '~/code/fuchsia/garnet/public/lib/fidl/tools/vim'
+      use '~/code/fuchsia/tools/fidl/editors/vim'
       use '~/code/emboss/integration/vim/ft-emboss'
 
       -- fuchsia build system
