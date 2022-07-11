@@ -452,6 +452,9 @@ local function setup_filetree()
         resize_window = false,
       },
     },
+    diagnostics = {
+      enable = false,
+    },
     filters = {
       dotfiles = true,
       custom = {'.git'},
@@ -466,6 +469,7 @@ local function setup_filetree()
     view = {
       side = 'left',
       width = 35,
+      signcolumn = 'no',
     },
   })
 end
