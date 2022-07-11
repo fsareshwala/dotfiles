@@ -88,10 +88,10 @@ local function set_options()
   -- integrate builtin lsp with tags
   vim.cmd('set tagfunc=v:lua.vim.lsp.tagfunc')
 
+  vim.g.homedir = os.getenv('HOME')
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
-  vim.g.homedir = os.getenv('HOME')
-
+  vim.g.rustfmt_autosave = 1
 end
 
 local function set_keymaps()
