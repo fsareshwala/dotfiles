@@ -212,7 +212,7 @@ local function install_plugins(working)
     use {
       'hrsh7th/nvim-cmp',
       requires = {
-        'hrsh7th/cmp-buffer',       -- text in current buffer
+        -- 'hrsh7th/cmp-buffer',       -- text in current buffer
         'hrsh7th/cmp-nvim-lua',     -- neovim lua api
         'hrsh7th/cmp-path',         -- filesystem paths
         'L3MON4D3/LuaSnip',         -- nvim-cmp requires a snippet engine for expansion
@@ -319,7 +319,7 @@ local function setup_completions()
       {name = 'nvim_lsp'},
       {name = 'nvim_lua'},
       {name = 'path'},
-      {name = 'buffer'}
+      -- {name = 'buffer'}
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
