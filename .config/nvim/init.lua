@@ -443,30 +443,30 @@ local function setup_filetree()
   local filetree = require('nvim-tree')
 
   filetree.setup({
-    open_on_setup = true,
     hijack_cursor = true,
+    open_on_setup = true,
     open_on_tab = true,
     reload_on_bufenter = true,
-    view = {
-      side = 'left',
-      width = 35,
-    },
-    git = {
-      enable = false,
+    actions = {
+      open_file = {
+        resize_window = false,
+      },
     },
     filters = {
       dotfiles = true,
       custom = {'.git'},
     },
+    git = {
+      enable = false,
+    },
     renderer = {
       group_empty = true,
       full_name = true,
     },
-    actions = {
-      open_file = {
-        resize_window = false,
-      },
-    }
+    view = {
+      side = 'left',
+      width = 35,
+    },
   })
 end
 
