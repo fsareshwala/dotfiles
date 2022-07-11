@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 # vim: set tw=0:
 
-utilities=~/prefix/lib/utilities.sh
-if [[ -f $utilities ]]; then
-  source $utilities
-fi
-
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
   *) return ;;
 esac
+
+prefix=~/prefix
+if [[ -d $prefix ]]; then
+  source $prefix/lib/utilities.sh
+  source $prefix/usr/local/bash/key-bindings.bash
+fi
 
 # set up bash, git completion
 git_bash_completion=/etc/profile.d/bash_completion.sh
@@ -78,8 +79,6 @@ shopt -s histappend
 export BROWSER=google-chrome
 export EDITOR=nvim
 export FIGNORE='.o:~:.pyc'
-export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --color=never *"
-export FZF_DEFAULT_OPTS='--height 20% --reverse'
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 export GOPATH=${HOME}/go
 export JAVA_HOME=$(dirname $(dirname $(readlink /etc/alternatives/java)))
@@ -91,6 +90,22 @@ export RSYNC_RSH=/usr/bin/ssh
 export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --color=never *"
+export FZF_DEFAULT_OPTS='--height 20% --reverse'
 
 c_black="\[\033[0;30m\]"
 c_red="\[\033[0;31m\]"
