@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # vim: set tw=0:
 
+utilities=~/prefix/lib/utilities.sh
+if [[ -f $utilities ]]; then
+  source $utilities
+fi
+
 # If not running interactively, don't do anything
 case $- in
   *i*) ;;
@@ -87,15 +92,23 @@ export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
 
+function git_branch() {
+  if [[ ! is_in_git_repo ]]; then
+    return
+  fi
+
+  git branch --show-current
+}
+
 c_black="\[\033[0;30m\]"
 c_red="\[\033[0;31m\]"
 c_green="\[\033[0;32m\]"
-c_brown="\[\033[0;33m\]"
+c_yellow="\[\033[0;33m\]"
 c_blue="\[\033[0;34m\]"
 c_purple="\[\033[0;35m\]"
 c_cyan="\[\033[0;36m\]"
 c_white="\[\033[0;37m\]"
-export PS1="[$c_green\u$c_white@$c_purple\h$c_white $c_blue\w$c_white]\$ "
+export PS1="[$c_green\u$c_white@$c_purple\h$c_white:$c_yellow$(git_branch)$c_white $c_blue\w$c_white]\$ "
 
 function set_path() {
   # build path entirely from scartch to prevent unnecessary duplicates and
