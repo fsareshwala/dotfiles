@@ -16,6 +16,14 @@ function ensure_exists() {
   command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
 }
 
+function is_in_git_repo() {
+  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+    return 0 # true
+  fi
+
+  return 1 # false
+}
+
 function dirname() {
   local path=$1
   echo "${path%/*}"
