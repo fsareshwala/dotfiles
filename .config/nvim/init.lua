@@ -187,11 +187,16 @@ local function install_plugins(working)
     use 'tpope/vim-fugitive'      -- git bidings
     use 'tpope/vim-repeat'        -- allow plugins to override .
     use 'tpope/vim-speeddating'   -- ctrl+a and ctrl+x on dates
-    use 'tpope/vim-surround'      -- motions to surround text with other text
     use 'rust-lang/rust.vim'      -- rust vim integration
 
     use 'chaoren/vim-wordmotion'  -- better word motions through long strings
     vim.g.wordmotion_spaces = '_-.'
+
+    -- motions to surround text with other text
+    use {
+      'kylechui/nvim-surround',
+      config = function() require("nvim-surround").setup() end
+    }
 
     -- fuzzy finder over files, commands, lists, etc
     use {
