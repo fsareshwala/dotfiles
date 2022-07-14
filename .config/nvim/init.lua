@@ -183,12 +183,10 @@ local function install_plugins(working)
   return packer.startup(function(use)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
-    -- begin vimscript plugins
     use 'chriskempson/base16-vim'   -- colorscheme
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'rust-lang/rust.vim'        -- rust vim integration
-    -- end vimscript plugins
 
     -- motions to comment lines out
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
