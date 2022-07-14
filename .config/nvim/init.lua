@@ -4,6 +4,10 @@ end
 
 local function get_hostname()
   local f = io.popen ("/bin/hostname")
+  if f == nil then
+    return 'unknown'
+  end
+
   local value = f:read("*a")
   f:close()
   return string.gsub(value, '\n$', '')
