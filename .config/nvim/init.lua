@@ -361,7 +361,7 @@ local function setup_lsp_keymaps(bufnr)
   keymap(bufnr, normal, 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
   keymap(bufnr, normal, 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
   keymap(bufnr, normal, 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-  keymap(bufnr, normal, 'gc', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>', opts)
+  keymap(bufnr, normal, 'gf', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>', opts)
   keymap(bufnr, normal, 'gt', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
 end
 
