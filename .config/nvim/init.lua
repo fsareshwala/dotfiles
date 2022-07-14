@@ -179,8 +179,8 @@ local function install_plugins(working)
   return packer.startup(function(use)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
+    -- begin vimscript plugins
     use 'chriskempson/base16-vim' -- colorscheme
-    use 'jiangmiao/auto-pairs'    -- automatically insert/delete parenthesis, brackets, quotes
     use 'ojroques/vim-oscyank'    -- osc52 location independent clipboard
     use 'tpope/vim-abolish'       -- {} syntax (:Abolish, :Subvert), case style change (crc)
     use 'tpope/vim-commentary'    -- motions to comment lines out
@@ -188,9 +188,15 @@ local function install_plugins(working)
     use 'tpope/vim-repeat'        -- allow plugins to override .
     use 'tpope/vim-speeddating'   -- ctrl+a and ctrl+x on dates
     use 'rust-lang/rust.vim'      -- rust vim integration
-
     use 'chaoren/vim-wordmotion'  -- better word motions through long strings
     vim.g.wordmotion_spaces = '_-.'
+    -- end vimscript plugins
+
+    -- automatically insert/delete parenthesis, brackets, quotes
+    use {
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
+    }
 
     -- motions to surround text with other text
     use {
@@ -331,6 +337,10 @@ local function setup_completions()
       select = false,
     }
   }
+
+  -- insert '()' after function or method item selection
+  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
 local function setup_lsp_keymaps(bufnr)
