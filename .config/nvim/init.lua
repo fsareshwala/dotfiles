@@ -3,12 +3,12 @@ function string.starts(haystack, needle)
 end
 
 local function get_hostname()
-  local f = io.popen ("/bin/hostname")
+  local f = io.popen ('/bin/hostname')
   if f == nil then
     return 'unknown'
   end
 
-  local value = f:read("*a")
+  local value = f:read('*a')
   f:close()
   return string.gsub(value, '\n$', '')
 end
@@ -197,10 +197,10 @@ local function install_plugins(working)
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
 
     -- automatically insert/delete parenthesis, brackets, quotes
-    use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
+    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
 
     -- motions to surround text with other text
-    use { 'kylechui/nvim-surround', config = function() require("nvim-surround").setup() end }
+    use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
     -- fuzzy finder over files, commands, lists, etc
     use {
@@ -213,8 +213,8 @@ local function install_plugins(working)
 
     -- Better syntax highlighting
     use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate',
     }
 
     -- completion engine
@@ -366,7 +366,7 @@ local function setup_lsp_keymaps(bufnr)
 end
 
 local function setup_lsp()
-  local lsp_installer = require("nvim-lsp-installer")
+  local lsp_installer = require('nvim-lsp-installer')
   lsp_installer.setup()
 
   local lspconfig = require('lspconfig')
@@ -406,7 +406,7 @@ local function setup_lsp()
         settings = {
           ['rust-analyzer'] = {
             checkOnSave = {
-              command = "clippy"
+              command = 'clippy'
             }
           }
         }
