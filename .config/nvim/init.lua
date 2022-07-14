@@ -186,7 +186,6 @@ local function install_plugins(working)
     -- begin vimscript plugins
     use 'chriskempson/base16-vim'   -- colorscheme
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
-    use 'tpope/vim-abolish'         -- {} syntax (:Abolish, :Subvert), case style change (crc)
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'rust-lang/rust.vim'        -- rust vim integration
     -- end vimscript plugins
