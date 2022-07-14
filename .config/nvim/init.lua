@@ -180,29 +180,23 @@ local function install_plugins(working)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
     -- begin vimscript plugins
-    use 'chriskempson/base16-vim' -- colorscheme
-    use 'ojroques/vim-oscyank'    -- osc52 location independent clipboard
-    use 'tpope/vim-abolish'       -- {} syntax (:Abolish, :Subvert), case style change (crc)
-    use 'tpope/vim-commentary'    -- motions to comment lines out
-    use 'tpope/vim-fugitive'      -- git bidings
-    use 'tpope/vim-repeat'        -- allow plugins to override .
-    use 'tpope/vim-speeddating'   -- ctrl+a and ctrl+x on dates
-    use 'rust-lang/rust.vim'      -- rust vim integration
-    use 'chaoren/vim-wordmotion'  -- better word motions through long strings
+    use 'chriskempson/base16-vim'   -- colorscheme
+    use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
+    use 'tpope/vim-abolish'         -- {} syntax (:Abolish, :Subvert), case style change (crc)
+    use 'tpope/vim-commentary'
+    use 'tpope/vim-fugitive'        -- git bidings
+    use 'tpope/vim-repeat'          -- allow plugins to override .
+    use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
+    use 'rust-lang/rust.vim'        -- rust vim integration
+    use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = '_-.'
     -- end vimscript plugins
 
     -- automatically insert/delete parenthesis, brackets, quotes
-    use {
-      "windwp/nvim-autopairs",
-      config = function() require("nvim-autopairs").setup {} end
-    }
+    use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
 
     -- motions to surround text with other text
-    use {
-      'kylechui/nvim-surround',
-      config = function() require("nvim-surround").setup() end
-    }
+    use { 'kylechui/nvim-surround', config = function() require("nvim-surround").setup() end }
 
     -- fuzzy finder over files, commands, lists, etc
     use {
