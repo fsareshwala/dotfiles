@@ -189,8 +189,6 @@ local function install_plugins(working)
     use 'tpope/vim-abolish'         -- {} syntax (:Abolish, :Subvert), case style change (crc)
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'rust-lang/rust.vim'        -- rust vim integration
-    use 'chaoren/vim-wordmotion'    -- better word motions through long strings
-    vim.g.wordmotion_spaces = {'_', '-', '.'}
     -- end vimscript plugins
 
     -- motions to comment lines out
