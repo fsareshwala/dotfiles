@@ -183,7 +183,6 @@ local function install_plugins(working)
     use 'chriskempson/base16-vim'   -- colorscheme
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
     use 'tpope/vim-abolish'         -- {} syntax (:Abolish, :Subvert), case style change (crc)
-    use 'tpope/vim-commentary'
     use 'tpope/vim-fugitive'        -- git bidings
     use 'tpope/vim-repeat'          -- allow plugins to override .
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
@@ -191,6 +190,9 @@ local function install_plugins(working)
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = '_-.'
     -- end vimscript plugins
+
+    -- motions to comment lines out
+    use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
 
     -- automatically insert/delete parenthesis, brackets, quotes
     use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
