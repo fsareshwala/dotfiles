@@ -146,8 +146,6 @@ local function set_keymaps()
   keymap(normal, '<leader>v', '<cmd>e  ~/.config/nvim/init.lua<cr>', opts)
   keymap(normal, '<leader>wj', '<cmd>e ~/personal/journal.md<cr>', opts)
   keymap(normal, '<leader>wk', '<cmd>e ~/personal/career/google.md<cr>', opts)
-  keymap(normal, '<leader>wn', '<cmd>e ~/personal/career/notes.md<cr>', opts)
-
 
   -- stay at current word when using star search
   keymap(normal, '*', '*<c-o>', opts)
