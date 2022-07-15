@@ -422,10 +422,10 @@ local function setup_telescope()
     defaults = {
       mappings = {
         i = {
-          ['<C-p>'] = actions.preview_scrolling_up,
-          ['<C-n>'] = actions.preview_scrolling_down,
-          ['<C-j>'] = actions.move_selection_next,
-          ['<C-k>'] = actions.move_selection_previous,
+          ['<c-b>'] = actions.preview_scrolling_up,
+          ['<c-f>'] = actions.preview_scrolling_down,
+          ['<c-j>'] = actions.move_selection_next,
+          ['<c-k>'] = actions.move_selection_previous,
         }
       }
     }
