@@ -185,6 +185,8 @@ local function install_plugins(working)
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'rust-lang/rust.vim'        -- rust vim integration
+    use 'chaoren/vim-wordmotion'    -- better word motions through long strings
+    vim.g.wordmotion_spaces = {'_', '-', '.'}
 
     -- motions to comment lines out
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
