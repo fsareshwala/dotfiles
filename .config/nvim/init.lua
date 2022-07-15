@@ -304,8 +304,8 @@ local function setup_completions()
     mapping = {
       ['<c-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), {'i', 'c'}),
       ['<c-f>'] = cmp.mapping(cmp.mapping.scroll_docs(1), {'i', 'c'}),
-      ['<c-n>'] = cmp.mapping.select_next_item(),
-      ['<c-p>'] = cmp.mapping.select_prev_item(),
+      ['<c-k>'] = cmp.mapping.select_prev_item(),
+      ['<c-j>'] = cmp.mapping.select_next_item(),
       ['<c-space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
       ['<cr>'] = cmp.mapping.confirm {select = true},
     },
