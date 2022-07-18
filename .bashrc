@@ -17,6 +17,11 @@ fi
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
+# simple math on the terminal
+function m() {
+  python3 -c "from math import *; print($*)"
+}
+
 function reswap() {
   sudo /sbin/swapoff -a
   sudo /sbin/swapon -a
