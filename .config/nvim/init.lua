@@ -100,7 +100,6 @@ end
 
 local function set_keymaps()
   local opts = {noremap = true, silent = true}
-  local keymap = vim.api.nvim_set_keymap
 
   -- local command = 'c'
   -- local insert = 'i'
@@ -110,59 +109,59 @@ local function set_keymaps()
   -- local visual_block = 'x'
 
   -- better window/tab/split controls
-  keymap(normal, '<c-h>', '<c-w>h', opts)
-  keymap(normal, '<c-j>', '<c-w>j', opts)
-  keymap(normal, '<c-k>', '<c-w>k', opts)
-  keymap(normal, '<c-l>', '<c-w>l', opts)
-  keymap(normal, '<leader>s', ':vsplit<cr>', opts)
-  keymap(normal, '<leader>t', ':tabnew<cr>', opts)
-  keymap(normal, 'H', ':tabprev<cr>', opts)
-  keymap(normal, 'L', ':tabnext<cr>', opts)
+  vim.keymap.set(normal, '<c-h>', '<c-w>h', opts)
+  vim.keymap.set(normal, '<c-j>', '<c-w>j', opts)
+  vim.keymap.set(normal, '<c-k>', '<c-w>k', opts)
+  vim.keymap.set(normal, '<c-l>', '<c-w>l', opts)
+  vim.keymap.set(normal, '<leader>s', ':vsplit<cr>', opts)
+  vim.keymap.set(normal, '<leader>t', ':tabnew<cr>', opts)
+  vim.keymap.set(normal, 'H', ':tabprev<cr>', opts)
+  vim.keymap.set(normal, 'L', ':tabnext<cr>', opts)
 
   -- resize with arrows
-  keymap(normal, '<up>', ':resize +2<cr>', opts)
-  keymap(normal, '<down>', ':resize -2<cr>', opts)
-  keymap(normal, '<left>', ':vertical resize -2<cr>', opts)
-  keymap(normal, '<right>', ':vertical resize +2<cr>', opts)
+  vim.keymap.set(normal, '<up>', ':resize +2<cr>', opts)
+  vim.keymap.set(normal, '<down>', ':resize -2<cr>', opts)
+  vim.keymap.set(normal, '<left>', ':vertical resize -2<cr>', opts)
+  vim.keymap.set(normal, '<right>', ':vertical resize +2<cr>', opts)
 
   -- movement across virtually wrapped lines
-  keymap(normal, '0', 'g0', opts)
-  keymap(normal, '$', 'g$', opts)
-  keymap(normal, 'j', 'gj', opts)
-  keymap(normal, 'k', 'gk', opts)
+  vim.keymap.set(normal, '0', 'g0', opts)
+  vim.keymap.set(normal, '$', 'g$', opts)
+  vim.keymap.set(normal, 'j', 'gj', opts)
+  vim.keymap.set(normal, 'k', 'gk', opts)
 
   -- hold onto indent mode when indenting
-  keymap(visual, '<', '<gv', opts)
-  keymap(visual, '>', '>gv', opts)
+  vim.keymap.set(visual, '<', '<gv', opts)
+  vim.keymap.set(visual, '>', '>gv', opts)
 
   -- insert an empty line
-  keymap(normal, '<c-o>', 'i<cr><esc>0', opts)
+  vim.keymap.set(normal, '<c-o>', 'i<cr><esc>0', opts)
 
   -- replace current word with contents of paste buffer
-  keymap(normal, '<c-p>', '"_cw"<esc>', opts)
+  vim.keymap.set(normal, '<c-p>', '"_cw"<esc>', opts)
 
   -- file shortcuts
-  keymap(normal, '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
-  keymap(normal, '<leader>v', '<cmd>e  ~/.config/nvim/init.lua<cr>', opts)
-  keymap(normal, '<leader>wj', '<cmd>e ~/personal/journal.md<cr>', opts)
-  keymap(normal, '<leader>wk', '<cmd>e ~/personal/career/google.md<cr>', opts)
+  vim.keymap.set(normal, '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
+  vim.keymap.set(normal, '<leader>v', '<cmd>e  ~/.config/nvim/init.lua<cr>', opts)
+  vim.keymap.set(normal, '<leader>wj', '<cmd>e ~/personal/journal.md<cr>', opts)
+  vim.keymap.set(normal, '<leader>wk', '<cmd>e ~/personal/career/google.md<cr>', opts)
 
   -- stay at current word when using star search
-  keymap(normal, '*', '*<c-o>', opts)
+  vim.keymap.set(normal, '*', '*<c-o>', opts)
 
   -- underline current line when only in normal mode
-  keymap(normal, 'U', 'YpVr-', opts)
+  vim.keymap.set(normal, 'U', 'YpVr-', opts)
 
   -- telescope keymaps
-  keymap(normal, '<leader>e', '<cmd>Telescope find_files<cr>', opts)
-  keymap(normal, '<leader>f', '<cmd>Telescope live_grep<cr>', opts)
-  keymap(normal, '<leader>g', '<cmd>Telescope grep_string<cr>', opts)
-  keymap(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
-  keymap(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
+  vim.keymap.set(normal, '<leader>e', '<cmd>Telescope find_files<cr>', opts)
+  vim.keymap.set(normal, '<leader>f', '<cmd>Telescope live_grep<cr>', opts)
+  vim.keymap.set(normal, '<leader>g', '<cmd>Telescope grep_string<cr>', opts)
+  vim.keymap.set(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
+  vim.keymap.set(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
 
   -- file tree keymaps
-  keymap(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
-  keymap(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
+  vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
+  vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
 end
 
 local function install_plugins(working)
