@@ -442,6 +442,9 @@ local function setup_treesitter()
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = true,
+
+      -- due to https://github.com/nvim-treesitter/nvim-treesitter/issues/2916
+      disable = {'markdown'},
     }
   }
 end
