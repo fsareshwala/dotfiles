@@ -22,6 +22,10 @@ function m() {
   python3 -c "from math import *; print($*)"
 }
 
+function timestamp() {
+  python3 -c "from datetime import datetime; print(datetime.fromtimestamp($*).strftime('%B %d %Y'))"
+}
+
 function reswap() {
   sudo /sbin/swapoff -a
   sudo /sbin/swapon -a
