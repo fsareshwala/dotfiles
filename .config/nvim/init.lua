@@ -95,7 +95,6 @@ local function set_options()
   vim.g.homedir = os.getenv('HOME')
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
-  vim.g.rustfmt_autosave = 1
 end
 
 local function set_keymaps()
@@ -572,6 +571,7 @@ local function setup_autocmds(working)
 
   -- format code on save
   -- use vim-codefmt while working, otherwise lsp formatting
+  vim.g.rustfmt_autosave = 1
   if working then
     vim.cmd [[
       let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
