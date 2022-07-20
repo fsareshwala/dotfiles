@@ -188,6 +188,7 @@ local function install_plugins(working)
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
+    use 'ray-x/lsp_signature.nvim'  -- show function signature when you type
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
@@ -359,6 +360,14 @@ end
 local function setup_lsp()
   local lsp_installer = require('nvim-lsp-installer')
   lsp_installer.setup()
+
+  local lsp_signature = require('lsp_signature')
+  lsp_signature.setup({
+    floating_window = false,
+    hint_prefix = '',
+    select_signature_key = '<c-j>',
+    toggle_key = '<c-s>',
+  })
 
   local lspconfig = require('lspconfig')
   local cmp_nvim_lsp = require('cmp_nvim_lsp')
