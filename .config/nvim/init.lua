@@ -158,6 +158,11 @@ local function set_keymaps()
   vim.keymap.set(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
   vim.keymap.set(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
 
+  vim.keymap.set(normal, 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
+  vim.keymap.set(normal, 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
+  vim.keymap.set(normal, 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+  vim.keymap.set(normal, 'gf', '<cmd>Telescope lsp_incoming_calls<cr>', opts)
+
   -- file tree keymaps
   vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
   vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
@@ -339,7 +344,6 @@ end
 
 local function setup_lsp_keymaps(bufnr)
   local opts = {noremap = true, silent = true}
-  local keymap = vim.api.nvim_buf_set_keymap
 
   -- local command = 'c'
   -- local insert = 'i'
@@ -348,17 +352,10 @@ local function setup_lsp_keymaps(bufnr)
   -- local visual = 'v'
   -- local visual_block = 'x'
 
-  keymap(bufnr, normal, '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  keymap(bufnr, normal, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  keymap(bufnr, normal, 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-  keymap(bufnr, normal, '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-  keymap(bufnr, normal, ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
-  keymap(bufnr, normal, 'gd', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-  keymap(bufnr, normal, 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-  keymap(bufnr, normal, 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-  keymap(bufnr, normal, 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-  keymap(bufnr, normal, 'gf', '<cmd>lua vim.lsp.buf.incoming_calls()<cr>', opts)
-  keymap(bufnr, normal, 'gt', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, normal, 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, normal, 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
 end
 
 local function setup_lsp()
