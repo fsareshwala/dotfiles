@@ -180,9 +180,11 @@ local function install_plugins(working)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
     use 'chriskempson/base16-vim'   -- colorscheme
+    use 'rust-lang/rust.vim'        -- rust vim integration
+
+    -- quality of life improvements
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
-    use 'rust-lang/rust.vim'        -- rust vim integration
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
@@ -201,6 +203,7 @@ local function install_plugins(working)
       requires = {
         'nvim-lua/plenary.nvim',
         {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+        {'nvim-telescope/telescope-ui-select.nvim'},
       }
     }
 
@@ -430,6 +433,7 @@ local function setup_telescope()
   }
 
   telescope.load_extension('fzf')
+  telescope.load_extension('ui-select')
 end
 
 local function setup_treesitter()
