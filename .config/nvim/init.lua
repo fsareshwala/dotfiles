@@ -185,10 +185,8 @@ local function install_plugins(working)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
     use 'chriskempson/base16-vim'   -- colorscheme
-    use 'rust-lang/rust.vim'        -- rust vim integration
-
-    -- quality of life improvements
     use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
+    use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
