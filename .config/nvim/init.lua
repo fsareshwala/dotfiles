@@ -425,8 +425,9 @@ local function setup_telescope()
           ['<c-j>'] = actions.move_selection_next,
           ['<c-k>'] = actions.move_selection_previous,
         }
-      }
-    }
+      },
+      layout_strategy = 'bottom_pane',
+    },
   }
 
   telescope.load_extension('fzf')
