@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-export PATH=~fsareshwala/prefix/bin:$PATH
+export PATH=/home/fsareshwala/prefix/bin:$PATH
+export PATH=/home/fsareshwala/code/dmenu:${PATH}
 
-source ~fsareshwala/.xprofile
+source /home/fsareshwala/.xprofile
 eval $(ssh-agent) > /dev/null
 
 # start default programs
 numlockx &
-dunst -conf ~fsareshwala/.dunstrc &
-~fsareshwala/prefix/bin/status &
+dunst -conf /home/fsareshwala/.dunstrc &
+/home/fsareshwala/prefix/bin/status &
 
-/usr/local/bin/dwm
+/home/fsareshwala/code/dwm/dwm
