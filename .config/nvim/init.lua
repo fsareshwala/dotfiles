@@ -184,7 +184,7 @@ local function install_plugins(working)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
     use 'chriskempson/base16-vim'   -- colorscheme
-    use 'ojroques/vim-oscyank'      -- osc52 location independent clipboard
+    use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ray-x/lsp_signature.nvim'  -- show function signature when you type
@@ -555,17 +555,6 @@ local function setup_autocmds(working)
     augroup end
   ]]
 
-  -- yank through osc52 by default
-  vim.cmd [[
-    augroup oscyank
-    autocmd!
-    autocmd TextYankPost *
-      \ if v:event.operator is 'y' && v:event.regname is '+' |
-      \   execute 'OSCYankReg +' |
-      \ endif
-    augroup end
-  ]]
-
   -- autoclose nvim-tree if it's the last buffer open
   vim.cmd [[
     augroup autoclose_nvim_tree
@@ -608,6 +597,25 @@ local function setup_autocmds(working)
   end
 end
 
+local function setup_oscyank()
+  local osc52 = require('osc52')
+  osc52.setup()
+
+  local copy = function(lines, _)
+    osc52.copy(lines)
+  end
+
+  local paste = function()
+    return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+  end
+
+  vim.g.clipboard = {
+    name = 'osc52',
+    copy = {['+'] = copy, ['*'] = copy},
+    paste = {['+'] = paste, ['*'] = paste},
+  }
+end
+
 local function main()
   local working = at_work()
 
@@ -620,6 +628,7 @@ local function main()
   setup_treesitter()
   setup_filetree()
   setup_autocmds(working)
+  setup_oscyank()
 
   vim.cmd('colorscheme base16-default-dark')
 
