@@ -89,9 +89,6 @@ local function set_options()
   vim.opt.wrapscan = true
   vim.opt.writebackup = false
 
-  -- integrate builtin lsp with tags
-  vim.cmd('set tagfunc=v:lua.vim.lsp.tagfunc')
-
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
 end
@@ -421,6 +418,9 @@ local function setup_lsp()
 
     lspconfig[server].setup(options)
   end
+
+  -- integrate builtin lsp with tags
+  vim.cmd('set tagfunc=v:lua.vim.lsp.tagfunc')
 end
 
 local function setup_telescope()
