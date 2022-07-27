@@ -228,14 +228,13 @@ local function install_plugins(working)
     }
 
     -- completion engine
-    use {
-      'hrsh7th/nvim-cmp',
+    use {'hrsh7th/cmp-nvim-lua', requires = 'hrsh7th/nvim-cmp'} -- neovim lua api
+    use {'hrsh7th/cmp-path', requires = 'hrsh7th/nvim-cmp'}     -- filesystem paths
+    use {'hrsh7th/cmp-nvim-lsp', requires = 'hrsh7th/nvim-cmp'} -- lsp based completions
+    use {'saadparwaiz1/cmp_luasnip', -- completion source for luasnip
       requires = {
-        -- 'hrsh7th/cmp-buffer',       -- text in current buffer
-        'hrsh7th/cmp-nvim-lua',     -- neovim lua api
-        'hrsh7th/cmp-path',         -- filesystem paths
-        'L3MON4D3/LuaSnip',         -- nvim-cmp requires a snippet engine for expansion
-        'saadparwaiz1/cmp_luasnip'  -- completion source for luasnip
+        'hrsh7th/nvim-cmp',
+        'L3MON4D3/LuaSnip' -- nvim-cmp requires a snippet engine for expansion
       }
     }
 
@@ -243,7 +242,6 @@ local function install_plugins(working)
     use {
       'neovim/nvim-lspconfig',
       requires = {
-        'hrsh7th/cmp-nvim-lsp',    -- lsp based completions
         'williamboman/nvim-lsp-installer'
       }
     }
@@ -339,7 +337,6 @@ local function setup_completions()
       {name = 'nvim_lua'},
       {name = 'path'},
       {name = 'crates'},
-      -- {name = 'buffer'}
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,
