@@ -165,6 +165,9 @@ local function set_keymaps()
   -- file tree keymaps
   vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
   vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
+
+  -- git keymaps
+  vim.keymap.set(normal, '<leader>b', '<cmd>lua require("git.blame").blame()<cr>')
 end
 
 local function install_plugins(working)
@@ -190,11 +193,14 @@ local function install_plugins(working)
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
+    -- basic git integration, no crazy bells and whistles
+    use { 'dinhhuy258/git.nvim', config = function() require('git').setup() end }
+
     -- motions to comment lines out
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
 
     -- automatically insert/delete parenthesis, brackets, quotes
-    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }
+    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
 
     -- motions to surround text with other text
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
