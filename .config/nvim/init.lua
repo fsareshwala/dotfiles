@@ -242,7 +242,8 @@ local function install_plugins(working)
     use {
       'neovim/nvim-lspconfig',
       requires = {
-        'williamboman/nvim-lsp-installer'
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
       }
     }
 
@@ -366,8 +367,11 @@ local function setup_lsp_keymaps(bufnr)
 end
 
 local function setup_lsp()
-  local lsp_installer = require('nvim-lsp-installer')
-  lsp_installer.setup()
+  local mason = require('mason')
+  mason.setup()
+
+  local mason_lspconfig = require('mason-lspconfig')
+  mason_lspconfig.setup()
 
   local lsp_signature = require('lsp_signature')
   lsp_signature.setup({
