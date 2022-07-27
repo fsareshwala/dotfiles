@@ -202,6 +202,15 @@ local function install_plugins(working)
     -- motions to surround text with other text
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
+    use {
+      'saecki/crates.nvim',
+      event = { 'BufRead Cargo.toml' },
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function() require('crates').setup({
+        thousands_separator = ',',
+      }) end,
+    }
+
     -- fuzzy finder over files, commands, lists, etc
     use {
       'nvim-telescope/telescope.nvim',
@@ -329,6 +338,7 @@ local function setup_completions()
       {name = 'nvim_lsp'},
       {name = 'nvim_lua'},
       {name = 'path'},
+      {name = 'crates'},
       -- {name = 'buffer'}
     },
     confirm_opts = {
