@@ -307,7 +307,7 @@ local function setup_completions()
     Variable = '',
   }
 
-  cmp.setup {
+  cmp.setup({
     snippet = {
       expand = function(args)
         local luasnip = require('luasnip')
@@ -340,7 +340,7 @@ local function setup_completions()
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     }
-  }
+  })
 
   -- insert '()' after function or method item selection
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -435,7 +435,7 @@ local function setup_telescope()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
 
-  telescope.setup {
+  telescope.setup({
     defaults = {
       mappings = {
         i = {
@@ -447,7 +447,7 @@ local function setup_telescope()
       },
       layout_strategy = 'bottom_pane',
     },
-  }
+  })
 
   telescope.load_extension('fzf')
   telescope.load_extension('ui-select')
@@ -456,7 +456,7 @@ end
 local function setup_treesitter()
   local configs = require('nvim-treesitter.configs')
 
-  configs.setup {
+  configs.setup({
     ensure_installed = 'all',
     sync_install = false,
     highlight = {
@@ -466,7 +466,7 @@ local function setup_treesitter()
       -- due to https://github.com/nvim-treesitter/nvim-treesitter/issues/2916
       disable = {'markdown'},
     }
-  }
+  })
 end
 
 local function setup_filetree()
