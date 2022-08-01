@@ -205,9 +205,7 @@ local function install_plugins(working)
       'saecki/crates.nvim',
       event = { 'BufRead Cargo.toml' },
       requires = { 'nvim-lua/plenary.nvim' },
-      config = function() require('crates').setup({
-        thousands_separator = ',',
-      }) end,
+      config = function() require('crates').setup() end
     }
 
     -- fuzzy finder over files, commands, lists, etc
