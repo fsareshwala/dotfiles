@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+configfile=/sys/class/backlight/intel_backlight/brightness
+
+function usage() {
+  echo "usage: $0 [up|down]"
+}
+
+function set_brightness() {
+  new=$1
+  echo $new | sudo tee $configfile > /dev/null
+}
+
+function main() {
+  current=$(cat $configfile)
+  increment=50
+
+  new=0
+  if [[ $# -ne 1 ]]; then
+    usage
+    exit 1
+  elif [[ $1 == 'up' ]]; then
+    new=$(($current + $increment))
+  elif [[ $1 == 'down' ]]; then
+    new=$(($current - $increment))
+  else
+    usage
+    exit 1
+  fi
+
+  set_brightness $new
+}
+
+main $@
