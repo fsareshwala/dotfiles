@@ -19,11 +19,12 @@
   pager = true
 
 [alias]
-  ls = ls-files
-  mt = mergetool
+  discard = reset --hard
   ff = pull --ff-only --stat
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
-  clist = "!f() { git log --pretty='- [%h] %s (%an <%ae>)' $1..$2; }; f"
+  ls = ls-files
+  root = rev-parse --show-toplevel
+  undo-commit = reset --soft HEAD~
 
 [diff]
   tool = vimdiff
