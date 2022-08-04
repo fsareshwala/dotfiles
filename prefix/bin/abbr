@@ -25,6 +25,6 @@ while IFS=: read -r key value; do
 done < ~/personal/info
 
 # execute dmenu and instruct X server to type result
-selection=$(for key in "${!replacements[@]}"; do echo $key; done | dmenu -f -c -l 50)
+selection=$(for key in "${!replacements[@]}"; do echo $key; done | /usr/local/bin/dmenu -f -c -l 50)
 expansion="${replacements[$selection]}"
 xdotool type --clearmodifiers --delay 0 "$expansion"
