@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-xrdb /home/fsareshwala/.Xresources
+HOME=$(realpath ~fsareshwala)
+
+xrdb -DHOME=$HOME ~fsareshwala/.Xresources
 setxkbmap -layout us -option ctrl:nocaps
 
 xset r rate 150 100
 xset b off
 
-/home/fsareshwala/prefix/bin/setbg
+~fsareshwala/prefix/bin/setbg

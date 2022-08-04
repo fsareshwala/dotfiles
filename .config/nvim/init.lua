@@ -89,6 +89,7 @@ local function set_options()
   vim.opt.wrapscan = true
   vim.opt.writebackup = false
 
+  vim.g.homedir = os.getenv('HOME')
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
 end
@@ -546,7 +547,7 @@ local function setup_autocmds(working)
   vim.cmd [[
     augroup xresources
     autocmd!
-    autocmd BufWritePost *Xresources !xrdb %
+    autocmd BufWritePost *Xresources,*Xdefaults execute '!xrdb -DHOME=' . g:homedir . ' %'
     augroup end
   ]]
 
