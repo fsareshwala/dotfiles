@@ -2,7 +2,7 @@ Xcursor.size: 16
 /* Xft.dpi: 96 # when using a 4k monitor */
 
 /* URxvt.font: xft:terminus:size=10 */
-URxvt.font: xft:Terminess TTF Nerd Font Mono:regular:size=10
+URxvt.font: xft:Terminess TTF Nerd Font Mono:regular:size=8
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
 URxvt.boldFont:
