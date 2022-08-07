@@ -259,7 +259,6 @@ if at_work; then
   alias rpost='hg upload chain'
   alias rsubmit='hg submit'
 
-  alias cd-g3='cd ~/code/google3'
   alias cd-f='cd ~/code/fuchsia'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
 else
