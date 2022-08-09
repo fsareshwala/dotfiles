@@ -186,6 +186,7 @@ local function install_plugins(working)
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ray-x/lsp_signature.nvim'  -- show function signature when you type
+    use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
@@ -610,6 +611,28 @@ local function setup_autocmds(working)
   end
 end
 
+local function setup_oscyank()
+  local osc52 = require('osc52')
+  osc52.setup({
+    silent = true,
+    trim = true,
+  })
+
+  local copy = function(lines, _)
+    osc52.copy(table.concat(lines, '\n'))
+  end
+
+  local paste = function()
+    return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
+  end
+
+  vim.g.clipboard = {
+    name = 'osc52',
+    copy = {['+'] = copy, ['*'] = copy},
+    paste = {['+'] = paste, ['*'] = paste},
+  }
+end
+
 local function main()
   local working = at_work()
 
@@ -622,6 +645,7 @@ local function main()
   setup_treesitter()
   setup_filetree()
   setup_autocmds(working)
+  setup_oscyank()
 
   vim.cmd('colorscheme base16-default-dark')
 
