@@ -19,6 +19,7 @@
   pager = true
 
 [alias]
+  cp = cherry-pick
   discard = reset --hard
   ff = pull --ff-only --stat
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
