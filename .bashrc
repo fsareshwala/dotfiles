@@ -263,6 +263,7 @@ if at_work; then
 
   alias cd-f='cd ~/code/fuchsia'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
+  alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 else
   alias d='git diff'
   alias st='git status'
