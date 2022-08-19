@@ -17,6 +17,8 @@ fi
 git_bash_completion=/etc/profile.d/bash_completion.sh
 test -f $git_bash_completion && source $git_bash_completion
 
+source ~/prefix/lib/utilities.sh
+
 # simple math on the terminal
 function m() {
   python3 -c "from math import *; print($*)"
@@ -62,19 +64,6 @@ function rreplace() {
 
 function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
-}
-
-function at_work() {
-  hostname=$(hostname)
-  if [[ $hostname == 'fsareshwala-laptop'* ]]; then
-    return 0
-  elif [[ $hostname == 'fsareshwala-office'* ]]; then
-    return 0
-  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
-    return 0
-  else
-    return 1
-  fi
 }
 
 stty -ixon # disable software control flow (ctrl-s and ctrl-q, urxvt support)
