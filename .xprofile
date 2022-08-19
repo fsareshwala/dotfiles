@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/prefix/lib/utilities.sh
+
 xrdb /home/fsareshwala/.Xresources
 setxkbmap -layout us -option ctrl:nocaps
 
@@ -10,5 +12,9 @@ xset b off
 numlockx &
 dunst -conf /home/fsareshwala/.dunstrc &
 /home/fsareshwala/prefix/bin/status &
+
+if at_work; then
+  /opt/google/drive-file-stream/drive_fs 2>/dev/null &
+fi
 
 /home/fsareshwala/prefix/bin/setbg
