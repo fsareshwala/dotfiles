@@ -63,7 +63,7 @@ local function set_options()
   vim.opt.showmatch = true
   vim.opt.showmode = false
   vim.opt.showtabline = 1
-  vim.opt.signcolumn = 'yes'
+  vim.opt.signcolumn = 'number'
   vim.opt.smartcase = true
   vim.opt.smarttab = true
   vim.opt.softtabstop = 2
