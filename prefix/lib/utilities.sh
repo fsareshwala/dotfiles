@@ -44,6 +44,19 @@ function remove_extension() {
   echo "${filename%.*}"
 }
 
+function at_work() {
+  hostname=$(hostname)
+  if [[ $hostname == 'fsareshwala-laptop'* ]]; then
+    return 0
+  elif [[ $hostname == 'fsareshwala-office'* ]]; then
+    return 0
+  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
 function min() {
   local a=$1
   local b=$2
