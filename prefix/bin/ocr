@@ -1,3 +1,18 @@
 #!/usr/bin/env bash
-maim -s | tesseract stdin stdout 2> /dev/null | xclip -selection clipboard
+
+set -e
+source ~/prefix/lib/utilities.sh
+
+ensure_exists notify-send
+ensure_exists scrot
+ensure_exists tesseract
+ensure_exists xclip
+
+tmpdir=$(mktemp -d)
+trap "rm -rf $tmpdir" EXIT
+cd $tmpdir
+
+file=output.png
+scrot -s -F $file
+tesseract $file stdout 2> /dev/null | xclip -selection clipboard
 notify-send 'OCR Done' 'OCR operation is complete'
