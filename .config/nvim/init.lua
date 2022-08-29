@@ -162,8 +162,11 @@ local function set_keymaps()
   vim.keymap.set(normal, 'gf', '<cmd>Telescope lsp_incoming_calls<cr>', opts)
 
   -- file tree keymaps
-  vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
+  vim.keymap.set(normal, '<leader>n', '<cmd>AerialClose<cr>NvimTreeToggle<cr>', opts)
   vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
+
+  -- file outline keymaps
+  vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr>AerialToggle!<cr>', opts)
 
   -- git keymaps
   vim.keymap.set(normal, '<leader>b', '<cmd>lua require("git.blame").blame()<cr>')
@@ -253,6 +256,19 @@ local function install_plugins(working)
     use {
       'kyazdani42/nvim-tree.lua',
       requires = {'kyazdani42/nvim-web-devicons'}
+    }
+
+    -- file outline
+    use {
+      'stevearc/aerial.nvim',
+      config = function()
+        require('aerial').setup({
+          layout = {
+            width = vim.g.left_sidebar_width,
+            default_direction = 'left',
+          },
+        })
+      end
     }
 
     -- work plugins
