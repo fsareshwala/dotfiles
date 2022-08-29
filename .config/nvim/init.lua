@@ -139,6 +139,7 @@ local function set_keymaps()
   vim.keymap.set(normal, '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
   vim.keymap.set(normal, '<leader>v', '<cmd>e  ~/.config/nvim/init.lua<cr>', opts)
   vim.keymap.set(normal, '<leader>wk', '<cmd>e ~/personal/career/google.md<cr>', opts)
+  vim.keymap.set(normal, '<leader>wj', '<cmd>e ~/personal/journal.md<cr>', opts)
 
   -- stay at current word when using star search
   vim.keymap.set(normal, '*', '*<c-o>', opts)
