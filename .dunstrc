@@ -1,5 +1,5 @@
 [global]
-    font = "terminus 8"
+    font = "terminus 10"
     allow_markup = yes
     format = "<b>%s %p</b>\n%b"
     sort = yes
@@ -16,8 +16,8 @@
     horizontal_padding = 5
     separator_color = frame
     startup_notification = false
-    dmenu = "/usr/local/bin/dmenu -p dunst: -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
-    browser = /etc/alternatives/www-browser
+    dmenu = "/home/fsareshwala/code/dmenu/dmenu -p dunst: -nb #222222 -nf #bbbbbb -sb #005577 -sf #eeeeee"
+    browser = /usr/bin/google-chrome
 
 [frame]
     width = 1
