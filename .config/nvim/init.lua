@@ -154,6 +154,7 @@ local function set_keymaps()
   vim.keymap.set(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
   vim.keymap.set(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
 
+  -- lsp keymaps
   vim.keymap.set(normal, 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
   vim.keymap.set(normal, 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
   vim.keymap.set(normal, 'gr', '<cmd>Telescope lsp_references<cr>', opts)
@@ -203,6 +204,7 @@ local function install_plugins(working)
     -- motions to surround text with other text
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
+    -- rust crates.io integration
     use {
       'saecki/crates.nvim',
       event = { 'BufRead Cargo.toml' },
