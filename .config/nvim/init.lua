@@ -352,22 +352,6 @@ local function setup_completions()
   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
-local function setup_lsp_keymaps(bufnr)
-  local opts = {noremap = true, silent = true}
-
-  -- local command = 'c'
-  -- local insert = 'i'
-  local normal = 'n'
-  -- local term = 't'
-  -- local visual = 'v'
-  -- local visual_block = 'x'
-
-  vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, normal, 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, normal, 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-end
-
 local function setup_lsp()
   local mason = require('mason')
   mason.setup()
@@ -394,6 +378,22 @@ local function setup_lsp()
     'sumneko_lua',
     'taplo',
   }
+
+  local setup_lsp_keymaps = function(bufnr)
+    local opts = {noremap = true, silent = true}
+
+    -- local command = 'c'
+    -- local insert = 'i'
+    local normal = 'n'
+    -- local term = 't'
+    -- local visual = 'v'
+    -- local visual_block = 'x'
+
+    vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, normal, '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, normal, 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, normal, 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+  end
 
   for _, server in pairs(servers) do
     local options = {
