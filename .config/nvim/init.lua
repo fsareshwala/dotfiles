@@ -89,6 +89,7 @@ local function set_options()
   vim.opt.wrapscan = true
   vim.opt.writebackup = false
 
+  vim.g.left_sidebar_width = 35
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
 end
@@ -502,7 +503,7 @@ local function setup_filetree()
     },
     view = {
       side = 'left',
-      width = 35,
+      width = vim.g.left_sidebar_width,
       signcolumn = 'no',
     },
   })
