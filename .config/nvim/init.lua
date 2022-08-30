@@ -136,6 +136,9 @@ local function set_keymaps()
   -- replace current word with contents of paste buffer
   vim.keymap.set(normal, '<c-p>', '"_cw"<esc>', opts)
 
+  -- join paragraph lines together to form a one-lined paragraph
+  vim.keymap.set(normal, '<leader>j', 'vap:join<cr>', opts)
+
   -- file shortcuts
   vim.keymap.set(normal, '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', opts)
   vim.keymap.set(normal, '<leader>v', '<cmd>e  ~/.config/nvim/init.lua<cr>', opts)
