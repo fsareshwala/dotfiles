@@ -536,6 +536,7 @@ local function setup_autocmds(working)
     autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
     autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
     autocmd FileType c,cpp setlocal commentstring=//\ %s
+    autocmd FileType fidl setlocal textwidth=100
     augroup end
   ]]
 
