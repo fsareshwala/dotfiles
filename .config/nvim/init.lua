@@ -638,7 +638,6 @@ local function setup_oscyank()
   local osc52 = require('osc52')
   osc52.setup({
     silent = true,
-    trim = true,
   })
 
   local copy = function(lines, _)
