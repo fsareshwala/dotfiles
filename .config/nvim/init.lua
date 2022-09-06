@@ -104,11 +104,19 @@ local function set_keymaps()
   local visual = 'v'
   -- local visual_block = 'x'
 
-  -- better window/tab/split controls
+  -- navigate splits
   vim.keymap.set(normal, '<c-h>', '<c-w>h', opts)
   vim.keymap.set(normal, '<c-j>', '<c-w>j', opts)
   vim.keymap.set(normal, '<c-k>', '<c-w>k', opts)
   vim.keymap.set(normal, '<c-l>', '<c-w>l', opts)
+
+  -- move splits
+  vim.keymap.set(normal, '<c-H>', '<c-w>H', opts)
+  vim.keymap.set(normal, '<c-J>', '<c-w>J', opts)
+  vim.keymap.set(normal, '<c-K>', '<c-w>K', opts)
+  vim.keymap.set(normal, '<c-L>', '<c-w>L', opts)
+
+  -- better window/tab/split controls
   vim.keymap.set(normal, '<leader>s', ':vsplit<cr>', opts)
   vim.keymap.set(normal, '<leader>t', ':tabnew<cr>', opts)
   vim.keymap.set(normal, 'H', ':tabprev<cr>', opts)
