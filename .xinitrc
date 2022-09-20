@@ -7,7 +7,7 @@ eval $(ssh-agent) > /dev/null
 
 # start default programs
 numlockx &
-dunst -conf /home/fsareshwala/.dunstrc &
+dunst &
 /home/fsareshwala/prefix/bin/status &
 
 source ~/prefix/lib/utilities.sh
