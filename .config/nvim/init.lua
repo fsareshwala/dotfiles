@@ -110,11 +110,11 @@ local function set_keymaps()
   vim.keymap.set(normal, '<c-k>', '<c-w>k', opts)
   vim.keymap.set(normal, '<c-l>', '<c-w>l', opts)
 
-  -- move splits
-  vim.keymap.set(normal, '<c-H>', '<c-w>H', opts)
-  vim.keymap.set(normal, '<c-J>', '<c-w>J', opts)
-  vim.keymap.set(normal, '<c-K>', '<c-w>K', opts)
-  vim.keymap.set(normal, '<c-L>', '<c-w>L', opts)
+  -- move splits -- can't actually do this without overriding the navigate splits keybindings
+  -- vim.keymap.set(normal, '<c-H>', '<c-w>H', opts)
+  -- vim.keymap.set(normal, '<c-J>', '<c-w>J', opts)
+  -- vim.keymap.set(normal, '<c-K>', '<c-w>K', opts)
+  -- vim.keymap.set(normal, '<c-L>', '<c-w>L', opts)
 
   -- better window/tab/split controls
   vim.keymap.set(normal, '<leader>s', ':vsplit<cr>', opts)
