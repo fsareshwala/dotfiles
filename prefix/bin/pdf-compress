@@ -17,6 +17,6 @@ else
   filename=$2
 fi
 
-output=${filename%.*}-compressed.pdf
+output="${filename%.*}-compressed.pdf"
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 -dPDFSETTINGS=/$compression_type -dNOPAUSE -dQUIET \
-    -dBATCH -sOutputFile=$output $filename
+    -dBATCH -sOutputFile=$output "$filename"
