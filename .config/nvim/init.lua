@@ -202,7 +202,6 @@ local function install_plugins(working)
     use 'chriskempson/base16-vim'   -- colorscheme
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
-    use 'ray-x/lsp_signature.nvim'  -- show function signature when you type
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
@@ -247,6 +246,7 @@ local function install_plugins(working)
     use {'hrsh7th/cmp-nvim-lua', requires = 'hrsh7th/nvim-cmp'} -- neovim lua api
     use {'hrsh7th/cmp-path', requires = 'hrsh7th/nvim-cmp'}     -- filesystem paths
     use {'hrsh7th/cmp-nvim-lsp', requires = 'hrsh7th/nvim-cmp'} -- lsp based completions
+    use { 'hrsh7th/cmp-nvim-lsp-signature-help', requires = 'hrsh7th/nvim-cmp' } -- func signatures
     use {'saadparwaiz1/cmp_luasnip', -- completion source for luasnip
       requires = {
         'hrsh7th/nvim-cmp',
@@ -363,6 +363,7 @@ local function setup_completions()
       end
     },
     sources = {
+      {name = 'nvim_lsp_signature_help'},
       {name = 'nvim_lsp'},
       {name = 'nvim_lua'},
       {name = 'path'},
@@ -385,14 +386,6 @@ local function setup_lsp()
 
   local mason_lspconfig = require('mason-lspconfig')
   mason_lspconfig.setup()
-
-  local lsp_signature = require('lsp_signature')
-  lsp_signature.setup({
-    floating_window = false,
-    hint_prefix = '',
-    select_signature_key = '<c-j>',
-    toggle_key = '<c-s>',
-  })
 
   local lspconfig = require('lspconfig')
   local cmp_nvim_lsp = require('cmp_nvim_lsp')
