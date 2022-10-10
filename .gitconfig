@@ -67,6 +67,7 @@
 
 [rebase]
   autoSquash = true
+  updateRefs = true
 
 [format]
   pretty = oneline
