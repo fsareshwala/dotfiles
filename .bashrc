@@ -133,6 +133,10 @@ function set_path() {
   export PATH="$HOME/code/fuchsia/scripts:$PATH"
   export PATH="$HOME/.cargo/bin:$PATH"
 
+  if [[ $(uname) == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+  fi
+
   if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
     export PATH=".:$PATH"
   fi
