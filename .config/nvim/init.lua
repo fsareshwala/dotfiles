@@ -226,14 +226,21 @@ local function install_plugins(working)
       config = function() require('crates').setup() end
     }
 
-    -- fuzzy finder over files, commands, lists, etc
+    -- telescope: fuzzy finder over files, commands, lists, etc
+    use {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'make',
+      requires = { 'nvim-telescope/telescope.nvim' }
+    }
+
+    use {
+      'nvim-telescope/telescope-ui-select.nvim',
+      requires = { 'nvim-telescope/telescope.nvim' }
+    }
+
     use {
       'nvim-telescope/telescope.nvim',
-      requires = {
-        'nvim-lua/plenary.nvim',
-        {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-        {'nvim-telescope/telescope-ui-select.nvim'},
-      }
+      requires = { 'nvim-lua/plenary.nvim' }
     }
 
     -- Better syntax highlighting
