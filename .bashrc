@@ -141,6 +141,7 @@ function set_path() {
 
   if [[ $(uname) == "Darwin" ]]; then
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/usr/local/git/git-google/bin:$PATH"
   fi
 
   if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
