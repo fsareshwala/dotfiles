@@ -87,9 +87,15 @@ export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='sh -c "col -bx | batcat -l man -p"'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
-export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+
+if [[ $(uname) == "Darwin" ]]; then
+  export TERM=xterm-256color
+else
+  export TERM=rxvt-unicode-256color
+fi
+
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
