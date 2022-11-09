@@ -173,6 +173,9 @@ local function set_keymaps()
   -- file outline keymaps
   vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr> | <cmd>AerialToggle!<cr>', opts)
 
+  -- align around a string
+  vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
+
   -- git keymaps
   vim.keymap.set(normal, '<leader>b', function() require('git.blame').blame() end, opts)
 end
@@ -197,6 +200,7 @@ local function install_plugins(working)
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
+    use 'Vonr/align.nvim'           -- align line content
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
