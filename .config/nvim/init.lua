@@ -396,7 +396,6 @@ local function setup_lsp()
 
   local lspconfig = require('lspconfig')
   local cmp_nvim_lsp = require('cmp_nvim_lsp')
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   local servers = {
     'bashls',
@@ -425,7 +424,7 @@ local function setup_lsp()
   for _, server in pairs(servers) do
     local options = {
       on_attach = function(_, bufnr) setup_lsp_keymaps(bufnr) end,
-      capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+      capabilities = cmp_nvim_lsp.default_capabilities()
     }
 
     if server == 'sumneko_lua' then
