@@ -180,7 +180,7 @@ local function set_keymaps()
   vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr> | <cmd>AerialToggle!<cr>', opts)
 
   -- git keymaps
-  vim.keymap.set(normal, '<leader>b', '<cmd>lua require("git.blame").blame()<cr>')
+  vim.keymap.set(normal, '<leader>b', function() require('git.blame').blame() end, opts)
 end
 
 local function install_plugins(working)
