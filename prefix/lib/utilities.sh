@@ -52,6 +52,8 @@ function at_work() {
     return 0
   elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
     return 0
+  elif [[ $hostname == 'fsareshwala-macbookpro'* ]]; then
+    return 0
   else
     return 1
   fi
