@@ -11,11 +11,9 @@ prefix=~/prefix
 if [[ -d $prefix ]]; then
   source $prefix/lib/utilities.sh
   source $prefix/usr/local/bash/key-bindings.bash
+  source $prefix/usr/local/bash/git-completion.bash
+  source $prefix/usr/local/bash/git-prompt.sh
 fi
-
-# set up bash, git completion
-git_bash_completion=/etc/profile.d/bash_completion.sh
-test -f $git_bash_completion && source $git_bash_completion
 
 source ~/prefix/lib/utilities.sh
 
