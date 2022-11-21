@@ -46,17 +46,15 @@ function remove_extension() {
 
 function at_work() {
   hostname=$(hostname)
-  if [[ $hostname == 'fsareshwala-laptop'* ]]; then
-    return 0
-  elif [[ $hostname == 'fsareshwala-office'* ]]; then
+  if [[ $hostname == 'fsareshwala-office'* ]]; then
     return 0
   elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
     return 0
   elif [[ $hostname == 'fsareshwala-macbookpro'* ]]; then
     return 0
-  else
-    return 1
   fi
+
+  return 1
 }
 
 function min() {
