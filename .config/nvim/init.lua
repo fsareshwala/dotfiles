@@ -177,7 +177,7 @@ local function set_keymaps()
   vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
 
   -- git keymaps
-  vim.keymap.set(normal, '<leader>b', function() require('git.blame').blame() end, opts)
+  vim.keymap.set(normal, '<leader>b', '<cmd>Git blame<cr>', opts)
 end
 
 local function install_plugins(working)
@@ -201,11 +201,9 @@ local function install_plugins(working)
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'Vonr/align.nvim'           -- align line content
+    use 'tpope/vim-fugitive'        -- git integration
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
-
-    -- basic git integration, no crazy bells and whistles
-    use { 'dinhhuy258/git.nvim', config = function() require('git').setup() end }
 
     -- motions to comment lines out
     use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
