@@ -162,11 +162,9 @@ alias -- ....='cd ../../..'
 alias -- ...='cd ../..'
 alias -- ..='cd ..'
 alias bc='bc -lq'
-alias cat='batcat'
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
-alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias rgdb='rust-gdb --tui'
 alias grep="rg --color=auto"
@@ -186,6 +184,14 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+
+
+if [[ $(uname) == "Darwin" ]]; then
+  alias cat='bat'
+else
+  alias cat='batcat'
+  alias fd='fdfind'
+fi
 
 # git aliases
 alias b='git branch'
@@ -236,6 +242,11 @@ if at_work; then
   function tig() {
     if in_google3; then
       hg xl $@
+      return
+    fi
+
+    if [[ $(uname) == "Darwin" ]]; then
+      /opt/homebrew/bin/tig $@
     else
       /usr/bin/tig $@
     fi
