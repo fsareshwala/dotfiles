@@ -214,6 +214,9 @@ local function install_plugins(working)
     -- motions to surround text with other text
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
+    -- add a debug print line in the code
+    use({ "andrewferrier/debugprint.nvim", config = function() require('debugprint').setup() end })
+
     -- rust crates.io integration
     use {
       'saecki/crates.nvim',
