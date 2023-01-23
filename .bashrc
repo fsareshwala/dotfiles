@@ -184,6 +184,7 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+alias fc='cd ~/code/forecash && go build && forecash && cd -'
 
 
 if [[ $(uname) == "Darwin" ]]; then
