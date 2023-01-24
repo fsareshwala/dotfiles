@@ -202,6 +202,7 @@ local function install_plugins(working)
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'Vonr/align.nvim'           -- align line content
     use 'tpope/vim-fugitive'        -- git integration
+    use 'fatih/vim-go'              -- golang integration
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
 
@@ -394,11 +395,13 @@ local function setup_lsp()
   mason_lspconfig.setup()
 
   local lspconfig = require('lspconfig')
+  local lspconfig_util = require('lspconfig/util')
   local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
   local servers = {
     'bashls',
     'clangd',
+    'gopls',
     'rust_analyzer',
     'sumneko_lua',
     'taplo',
@@ -435,6 +438,25 @@ local function setup_lsp()
             }
           }
         }
+      }
+
+      options = vim.tbl_deep_extend('force', additional_options, options)
+    end
+
+    if server == 'gopls' then
+      local additional_options = {
+        cmd = {"gopls", "serve"},
+        filetypes = {"go", "gomod"},
+        root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,
+            },
+            staticcheck = true,
+          },
+        },
+
       }
 
       options = vim.tbl_deep_extend('force', additional_options, options)
@@ -543,6 +565,7 @@ local function setup_autocmds(working)
     autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
     autocmd FileType c,cpp setlocal commentstring=//\ %s
     autocmd FileType fidl setlocal textwidth=100
+    autocmd FileType go setlocal nolist
     augroup end
   ]]
 
