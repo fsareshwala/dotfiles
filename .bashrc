@@ -165,6 +165,7 @@ alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
+alias fc='cd ~/code/forecash && go build && forecash --config ~/personal/fc-chase.json && cd -'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
@@ -184,7 +185,6 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
-alias fc='cd ~/code/forecash && go build && forecash && cd -'
 
 
 if [[ $(uname) == "Darwin" ]]; then
