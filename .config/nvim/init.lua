@@ -659,6 +659,7 @@ local function setup_autocmds(working)
       augroup formatting
       autocmd!
       autocmd BufWritePre *.h,*.cc lua vim.lsp.buf.formatting_sync()
+      autocmd BufWritePre *.go GoFmt
       augroup end
     ]]
   end
