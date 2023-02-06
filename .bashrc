@@ -85,14 +85,9 @@ export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='sh -c "col -bx | batcat -l man -p"'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
+export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
-
-if [[ $(uname) == "Darwin" ]]; then
-  export TERM=xterm-256color
-else
-  export TERM=rxvt-unicode-256color
-fi
 
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
@@ -126,11 +121,6 @@ function set_path() {
   # support directory based path elements (e.g. Fuchsia doesn't like the
   # current directory in the path but I like that elsewhere in my system)
   export PATH=""
-
-  if [[ "$(uname)" == "Darwin" ]]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-    export PATH="/usr/local/git/git-google/bin:$PATH"
-  fi
 
   # Fuchsia doesn't like the current directory in the path
   if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
@@ -168,10 +158,12 @@ alias -- ....='cd ../../..'
 alias -- ...='cd ../..'
 alias -- ..='cd ..'
 alias bc='bc -lq'
+alias cat='batcat'
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias fc='cd ~/code/forecash && go build && forecash --config ~/personal/fc-chase.json && cd -'
+alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
@@ -190,14 +182,6 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
-
-
-if [[ $(uname) == "Darwin" ]]; then
-  alias cat='bat'
-else
-  alias cat='batcat'
-  alias fd='fdfind'
-fi
 
 # git aliases
 alias b='git branch'
@@ -249,8 +233,6 @@ if at_work; then
     if in_google3; then
       hg xl $@
       return
-    elif [[ $(uname) == "Darwin" ]]; then
-      /opt/homebrew/bin/tig $@
     else
       /usr/bin/tig $@
     fi
