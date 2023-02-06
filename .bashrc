@@ -245,9 +245,7 @@ if at_work; then
     if in_google3; then
       hg xl $@
       return
-    fi
-
-    if [[ $(uname) == "Darwin" ]]; then
+    elif [[ $(uname) == "Darwin" ]]; then
       /opt/homebrew/bin/tig $@
     else
       /usr/bin/tig $@
