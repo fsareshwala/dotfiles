@@ -127,6 +127,32 @@ function set_path() {
     export PATH=".:$PATH"
   fi
 
+  if [[ $PWD == "$HOME/code/pigweed"* ]]; then
+    export PATH="$HOME/code/pigweed/out/host/host_tools:$PATH"
+    export PATH="$HOME/code/pigweed/environment/pigweed-venv/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/bazel:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/cmake/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/cmake:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/go/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/go:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/host_tools:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/kythe:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/luci:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/rbe:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/testing:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/web/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/web:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/buildifier:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/arm/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/arm:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/pigweed/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/pigweed:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/python/bin:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/python:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd/packages/black:$PATH"
+    export PATH="$HOME/code/pigweed/environment/cipd:$PATH"
+  fi
+
   export PATH="/bin:$PATH"
   export PATH="/sbin:$PATH"
   export PATH="/usr/bin:$PATH"
