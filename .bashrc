@@ -123,8 +123,21 @@ PS1="[$c_green\u$c_white@$c_purple\h$c_white:$c_yellow\$(__git_ps1 "%s")$c_white
 
 function set_path() {
   # build path entirely from scartch to prevent unnecessary duplicates and
-  # support directory based path elements
-  export PATH="/bin"
+  # support directory based path elements (e.g. Fuchsia doesn't like the
+  # current directory in the path but I like that elsewhere in my system)
+  export PATH=""
+
+  if [[ "$(uname)" == "Darwin" ]]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/usr/local/git/git-google/bin:$PATH"
+  fi
+
+  # Fuchsia doesn't like the current directory in the path
+  if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
+    export PATH=".:$PATH"
+  fi
+
+  export PATH="/bin:$PATH"
   export PATH="/sbin:$PATH"
   export PATH="/usr/bin:$PATH"
   export PATH="/usr/sbin:$PATH"
@@ -136,15 +149,6 @@ function set_path() {
   export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
   export PATH="$HOME/code/fuchsia/scripts:$PATH"
   export PATH="$HOME/.cargo/bin:$PATH"
-
-  if [[ $(uname) == "Darwin" ]]; then
-    export PATH="/opt/homebrew/bin:$PATH"
-    export PATH="/usr/local/git/git-google/bin:$PATH"
-  fi
-
-  if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
-    export PATH=".:$PATH"
-  fi
 }
 
 if [[ -z $PROMPT_COMMAND ]]; then
