@@ -282,9 +282,11 @@ if at_work; then
   alias rdrop='hg cls-drop -p --skip-confirmation -c'
   alias rpost='hg upload chain'
   alias rsubmit='hg submit'
+  alias pw='pw --no-banner'
 
-  alias cd-f='cd ~/code/fuchsia'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
+  alias cd-f='cd ~/code/fuchsia'
+  alias cd-p='cd ~/code/pigweed'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 else
   alias d='git diff'
