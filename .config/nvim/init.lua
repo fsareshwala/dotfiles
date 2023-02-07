@@ -16,7 +16,7 @@ end
 local function at_work()
   local hostname = get_hostname()
 
-  if string.starts(hostname, 'fsareshwala-laptop') then
+  if string.starts(hostname, 'fsareshwala-office') then
     return true
   elseif string.starts(hostname, 'fsareshwala-cloudtop') then
     return true
