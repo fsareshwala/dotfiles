@@ -562,7 +562,7 @@ local function setup_autocmds(working)
     autocmd!
     autocmd BufRead,BufNewFile README setlocal filetype=markdown
     autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
-    autocmd FileType markdown,vimwiki setlocal spell comments+=b:>
+    autocmd FileType markdown setlocal spell comments+=b:>
     autocmd FileType c,cpp setlocal commentstring=//\ %s
     autocmd FileType fidl setlocal textwidth=100
     autocmd FileType go setlocal nolist
