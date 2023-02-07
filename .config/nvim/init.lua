@@ -526,8 +526,6 @@ local function setup_filetree()
 
   filetree.setup({
     hijack_cursor = true,
-    open_on_setup = true,
-    open_on_tab = true,
     reload_on_bufenter = true,
     actions = {
       open_file = {
@@ -554,6 +552,9 @@ local function setup_filetree()
       signcolumn = 'no',
     },
   })
+
+  local filetree_api = require('nvim-tree.api')
+  filetree_api.tree.open()
 end
 
 local function setup_autocmds(working)
