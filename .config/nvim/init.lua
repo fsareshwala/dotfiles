@@ -216,7 +216,7 @@ local function install_plugins(working)
     use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
 
     -- add a debug print line in the code
-    use({ "andrewferrier/debugprint.nvim", config = function() require('debugprint').setup() end })
+    use { 'andrewferrier/debugprint.nvim', config = function() require('debugprint').setup() end }
 
     -- rust crates.io integration
     use {
