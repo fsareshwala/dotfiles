@@ -566,7 +566,7 @@ local function setup_autocmds(working)
     autocmd FileType markdown setlocal spell comments+=b:>
     autocmd FileType c,cpp setlocal commentstring=//\ %s
     autocmd FileType go setlocal nolist
-    autocmd BufRead *.gni setlocal filetype=gn
+    autocmd BufRead *.gn,*.gni setlocal filetype=gn
     augroup end
   ]]
 
