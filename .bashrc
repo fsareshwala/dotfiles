@@ -15,11 +15,6 @@ if [[ -d ~/prefix ]]; then
   source ~/prefix/usr/local/bash/git-prompt.sh
 fi
 
-# simple math on the terminal
-function m() {
-  python3 -c "from math import *; print($*)"
-}
-
 function timestamp() {
   python3 -c "from datetime import datetime; print(datetime.fromtimestamp($*).strftime('%B %d %Y'))"
 }
