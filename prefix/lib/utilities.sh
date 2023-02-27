@@ -57,6 +57,14 @@ function at_work() {
   return 1
 }
 
+function is_mac_os() {
+  if [[ $(uname) == "Darwin" ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
 function min() {
   local a=$1
   local b=$2

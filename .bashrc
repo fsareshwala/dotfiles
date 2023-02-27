@@ -78,9 +78,14 @@ export MAILCAPS=${HOME}/.mailcap
 export MANPAGER='sh -c "col -bx | batcat -l man -p"'
 export READER=zathura
 export RSYNC_RSH=/usr/bin/ssh
-export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
+
+if is_mac_os; then
+  export TERM=xterm-256color
+else
+  export TERM=rxvt-unicode-256color
+fi
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -174,6 +179,10 @@ function set_path() {
   export PATH="$HOME/prefix/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/.cargo/bin:$PATH"
+
+  if is_mac_os; then
+    export PATH="/opt/homebrew/bin:$PATH"
+  fi
 }
 
 if [[ -z $PROMPT_COMMAND ]]; then
@@ -193,12 +202,10 @@ alias -- ....='cd ../../..'
 alias -- ...='cd ../..'
 alias -- ..='cd ..'
 alias bc='bc -lq'
-alias cat='batcat'
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias fc='cd ~/code/forecash && go build && forecash --config ~/personal/fc-chase.json && cd -'
-alias fd='fdfind'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
@@ -217,6 +224,13 @@ alias vimf='nvim $(fzf)'
 alias watch='watch --color'
 alias weather='curl wttr.in'
 alias which='type -p'
+
+if is_mac_os; then
+  alias cat='bat'
+else
+  alias cat='batcat'
+  alias fd='fdfind'
+fi
 
 # git aliases
 alias b='git branch'
