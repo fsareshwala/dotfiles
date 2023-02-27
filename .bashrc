@@ -102,6 +102,22 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
+function in_fuchsia() {
+  if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
+function in_pigweed() {
+  if [[ "$PWD" == "$HOME/code/pigweed"* ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --color=never *"
 export FZF_DEFAULT_OPTS='--height 20% --reverse'
 
@@ -122,11 +138,11 @@ function set_path() {
   export PATH=""
 
   # Fuchsia doesn't like the current directory in the path
-  if [[ $PWD != "$HOME/code/fuchsia"* ]]; then
+  if in_fuchsia; then
     export PATH=".:$PATH"
   fi
 
-  if [[ $PWD == "$HOME/code/pigweed"* ]]; then
+  if in_pigweed; then
     export PATH="$HOME/code/pigweed/out/host/host_tools:$PATH"
     export PATH="$HOME/code/pigweed/environment/pigweed-venv/bin:$PATH"
     export PATH="$HOME/code/pigweed/environment/cipd/packages/bazel:$PATH"
@@ -257,9 +273,18 @@ if at_work; then
   function tig() {
     if in_google3; then
       hg xl $@
-      return
     else
       /usr/bin/tig $@
+    fi
+  }
+
+  function rpost() {
+    if in_google3; then
+      hg upload chain
+    elif in_fuchsia; then
+      jiri upload
+    elif in_pigweed; then
+      git push origin HEAD:refs/for/main
     fi
   }
 
@@ -279,7 +304,6 @@ if at_work; then
   alias hs='hg export'
   alias hst='hg diff -r .^:. --stat'
   alias rdrop='hg cls-drop -p --skip-confirmation -c'
-  alias rpost='hg upload chain'
   alias rsubmit='hg submit'
   alias pw='pw --no-banner'
 
