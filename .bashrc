@@ -130,8 +130,11 @@ function set_path() {
   # current directory in the path but I like that elsewhere in my system)
   export PATH=""
 
-  # Fuchsia doesn't like the current directory in the path
   if in_fuchsia; then
+    export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
+    export PATH="$HOME/code/fuchsia/scripts:$PATH"
+  else
+    # Fuchsia doesn't like the current directory in the path
     export PATH=".:$PATH"
   fi
 
@@ -170,8 +173,6 @@ function set_path() {
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/prefix/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
-  export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
-  export PATH="$HOME/code/fuchsia/scripts:$PATH"
   export PATH="$HOME/.cargo/bin:$PATH"
 }
 
