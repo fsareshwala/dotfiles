@@ -281,6 +281,8 @@ if at_work; then
   function tig() {
     if in_google3; then
       hg xl $@
+    elif is_mac_os; then
+      /opt/homebrew/bin/tig $@
     else
       /usr/bin/tig $@
     fi
