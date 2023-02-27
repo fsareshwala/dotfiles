@@ -7,15 +7,13 @@ case $- in
   *) return ;;
 esac
 
-prefix=~/prefix
-if [[ -d $prefix ]]; then
-  source $prefix/lib/utilities.sh
-  source $prefix/usr/local/bash/key-bindings.bash
-  source $prefix/usr/local/bash/git-completion.bash
-  source $prefix/usr/local/bash/git-prompt.sh
+prefix=
+if [[ -d ~/prefix ]]; then
+  source ~/prefix/lib/utilities.sh
+  source ~/prefix/usr/local/bash/key-bindings.bash
+  source ~/prefix/usr/local/bash/git-completion.bash
+  source ~/prefix/usr/local/bash/git-prompt.sh
 fi
-
-source ~/prefix/lib/utilities.sh
 
 # simple math on the terminal
 function m() {
