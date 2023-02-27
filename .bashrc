@@ -32,7 +32,7 @@ function reswap() {
 }
 
 function dirdo() {
-  local cwd=$(pwd)
+  local cwd=$PWD
   local directories="$(find . -maxdepth 1 -type d)"
   for dir in $directories; do
     if [[ $dir == '.' ]]; then
@@ -88,7 +88,6 @@ export RSYNC_RSH=/usr/bin/ssh
 export TERM=rxvt-unicode-256color
 export TZ=America/Los_Angeles
 export VISUAL=nvim
-
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
