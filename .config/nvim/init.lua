@@ -403,7 +403,7 @@ local function setup_lsp()
     'clangd',
     'gopls',
     'rust_analyzer',
-    'sumneko_lua',
+    'lua_ls',
     'taplo',
   }
 
@@ -429,7 +429,7 @@ local function setup_lsp()
       capabilities = cmp_nvim_lsp.default_capabilities()
     }
 
-    if server == 'sumneko_lua' then
+    if server == 'lua_ls' then
       local additional_options = {
         settings = {
           Lua = {
