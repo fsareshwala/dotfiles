@@ -82,8 +82,8 @@
   skippedCherryPicks = false
 
 [url "git@github.com:"]
-  pushInsteadOf = https://github.com/
-  pushInsteadOf = git://github.com/
+  insteadof = https://github.com
+  insteadof = git://github.com
 
 [repo]
   superprojectChoiceExpire = 1634250339
