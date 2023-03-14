@@ -133,7 +133,16 @@ function set_path() {
   # build path entirely from scartch to prevent unnecessary duplicates and
   # support directory based path elements (e.g. Fuchsia doesn't like the
   # current directory in the path but I like that elsewhere in my system)
-  export PATH=""
+  export PATH="/bin"
+  export PATH="/sbin:$PATH"
+  export PATH="/usr/bin:$PATH"
+  export PATH="/usr/sbin:$PATH"
+  export PATH="/usr/local/bin:$PATH"
+  export PATH="/usr/local/sbin:$PATH"
+  export PATH="$GOPATH/bin:$PATH"
+  export PATH="$HOME/prefix/bin:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
+  export PATH="$HOME/.cargo/bin:$PATH"
 
   if in_fuchsia; then
     export PATH="$HOME/code/fuchsia/.jiri_root/bin:$PATH"
@@ -169,16 +178,6 @@ function set_path() {
     export PATH="$HOME/code/pigweed/environment/cipd:$PATH"
   fi
 
-  export PATH="/bin:$PATH"
-  export PATH="/sbin:$PATH"
-  export PATH="/usr/bin:$PATH"
-  export PATH="/usr/sbin:$PATH"
-  export PATH="/usr/local/bin:$PATH"
-  export PATH="/usr/local/sbin:$PATH"
-  export PATH="$GOPATH/bin:$PATH"
-  export PATH="$HOME/prefix/bin:$PATH"
-  export PATH="$HOME/.local/bin:$PATH"
-  export PATH="$HOME/.cargo/bin:$PATH"
 
   if is_mac_os; then
     export PATH="/opt/homebrew/bin:$PATH"
