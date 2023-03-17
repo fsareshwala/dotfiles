@@ -63,7 +63,7 @@ function fc() {
 
   config_prefix="$HOME/drive"
   if is_mac_os; then
-    config_prefix="$HOME/My\ Drive"
+    config_prefix="$HOME/My Drive"
   fi
 
   forecash --config "$config_prefix/archive/fc-chase.json"
