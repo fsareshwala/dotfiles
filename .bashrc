@@ -57,6 +57,19 @@ function gc() {
   git checkout -b fsareshwala/${1} -t origin/master
 }
 
+function fc() {
+  pushd ~/code/forecash
+  go build
+
+  config_prefix="$HOME/drive"
+  if is_mac_os; then
+    config_prefix="$HOME/My\ Drive"
+  fi
+
+  forecash --config "$config_prefix/archive/fc-chase.json"
+  popd
+}
+
 stty -ixon # disable software control flow (ctrl-s and ctrl-q, urxvt support)
 stty werase undef
 shopt -s checkwinsize
@@ -204,7 +217,6 @@ alias bc='bc -lq'
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
-alias fc='cd ~/code/forecash && go build && forecash --config ~/personal/fc-chase.json && cd -'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
