@@ -330,7 +330,7 @@ if at_work; then
 
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-f='cd ~/code/fuchsia'
-  alias cd-p='cd ~/code/pigweed'
+  alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 else
   alias d='git diff'
