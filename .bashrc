@@ -126,6 +126,10 @@ function in_pigweed() {
     return 0
   fi
 
+  if [[ "$PWD" == "$HOME/code/rust_crates"* ]]; then
+    return 0
+  fi
+
   return 1
 }
 
