@@ -336,8 +336,6 @@ if at_work; then
   alias cd-f='cd ~/code/fuchsia'
   alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
-
-  alias mdformat='/google/bin/releases/corpeng-engdoc/tools/mdformat'
 else
   alias d='git diff'
   alias st='git status'
