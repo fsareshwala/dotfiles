@@ -225,6 +225,7 @@ alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python -m json.tool'
 alias ll='ls -l'
+alias lp='lp -o sides=two-sided-long-edge'
 alias ls='ls --color'
 alias mkdir='mkdir -p'
 alias patch='patch -merge --no-backup-if-mismatch'
