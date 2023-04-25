@@ -114,7 +114,7 @@ _fzf_compgen_dir() {
 }
 
 function in_fuchsia() {
-  if [[ "$PWD" == "$HOME/code/fuchsia" ]]; then
+  if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
     return 0
   fi
 
@@ -122,11 +122,11 @@ function in_fuchsia() {
 }
 
 function in_pigweed() {
-  if [[ "$PWD" == "$HOME/code/pigweed" ]]; then
+  if [[ "$PWD" == "$HOME/code/pigweed"* ]]; then
     return 0
   fi
 
-  if [[ "$PWD" == "$HOME/code/pigweed-rust-crates" ]]; then
+  if [[ "$PWD" == "$HOME/code/rust_crates"* ]]; then
     return 0
   fi
 
