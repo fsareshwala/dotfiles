@@ -223,7 +223,7 @@ alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
-alias json='python -m json.tool'
+alias json='python3 -m json.tool'
 alias ll='ls -l'
 alias lp='lp -o sides=two-sided-long-edge'
 alias ls='ls --color'
