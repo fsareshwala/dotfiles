@@ -178,6 +178,11 @@ local function set_keymaps()
 
   -- git keymaps
   vim.keymap.set(normal, '<leader>b', '<cmd>Git blame<cr>', opts)
+
+  -- debugprint keymaps
+  vim.keymap.set(normal, '<leader>d', function()
+    return require('debugprint').debugprint({variable = true})
+  end, { expr = true })
 end
 
 local function install_plugins(working)
