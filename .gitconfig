@@ -39,16 +39,16 @@
   tool = vimdiff
   ff = only
 
-[push]
-  default = current
-
 [pull]
   ff = only
   rebase = false
 
+[push]
+  default = current
+
 [tig]
   line-graphics = yes
-  tab-size = 2
+  tab-size = 4
   commit-order = default
   show-changes = no
 
