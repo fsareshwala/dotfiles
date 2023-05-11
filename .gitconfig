@@ -88,3 +88,7 @@
 [repo]
   superprojectChoiceExpire = 1634250339
   superprojectChoice = true
+
+[url "sso://fuchsia/"]
+  pushInsteadOf = https://fuchsia.googlesource.com/
+  pushInsteadOf = https://fuchsia-review.googlesource.com/
