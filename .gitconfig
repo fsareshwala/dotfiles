@@ -25,7 +25,7 @@
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
   ls = ls-files
   root = rev-parse --show-toplevel
-  undo-commit = reset --soft HEAD~
+  undo = reset --soft HEAD~
 
 [diff]
   tool = vimdiff
