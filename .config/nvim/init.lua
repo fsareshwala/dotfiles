@@ -201,7 +201,6 @@ local function install_plugins(working)
   return packer.startup(function(use)
     use 'wbthomason/packer.nvim'    -- let packer manage itself
 
-    use 'chriskempson/base16-vim'   -- colorscheme
     use 'rust-lang/rust.vim'        -- rust vim integration
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
@@ -704,8 +703,6 @@ local function main()
   setup_filetree()
   setup_autocmds(working)
   setup_oscyank()
-
-  vim.cmd('colorscheme base16-default-dark')
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
