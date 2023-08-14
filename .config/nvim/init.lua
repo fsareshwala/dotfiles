@@ -177,7 +177,7 @@ local function set_keymaps()
   vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
 
   -- git keymaps
-  vim.keymap.set(normal, '<leader>b', '<cmd>Git blame<cr>', opts)
+  vim.keymap.set(normal, '<leader>b', '<cmd>ToggleBlame virtual<cr>', opts)
 
   -- debugprint keymaps
   vim.keymap.set(normal, '<leader>d', function()
@@ -205,7 +205,7 @@ local function install_plugins(working)
     use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
     use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
     use 'Vonr/align.nvim'           -- align line content
-    use 'tpope/vim-fugitive'        -- git integration
+    use 'FabijanZulj/blame.nvim'    -- git blame integration
     use 'fatih/vim-go'              -- golang integration
     use 'chaoren/vim-wordmotion'    -- better word motions through long strings
     vim.g.wordmotion_spaces = {'_', '-', '.'}
