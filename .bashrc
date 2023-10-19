@@ -195,9 +195,11 @@ function set_path() {
     export PATH="$HOME/code/pigweed/environment/cipd:$PATH"
   fi
 
-
   if is_mac_os; then
     export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+    export PATH="/usr/local/git/current/bin:$PATH"
+    export PATH="/usr/local/git/git-google/bin:$PATH"
   fi
 }
 
