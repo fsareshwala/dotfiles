@@ -70,6 +70,26 @@ function fc() {
   popd
 }
 
+function in_fuchsia() {
+  if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
+function in_pigweed() {
+  if [[ "$PWD" == "$HOME/code/pigweed"* ]]; then
+    return 0
+  fi
+
+  if [[ "$PWD" == "$HOME/code/rust_crates"* ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
 stty -ixon # disable software control flow (ctrl-s and ctrl-q, urxvt support)
 stty werase undef
 shopt -s checkwinsize
@@ -111,26 +131,6 @@ _fzf_compgen_path() {
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
-}
-
-function in_fuchsia() {
-  if [[ "$PWD" == "$HOME/code/fuchsia"* ]]; then
-    return 0
-  fi
-
-  return 1
-}
-
-function in_pigweed() {
-  if [[ "$PWD" == "$HOME/code/pigweed"* ]]; then
-    return 0
-  fi
-
-  if [[ "$PWD" == "$HOME/code/rust_crates"* ]]; then
-    return 0
-  fi
-
-  return 1
 }
 
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --color=never *"
@@ -318,6 +318,9 @@ if at_work; then
 
   # use remote build execution to speed up builds
   export USE_RBE=true
+
+  # keep the ninja build graph in memory after the build completes
+  export NINJA_PERSISTENT_MODE=1
 
   alias ha='hg add'
   alias hab='hg absorb'
