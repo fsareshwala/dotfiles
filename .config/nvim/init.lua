@@ -185,7 +185,7 @@ local function install_plugins(working)
   end
   vim.opt.rtp:prepend(lazypath)
 
-  local plugins = {
+  require('lazy').setup({
     'FabijanZulj/blame.nvim',   -- git blame integration
     'Vonr/align.nvim',          -- align line content
     'andrewferrier/debugprint.nvim', -- add a debug print line in the code
@@ -261,15 +261,20 @@ local function install_plugins(working)
         'williamboman/mason-lspconfig.nvim',
       }
     }
-
-  }
+  })
 
   if working then
-    work_plugins = {
+    require('lazy').setup({
       { dir = '~/code/fuchsia/tools/fidl/editors/vim' },
       { dir = '~/code/emboss/integration/vim/ft-emboss' },
 
-      'https://gn.googlesource.com/gn', -- fuchsia build system
+      -- fuchsia build system
+      {
+        url = 'https://gn.googlesource.com/gn',
+        init = function()
+          vim.opt.rtp:prepend('misc/vim')
+        end
+      },
 
       -- code formatting
       {
@@ -278,19 +283,10 @@ local function install_plugins(working)
           'google/vim-glaive',
           'google/vim-maktaba'
         },
-        init = function()
-          vim.cmd('call glaive#Install()')
-        end
+        init = function() vim.cmd('call glaive#Install()') end
       }
-    }
-
-    for plugin in work_plugins do
-      plugins.insert(plugin)
-    end
+    })
   end
-
-  require('lazy').setup(plugins)
-
 end
 
 local function setup_completions()
@@ -672,6 +668,7 @@ local function main()
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
+  vim.cmd('colorscheme habamax')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
