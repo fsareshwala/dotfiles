@@ -134,7 +134,7 @@ local function set_keymaps()
   vim.keymap.set(normal, '<leader>wj', '<cmd>e ~/personal/journal.md<cr>', opts)
 
   -- stay at current word when using star search
-  vim.keymap.set(normal, '*', '*<c-o>', opts)
+  vim.keymap.set(normal, '*', function() vim.fn.setreg('/', vim.fn.expand('<cword>')) end, opts)
 
   -- underline current line when only in normal mode
   vim.keymap.set(normal, 'U', 'YpVr-', opts)
