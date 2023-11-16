@@ -33,7 +33,7 @@ local function set_options()
   vim.opt.copyindent = true
   vim.opt.expandtab = true
   vim.opt.exrc = true
-  vim.opt.formatoptions = 'cjlnqrt'
+  vim.opt.formatoptions = 'cjlnqrtp]'
   vim.opt.gdefault = true
   vim.opt.ignorecase = true
   vim.opt.inccommand = 'split'
