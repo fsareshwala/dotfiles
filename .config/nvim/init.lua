@@ -191,12 +191,16 @@ local function install_plugins(working)
     'andrewferrier/debugprint.nvim', -- add a debug print line in the code
     'kylechui/nvim-surround',   -- motions to surround text with other text
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
-    'terrortylor/nvim-comment', -- motions to comment lines out
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
     'windwp/nvim-autopairs',    -- automatically insert/delete parenthesis, brackets, quotes
 
     -- better word motions through long strings
     {'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end},
+
+    -- motions to comment lines out -- have to do this dance because
+    -- nvim-comment uses nvim_comment (underscore) as the main module
+    {'terrortylor/nvim-comment', config = true, main = 'nvim_comment'},
+
 
     -- better syntax highlighting
     {
