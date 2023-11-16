@@ -26,12 +26,8 @@ local function at_work()
 end
 
 local function set_options()
-  vim.opt.autoindent = true
-  vim.opt.autoread = true
-  vim.opt.autowriteall = true
   vim.opt.background = 'dark'
   vim.opt.backspace = {'eol', 'start', 'indent'}
-  vim.opt.backup = false
   vim.opt.clipboard = 'unnamedplus'
   vim.opt.colorcolumn = '+1'
   vim.opt.copyindent = true
@@ -39,18 +35,14 @@ local function set_options()
   vim.opt.exrc = true
   vim.opt.formatoptions = 'cjlnqrt'
   vim.opt.gdefault = true
-  vim.opt.hlsearch = true
   vim.opt.ignorecase = true
   vim.opt.inccommand = 'split'
-  vim.opt.incsearch = true
   vim.opt.iskeyword:append('-')
-  vim.opt.joinspaces = false
   vim.opt.laststatus = 3 -- enable global status line
   vim.opt.linebreak = true
   vim.opt.list = true
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
   vim.opt.matchtime = 3
-  vim.opt.modeline = true
   vim.opt.mouse = ''
   vim.opt.nrformats:append({'alpha', 'octal'})
   vim.opt.number = true
@@ -62,16 +54,13 @@ local function set_options()
   vim.opt.shortmess:append('c')
   vim.opt.showmatch = true
   vim.opt.showmode = false
-  vim.opt.showtabline = 1
   vim.opt.signcolumn = 'number'
   vim.opt.smartcase = true
-  vim.opt.smarttab = true
   vim.opt.softtabstop = 2
   vim.opt.spellfile:append(vim.fn.glob('~/.config/nvim/spell/en.utf-8.add'))
   vim.opt.spellfile:append(vim.fn.glob('~/personal/vim/en.utf-8.add'))
   vim.opt.splitbelow = true
   vim.opt.splitright = true
-  vim.opt.startofline = false
   vim.opt.swapfile = false
   vim.opt.tabstop = 2
   vim.opt.tags = 'tags;'
@@ -83,10 +72,7 @@ local function set_options()
   vim.opt.updatetime = 300
   vim.opt.virtualedit:append('block')
   vim.opt.wildignore:append({'*.so', '*.o'})
-  vim.opt.wildmenu = true
   vim.opt.wildmode = 'list:longest,full'
-  vim.opt.wrap = true
-  vim.opt.wrapscan = true
   vim.opt.writebackup = false
 
   vim.g.left_sidebar_width = 35
