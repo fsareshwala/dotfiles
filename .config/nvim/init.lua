@@ -1,5 +1,5 @@
 function string.starts(haystack, needle)
-   return string.sub(haystack, 0, string.len(needle)) == needle
+  return string.sub(haystack, 0, string.len(needle)) == needle
 end
 
 local function get_hostname()
@@ -172,137 +172,125 @@ local function set_keymaps()
 end
 
 local function install_plugins(working)
-  local data_path = vim.fn.stdpath('data')
-  local packer_subfile = '/site/pack/packer/start/packer.nvim'
-  local install_path = data_path .. packer_subfile
-  local packer_repo = 'https://github.com/wbthomason/packer.nvim'
-
-  if vim.fn.empty(vim.fn.glob(install_path)) then
-    vim.fn.system({'git', 'clone', packer_repo, install_path})
-    vim.cmd('packadd packer.nvim')
+  local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+  if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+      'git',
+      'clone',
+      '--filter=blob:none',
+      'https://github.com/folke/lazy.nvim.git',
+      '--branch=stable', -- latest stable release
+      lazypath,
+    })
   end
+  vim.opt.rtp:prepend(lazypath)
 
-  local packer = require('packer')
+  local plugins = {
+    'FabijanZulj/blame.nvim',   -- git blame integration
+    'Vonr/align.nvim',          -- align line content
+    'andrewferrier/debugprint.nvim', -- add a debug print line in the code
+    'kylechui/nvim-surround',   -- motions to surround text with other text
+    'ojroques/nvim-osc52',      -- osc52 location independent clipboard
+    'terrortylor/nvim-comment', -- motions to comment lines out
+    'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
+    'windwp/nvim-autopairs',    -- automatically insert/delete parenthesis, brackets, quotes
 
-  return packer.startup(function(use)
-    use 'wbthomason/packer.nvim'    -- let packer manage itself
+    -- better word motions through long strings
+    {'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end},
 
-    use 'rust-lang/rust.vim'        -- rust vim integration
-    use 'tpope/vim-speeddating'     -- ctrl+a and ctrl+x on dates
-    use 'ojroques/nvim-osc52'       -- osc52 location independent clipboard
-    use 'Vonr/align.nvim'           -- align line content
-    use 'FabijanZulj/blame.nvim'    -- git blame integration
-    use 'fatih/vim-go'              -- golang integration
-    use 'chaoren/vim-wordmotion'    -- better word motions through long strings
-    vim.g.wordmotion_spaces = {'_', '-', '.'}
-
-    -- motions to comment lines out
-    use { 'terrortylor/nvim-comment', config = function() require('nvim_comment').setup() end }
-
-    -- automatically insert/delete parenthesis, brackets, quotes
-    use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
-
-    -- motions to surround text with other text
-    use { 'kylechui/nvim-surround', config = function() require('nvim-surround').setup() end }
-
-    -- add a debug print line in the code
-    use { 'andrewferrier/debugprint.nvim', config = function() require('debugprint').setup() end }
-
-    -- rust crates.io integration
-    use {
-      'saecki/crates.nvim',
-      event = { 'BufRead Cargo.toml' },
-      requires = { 'nvim-lua/plenary.nvim' },
-      config = function() require('crates').setup() end
-    }
+    -- better syntax highlighting
+    {
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+    },
 
     -- telescope: fuzzy finder over files, commands, lists, etc
-    use {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      run = 'make',
-      requires = { 'nvim-telescope/telescope.nvim' }
-    }
-
-    use {
-      'nvim-telescope/telescope-ui-select.nvim',
-      requires = { 'nvim-telescope/telescope.nvim' }
-    }
-
-    use {
+    {
       'nvim-telescope/telescope.nvim',
-      requires = { 'nvim-lua/plenary.nvim' }
-    }
-
-    -- Better syntax highlighting
-    use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-    }
+      dependencies = {
+        'nvim-lua/plenary.nvim',
+        {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
+        'nvim-telescope/telescope-ui-select.nvim',
+      }
+    },
 
     -- completion engine
-    use {'hrsh7th/cmp-nvim-lua', requires = 'hrsh7th/nvim-cmp'} -- neovim lua api
-    use {'hrsh7th/cmp-path', requires = 'hrsh7th/nvim-cmp'}     -- filesystem paths
-    use {'hrsh7th/cmp-nvim-lsp', requires = 'hrsh7th/nvim-cmp'} -- lsp based completions
-    use { 'hrsh7th/cmp-nvim-lsp-signature-help', requires = 'hrsh7th/nvim-cmp' } -- func signatures
-    use {'saadparwaiz1/cmp_luasnip', -- completion source for luasnip
-      requires = {
-        'hrsh7th/nvim-cmp',
-        'L3MON4D3/LuaSnip' -- nvim-cmp requires a snippet engine for expansion
-      }
-    }
+    {
+      'hrsh7th/nvim-cmp',
+      event = 'InsertEnter',
+      dependencies = {
+        'hrsh7th/cmp-nvim-lsp', -- lsp based completions
+        'hrsh7th/cmp-nvim-lua', -- neovim lua api
+        'hrsh7th/cmp-path', -- filesystem paths
+        'hrsh7th/cmp-nvim-lsp-signature-help', -- function signatures
+        'L3MON4D3/LuaSnip', -- nvim-cmp requires a snippet engine for expansion
+        'saadparwaiz1/cmp_luasnip', -- completion source for luasnip
+      },
+    },
+
+    -- file tree
+    {'kyazdani42/nvim-tree.lua', dependencies = {'kyazdani42/nvim-web-devicons'} },
+
+    -- file outline
+    {
+      'stevearc/aerial.nvim',
+      opts = {
+        layout = {
+          width = vim.g.left_sidebar_width,
+          default_direction = 'left',
+        },
+      },
+    },
+
+    -- golang integration
+    {'fatih/vim-go', ft = 'go'},
+
+    -- rust integration
+    {'rust-lang/rust.vim', ft = 'rust'},
+    {
+      'saecki/crates.nvim',
+      event = 'BufRead Cargo.toml',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
     -- language server protocol
-    use {
+    {
       'neovim/nvim-lspconfig',
-      requires = {
+      dependencies = {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
       }
     }
 
-    -- file tree
-    use {
-      'kyazdani42/nvim-tree.lua',
-      requires = {'kyazdani42/nvim-web-devicons'}
-    }
+  }
 
-    -- file outline
-    use {
-      'stevearc/aerial.nvim',
-      config = function()
-        require('aerial').setup({
-          layout = {
-            width = vim.g.left_sidebar_width,
-            default_direction = 'left',
-          },
-        })
-      end
-    }
+  if working then
+    work_plugins = {
+      { dir = '~/code/fuchsia/tools/fidl/editors/vim' },
+      { dir = '~/code/emboss/integration/vim/ft-emboss' },
 
-    -- work plugins
-    if working then
-      use '~/code/fuchsia/tools/fidl/editors/vim'
-      use '~/code/emboss/integration/vim/ft-emboss'
-
-      -- fuchsia build system
-      use {
-        'https://gn.googlesource.com/gn',
-        rtp = 'misc/vim'
-      }
+      'https://gn.googlesource.com/gn', -- fuchsia build system
 
       -- code formatting
-      use {
+      {
         'google/vim-codefmt',
-        requires = {
+        dependencies = {
           'google/vim-glaive',
           'google/vim-maktaba'
         },
-        config = function()
+        init = function()
           vim.cmd('call glaive#Install()')
         end
       }
+    }
+
+    for plugin in work_plugins do
+      plugins.insert(plugin)
     end
-  end)
+  end
+
+  require('lazy').setup(plugins)
+
 end
 
 local function setup_completions()
@@ -549,79 +537,71 @@ end
 
 local function setup_autocmds(working)
   vim.cmd [[
-    augroup general_settings
-    autocmd!
-    autocmd BufRead,BufNewFile README setlocal filetype=markdown
-    autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
-    autocmd FileType markdown setlocal spell comments+=b:>
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType go setlocal nolist
-    autocmd BufRead *.gn,*.gni setlocal filetype=gn
-    augroup end
+  augroup general_settings
+  autocmd!
+  autocmd BufRead,BufNewFile README setlocal filetype=markdown
+  autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
+  autocmd FileType markdown setlocal spell comments+=b:>
+  autocmd FileType c,cpp setlocal commentstring=//\ %s
+  autocmd FileType go setlocal nolist
+  autocmd BufRead *.gn,*.gni setlocal filetype=gn
+  augroup end
   ]]
 
   -- resize buffesr on vim window resize
   vim.cmd [[
-    augroup resize_buffers
-    autocmd!
-    autocmd VimResized * tabdo wincmd =
-    augroup end
-  ]]
-
-  -- load vim configuration on file save
-  vim.cmd [[
-    augroup vim_configuration
-    autocmd!
-    autocmd BufWritePost init.lua source ~/.config/nvim/init.lua | PackerCompile
-    augroup end
+  augroup resize_buffers
+  autocmd!
+  autocmd VimResized * tabdo wincmd =
+  augroup end
   ]]
 
   -- return to the same line when you reopen a file
   vim.cmd [[
-    augroup line_return
-    autocmd!
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line('$') |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-    augroup end
+  augroup line_return
+  autocmd!
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line("'\"") <= line('$') |
+  \     execute 'normal! g`"zvzz' |
+  \ endif
+  augroup end
   ]]
 
   -- apply xresources file on save
   vim.cmd [[
-    augroup xresources
-    autocmd!
-    autocmd BufWritePost *Xresources !xrdb %
-    augroup end
+  augroup xresources
+  autocmd!
+  autocmd BufWritePost *Xresources !xrdb %
+  augroup end
   ]]
 
   -- automatically delete all trailing whitespace and newlines at end of file on save
   vim.cmd [[
-    augroup trailing_whitespace
-    autocmd!
-    autocmd BufWritePre * %s/\s\+$//e
-    autocmd BufWritepre * %s/\n\+\%$//e
-    augroup end
+  augroup trailing_whitespace
+  autocmd!
+  autocmd BufWritePre * %s/\s\+$//e
+  autocmd BufWritepre * %s/\n\+\%$//e
+  augroup end
   ]]
 
   -- add formats for speeddating plugin
   vim.cmd [[
-    augroup speeddating
-    autocmd!
-    autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
-    autocmd VimEnter * SpeedDatingFormat %B %d, %Y
-    augroup end
+  augroup speeddating
+  autocmd!
+  autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
+  autocmd VimEnter * SpeedDatingFormat %B %d, %Y
+  augroup end
   ]]
 
   -- autoclose nvim-tree if it's the last buffer open
   vim.cmd [[
-    augroup autoclose_nvim_tree
-    autocmd!
-    autocmd BufEnter * ++nested
-      \ if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() |
-      \   quit |
-      \ endif
-    augroup end
+  augroup autoclose_nvim_tree
+  autocmd!
+  autocmd BufEnter * ++nested
+  \ if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() |
+  \   quit |
+  \ endif
+  augroup end
   ]]
 
   -- format code on save
@@ -629,28 +609,28 @@ local function setup_autocmds(working)
   vim.g.rustfmt_autosave = 1
   if working then
     vim.cmd [[
-      let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
+    let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
 
-      augroup formatting
-      autocmd!
-      autocmd FileType gn ++once execute ':Glaive codefmt gn_executable=' . g:gn_path
-      autocmd FileType bzl AutoFormatBuffer buildifier
-      autocmd FileType c,cpp AutoFormatBuffer clang-format
-      autocmd FileType gn AutoFormatBuffer gn
-      autocmd FileType go AutoFormatBuffer gofmt
-      autocmd FileType markdown AutoFormatBuffer mdformat
-      autocmd FileType proto AutoFormatBuffer protofmt
-      autocmd FileType python AutoFormatBuffer pyformat
-      autocmd FileType rust AutoFormatBuffer rustfmt
-      autocmd FileType sh AutoFormatBuffer shfmt
-      augroup end
+    augroup formatting
+    autocmd!
+    autocmd FileType gn ++once execute ':Glaive codefmt gn_executable=' . g:gn_path
+    autocmd FileType bzl AutoFormatBuffer buildifier
+    autocmd FileType c,cpp AutoFormatBuffer clang-format
+    autocmd FileType gn AutoFormatBuffer gn
+    autocmd FileType go AutoFormatBuffer gofmt
+    autocmd FileType markdown AutoFormatBuffer mdformat
+    autocmd FileType proto AutoFormatBuffer protofmt
+    autocmd FileType python AutoFormatBuffer pyformat
+    autocmd FileType rust AutoFormatBuffer rustfmt
+    autocmd FileType sh AutoFormatBuffer shfmt
+    augroup end
     ]]
   else
     vim.cmd [[
-      augroup formatting
-      autocmd!
-      autocmd BufWritePre *.h,*.cc,*.go lua vim.lsp.buf.formatting_sync()
-      augroup end
+    augroup formatting
+    autocmd!
+    autocmd BufWritePre *.h,*.cc,*.go lua vim.lsp.buf.formatting_sync()
+    augroup end
     ]]
   end
 end
