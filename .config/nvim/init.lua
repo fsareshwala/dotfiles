@@ -138,37 +138,6 @@ local function set_keymaps()
 
   -- underline current line when only in normal mode
   vim.keymap.set(normal, 'U', 'YpVr-', opts)
-
-  -- telescope keymaps
-  vim.keymap.set(normal, '<leader>e', '<cmd>Telescope find_files<cr>', opts)
-  vim.keymap.set(normal, '<leader>f', '<cmd>Telescope live_grep<cr>', opts)
-  vim.keymap.set(normal, '<leader>g', '<cmd>Telescope grep_string<cr>', opts)
-  vim.keymap.set(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
-  vim.keymap.set(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
-
-  -- lsp keymaps
-  vim.keymap.set(normal, 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
-  vim.keymap.set(normal, 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
-  vim.keymap.set(normal, 'gr', '<cmd>Telescope lsp_references<cr>', opts)
-  vim.keymap.set(normal, 'gf', '<cmd>Telescope lsp_incoming_calls<cr>', opts)
-
-  -- file tree keymaps
-  vim.keymap.set(normal, '<leader>n', '<cmd>AerialClose<cr> | <cmd>NvimTreeToggle<cr>', opts)
-  vim.keymap.set(normal, '<leader>l', '<cmd>AerialClose<cr> | <cmd>NvimTreeFindFile<cr>', opts)
-
-  -- file outline keymaps
-  vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr> | <cmd>AerialToggle!<cr>', opts)
-
-  -- align around a string
-  vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
-
-  -- git keymaps
-  vim.keymap.set(normal, '<leader>b', '<cmd>ToggleBlame virtual<cr>', opts)
-
-  -- debugprint keymaps
-  vim.keymap.set(normal, '<leader>d', function()
-    return require('debugprint').debugprint({variable = true})
-  end, { expr = true })
 end
 
 local function install_plugins(working)
@@ -185,27 +154,74 @@ local function install_plugins(working)
   end
   vim.opt.rtp:prepend(lazypath)
 
+  local opts = {noremap = true, silent = true}
+  local normal = 'n'
+  local visual = 'v'
+
   require('lazy').setup({
-    'FabijanZulj/blame.nvim',   -- git blame integration
-    'Vonr/align.nvim',          -- align line content
-    'andrewferrier/debugprint.nvim', -- add a debug print line in the code
     'kylechui/nvim-surround',   -- motions to surround text with other text
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
     'windwp/nvim-autopairs',    -- automatically insert/delete parenthesis, brackets, quotes
 
     -- better word motions through long strings
-    {'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end},
+    { 'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end },
 
-    -- motions to comment lines out -- have to do this dance because
-    -- nvim-comment uses nvim_comment (underscore) as the main module
-    {'terrortylor/nvim-comment', config = true, main = 'nvim_comment'},
-
+    -- motions to comment lines out -- have to do this dance because nvim-comment uses nvim_comment
+    -- (underscore) as the main module
+    { 'terrortylor/nvim-comment', config = true, main = 'nvim_comment' },
 
     -- better syntax highlighting
+    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+
+    -- file tree
     {
-      'nvim-treesitter/nvim-treesitter',
-      build = ':TSUpdate',
+      'kyazdani42/nvim-tree.lua',
+      dependencies = {'kyazdani42/nvim-web-devicons'},
+      init = function()
+        vim.keymap.set(normal, '<leader>n', '<cmd>AerialClose<cr> | <cmd>NvimTreeToggle<cr>', opts)
+        vim.keymap.set(normal, '<leader>l', '<cmd>AerialClose<cr> | <cmd>NvimTreeFindFile<cr>', opts)
+      end
+    },
+
+    -- file outline
+    {
+      'stevearc/aerial.nvim',
+      opts = {
+        layout = {
+          width = vim.g.left_sidebar_width,
+          default_direction = 'left',
+        },
+      },
+      init = function()
+        vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr> | <cmd>AerialToggle!<cr>', opts)
+      end
+    },
+
+    -- git blame integration
+    {
+      'FabijanZulj/blame.nvim',
+      init = function()
+        vim.keymap.set(normal, '<leader>b', '<cmd>ToggleBlame virtual<cr>', opts)
+      end
+    },
+
+    -- align line content
+    {
+      'Vonr/align.nvim',
+      init = function()
+        vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
+      end
+    },
+
+    -- add a debug print line in the code
+    {
+      'andrewferrier/debugprint.nvim',
+      init = function()
+        vim.keymap.set(normal, '<leader>d', function()
+          return require('debugprint').debugprint({variable = true})
+        end, { expr = true })
+      end
     },
 
     -- telescope: fuzzy finder over files, commands, lists, etc
@@ -215,7 +231,14 @@ local function install_plugins(working)
         'nvim-lua/plenary.nvim',
         {'nvim-telescope/telescope-fzf-native.nvim', build = 'make'},
         'nvim-telescope/telescope-ui-select.nvim',
-      }
+      },
+      init = function()
+        vim.keymap.set(normal, '<leader>e', '<cmd>Telescope find_files<cr>', opts)
+        vim.keymap.set(normal, '<leader>f', '<cmd>Telescope live_grep<cr>', opts)
+        vim.keymap.set(normal, '<leader>g', '<cmd>Telescope grep_string<cr>', opts)
+        vim.keymap.set(normal, '<leader>z', '<cmd>Telescope spell_suggest<cr>', opts)
+        vim.keymap.set(normal, '<leader>x', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>', opts)
+      end
     },
 
     -- completion engine
@@ -232,18 +255,19 @@ local function install_plugins(working)
       },
     },
 
-    -- file tree
-    {'kyazdani42/nvim-tree.lua', dependencies = {'kyazdani42/nvim-web-devicons'} },
-
-    -- file outline
+    -- language server protocol
     {
-      'stevearc/aerial.nvim',
-      opts = {
-        layout = {
-          width = vim.g.left_sidebar_width,
-          default_direction = 'left',
-        },
+      'neovim/nvim-lspconfig',
+      dependencies = {
+        'williamboman/mason.nvim',
+        'williamboman/mason-lspconfig.nvim',
       },
+      init = function()
+        vim.keymap.set(normal, 'gd', '<cmd>Telescope lsp_definitions<cr>', opts)
+        vim.keymap.set(normal, 'gi', '<cmd>Telescope lsp_implementations<cr>', opts)
+        vim.keymap.set(normal, 'gr', '<cmd>Telescope lsp_references<cr>', opts)
+        vim.keymap.set(normal, 'gf', '<cmd>Telescope lsp_incoming_calls<cr>', opts)
+      end
     },
 
     -- golang integration
@@ -257,40 +281,29 @@ local function install_plugins(working)
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
-    -- language server protocol
+    -- work plugins
+    { dir = '~/code/fuchsia/tools/fidl/editors/vim', enabled = working },
+    { dir = '~/code/emboss/integration/vim/ft-emboss', enabled = working },
+
+    -- fuchsia build system
     {
-      'neovim/nvim-lspconfig',
+      url = 'https://gn.googlesource.com/gn',
+      enabled = working,
+      init = function()
+        vim.opt.rtp:prepend('misc/vim')
+      end
+    },
+
+    -- code formatting
+    {
+      'google/vim-codefmt',
+      enabled = working,
       dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-      }
+        'google/vim-maktaba',
+        { 'google/vim-glaive', config = function() vim.cmd('call glaive#Install()') end },
+      },
     }
   })
-
-  if working then
-    require('lazy').setup({
-      { dir = '~/code/fuchsia/tools/fidl/editors/vim' },
-      { dir = '~/code/emboss/integration/vim/ft-emboss' },
-
-      -- fuchsia build system
-      {
-        url = 'https://gn.googlesource.com/gn',
-        init = function()
-          vim.opt.rtp:prepend('misc/vim')
-        end
-      },
-
-      -- code formatting
-      {
-        'google/vim-codefmt',
-        dependencies = {
-          'google/vim-glaive',
-          'google/vim-maktaba'
-        },
-        init = function() vim.cmd('call glaive#Install()') end
-      }
-    })
-  end
 end
 
 local function setup_completions()
