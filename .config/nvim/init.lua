@@ -166,14 +166,14 @@ local function install_plugins(working)
     'NLKNguyen/papercolor-theme',
 
     -- better word motions through long strings
-    { 'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end },
+    {'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end},
 
     -- motions to comment lines out -- have to do this dance because nvim-comment uses nvim_comment
     -- (underscore) as the main module
-    { 'terrortylor/nvim-comment', config = true, main = 'nvim_comment' },
+    {'terrortylor/nvim-comment', config = true, main = 'nvim_comment'},
 
     -- better syntax highlighting
-    { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+    {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 
     -- file tree
     {
@@ -221,7 +221,7 @@ local function install_plugins(working)
       init = function()
         vim.keymap.set(normal, '<leader>d', function()
           return require('debugprint').debugprint({variable = true})
-        end, { expr = true })
+        end, {expr = true})
       end
     },
 
@@ -279,12 +279,12 @@ local function install_plugins(working)
     {
       'saecki/crates.nvim',
       event = 'BufRead Cargo.toml',
-      dependencies = { 'nvim-lua/plenary.nvim' }
+      dependencies = {'nvim-lua/plenary.nvim'}
     },
 
     -- work plugins
-    { dir = '~/code/fuchsia/tools/fidl/editors/vim', enabled = working },
-    { dir = '~/code/emboss/integration/vim/ft-emboss', enabled = working },
+    {dir = '~/code/fuchsia/tools/fidl/editors/vim', enabled = working},
+    {dir = '~/code/emboss/integration/vim/ft-emboss', enabled = working},
 
     -- fuchsia build system
     {
@@ -301,9 +301,9 @@ local function install_plugins(working)
       enabled = working,
       dependencies = {
         'google/vim-maktaba',
-        { 'google/vim-glaive', config = function() vim.cmd('call glaive#Install()') end },
+        {'google/vim-glaive', config = function() vim.cmd('call glaive#Install()') end},
       },
-    }
+    },
   })
 end
 
@@ -437,9 +437,9 @@ local function setup_lsp()
 
     if server == 'gopls' then
       local additional_options = {
-        cmd = {"gopls", "serve"},
-        filetypes = {"go", "gomod"},
-        root_dir = lspconfig_util.root_pattern("go.work", "go.mod", ".git"),
+        cmd = {'gopls', 'serve'},
+        filetypes = {'go', 'gomod'},
+        root_dir = lspconfig_util.root_pattern('go.work', 'go.mod', '.git'),
         settings = {
           gopls = {
             analyses = {
