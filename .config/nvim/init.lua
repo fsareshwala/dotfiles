@@ -163,6 +163,7 @@ local function install_plugins(working)
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
     'windwp/nvim-autopairs',    -- automatically insert/delete parenthesis, brackets, quotes
+    'NLKNguyen/papercolor-theme',
 
     -- better word motions through long strings
     { 'chaoren/vim-wordmotion', init = function() vim.g.wordmotion_spaces = {'_', '-', '.'} end },
@@ -685,7 +686,7 @@ local function main()
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
-  vim.cmd('colorscheme habamax')
+  vim.cmd('colorscheme PaperColor')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
