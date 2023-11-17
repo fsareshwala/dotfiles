@@ -553,7 +553,7 @@ local function setup_autocmds(working)
   vim.cmd [[
   augroup general_settings
   autocmd!
-  autocmd BufRead,BufNewFile README setlocal filetype=markdown
+  autocmd BufRead,BufNewFile README setlocal spell filetype=markdown
   autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
   autocmd FileType markdown setlocal spell comments+=b:>
   autocmd FileType c,cpp setlocal commentstring=//\ %s
