@@ -550,17 +550,71 @@ local function setup_filetree()
 end
 
 local function setup_autocmds(working)
-  vim.cmd [[
-  augroup general_settings
-  autocmd!
-  autocmd BufRead,BufNewFile README setlocal spell filetype=markdown
-  autocmd FileType gitcommit,hgcommit setlocal spell textwidth=72
-  autocmd FileType markdown setlocal spell comments+=b:>
-  autocmd FileType c,cpp setlocal commentstring=//\ %s
-  autocmd FileType go setlocal nolist
-  autocmd BufRead *.gn,*.gni setlocal filetype=gn
-  augroup end
-  ]]
+  local general_settings = vim.api.nvim_create_augroup('general_settings', {clear = true})
+  vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = {'README'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.spell = true
+      vim.opt_local.filetype = 'markdown'
+    end
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'gitcommit', 'hgcommit'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.spell = true
+      vim.opt_local.textwidth = 72
+    end
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'markdown'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.spell = true
+      vim.opt_local.comments:append('b:>')
+    end
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'c', 'cpp'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.commentstring = '// %s'
+    end
+  })
+
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'go'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.nolist = true
+    end
+  })
+
+  vim.api.nvim_create_autocmd('BufRead', {
+    pattern = {'*.gn', '*.gni'},
+    group = general_settings,
+    callback = function()
+      vim.opt_local.filetype = 'gn'
+    end
+  })
+
+  if working then
+    local work_settings = vim.api.nvim_create_augroup('work_settings', {clear = true})
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = {'c', 'cpp'},
+      group = work_settings,
+      callback = function()
+        local path = vim.fn.expand('%:p')
+        if string.find(path, 'pigweed') then
+          vim.opt_local.textwidth = 80
+        end
+      end
+    })
+  end
 
   -- resize buffesr on vim window resize
   vim.cmd [[
