@@ -26,8 +26,6 @@ local function at_work()
 end
 
 local function set_options()
-  vim.opt.background = 'dark'
-  vim.opt.backspace = {'eol', 'start', 'indent'}
   vim.opt.clipboard = 'unnamedplus'
   vim.opt.colorcolumn = '+1'
   vim.opt.copyindent = true
@@ -43,7 +41,6 @@ local function set_options()
   vim.opt.list = true
   vim.opt.listchars = {tab = '|-', trail = '-', extends = '>', precedes = '<'}
   vim.opt.matchtime = 3
-  vim.opt.mouse = ''
   vim.opt.nrformats:append({'alpha', 'octal'})
   vim.opt.number = true
   vim.opt.preserveindent = true
@@ -63,7 +60,6 @@ local function set_options()
   vim.opt.splitright = true
   vim.opt.swapfile = false
   vim.opt.tabstop = 2
-  vim.opt.tags = 'tags;'
   vim.opt.textwidth = 100
   vim.opt.timeoutlen = 500
   vim.opt.title = true
