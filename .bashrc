@@ -7,7 +7,6 @@ case $- in
   *) return ;;
 esac
 
-prefix=
 if [[ -d ~/prefix ]]; then
   source ~/prefix/lib/utilities.sh
   source ~/prefix/usr/local/bash/key-bindings.bash
