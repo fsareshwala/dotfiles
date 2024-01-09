@@ -640,7 +640,7 @@ local function setup_autocmds(working)
   vim.cmd [[
   augroup xresources
   autocmd!
-  autocmd BufWritePost *Xresources !xrdb %
+  autocmd BufWritePost .Xresources !xrdb %
   augroup end
   ]]
 
