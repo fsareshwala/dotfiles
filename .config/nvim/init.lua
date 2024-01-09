@@ -2,6 +2,10 @@ function string.startswith(haystack, needle)
   return string.sub(haystack, 0, string.len(needle)) == needle
 end
 
+function string.endswith(haystack, suffix)
+  return string.sub(haystack, -#suffix) == suffix
+end
+
 local function get_hostname()
   local f = io.popen ('/bin/hostname')
   if f == nil then
