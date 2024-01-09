@@ -1,4 +1,4 @@
-function string.starts(haystack, needle)
+function string.startswith(haystack, needle)
   return string.sub(haystack, 0, string.len(needle)) == needle
 end
 
@@ -16,9 +16,9 @@ end
 local function at_work()
   local hostname = get_hostname()
 
-  if string.starts(hostname, 'fsareshwala-office') then
+  if string.startswith(hostname, 'fsareshwala-office') then
     return true
-  elseif string.starts(hostname, 'fsareshwala-cloudtop') then
+  elseif string.startswith(hostname, 'fsareshwala-cloudtop') then
     return true
   end
 
