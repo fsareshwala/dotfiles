@@ -422,6 +422,22 @@ local function setup_lsp()
       capabilities = cmp_nvim_lsp.default_capabilities()
     }
 
+    if server == 'clangd' then
+      if string.endswith(vim.fn.getcwd(), 'pigweed') then
+        local additional_options = {
+          cmd = {
+            '/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/clangd',
+            '--compile-commands-dir=/usr/local/google/home/fsareshwala/code/pigweed/.pw_ide/.stable',
+            '--query-driver=/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/*,/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/arm/bin/*',
+            '--background-index',
+            '--clang-tidy',
+          }
+        }
+
+        options = vim.tbl_deep_extend('force', additional_options, options)
+      end
+    end
+
     if server == 'lua_ls' then
       local additional_options = {
         settings = {
