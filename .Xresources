@@ -1,7 +1,7 @@
 Xcursor.size: 16
 Xft.dpi: 144
 
-URxvt.font: xft:Terminess Nerd Font Mono:regular:size=10
+URxvt.font: xft:Terminess Nerd Font Mono:regular:size=9
 URxvt.allowBoldFonts: false
 URxvt.bellSuppressTime: 0
 URxvt.boldFont:
