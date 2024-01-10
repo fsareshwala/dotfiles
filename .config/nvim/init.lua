@@ -162,7 +162,7 @@ local function install_plugins(working)
     'kylechui/nvim-surround',   -- motions to surround text with other text
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
-    'NLKNguyen/papercolor-theme',
+    'RRethy/nvim-base16',
 
     -- automatically insert/delete parenthesis, brackets, quotes, etc
     {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
@@ -761,7 +761,7 @@ local function main()
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
-  vim.cmd('colorscheme PaperColor')
+  vim.cmd('colorscheme base16-helios')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
