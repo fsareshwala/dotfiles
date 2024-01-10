@@ -24,6 +24,7 @@
   ff = pull --ff-only --stat
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
   ls = ls-files
+  message = log --format='%B' -n 1
   root = rev-parse --show-toplevel
   undo = reset --soft HEAD~
 
