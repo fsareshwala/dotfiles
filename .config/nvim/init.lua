@@ -761,7 +761,7 @@ local function main()
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
-  vim.cmd('colorscheme base16-helios')
+  vim.cmd('colorscheme base16-onedark')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
