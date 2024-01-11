@@ -49,7 +49,7 @@ function cal() {
 function rreplace() {
   local old="$1"
   local new="$2"
-  rg --hidden -l "$old" . | xargs sed -i "s/$old/$new/g"
+  rg --hidden -l "$old" . | xargs sed -i "s,$old,$new,g"
 }
 
 function gc() {
