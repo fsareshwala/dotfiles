@@ -44,4 +44,4 @@ URxvt.matcher.pattern.3: doc\/[a-zA-Z0-9-_]+
 URxvt.matcher.pattern.4: fxbug.dev\/[0-9]+
 URxvt.matcher.pattern.5: fxrev.dev\/[0-9]+
 
-#include "prefix/usr/local/rxvt/xresources/base16-helios-256.Xresources"
+#include "prefix/usr/local/rxvt/xresources/base16-onedark-256.Xresources"
