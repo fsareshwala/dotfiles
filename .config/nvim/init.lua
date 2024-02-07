@@ -628,7 +628,7 @@ local function setup_autocmds(working)
   if working then
     local work_settings = vim.api.nvim_create_augroup('work_settings', {clear = true})
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = {'c', 'cpp'},
+      pattern = {'c', 'cpp', 'emboss'},
       group = work_settings,
       callback = function()
         local path = vim.fn.expand('%:p')
