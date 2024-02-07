@@ -419,9 +419,11 @@ local function setup_lsp()
 
   for _, server in pairs(servers) do
     local options = {
-      on_attach = function(client, bufnr)
+      on_attach = function(_, bufnr)
         setup_lsp_keymaps(bufnr)
-        client.server_capabilities.semanticTokensProvider = nil
+      end,
+      on_init = function(client, _)
+        client.server_capabilities.semanticTokensProvider = false
       end,
       capabilities = cmp_nvim_lsp.default_capabilities()
     }
