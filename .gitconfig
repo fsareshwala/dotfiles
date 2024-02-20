@@ -28,6 +28,9 @@
   root = rev-parse --show-toplevel
   undo = reset --soft HEAD~
 
+[help]
+  autocorrect = 1
+
 [diff]
   tool = vimdiff
   algorithm = patience
@@ -47,24 +50,11 @@
 [push]
   default = current
 
-[tig]
-  line-graphics = yes
-  tab-size = 4
-  commit-order = default
-  show-changes = no
-
-[help]
-  autocorrect = 1
-
 [rerere]
   enabled = 1
 
 [grep]
   lineNumber = true
-
-[http]
-  postBuffer = 524288000
-  cookiefile = ~/.gitcookies
 
 [rebase]
   autoSquash = true
@@ -73,23 +63,33 @@
 [format]
   pretty = oneline
 
+[advice]
+  skippedCherryPicks = false
+
+[http]
+  postBuffer = 524288000
+  cookiefile = ~/.gitcookies
+
+[repo]
+  superprojectChoiceExpire = 1634250339
+  superprojectChoice = true
+
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
 
-[advice]
-  skippedCherryPicks = false
-
 [url "git@github.com:"]
   insteadof = https://github.com
   insteadof = git://github.com
 
-[repo]
-  superprojectChoiceExpire = 1634250339
-  superprojectChoice = true
-
 [url "sso://fuchsia/"]
   pushInsteadOf = https://fuchsia.googlesource.com/
   pushInsteadOf = https://fuchsia-review.googlesource.com/
+
+[tig]
+  line-graphics = yes
+  tab-size = 4
+  commit-order = default
+  show-changes = no
