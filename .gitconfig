@@ -31,10 +31,17 @@
 [help]
   autocorrect = 1
 
+[commit]
+  verbose = true
+
 [diff]
   tool = vimdiff
-  algorithm = patience
+  algorithm = histogram
   renames = true
+  submodule = log
+
+[submodule]
+  recurse = true
 
 [difftool]
   prompt = false
@@ -43,12 +50,18 @@
   tool = vimdiff
   ff = only
 
+[fetch]
+  fsckobjects = true
+  prune = true
+  prunetags = true
+
 [pull]
   ff = only
   rebase = false
 
 [push]
   default = current
+  followtags = true
 
 [rerere]
   enabled = 1
@@ -60,15 +73,24 @@
   autoSquash = true
   updateRefs = true
 
+[transfer]
+  fsckobjects = true
+
+[receive]
+  fsckobjects = true
+
+[http]
+  postBuffer = 524288000
+  cookiefile = ~/.gitcookies
+
 [format]
   pretty = oneline
 
 [advice]
   skippedCherryPicks = false
 
-[http]
-  postBuffer = 524288000
-  cookiefile = ~/.gitcookies
+[gpg]
+  format = ssh
 
 [repo]
   superprojectChoiceExpire = 1634250339
