@@ -51,9 +51,8 @@
   ff = only
 
 [fetch]
-  fsckobjects = true
   prune = true
-  prunetags = true
+  pruneTags = true
 
 [pull]
   ff = only
@@ -61,7 +60,6 @@
 
 [push]
   default = current
-  followtags = true
 
 [rerere]
   enabled = 1
@@ -72,12 +70,6 @@
 [rebase]
   autoSquash = true
   updateRefs = true
-
-[transfer]
-  fsckobjects = true
-
-[receive]
-  fsckobjects = true
 
 [http]
   postBuffer = 524288000
