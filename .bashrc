@@ -346,6 +346,8 @@ if at_work; then
   alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth/core/bt-host'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
+
+  alias btnew='bugged create --format=MARKDOWN 1472729'
 else
   alias d='git diff'
   alias st='git status'
