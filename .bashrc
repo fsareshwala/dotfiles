@@ -325,6 +325,9 @@ if at_work; then
   # keep the ninja build graph in memory after the build completes
   export NINJA_PERSISTENT_MODE=1
 
+  # enable targeting gn labels directly
+  export FX_BUILD_WITH_LABELS=1
+
   alias ha='hg add'
   alias hab='hg absorb'
   alias hai='hg amend -i'
