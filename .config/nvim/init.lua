@@ -163,7 +163,7 @@ local function install_plugins(working)
     'kylechui/nvim-surround',   -- motions to surround text with other text
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
-    'RRethy/nvim-base16',
+    'bradcush/nvim-base16',
 
     -- automatically insert/delete parenthesis, brackets, quotes, etc
     {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
