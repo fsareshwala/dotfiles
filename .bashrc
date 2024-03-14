@@ -357,4 +357,4 @@ else
   alias st='git status'
 fi
 
-base16_onedark
+base16_brewer
