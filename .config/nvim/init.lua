@@ -76,7 +76,6 @@ local function set_options()
   vim.opt.wildmode = 'list:longest,full'
   vim.opt.writebackup = false
 
-  -- vim.g.base16colorspace = 256
   vim.g.left_sidebar_width = 35
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
@@ -164,9 +163,7 @@ local function install_plugins(working)
     'kylechui/nvim-surround',   -- motions to surround text with other text
     'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
-    -- 'RRethy/nvim-base16',
-    -- 'chriskempson/base16-vim',
-    -- 'bradcush/nvim-base16',
+    'chriskempson/base16-vim',
 
     -- automatically insert/delete parenthesis, brackets, quotes, etc
     {'windwp/nvim-autopairs', event = "InsertEnter", config = true},
@@ -751,6 +748,20 @@ local function setup_oscyank()
   }
 end
 
+local function setup_colorscheme()
+  local theme = os.getenv("BASE16_THEME")
+
+  local colorscheme
+  if theme ~= nil then
+    vim.g.base16colorspace = 256
+    colorscheme = 'base16-' .. theme
+  else
+    colorscheme = 'habamax'
+  end
+
+  vim.cmd('colorscheme ' .. colorscheme)
+end
+
 local function main()
   local working = at_work()
 
@@ -764,10 +775,10 @@ local function main()
   setup_filetree()
   setup_autocmds(working)
   setup_oscyank()
+  setup_colorscheme()
 
   -- single pixel window separator lines
   vim.cmd('highlight WinSeparator guibg=None')
-  vim.cmd('colorscheme habamax')
 
   if working then
     vim.cmd('source ~/code/fuchsia/scripts/vim/fuchsia.vim')
