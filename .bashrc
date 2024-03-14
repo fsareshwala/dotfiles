@@ -12,6 +12,7 @@ if [[ -d ~/prefix ]]; then
   source ~/prefix/usr/local/bash/key-bindings.bash
   source ~/prefix/usr/local/bash/git-completion.bash
   source ~/prefix/usr/local/bash/git-prompt.sh
+  source ~/prefix/usr/local/shell/base16/profile_helper.sh
 fi
 
 function timestamp() {
@@ -356,8 +357,4 @@ else
   alias st='git status'
 fi
 
-# TODO(fsareshwala): get these figured out
-ulimit -c unlimited
-ulimit -m 1048576
-# ulimit -n 8192
-# ulimit -l 16384
+base16_onedark
