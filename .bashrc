@@ -346,7 +346,6 @@ if at_work; then
   alias rsubmit='hg submit'
   alias pw='pw --no-banner'
 
-  alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-f='cd ~/code/fuchsia'
   alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-bt='cd ~/code/fuchsia/src/connectivity/bluetooth/core/bt-host'
