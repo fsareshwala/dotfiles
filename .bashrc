@@ -230,6 +230,7 @@ alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
 alias json='python3 -m json.tool'
+alias lg='lazygit'
 alias ll='ls -l'
 alias lp='lp -o sides=two-sided-long-edge'
 alias ls='ls --color'
