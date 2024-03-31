@@ -104,6 +104,6 @@
 
 [tig]
   line-graphics = yes
-  tab-size = 4
+  tab-size = 2
   commit-order = default
   show-changes = no
