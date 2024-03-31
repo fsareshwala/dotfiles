@@ -640,6 +640,19 @@ local function setup_autocmds(working)
     })
   end
 
+  -- automatically delete all trailing whitespace and newlines at end of file on save
+  local trailing_whitespace = vim.api.nvim_create_augroup('trailing_whitespace', {clear = true})
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    group = trailing_whitespace,
+    callback = function()
+      if vim.bo.filetype ~= 'diff' then
+        vim.cmd('%s/\\s\\+$//e')
+        vim.cmd('%s/\\n\\+\\%$//e')
+      end
+    end
+  })
+
   -- resize buffesr on vim window resize
   vim.cmd [[
   augroup resize_buffers
@@ -667,14 +680,6 @@ local function setup_autocmds(working)
   augroup end
   ]]
 
-  -- automatically delete all trailing whitespace and newlines at end of file on save
-  vim.cmd [[
-  augroup trailing_whitespace
-  autocmd!
-  autocmd BufWritePre * %s/\s\+$//e
-  autocmd BufWritepre * %s/\n\+\%$//e
-  augroup end
-  ]]
 
   -- add formats for speeddating plugin
   vim.cmd [[
