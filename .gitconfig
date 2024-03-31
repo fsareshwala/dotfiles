@@ -31,8 +31,8 @@
 [help]
   autocorrect = 1
 
-[commit]
-  verbose = true
+; [commit]
+;   verbose = true
 
 [diff]
   tool = vimdiff
