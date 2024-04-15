@@ -20,6 +20,16 @@ cd $tmpdir
 function speak() {
   local access_token="$(gcloud auth application-default print-access-token)"
 
+  # voices:
+  # en-US-Neural2-C
+  # en-US-Neural2-D
+  # en-US-Neural2-F
+  # en-US-Neural2-G
+  # en-US-Neural2-H
+  # en-US-Neural2-J
+  # en-US-Standard-F
+  # en-US-Standard-H
+  # en-US-Standard-J
   cat << EOF > request.json
 {
   "input": {
@@ -27,12 +37,12 @@ function speak() {
   },
   "voice": {
     "languageCode": "en-US",
-    "name": "en-US-Wavenet-J",
-    "ssmlGender": "MALE"
+    "name": "en-US-Neural2-F",
+    "ssmlGender": "FEMALE"
   },
   "audioConfig": {
     "audioEncoding": "MP3",
-    "speakingRate": 2.0
+    "speakingRate": 1.75
   }
 }
 EOF
