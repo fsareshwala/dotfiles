@@ -625,11 +625,15 @@ local function setup_autocmds(working)
   if working then
     local work_settings = vim.api.nvim_create_augroup('work_settings', {clear = true})
     vim.api.nvim_create_autocmd('FileType', {
-      pattern = {'c', 'cpp', 'emboss'},
+      pattern = {'c', 'cpp', 'emboss', 'markdown'},
       group = work_settings,
       callback = function()
         local path = vim.fn.expand('%:p')
         if string.find(path, 'pigweed') then
+          vim.opt_local.textwidth = 80
+        end
+
+        if string.find(path, 'google3') then
           vim.opt_local.textwidth = 80
         end
       end
