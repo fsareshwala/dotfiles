@@ -610,7 +610,7 @@ local function setup_autocmds(working)
     pattern = {'go'},
     group = general_settings,
     callback = function()
-      vim.opt_local.nolist = true
+      vim.opt_local.list = false
     end
   })
 
