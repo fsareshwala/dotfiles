@@ -30,7 +30,6 @@ local function at_work()
 end
 
 local function set_options()
-  vim.opt.clipboard = 'unnamedplus'
   vim.opt.colorcolumn = '+1'
   vim.opt.copyindent = true
   vim.opt.expandtab = true
@@ -161,7 +160,6 @@ local function install_plugins(working)
 
   require('lazy').setup({
     'kylechui/nvim-surround',   -- motions to surround text with other text
-    'ojroques/nvim-osc52',      -- osc52 location independent clipboard
     'tpope/vim-speeddating',    -- ctrl+a and ctrl+x on dates
     'chriskempson/base16-vim',
 
@@ -732,27 +730,6 @@ local function setup_autocmds(working)
   end
 end
 
-local function setup_oscyank()
-  local osc52 = require('osc52')
-  osc52.setup({
-    silent = true,
-  })
-
-  local copy = function(lines, _)
-    osc52.copy(table.concat(lines, '\n'))
-  end
-
-  local paste = function()
-    return {vim.fn.split(vim.fn.getreg(''), '\n'), vim.fn.getregtype('')}
-  end
-
-  vim.g.clipboard = {
-    name = 'osc52',
-    copy = {['+'] = copy, ['*'] = copy},
-    paste = {['+'] = paste, ['*'] = paste},
-  }
-end
-
 local function setup_colorscheme()
   local theme = os.getenv("BASE16_THEME")
 
@@ -779,7 +756,6 @@ local function main()
   setup_treesitter()
   setup_filetree()
   setup_autocmds(working)
-  setup_oscyank()
   setup_colorscheme()
 
   -- single pixel window separator lines
