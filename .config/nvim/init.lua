@@ -30,6 +30,7 @@ local function at_work()
 end
 
 local function set_options()
+  vim.opt.clipboard = 'unnamedplus'
   vim.opt.colorcolumn = '+1'
   vim.opt.copyindent = true
   vim.opt.expandtab = true
