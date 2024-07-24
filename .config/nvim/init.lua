@@ -178,22 +178,8 @@ local function install_plugins(working)
       'kyazdani42/nvim-tree.lua',
       dependencies = {'kyazdani42/nvim-web-devicons'},
       init = function()
-        vim.keymap.set(normal, '<leader>n', '<cmd>AerialClose<cr> | <cmd>NvimTreeToggle<cr>', opts)
-        vim.keymap.set(normal, '<leader>l', '<cmd>AerialClose<cr> | <cmd>NvimTreeFindFile<cr>', opts)
-      end
-    },
-
-    -- file outline
-    {
-      'stevearc/aerial.nvim',
-      opts = {
-        layout = {
-          width = vim.g.left_sidebar_width,
-          default_direction = 'left',
-        },
-      },
-      init = function()
-        vim.keymap.set(normal, '<leader>o', '<cmd>NvimTreeClose<cr> | <cmd>AerialToggle!<cr>', opts)
+        vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
+        vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
       end
     },
 
@@ -210,16 +196,6 @@ local function install_plugins(working)
       'Vonr/align.nvim',
       init = function()
         vim.keymap.set(visual, 'a', function() require('align').align_to_char(1, true) end, opts)
-      end
-    },
-
-    -- add a debug print line in the code
-    {
-      'andrewferrier/debugprint.nvim',
-      init = function()
-        vim.keymap.set(normal, '<leader>d', function()
-          return require('debugprint').debugprint({variable = true})
-        end, {expr = true})
       end
     },
 
