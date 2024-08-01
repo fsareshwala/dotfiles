@@ -6,8 +6,8 @@ export PATH=/home/fsareshwala/code/dmenu:${PATH}
 eval $(ssh-agent) > /dev/null
 
 # start default programs
-numlockx &
-dunst &
+hash numlockx && numlockx &
+hash dunst && dunst &
 /home/fsareshwala/prefix/bin/status &
 
 source ~/prefix/lib/utilities.sh
