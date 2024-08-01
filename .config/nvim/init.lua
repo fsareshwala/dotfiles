@@ -36,7 +36,7 @@ local function set_options()
   vim.opt.expandtab = true
   vim.opt.exrc = true
   vim.opt.fillchars = {eob = ' '}
-  vim.opt.formatoptions = 'cjlnqrtp]'
+  vim.opt.formatoptions = '1cjlnqrtp]'
   vim.opt.gdefault = true
   vim.opt.ignorecase = true
   vim.opt.inccommand = 'split'
