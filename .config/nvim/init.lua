@@ -75,6 +75,7 @@ local function set_options()
   vim.opt.wildignore:append({'*.so', '*.o'})
   vim.opt.wildmode = 'list:longest,full'
   vim.opt.writebackup = false
+  vim.opt.regexpengine = 1
 
   vim.g.left_sidebar_width = 35
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
@@ -730,7 +731,7 @@ local function main()
   setup_completions()
   setup_lsp()
   setup_telescope()
-  setup_treesitter()
+  -- setup_treesitter()
   setup_filetree()
   setup_autocmds(working)
   setup_colorscheme()
