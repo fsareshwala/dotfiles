@@ -21,10 +21,8 @@ function speak() {
   local access_token="$(gcloud auth application-default print-access-token)"
 
   # voices:
-  # en-US-Neural2-C
   # en-US-Neural2-D
   # en-US-Neural2-F
-  # en-US-Neural2-G
   # en-US-Neural2-H
   # en-US-Neural2-J
   # en-US-Standard-F
@@ -37,8 +35,8 @@ function speak() {
   },
   "voice": {
     "languageCode": "en-US",
-    "name": "en-US-Neural2-F",
-    "ssmlGender": "FEMALE"
+    "name": "en-US-Standard-J",
+    "ssmlGender": "MALE"
   },
   "audioConfig": {
     "audioEncoding": "MP3",
