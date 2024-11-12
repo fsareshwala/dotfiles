@@ -16,6 +16,7 @@ replacements['jzk']='JazakAllah Khair'
 replacements['lmk']='Let me know if you have any questions or if you need anything else from my end.'
 replacements['howel']='Hope you are doing well!'
 replacements['recresp']='Thanks for reaching out! I appreciate you thinking of me :). I am really happy at Google and am not looking to make a move at the moment. However, I wish you the best in your search!'
+replacements['recresp']='Thanks for reaching out! I am pretty happy at Google so if I were going to make a move, it would have to be a significant upgrade for me. With where my life is right now, a significant upgrade would be a fully remote role so I can spend more time with my family. Would this be a fully remote role?'
 
 # load some personal information that shouldn't be published into replacements
 while IFS=: read -r key value; do
