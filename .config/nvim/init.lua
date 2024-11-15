@@ -409,9 +409,9 @@ local function setup_lsp()
           cmd = {
             clangd,
             '--compile-commands-dir=/usr/local/google/home/fsareshwala/code/pigweed/.pw_ide/.stable',
-            '--query-driver=/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/*,/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/arm/bin/*',
             '--background-index',
             '--clang-tidy',
+            '--query-driver=/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/*,/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/arm/bin/*',
           }
         }
 
