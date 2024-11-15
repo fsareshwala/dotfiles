@@ -187,6 +187,11 @@ local function install_plugins(working)
     -- git blame integration
     {
       'FabijanZulj/blame.nvim',
+      opts = {
+        date_format = '%B %-d, %Y',
+        virtual_style = 'right_align',
+        blame_options = { '-w' },
+      },
       init = function()
         vim.keymap.set(normal, '<leader>b', '<cmd>ToggleBlame virtual<cr>', opts)
       end
