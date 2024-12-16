@@ -403,9 +403,11 @@ local function setup_lsp()
 
     if server == 'clangd' then
       if string.endswith(vim.fn.getcwd(), 'pigweed') then
+        local home = os.getenv( "HOME" )
+        local clangd = home .. '/code/pigweed/environment/cipd/packages/pigweed/bin/clangd'
         local additional_options = {
           cmd = {
-            '/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/clangd',
+            clangd,
             '--compile-commands-dir=/usr/local/google/home/fsareshwala/code/pigweed/.pw_ide/.stable',
             '--query-driver=/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/*,/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/arm/bin/*',
             '--background-index',
