@@ -354,6 +354,9 @@ if at_work; then
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
+  btcmd='bazelisk //pw_bluetooth_sapphire/host/... --platforms=//pw_unit_test:googletest_platform --@pigweed//pw_unit_test:backend=@pigweed//pw_unit_test:googletest'
+  alias btbuild="$btcmd build"
+  alias bttest="$btcmd test"
   alias btnew='bugged create --format=MARKDOWN 1472729'
 else
   alias d='git diff'
