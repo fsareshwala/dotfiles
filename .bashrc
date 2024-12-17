@@ -360,6 +360,19 @@ if at_work; then
   alias bttest="bazelisk test $btcmd"
   alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
 
+  alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
+
+  fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
+  fx_asan='--variant host_asan --variant asan'
+  alias fx-astro="$fx_set smart_display_eng.astro"
+  alias fx-nelson="$fx_set smart_display_m3_eng.nelson"
+  alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
+  alias fx-astro-asan="fx-astro $fx_asan"
+  alias fx-nelson-asan="fx-nelson  $fx_asan"
+  alias fx-sherlock-asan="fx-sherlock $fx_asan"
+  alias fx-vim3="fx set begonia_eng.vim3-vg --auto-dir --with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
+  alias fx-vim3-asan="fx-vim3 $fx_asan"
+
   alias btnew='bugged create --format=MARKDOWN 1472729'
 else
   alias d='git diff'
