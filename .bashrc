@@ -347,6 +347,7 @@ if at_work; then
   alias rsubmit='hg submit'
   alias pw='pw --no-banner'
 
+  alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
   alias cd-f='cd ~/code/fuchsia'
   alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-bt='cd ~/code/pigweed; source activate.sh; cd ~/code/pigweed/pw_bluetooth_sapphire'
