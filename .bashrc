@@ -354,9 +354,12 @@ if at_work; then
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
-  btcmd='bazelisk //pw_bluetooth_sapphire/host/... --platforms=//pw_unit_test:googletest_platform --@pigweed//pw_unit_test:backend=@pigweed//pw_unit_test:googletest'
-  alias btbuild="$btcmd build"
-  alias bttest="$btcmd test"
+  btcmd='//pw_bluetooth/... //pw_bluetooth_hci/... //pw_bluetooth_proxy/... //pw_bluetooth_sapphire/host/...'
+  btcmd="$btcmd --platforms=//pw_unit_test:googletest_platform --@pigweed//pw_unit_test:backend=@pigweed//pw_unit_test:googletest"
+  alias btbuild="bazelisk build $btcmd"
+  alias bttest="bazelisk test $btcmd"
+  alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
+
   alias btnew='bugged create --format=MARKDOWN 1472729'
 else
   alias d='git diff'
