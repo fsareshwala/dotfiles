@@ -24,6 +24,8 @@ local function at_work()
     return true
   elseif string.startswith(hostname, 'fsareshwala-cloudtop') then
     return true
+  elseif string.startswith(hostname, 'fsareshwala-macbookpro') then
+    return true
   end
 
   return false
