@@ -607,6 +607,15 @@ local function setup_autocmds(working)
     end
   })
 
+  vim.api.nvim_create_autocmd('CursorHold', {
+    pattern = {'*'},
+    group = general_settings,
+    callback = function()
+      vim.lsp.buf.clear_references()
+      vim.lsp.buf.document_highlight()
+    end
+  })
+
   if working then
     local work_settings = vim.api.nvim_create_augroup('work_settings', {clear = true})
     vim.api.nvim_create_autocmd('FileType', {
