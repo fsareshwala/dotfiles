@@ -79,7 +79,6 @@ local function set_options()
   vim.opt.writebackup = false
   vim.opt.regexpengine = 1
 
-  vim.g.left_sidebar_width = 35
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
 end
@@ -183,6 +182,7 @@ local function install_plugins(working)
       init = function()
         vim.keymap.set(normal, '<leader>n', '<cmd>NvimTreeToggle<cr>', opts)
         vim.keymap.set(normal, '<leader>l', '<cmd>NvimTreeFindFile<cr>', opts)
+        vim.g.left_sidebar_width = 35
       end
     },
 
