@@ -415,10 +415,10 @@ local function setup_lsp()
         local additional_options = {
           cmd = {
             clangd,
-            '--compile-commands-dir=/usr/local/google/home/fsareshwala/code/pigweed/.pw_ide/.stable',
+            '--compile-commands-dir=' .. home .. '/code/pigweed/.pw_ide/.stable',
             '--background-index',
             '--clang-tidy',
-            '--query-driver=/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/pigweed/bin/*,/usr/local/google/home/fsareshwala/code/pigweed/environment/cipd/packages/arm/bin/*',
+            '--query-driver=' .. home .. '/code/pigweed/environment/cipd/packages/pigweed/bin/*,' .. home .. '/code/pigweed/environment/cipd/packages/arm/bin/*',
           }
         }
 
