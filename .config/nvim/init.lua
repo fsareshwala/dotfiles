@@ -409,7 +409,7 @@ local function setup_lsp()
     }
 
     if server == 'clangd' then
-      if string.endswith(vim.fn.getcwd(), 'pigweed') then
+      if string.find(vim.fn.getcwd(), 'pigweed') then
         local home = os.getenv( "HOME" )
         local clangd = home .. '/code/pigweed/environment/cipd/packages/pigweed/bin/clangd'
         local additional_options = {
