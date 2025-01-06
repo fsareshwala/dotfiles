@@ -356,7 +356,7 @@ if at_work; then
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
-  btcmd='--config=fuchsia'
+  btcmd=''
   btcmd="$btcmd //pw_bluetooth/..."
   btcmd="$btcmd //pw_bluetooth_hci/..."
   btcmd="$btcmd //pw_bluetooth_proxy/..."
