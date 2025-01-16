@@ -1,4 +1,5 @@
 common --strip=never
+common --sandbox_debug
 
 build --compilation_mode=dbg
 build --cxxopt -Werror
