@@ -57,6 +57,15 @@ function at_work() {
   return 1
 }
 
+function on_cloudtop() {
+  hostname=$(hostname)
+  if [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
 function is_mac_os() {
   if [[ $(uname) == "Darwin" ]]; then
     return 0
