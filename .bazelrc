@@ -13,3 +13,5 @@ build --linkopt -fsanitize=address
 
 test --cache_test_results=yes
 test --test_output=errors
+
+clean --async
