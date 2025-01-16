@@ -6,6 +6,10 @@ function string.endswith(haystack, suffix)
   return string.sub(haystack, -#suffix) == suffix
 end
 
+function string.trim(str)
+  return string.gsub(str, '%s+', '')
+end
+
 local function get_hostname()
   local f = io.popen ('/bin/hostname')
   if f == nil then
@@ -141,6 +145,42 @@ local function set_keymaps()
 
   -- underline current line when only in normal mode
   vim.keymap.set(normal, 'U', 'YpVr-', opts)
+
+  -- insert a hardcoded breakpoint under the current line
+  vim.keymap.set(normal, '<leader>d', function()
+    local get_architecture = function()
+      local cmd = 'uname -m'
+      local arch = ''
+
+      local file = io.popen(cmd, 'r')
+      if file then
+          arch = string.trim(file:read('*a'))
+          file:close()
+      else
+          return 'error'
+      end
+
+      arch = arch:lower()
+      if arch == 'x86_64' or arch == 'amd64' then
+        arch = 'x86_64'
+      elseif arch == 'i386' or arch == 'i686' or arch == 'x86' then
+        arch = 'x86'
+      elseif arch == 'arm64' or arch == 'aarch64' then
+        arch = 'arm64'
+      end
+
+      return arch
+    end
+
+    local arch = get_architecture()
+    if string.startswith(arch, "x86") then
+      vim.cmd('normal o__asm__("int3");')
+    elseif string.startswith(arch, "arm") then
+      vim.cmd('normal o__asm__("brk #0xF000");')
+    else
+      vim.cmd('normal oerror: unable to determine architecture')
+    end
+  end)
 end
 
 local function install_plugins(working)
