@@ -357,6 +357,9 @@ if at_work; then
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
   btcmd='--config googletest --config asan'
+  if on_cloudtop; then
+    btcmd="$btcmd --config remote_cache"
+  fi
   btcmd="$btcmd //pw_bluetooth/..."
   btcmd="$btcmd //pw_bluetooth_hci/..."
   btcmd="$btcmd //pw_bluetooth_proxy/..."
