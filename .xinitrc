@@ -2,6 +2,7 @@
 
 export PATH=/home/fsareshwala/prefix/bin:$PATH
 export PATH=/home/fsareshwala/code/dmenu:${PATH}
+export GTK_THEME=Adwaita:dark
 
 eval $(ssh-agent) > /dev/null
 
