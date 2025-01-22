@@ -1,0 +1,5 @@
+set history save on
+set history remove-duplicates unlimited
+set history filename ~/.config/gdb/gdb_history
+
+set debuginfod enabled on
