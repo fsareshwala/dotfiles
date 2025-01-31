@@ -231,7 +231,7 @@ local function install_plugins(working)
       'FabijanZulj/blame.nvim',
       opts = {
         date_format = '%B %-d, %Y',
-        virtual_style = 'right_align',
+        virtual_style = 'float',
         blame_options = { '-w' },
       },
       init = function()
