@@ -81,7 +81,6 @@ local function set_options()
   vim.opt.wildignore:append({'*.so', '*.o'})
   vim.opt.wildmode = 'list:longest,full'
   vim.opt.writebackup = false
-  vim.opt.regexpengine = 1
 
   vim.g.markdown_fenced_languages = {'python', 'vim', 'cpp', 'java'}
   vim.g.tex_flavor = 'latex'
