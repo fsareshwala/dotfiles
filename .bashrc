@@ -368,6 +368,9 @@ if at_work; then
   alias bttest="bazelisk test $btcmd"
   alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
 
+  alias m='bazelisk build --config googletest --config asan //pw_bluetooth_sapphire/host/{common,hci,gap}/...'
+  alias t='bazelisk test --config googletest --config asan //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}'
+
   alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
 
   fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
