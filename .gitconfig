@@ -20,12 +20,14 @@
 
 [alias]
   cp = cherry-pick
-  discard = reset --hard
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim -p `f`"
   ff = pull --ff-only --stat
   fx = "!f() { git commit --fixup \":/$1\"; }; f"
   ls = ls-files
-  message = log --format='%B' -n 1
   root = rev-parse --show-toplevel
+
+  discard = reset --hard
+  message = log --format='%B' -n 1
   undo = reset --soft HEAD~
 
 [help]
