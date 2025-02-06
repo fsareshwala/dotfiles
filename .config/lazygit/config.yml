@@ -1,2 +1,4 @@
+showFileTree: false
+filterMode: fuzzy
 git:
   autoFetch: false
