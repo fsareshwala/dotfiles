@@ -62,3 +62,14 @@ end, { desc = "Insert hardcoded breakpoint" })
 vim.keymap.set("n", "q", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
+
+vim.keymap.set("n", "<leader>;", function()
+  local path = "~/.config/nvim/init.lua"
+  local bufnr = vim.fn.bufnr(path)
+  if bufnr == -1 then
+    vim.cmd("vsplit " .. path)
+  else
+    vim.cmd("buffer " .. bufnr)
+  end
+  Snacks.explorer.reveal({ file = path })
+end, { desc = "Open configuration" })
