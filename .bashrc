@@ -360,19 +360,19 @@ if at_work; then
   if on_cloudtop; then
     btcmd="$btcmd --config remote_cache"
   fi
+
+  alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
+  alias m="bazelisk build $btcmd //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
+  alias t="bazelisk test $btcmd //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
+
   btcmd="$btcmd //pw_bluetooth/..."
   btcmd="$btcmd //pw_bluetooth_hci/..."
   btcmd="$btcmd //pw_bluetooth_proxy/..."
   btcmd="$btcmd //pw_bluetooth_sapphire/..."
   alias btbuild="bazelisk build $btcmd"
   alias bttest="bazelisk test $btcmd"
-  alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
-
-  alias m="bazelisk build $btcmd //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
-  alias t="bazelisk test $btcmd //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
 
   alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
-
   fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
   fx_asan='--variant host_asan --variant asan'
   alias fx-astro="$fx_set smart_display_eng.astro"
