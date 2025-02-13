@@ -18,5 +18,15 @@ return {
         },
       },
     },
+    keys = {
+      {
+        "<leader>l",
+        function()
+          local path = vim.api.nvim_buf_get_name(0)
+          Snacks.explorer.reveal({ file = path })
+        end,
+        desc = "Reveal file in explorer",
+      },
+    },
   },
 }
