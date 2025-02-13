@@ -43,13 +43,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = { "c", "cpp" },
---   group = general_settings,
---   callback = function()
---     vim.opt_local.commentstring = "// %s"
---   end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  group = general_settings,
+  callback = function()
+    vim.opt_local.commentstring = "// %s"
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "go" },
@@ -66,15 +66,6 @@ vim.api.nvim_create_autocmd("BufRead", {
     vim.opt_local.filetype = "gn"
   end,
 })
-
--- vim.api.nvim_create_autocmd("CursorHold", {
---   pattern = { "*" },
---   group = general_settings,
---   callback = function()
---     vim.lsp.buf.clear_references()
---     vim.lsp.buf.document_highlight()
---   end,
--- })
 
 -- automatically delete all trailing whitespace and newlines at end of file on save
 local trailing_whitespace = vim.api.nvim_create_augroup("trailing_whitespace", { clear = true })
