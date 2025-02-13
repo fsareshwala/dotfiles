@@ -57,3 +57,8 @@ vim.keymap.set("n", "<leader>id", function()
     vim.cmd("normal oerror: unable to determine architecture")
   end
 end, { desc = "Insert hardcoded breakpoint" })
+
+-- delete the current buffer more easily
+vim.keymap.set("n", "q", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
