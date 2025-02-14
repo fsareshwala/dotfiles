@@ -11,6 +11,7 @@ return {
                 keys = {
                   ['<c-b>'] = 'list_scroll_up',
                   ['<c-f>'] = 'list_scroll_down',
+                  ['<esc>'] = 'explorer_update',
                 },
               },
             },
