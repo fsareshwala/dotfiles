@@ -140,7 +140,7 @@ else
   vim.cmd([[
     augroup formatting
     autocmd!
-    autocmd BufWritePre *.h,*.cc,*.go lua vim.lsp.buf.format()
+    autocmd BufWritePre *.h,*.cc,*.go lua conform.format()
     augroup end
     ]])
 end
