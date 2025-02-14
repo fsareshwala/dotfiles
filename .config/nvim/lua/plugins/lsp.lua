@@ -1,6 +1,6 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    'neovim/nvim-lspconfig',
     opts = {
       servers = {
         clangd = {},
@@ -11,8 +11,8 @@ return {
       },
     },
     keys = {
-      { "<leader>ce", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Toggle source/header" },
-      { "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "Diagnostic help" },
+      { '<leader>ce', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
+      { 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', desc = 'Diagnostic help' },
     },
   },
 }

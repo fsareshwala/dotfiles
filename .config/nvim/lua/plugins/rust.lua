@@ -1,8 +1,8 @@
 -- rust integration
 return {
-  { "rust-lang/rust.vim", ft = "rust" },
+  { 'rust-lang/rust.vim', ft = 'rust' },
   {
-    "saecki/crates.nvim",
-    event = "BufRead Cargo.toml",
+    'saecki/crates.nvim',
+    event = 'BufRead Cargo.toml',
   },
 }
