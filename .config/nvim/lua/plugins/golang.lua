@@ -1,4 +1,4 @@
 -- golang integration
 return {
-  { "fatih/vim-go", ft = "go" },
+  { 'fatih/vim-go', ft = 'go' },
 }

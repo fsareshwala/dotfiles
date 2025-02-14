@@ -7,7 +7,7 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-local util = require("util")
+local util = require('util')
 local working = util.at_work()
 
 -- auto open snacks explorer on startup
@@ -15,18 +15,18 @@ if vim.fn.argc(-1) == 0 then
   Snacks.explorer()
 end
 
-local general_settings = vim.api.nvim_create_augroup("general_settings", { clear = true })
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = { "README" },
+local general_settings = vim.api.nvim_create_augroup('general_settings', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  pattern = { 'README' },
   group = general_settings,
   callback = function()
     vim.opt_local.spell = true
-    vim.opt_local.filetype = "markdown"
+    vim.opt_local.filetype = 'markdown'
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "gitcommit", "hgcommit" },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'gitcommit', 'hgcommit' },
   group = general_settings,
   callback = function()
     vim.opt_local.spell = true
@@ -34,48 +34,48 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown" },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown' },
   group = general_settings,
   callback = function()
     vim.opt_local.spell = true
-    vim.opt_local.comments:append("b:>")
+    vim.opt_local.comments:append('b:>')
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp" },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'c', 'cpp' },
   group = general_settings,
   callback = function()
-    vim.opt_local.commentstring = "// %s"
+    vim.opt_local.commentstring = '// %s'
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go" },
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'go' },
   group = general_settings,
   callback = function()
     vim.opt_local.list = false
   end,
 })
 
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = { "*.gn", "*.gni" },
+vim.api.nvim_create_autocmd('BufRead', {
+  pattern = { '*.gn', '*.gni' },
   group = general_settings,
   callback = function()
-    vim.opt_local.filetype = "gn"
+    vim.opt_local.filetype = 'gn'
   end,
 })
 
 -- automatically delete all trailing whitespace and newlines at end of file on save
-local trailing_whitespace = vim.api.nvim_create_augroup("trailing_whitespace", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
+local trailing_whitespace = vim.api.nvim_create_augroup('trailing_whitespace', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*',
   group = trailing_whitespace,
   callback = function()
-    if vim.bo.filetype ~= "diff" then
-      vim.cmd("%s/\\s\\+$//e")
-      vim.cmd("%s/\\n\\+\\%$//e")
+    if vim.bo.filetype ~= 'diff' then
+      vim.cmd('%s/\\s\\+$//e')
+      vim.cmd('%s/\\n\\+\\%$//e')
     end
   end,
 })
@@ -98,17 +98,17 @@ vim.cmd([[
   ]])
 
 if working then
-  local work_settings = vim.api.nvim_create_augroup("work_settings", { clear = true })
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "emboss", "markdown" },
+  local work_settings = vim.api.nvim_create_augroup('work_settings', { clear = true })
+  vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'c', 'cpp', 'emboss', 'markdown' },
     group = work_settings,
     callback = function()
-      local path = vim.fn.expand("%:p")
-      if string.find(path, "pigweed") then
+      local path = vim.fn.expand('%:p')
+      if string.find(path, 'pigweed') then
         vim.opt_local.textwidth = 80
       end
 
-      if string.find(path, "google3") then
+      if string.find(path, 'google3') then
         vim.opt_local.textwidth = 80
       end
     end,

@@ -9,28 +9,28 @@ function string.endswith(haystack, suffix)
 end
 
 function string.trim(str)
-  return string.gsub(str, "%s+", "")
+  return string.gsub(str, '%s+', '')
 end
 
 function util.get_hostname()
-  local f = io.popen("/bin/hostname")
+  local f = io.popen('/bin/hostname')
   if f == nil then
-    return "unknown"
+    return 'unknown'
   end
 
-  local value = f:read("*a")
+  local value = f:read('*a')
   f:close()
-  return string.gsub(value, "\n$", "")
+  return string.gsub(value, '\n$', '')
 end
 
 function util.at_work()
   local hostname = util.get_hostname()
 
-  if string.startswith(hostname, "fsareshwala-office") then
+  if string.startswith(hostname, 'fsareshwala-office') then
     return true
-  elseif string.startswith(hostname, "fsareshwala-cloudtop") then
+  elseif string.startswith(hostname, 'fsareshwala-cloudtop') then
     return true
-  elseif string.startswith(hostname, "fsareshwala-macbookpro") then
+  elseif string.startswith(hostname, 'fsareshwala-macbookpro') then
     return true
   end
 
