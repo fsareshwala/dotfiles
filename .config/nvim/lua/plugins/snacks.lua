@@ -20,6 +20,7 @@ return {
       },
     },
     keys = {
+      { '<leader>e', '<leader>ff', desc = 'Find files (Root dir)', remap = true },
       {
         '<leader>l',
         function()
