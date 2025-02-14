@@ -137,13 +137,13 @@ _fzf_compgen_dir() {
 export FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden --color=never *"
 export FZF_DEFAULT_OPTS='--height 20% --reverse'
 
-c_black="\[\033[0;30m\]"
-c_red="\[\033[0;31m\]"
+# c_black="\[\033[0;30m\]"
+# c_red="\[\033[0;31m\]"
 c_green="\[\033[0;32m\]"
 c_yellow="\[\033[0;33m\]"
 c_blue="\[\033[0;34m\]"
 c_purple="\[\033[0;35m\]"
-c_cyan="\[\033[0;36m\]"
+# c_cyan="\[\033[0;36m\]"
 c_white="\[\033[0;37m\]"
 PS1="[$c_green\u$c_white@$c_purple\h$c_white:$c_yellow\$(__git_ps1 "%s")$c_white $c_blue\w$c_white]\$ "
 
@@ -276,7 +276,7 @@ alias gs='git show'
 complete -A directory gm
 
 if at_work; then
-  FX_ENV=~/code/fuchsia/scripts/fx-env.sh
+  FX_ENV="$HOME/code/fuchsia/scripts/fx-env.sh"
   test -e $FX_ENV && source $FX_ENV
 
   function in_google3() {
@@ -287,6 +287,7 @@ if at_work; then
     fi
   }
 
+  # shellcheck disable=SC2068
   function st() {
     if in_google3; then
       hg status $@
@@ -295,6 +296,7 @@ if at_work; then
     fi
   }
 
+  # shellcheck disable=SC2068
   function d() {
     if in_google3; then
       hg diff $@
@@ -303,6 +305,7 @@ if at_work; then
     fi
   }
 
+  # shellcheck disable=SC2068
   function tig() {
     if in_google3; then
       hg xl $@
@@ -361,28 +364,38 @@ if at_work; then
     btcmd="$btcmd --config remote_cache"
   fi
 
-  alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
-  alias m="bazelisk build $btcmd //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
-  alias t="bazelisk test $btcmd //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
+  # shellcheck disable=SC2139
+  if true; then
+    alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
+    alias m="bazelisk build $btcmd //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
+    alias t="bazelisk test $btcmd //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
 
-  btcmd="$btcmd //pw_bluetooth/..."
-  btcmd="$btcmd //pw_bluetooth_hci/..."
-  btcmd="$btcmd //pw_bluetooth_proxy/..."
-  btcmd="$btcmd //pw_bluetooth_sapphire/..."
-  alias btbuild="bazelisk build $btcmd"
-  alias bttest="bazelisk test $btcmd"
+    hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
+    gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
+    alias hci_test="$hci_test"
+    alias gap_test="$gap_test"
+    alias hci_debug="lldb $hci_test"
+    alias hci_debug="lldb $gap_test"
 
-  alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
-  fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
-  fx_asan='--variant host_asan --variant asan'
-  alias fx-astro="$fx_set smart_display_eng.astro"
-  alias fx-nelson="$fx_set smart_display_m3_eng.nelson"
-  alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
-  alias fx-vim3="fx set begonia_eng.vim3-vg --auto-dir --with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
-  alias fx-astro-asan="fx-astro $fx_asan"
-  alias fx-nelson-asan="fx-nelson  $fx_asan"
-  alias fx-sherlock-asan="fx-sherlock $fx_asan"
-  alias fx-vim3-asan="fx-vim3 $fx_asan"
+    btcmd="$btcmd //pw_bluetooth/..."
+    btcmd="$btcmd //pw_bluetooth_hci/..."
+    btcmd="$btcmd //pw_bluetooth_proxy/..."
+    btcmd="$btcmd //pw_bluetooth_sapphire/..."
+    alias btbuild="bazelisk build $btcmd"
+    alias bttest="bazelisk test $btcmd"
+
+    alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
+    fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
+    fx_asan='--variant host_asan --variant asan'
+    alias fx-astro="$fx_set smart_display_eng.astro"
+    alias fx-nelson="$fx_set smart_display_m3_eng.nelson"
+    alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
+    alias fx-vim3="fx set begonia_eng.vim3-vg --auto-dir --with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
+    alias fx-astro-asan="fx-astro $fx_asan"
+    alias fx-nelson-asan="fx-nelson  $fx_asan"
+    alias fx-sherlock-asan="fx-sherlock $fx_asan"
+    alias fx-vim3-asan="fx-vim3 $fx_asan"
+  fi
 
   alias btnew='bugged create --format=MARKDOWN 1472729'
 else
