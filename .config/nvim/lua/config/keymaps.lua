@@ -67,7 +67,7 @@ vim.keymap.set('n', '<leader>;', function()
   local path = '~/.config/nvim/init.lua'
   local bufnr = vim.fn.bufnr(path)
   if bufnr == -1 then
-    vim.cmd('vsplit ' .. path)
+    vim.cmd('edit ' .. path)
   else
     vim.cmd('buffer ' .. bufnr)
   end
