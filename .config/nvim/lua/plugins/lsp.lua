@@ -1,9 +1,9 @@
-local cmd = { 'clangd' }
+local clangd_cmd = { 'clangd' }
 
 if string.find(vim.fn.getcwd(), 'pigweed') then
   local home = os.getenv('HOME')
   local clangd = home .. '/code/pigweed/environment/cipd/packages/pigweed/bin/clangd'
-  cmd = {
+  clangd_cmd = {
     clangd,
     '--compile-commands-dir=' .. home .. '/code/pigweed/.pw_ide/.stable',
     '--background-index',
@@ -22,7 +22,7 @@ return {
     opts = {
       servers = {
         clangd = {
-          cmd = cmd,
+          cmd = clangd_cmd,
           keys = {
             { '<leader>ce', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
           },
