@@ -8,6 +8,14 @@ return {
     },
   },
   {
+    'akinsho/bufferline.nvim',
+    opts = {
+      options = {
+        mode = 'tabs',
+      },
+    },
+  },
+  {
     'folke/snacks.nvim',
     opts = {
       picker = {
