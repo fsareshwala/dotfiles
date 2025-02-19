@@ -17,6 +17,10 @@ return {
         documentation = { window = { border = 'single' } },
       },
       signature = { window = { border = 'single' } },
+      keymap = {
+        ['<c-j>'] = { 'select_next', 'fallback' },
+        ['<c-k>'] = { 'select_prev', 'fallback' },
+      },
     },
   },
 }
