@@ -375,7 +375,7 @@ if at_work; then
     alias hci_test="$hci_test"
     alias gap_test="$gap_test"
     alias hci_debug="lldb $hci_test"
-    alias hci_debug="lldb $gap_test"
+    alias gap_debug="lldb $gap_test"
 
     btcmd="$btcmd //pw_bluetooth/..."
     btcmd="$btcmd //pw_bluetooth_hci/..."
