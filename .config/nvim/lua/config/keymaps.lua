@@ -1,6 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 
 -- movement across virtually wrapped lines
 vim.keymap.set('n', '0', 'g0')
@@ -21,6 +19,9 @@ vim.keymap.set('n', '<c-p>', '"_cw^R"<esc>')
 
 -- underline current line
 vim.keymap.set('n', 'U', 'YpVr-')
+
+-- better window/tab/split controls
+vim.keymap.set('n', '<leader>t', '<cmd>tabnew<cr>')
 
 -- insert a hardcoded breakpoint under the current line
 vim.keymap.set('n', '<leader>id', function()
