@@ -365,6 +365,13 @@ if at_work; then
   alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
   alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
 
+  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
+  gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
+  alias hci_test="$hci_test"
+  alias gap_test="$gap_test"
+  alias hci_debug="m && lldb -o run $hci_test --"
+  alias gap_debug="m && lldb -o run $gap_test --"
+
   btcmd_paths=""
   btcmd_paths="$btcmd_paths //pw_bluetooth/..."
   btcmd_paths="$btcmd_paths //pw_bluetooth_hci/..."
@@ -372,13 +379,6 @@ if at_work; then
   btcmd_paths="$btcmd_paths //pw_bluetooth_sapphire/..."
   alias btbuild="bazelisk build $btcmd_args $btcmd_paths"
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
-
-  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
-  gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
-  alias hci_test="$hci_test"
-  alias gap_test="$gap_test"
-  alias hci_debug="btbuild && lldb $hci_test"
-  alias gap_debug="btbuild && lldb $gap_test"
 
   alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked && git submodule update --init'
   fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
