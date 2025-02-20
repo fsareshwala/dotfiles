@@ -27,7 +27,7 @@ return {
         clangd = {
           cmd = clangd_cmd,
           keys = {
-            { '<leader>ce', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
+            { '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
           },
         },
         bashls = {},
