@@ -59,11 +59,6 @@ vim.keymap.set('n', '<leader>id', function()
   end
 end, { desc = 'Insert hardcoded breakpoint' })
 
--- delete the current buffer more easily
-vim.keymap.set('n', 'q', function()
-  Snacks.bufdelete()
-end, { desc = 'Delete Buffer' })
-
 vim.keymap.set('n', '<leader>;', function()
   local path = '~/.config/nvim/init.lua'
   local bufnr = vim.fn.bufnr(path)
