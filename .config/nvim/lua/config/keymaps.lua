@@ -15,7 +15,7 @@ vim.keymap.set('n', '*', function()
 end)
 
 -- replace current word with the contents of the paste buffer
-vim.keymap.set('n', '<c-p>', '"_cw^R"<esc>')
+vim.keymap.set('n', '<c-p>', 'vexP')
 
 -- underline current line
 vim.keymap.set('n', 'U', 'YpVr-')
