@@ -1,7 +1,4 @@
 return {
-  -- colorschemes
-  { 'chriskempson/base16-vim' },
-
   -- ctrl+a and ctrl+x on dates
   { 'tpope/vim-speeddating' },
 
