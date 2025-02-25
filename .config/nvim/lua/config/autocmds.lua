@@ -64,6 +64,7 @@ vim.api.nvim_create_autocmd('BufRead', {
   group = general_settings,
   callback = function()
     vim.opt_local.filetype = 'gn'
+    vim.opt_local.commentstring = '# %s'
   end,
 })
 
