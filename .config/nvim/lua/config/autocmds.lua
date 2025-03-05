@@ -44,14 +44,6 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'c', 'cpp' },
-  group = general_settings,
-  callback = function()
-    vim.opt_local.commentstring = '// %s'
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'go' },
   group = general_settings,
   callback = function()
