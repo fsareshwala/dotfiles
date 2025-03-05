@@ -353,6 +353,7 @@ if at_work; then
   alias cd-p='cd ~/code/pigweed; source activate.sh'
   alias cd-bt='cd ~/code/pigweed; source activate.sh; cd ~/code/pigweed/pw_bluetooth_sapphire'
   alias cd-abt='cd ~/code/fuchsia/vendor/google/starnix/android/hal/bluetooth_hidl'
+  alias cd-auwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_hidl'
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
@@ -380,6 +381,7 @@ if at_work; then
   alias btbuild="bazelisk build $btcmd_args $btcmd_paths"
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
+  alias fupdate='pushd third_party/glslang && git fetch --tags --force && popd && git ff && jiri update -gc -rebase-all -rebase-untracked'
   fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
   fx_asan='--variant host_asan --variant asan'
   alias fx-core="$fx_set core.x64"
