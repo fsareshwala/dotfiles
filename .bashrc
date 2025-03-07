@@ -368,8 +368,8 @@ if at_work; then
 
   hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
   gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
-  alias hci_test="$hci_test"
-  alias gap_test="$gap_test"
+  alias hci_test="m && $hci_test"
+  alias gap_test="m && $gap_test"
   alias hci_debug="m && lldb -o run $hci_test --"
   alias gap_debug="m && lldb -o run $gap_test --"
 
