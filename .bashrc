@@ -351,11 +351,10 @@ if at_work; then
   alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
   alias cd-f='cd ~/code/fuchsia'
   alias cd-p='cd ~/code/pigweed; source activate.sh'
-  alias cd-bt='cd ~/code/pigweed; source activate.sh; cd ~/code/pigweed/pw_bluetooth_sapphire'
   alias cd-abt='cd ~/code/fuchsia/vendor/google/starnix/android/hal/bluetooth_hidl'
-  alias cd-auwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_hidl'
+  alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
-  alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
+  # alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
   btcmd_args='--config googletest --config asan'
   if on_cloudtop; then
@@ -388,7 +387,7 @@ if at_work; then
   alias fx-astro="$fx_set smart_display_eng.astro"
   alias fx-nelson="$fx_set smart_display_m3_eng.nelson"
   alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
-  alias fx-vim3="fx set begonia_eng.vim3-vg --auto-dir --with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
+  alias fx-vim3="fx set begonia_eng.vim3-vg --auto-dir --with //vendor/google/starnix/android/hal/bluetooth_hidl:tests --with //vendor/google/starnix/android/hal/uwb_aidl:tests"
   alias fx-core-asan="fx-core $fx_asan"
   alias fx-astro-asan="fx-astro $fx_asan"
   alias fx-nelson-asan="fx-nelson  $fx_asan"
