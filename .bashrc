@@ -365,12 +365,15 @@ if at_work; then
   alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
   alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
 
-  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
+  common_test="bazel-bin/pw_bluetooth_sapphire/host/common/common_test"
   gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
-  alias hci_test="m && $hci_test"
+  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
+  alias common_test="m && $common_test"
   alias gap_test="m && $gap_test"
-  alias hci_debug="m && lldb -o run $hci_test --"
+  alias hci_test="m && $hci_test"
+  alias common_debug="m && lldb -o run $common_test --"
   alias gap_debug="m && lldb -o run $gap_test --"
+  alias hci_debug="m && lldb -o run $hci_test --"
 
   btcmd_paths=""
   btcmd_paths="$btcmd_paths //pw_bluetooth/..."
