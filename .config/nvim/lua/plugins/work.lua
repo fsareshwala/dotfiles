@@ -1,6 +1,6 @@
 local util = require('util')
 local working = util.at_work()
-local have_fuchsia = util.file_exists('~/code/fuchsia')
+local have_fuchsia = util.file_exists(os.getenv('HOME') .. '/code/fuchsia')
 
 return {
   -- work plugins
