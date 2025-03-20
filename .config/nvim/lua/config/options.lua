@@ -9,11 +9,8 @@ vim.opt.colorcolumn = '+1'
 vim.opt.exrc = true
 vim.opt.formatoptions:append('1p]')
 vim.opt.gdefault = true
-vim.opt.linebreak = true
-vim.opt.list = true
 vim.opt.listchars = { tab = '|-', trail = '-', extends = '>', precedes = '<' }
 vim.opt.nrformats:append({ 'alpha', 'octal' })
-vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.shell = '/bin/bash'
 vim.opt.signcolumn = 'number'
