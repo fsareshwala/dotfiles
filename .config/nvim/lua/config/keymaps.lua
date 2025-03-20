@@ -23,6 +23,9 @@ vim.keymap.set('n', 'U', 'YpVr-')
 -- better window/tab/split controls
 vim.keymap.set('n', '<leader>t', '<cmd>tabnew<cr>')
 
+-- clear search register
+vim.keymap.set('n', '<c-n>', '<cmd>let @/=""<cr>')
+
 -- insert a hardcoded breakpoint under the current line
 vim.keymap.set('n', '<leader>id', function()
   local get_architecture = function()
