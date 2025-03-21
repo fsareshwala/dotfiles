@@ -43,5 +43,7 @@ URxvt.matcher.pattern.2: b\/[0-9]+
 URxvt.matcher.pattern.3: doc\/[a-zA-Z0-9-_]+
 URxvt.matcher.pattern.4: fxbug.dev\/[0-9]+
 URxvt.matcher.pattern.5: fxrev.dev\/[0-9]+
+URxvt.matcher.pattern.6: pwbug.dev\/[0-9]+
+URxvt.matcher.pattern.7: pwrev.dev\/[0-9]+
 
 #include "prefix/usr/local/rxvt/xresources/base16-brewer-256.Xresources"
