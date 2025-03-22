@@ -366,14 +366,28 @@ if at_work; then
   alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
 
   common_test="bazel-bin/pw_bluetooth_sapphire/host/common/common_test"
-  gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
-  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
   alias common_test="m && $common_test"
-  alias gap_test="m && $gap_test"
-  alias hci_test="m && $hci_test"
   alias common_debug="m && lldb -o run $common_test --"
-  alias gap_debug="m && lldb -o run $gap_test --"
+
+  hci_test="bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test"
+  alias hci_test="m && $hci_test"
   alias hci_debug="m && lldb -o run $hci_test --"
+
+  gap_test="bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test"
+  alias gap_test="m && $gap_test"
+  alias gap_debug="m && lldb -o run $gap_test --"
+
+  gatt_test="bazel-bin/pw_bluetooth_sapphire/host/gatt/gatt_test"
+  alias gatt_test="m && $gatt_test"
+  alias gatt_debug="m && lldb -o run $gatt_test --"
+
+  l2cap_test="bazel-bin/pw_bluetooth_sapphire/host/l2cap/l2cap_test"
+  alias l2cap_test="m && $l2cap_test"
+  alias l2cap_debug="m && lldb -o run $l2cap_test --"
+
+  sm_test="bazel-bin/pw_bluetooth_sapphire/host/sm/sm_test"
+  alias sm_test="m && $sm_test"
+  alias sm_debug="m && lldb -o run $sm_test --"
 
   btcmd_paths=""
   btcmd_paths="$btcmd_paths //pw_bluetooth/..."
