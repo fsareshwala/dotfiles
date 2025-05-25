@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ $# -lt 2 ]]; then
+  echo "usage $0 file file [file...]"
+fi
+
+tmplist=$(mktemp)
+tmpvid=$(mktemp /tmp/vid-join.XXXXXX)
+mv $tmpvid $tmpvid.mp4
+tmpvid="$tmpvid.mp4"
+trap 'rm -f "$tmplist" "$tmpvid"' EXIT
+
+for file in $@; do
+  echo "file $(realpath $file)" >>$tmplist
+done
+/opt/homebrew/bin/ffmpeg -y -f concat -safe 0 -i $tmplist -c copy $tmpvid
+
+first="$1"
+touch -r $first $tmpvid
+
+rm $@
+mv $tmpvid $first
