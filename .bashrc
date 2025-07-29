@@ -58,7 +58,7 @@ function gc() {
 }
 
 function fc() {
-  pushd ~/code/forecash
+  pushd ~/code/forecash/cli
   go build
 
   config_prefix="$HOME/drive"
