@@ -15,8 +15,9 @@ return {
       },
       signature = { window = { border = 'single' } },
       keymap = {
-        ['<c-j>'] = { 'select_next', 'fallback' },
-        ['<c-k>'] = { 'select_prev', 'fallback' },
+        preset = 'super-tab',
+        -- ['<c-j>'] = { 'select_next', 'fallback' },
+        -- ['<c-k>'] = { 'select_prev', 'fallback' },
       },
     },
   },
