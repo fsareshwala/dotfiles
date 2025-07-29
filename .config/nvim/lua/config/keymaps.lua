@@ -26,6 +26,8 @@ vim.keymap.set('n', '<leader>t', '<cmd>tabnew<cr>')
 -- clear search register
 vim.keymap.set('n', '<c-n>', '<cmd>let @/=""<cr>')
 
+vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
+
 -- insert a hardcoded breakpoint under the current line
 vim.keymap.set('n', '<leader>id', function()
   local get_architecture = function()
