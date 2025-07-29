@@ -96,10 +96,6 @@
   process = git-lfs filter-process
   required = true
 
-[url "git@github.com:"]
-  insteadof = https://github.com
-  insteadof = git://github.com
-
 [url "sso://fuchsia/"]
   pushInsteadOf = https://fuchsia.googlesource.com/
   pushInsteadOf = https://fuchsia-review.googlesource.com/
