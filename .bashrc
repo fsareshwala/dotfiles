@@ -398,7 +398,7 @@ if at_work; then
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
   alias fupdate='pushd third_party/glslang/src && git fetch --tags --force && popd && git pull --rebase && jiri update -gc -rebase-all -rebase-untracked'
-  fx_set='fx set --release --auto-dir --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
+  fx_set='fx set --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
   fx_asan='--variant host_asan --variant asan'
 
   alias fx-core="$fx_set core.x64"
