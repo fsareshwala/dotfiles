@@ -159,6 +159,7 @@ function set_path() {
   export PATH="/usr/local/sbin:$PATH"
   export PATH="$GOPATH/bin:$PATH"
   export PATH="$HOME/prefix/bin:$PATH"
+  export PATH="$HOME/prefix/usr/local/google-cloud-sdk/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -205,6 +206,7 @@ function set_path() {
     export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
     export PATH="/usr/local/git/current/bin:$PATH"
     export PATH="/usr/local/git/git-google/bin:$PATH"
+    export PATH="$HOME/Library/Python/3.13/bin:$PATH"
   fi
 }
 
