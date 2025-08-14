@@ -21,4 +21,15 @@ return {
       },
     },
   },
+
+  -- treesitter
+  {
+    'nvim-treesitter/nvim-treesitter',
+    opts = {
+      highlight = {
+        -- due to https://github.com/nvim-treesitter/nvim-treesitter/issues/2916
+        disable = { 'markdown' },
+      },
+    },
+  },
 }
