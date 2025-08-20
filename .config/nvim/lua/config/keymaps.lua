@@ -66,11 +66,7 @@ end, { desc = 'Insert hardcoded breakpoint' })
 
 vim.keymap.set('n', '<leader>;', function()
   local path = '~/.config/nvim/init.lua'
-  local bufnr = vim.fn.bufnr(path)
-  if bufnr == -1 then
-    vim.cmd('edit ' .. path)
-  else
-    vim.cmd('buffer ' .. bufnr)
-  end
+  vim.cmd('tabedit ' .. path)
+  vim.cmd('tcd ' .. vim.fn.fnamemodify(path, ':h'))
   Snacks.explorer.reveal({ file = path })
 end, { desc = 'Open configuration' })
