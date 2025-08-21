@@ -23,6 +23,7 @@ vim.opt.title = true
 vim.opt.undodir = vim.fn.glob('~/.config/nvim/tmp/undo')
 vim.opt.wildignore:append({ '*.so', '*.o' })
 vim.opt.wrap = true
+vim.opt.winborder = 'single'
 
 -- no transparency on completion windows
 vim.opt.pumblend = 0
