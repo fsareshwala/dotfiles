@@ -21,10 +21,17 @@ vim.keymap.set('n', '<c-p>', 've"_xP')
 vim.keymap.set('n', 'U', 'YpVr-')
 
 -- better window/tab/split controls
-vim.keymap.set('n', '<leader>t', '<cmd>tabnew<cr>')
+vim.keymap.set('n', '<leader>t', '<cmd>tabnew<cr>', { desc = 'New tab' })
 
 -- clear search register
 vim.keymap.set('n', '<c-n>', '<cmd>let @/=""<cr>')
+
+vim.keymap.set(
+  'n',
+  '<leader>.',
+  '<cmd>e ~/personal/career/google.md<cr>',
+  { desc = 'Open worklog' }
+)
 
 vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
 
