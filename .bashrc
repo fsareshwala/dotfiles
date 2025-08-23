@@ -346,6 +346,7 @@ if at_work; then
   alias rdrop='hg cls-drop -p --skip-confirmation -c'
   alias rsubmit='hg submit'
   alias pw='pw --no-banner'
+  alias wk='vim ~/personal/career/google.md'
 
   alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
   alias cd-f='cd ~/code/fuchsia'
