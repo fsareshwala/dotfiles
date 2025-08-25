@@ -363,8 +363,8 @@ if at_work; then
   fi
 
   alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
-  alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/{common,hci,gap}/..."
-  alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/{common:common_test,hci:hci_test,gap:gap_test}"
+  alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/..."
+  alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/..."
 
   common_test="bazel-bin/pw_bluetooth_sapphire/host/common/common_test"
   alias common_test="m && $common_test"
