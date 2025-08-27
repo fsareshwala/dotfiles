@@ -6,12 +6,6 @@ build --compilation_mode=dbg
 build --cxxopt -Werror
 build --cxxopt -Wall
 
-build --cxxopt -fsanitize=address
-build --cxxopt -fno-omit-frame-pointer
-build --cxxopt -DADDRESS_SANITIZER
-
-build --linkopt -fsanitize=address
-
 test --cache_test_results=yes
 test --test_output=errors
 
