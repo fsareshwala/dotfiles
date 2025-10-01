@@ -148,7 +148,7 @@ c_white="\[\033[0;37m\]"
 PS1="[$c_green\u$c_white@$c_purple\h$c_white:$c_yellow\$(__git_ps1 "%s")$c_white $c_blue\w$c_white]\$ "
 
 function set_path() {
-  # build path entirely from scartch to prevent unnecessary duplicates and
+  # build path entirely from scratch to prevent unnecessary duplicates and
   # support directory based path elements (e.g. Fuchsia doesn't like the
   # current directory in the path but I like that elsewhere in my system)
   export PATH="/bin"
@@ -367,6 +367,7 @@ if at_work; then
 
   alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
   alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync && pw ide cpp --set pw_strict_host_clang_debug && pw ide cpp --process'
+  alias embfmt='~/code/emboss/emboss-format ~/code/pigweed/pw_bluetooth/public/pw_bluetooth/hci_*.emb'
   alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/..."
   alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/..."
 
