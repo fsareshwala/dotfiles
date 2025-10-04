@@ -148,6 +148,11 @@ c_white="\[\033[0;37m\]"
 PS1="[$c_green\u$c_white@$c_purple\h$c_white:$c_yellow\$(__git_ps1 "%s")$c_white $c_blue\w$c_white]\$ "
 
 function set_path() {
+  # Pigweed likes to set its own path with source activate.sh
+  if in_pigweed; then
+    return
+  fi
+
   # build path entirely from scratch to prevent unnecessary duplicates and
   # support directory based path elements (e.g. Fuchsia doesn't like the
   # current directory in the path but I like that elsewhere in my system)
@@ -169,36 +174,6 @@ function set_path() {
   else
     # Fuchsia doesn't like the current directory in the path
     export PATH=".:$PATH"
-  fi
-
-  if in_pigweed; then
-    export PATH="$HOME/code/pigweed/out/host/host_tools:$PATH"
-    export PATH="$HOME/code/pigweed/environment/pigweed-venv/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/bazel/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/bazel:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/buildifier:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/cmake/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/cmake:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/coverage:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/arm/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/arm:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/pigweed/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/pigweed:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/python311:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/doxygen/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/doxygen:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/go/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/go:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/host_tools:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/kythe:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/luci:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/python38/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/python38:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/rbe:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/testing:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/web/bin:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd/packages/web:$PATH"
-    export PATH="$HOME/code/pigweed/environment/cipd:$PATH"
   fi
 
   if is_mac_os; then
