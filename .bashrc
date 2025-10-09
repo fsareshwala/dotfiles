@@ -328,7 +328,7 @@ if at_work; then
 
   alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
   alias cd-f='cd ~/code/fuchsia'
-  alias cd-p='cd ~/code/pigweed'
+  alias cd-p='cd ~/code/pigweed && source activate.sh'
   alias cd-bt='cd ~/code/pigweed/pw_bluetooth_sapphire'
   alias cd-abt='cd ~/code/fuchsia/vendor/google/starnix/android/hal/bluetooth_hidl'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
