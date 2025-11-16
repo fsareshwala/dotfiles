@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # vim: set tw=0:
+# shellcheck disable=all
 
 # If not running interactively, don't do anything
 case $- in
@@ -379,7 +380,7 @@ if at_work; then
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
   alias fupdate='pushd third_party/glslang/src && git fetch --tags --force && popd && git pull --rebase && jiri update -gc -rebase-all -rebase-untracked'
-  fx_set='fx set --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth'
+  fx_set='fx set --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth --assembly-override //local:include_ssh_keys'
   fx_asan='--variant host_asan --variant asan'
 
   if on_cloudtop; then
@@ -387,6 +388,9 @@ if at_work; then
   else
     fx_set="$fx_set --rbe-mode=workstation"
   fi
+
+  bluetooth_hidl="--with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
+  bluetooth_hidl="$bluetooth_hidl --with //vendor/google/starnix/android/hal/uwb_aidl:tests"
 
   alias fx-core="$fx_set core.x64"
   alias fx-core-asan="fx-core $fx_asan"
@@ -400,10 +404,8 @@ if at_work; then
   alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
   alias fx-sherlock-asan="fx-sherlock $fx_asan"
 
-  bluetooth_hidl="--with //vendor/google/starnix/android/hal/bluetooth_hidl:tests"
-  bluetooth_hidl="$bluetooth_hidl --with //vendor/google/starnix/android/hal/uwb_aidl:tests"
-  alias fx-vim3="$fx_set hsp.arm64 --main-pb //vendor/google/products/pixel_watch:pixel_watch_eng.vim3-vg $bluetooth_hidl"
-  alias fx-vim3-asan="fx-vim3 $fx_asan"
+  alias fx-sorrel="$fx_set fuchsia_internal.arm64 --main-pb pixel_watch_eng.sorrel"
+  alias fx-sorrel-asan="fx-sorrel $fx_asan"
 
   alias fx-pw-femu="$fx_set hsp.x64 --main-pb //vendor/google/products/pixel_watch:pixel_watch_eng.x64 $bluetooth_hidl"
   alias fx-pw-femu-asan="$fx_set hsp.x64 $fx_asan"
