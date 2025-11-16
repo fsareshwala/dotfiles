@@ -1,11 +1,12 @@
 local util = require('util')
 local working = util.at_work()
 local have_fuchsia = util.file_exists(os.getenv('HOME') .. '/code/fuchsia')
+local have_emboss = util.file_exists(os.getenv('HOME') .. '/code/emboss')
 
 return {
   -- work plugins
   { dir = '~/code/fuchsia/tools/fidl/editors/vim', enabled = working and have_fuchsia },
-  { dir = '~/code/emboss/integration/vim/ft-emboss', enabled = working },
+  { dir = '~/code/emboss/integration/vim/ft-emboss', enabled = working and have_emboss },
 
   {
     url = 'https://gn.googlesource.com/gn',
