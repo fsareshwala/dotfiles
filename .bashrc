@@ -341,7 +341,6 @@ if at_work; then
     btcmd_args="$btcmd_args --config remote_cache"
   fi
 
-  alias btpresubmit='pw presubmit --step gn_chre_googletest_nanopb_sapphire_build'
   alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync && pw ide cpp --set pw_strict_host_clang_debug && pw ide cpp --process'
   alias embfmt='~/code/emboss/emboss-format ~/code/pigweed/pw_bluetooth/public/pw_bluetooth/hci_*.emb'
   alias m="bazelisk build $btcmd_args //pw_bluetooth_sapphire/host/..."
