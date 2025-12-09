@@ -373,7 +373,7 @@ if at_work; then
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
   alias fupdate='pushd third_party/glslang/src && git fetch --tags --force && popd && git pull --rebase && jiri update -gc -rebase-all -rebase-untracked'
-  fx_set='fx set --args="experimental_thread_sampler_enabled=true" --with //src/connectivity/bluetooth --assembly-override //local:include_ssh_keys'
+  fx_set='fx set --with //src/connectivity/bluetooth --assembly-override //local:include_ssh_keys'
   fx_asan='--variant host_asan --variant asan'
 
   if on_cloudtop; then
@@ -397,7 +397,7 @@ if at_work; then
   alias fx-sherlock="$fx_set smart_display_max_eng.sherlock"
   alias fx-sherlock-asan="fx-sherlock $fx_asan"
 
-  alias fx-sorrel="$fx_set fuchsia_internal.arm64 --main-pb pixel_watch_eng.sorrel"
+  alias fx-sorrel="$fx_set minimal.sorrel"
   alias fx-sorrel-asan="fx-sorrel $fx_asan"
 
   alias fx-pw-femu="$fx_set hsp.x64 --main-pb //vendor/google/products/pixel_watch:pixel_watch_eng.x64 $bluetooth_hidl"
