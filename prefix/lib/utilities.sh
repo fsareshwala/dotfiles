@@ -24,16 +24,6 @@ function is_in_git_repo() {
   return 1 # false
 }
 
-function dirname() {
-  local path=$1
-  echo "${path%/*}"
-}
-
-function basename() {
-  local path=$1
-  echo "${path##*/}"
-}
-
 function get_extension() {
   local filename=$1
   echo "${filename##*.}"
