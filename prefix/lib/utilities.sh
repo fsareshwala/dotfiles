@@ -13,11 +13,11 @@ function log_error() {
 
 function ensure_exists() {
   local program=$1
-  command -v "$program" > /dev/null 2>&1 || log_error "$program not available on path"
+  command -v "$program" >/dev/null 2>&1 || log_error "$program not available on path"
 }
 
 function is_in_git_repo() {
-  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     return 0 # true
   fi
 
