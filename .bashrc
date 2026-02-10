@@ -400,8 +400,8 @@ if at_work; then
   alias fx-sorrel="$fx_set minimal.sorrel"
   alias fx-sorrel-asan="fx-sorrel $fx_asan"
 
-  alias fx-pw-femu="$fx_set hsp.x64 --main-pb //vendor/google/products/pixel_watch:pixel_watch_eng.x64 $bluetooth_hidl"
-  alias fx-pw-femu-asan="$fx_set hsp.x64 $fx_asan"
+  alias fx-sorrel-full="fx set fuchsia_internal.arm64 --assembly-override //local:include_ssh_keys --main-pb //vendor/google/products/pixel_watch:pixel_watch_eng.sorrel --with //src/connectivity/bluetooth/tools"
+  alias fx-sorrel-full-asan="fx-sorrel_full $fx_asan"
 
   alias btnew='bugged create --format=MARKDOWN 1472729'
   alias cd-g3='cd ~/code/google3'
