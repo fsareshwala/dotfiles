@@ -48,7 +48,7 @@ if [[ -z "$repo_path" ]]; then
 fi
 
 # require the repository to be on the solutions branch
-pushd $repo_path
+pushd "$repo_path"
 branch=$(git symbolic-ref --short -q HEAD)
 if [[ $branch != "solutions" ]]; then
   echo "$repo_path is on branch $branch, requires branch solution"
@@ -63,10 +63,10 @@ rm .bazelrc
 files="$(bazel query "kind('source file', deps(java:$program))" 2> /dev/null | grep '.java' |
   grep '//java/src/' | sed 's,^//,,g; s,:,/,g')"
 for file in $files; do
-  dirpath=$(dirname $file)
-  directory=solutions/$dirpath
-  mkdir -p $directory
-  cp $repo_path/$file $directory
+  dirpath=$(dirname "$file")
+  directory="solutions/$dirpath"
+  mkdir -p "$directory"
+  cp "$repo_path/$file" "$directory"
 done
 bazel shutdown
 

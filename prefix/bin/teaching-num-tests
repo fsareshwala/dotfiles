@@ -9,8 +9,8 @@ if [[ $# -ne 1 ]]; then
 fi
 
 gitroot=$(git rev-parse --show-toplevel)
-cd $gitroot
+cd "$gitroot"
 
-program=$1
+program="$1"
 bazel query "kind('source file', deps(java:$program))" 2> /dev/null | grep java | grep test |
-  sed 's,^//,,g; s,:,/,g' | xargs cat | grep '@Test' | wc -l
+  sed 's,^//,,g; s,:,/,g' | xargs -d '\n' cat | grep '@Test' | wc -l

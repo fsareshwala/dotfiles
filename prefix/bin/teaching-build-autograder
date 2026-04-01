@@ -28,13 +28,13 @@ apt install -y openjdk-11-jdk
 }
 
 function generate_run_autograder() {
-  local gitroot=$1
-  local program=$2
+  local gitroot="$1"
+  local program="$2"
 
   echo "\
 #!/usr/bin/env bash
 
-numtests=\$(find /autograder/source/java -name '*_T.java' | xargs cat | grep '@Test' | wc -l)
+numtests=\$(find /autograder/source/java -name '*_T.java' | xargs -d '\n' cat | grep '@Test' | wc -l)
 
 # copy tests from base repository to prevent students from modifying tests, forcing them to pass
 cp -r '/autograder/source/java' '/autograder/submission'
@@ -46,7 +46,7 @@ cd /autograder/submission
 echo 'test --test_output=errors' > .bazelrc
 
 # build student code -- ensure it builds before we assign a grade
-bazel build java:$program 2>&1 > results
+bazel build \"java:$program\" 2>&1 > results
 if [[ \$? -ne 0 ]]; then
   cat results
   echo 'error: build failure, zero points assigned to solutions that do not build properly'
@@ -55,7 +55,7 @@ if [[ \$? -ne 0 ]]; then
 fi
 
 # run student code and score results
-bazel test java:$program 2>&1 | tee results
+bazel test \"java:$program\" 2>&1 | tee results
 
 score=\$numtests
 failures='Failures:'
@@ -75,28 +75,28 @@ function build_autograder() {
     grep '.java' | grep '//java/test/' | sed 's,^//,,g; s,:,/,g')"
 
   local tempdir=$(mktemp -d)
-  cd $tempdir
+  cd "$tempdir"
 
   setup_path="setup.sh"
-  generate_setup_sh > $setup_path
-  chmod 700 $setup_path
+  generate_setup_sh > "$setup_path"
+  chmod 700 "$setup_path"
 
   run_autograder_path="run_autograder"
-  generate_run_autograder $gitroot $program > $run_autograder_path
-  chmod 700 $run_autograder_path
+  generate_run_autograder "$gitroot" "$program" > "$run_autograder_path"
+  chmod 700 "$run_autograder_path"
 
   # copy tests from base repository to prevent students from modifying tests, forcing them to pass
   for test in $tests; do
-    destination=$(dirname $test)
-    mkdir -p $destination
-    cp $gitroot/$test $destination
+    destination=$(dirname "$test")
+    mkdir -p "$destination"
+    cp "$gitroot/$test" "$destination"
   done
 
-  zip -r autograder-$program.zip *
+  zip -r "autograder-$program.zip" *
 
-  cd $gitroot
-  mv $tempdir/autograder-$program.zip $gitroot
-  rm -rf $tempdir
+  cd "$gitroot"
+  mv "$tempdir/autograder-$program.zip" "$gitroot"
+  rm -rf "$tempdir"
 }
 
 function main() {

@@ -39,14 +39,14 @@ function has_battery() {
 function battery() {
   battery_path="/sys/class/power_supply/BAT0"
 
-  status=$(cat $battery_path/status)
+  status=$(cat "$battery_path/status")
   if [[ "$status" == "Charging" ]]; then
     echo -n "charging "
   else
     echo -n "discharging "
   fi
 
-  echo "$(cat $battery_path/capacity)%"
+  echo "$(cat "$battery_path/capacity")%"
 }
 
 while true; do

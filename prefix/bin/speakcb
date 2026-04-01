@@ -14,8 +14,8 @@ ensure_exists ffplay
 export GOOGLE_APPLICATION_CREDENTIALS="$(realpath ~/personal/keys/personal-project-285905.json)"
 
 tmpdir=$(mktemp -d)
-trap "rm -rf $tmpdir" EXIT
-cd $tmpdir
+trap 'rm -rf "$tmpdir"' EXIT
+cd "$tmpdir"
 
 function speak() {
   local access_token="$(gcloud auth application-default print-access-token)"
@@ -31,7 +31,7 @@ function speak() {
   cat << EOF > request.json
 {
   "input": {
-    "text": "$@"
+    "text": "$*"
   },
   "voice": {
     "languageCode": "en-US",
@@ -52,7 +52,7 @@ EOF
 
   error_message=$(jq .error.message response.json)
   if [[ $error_message != "null" ]]; then
-    notify-send 'Failure: Speak Cliboard' "$error_message"
+    notify-send 'Failure: Speak Clipboard' "$error_message"
     exit 1
   fi
 

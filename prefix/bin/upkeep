@@ -9,7 +9,7 @@ function git_update() {
     return
   fi
 
-  cd $directory
+  cd "$directory"
   local git_status=$(git status --porcelain)
   if [[ -z "$git_status" ]]; then
     # no changes in repository, nothing to do
@@ -17,7 +17,7 @@ function git_update() {
   fi
 
   git add .
-  git commit -m "$(basename $directory): automatic update"
+  git commit -m "$(basename "$directory"): automatic update"
   git pull --rebase
   git push
 }

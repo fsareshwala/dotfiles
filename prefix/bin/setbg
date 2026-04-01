@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-directory=/home/fsareshwala/.wallpapers
-if [[ -d $directory ]]; then
-  cd $directory
-  feh --bg-fill $(ls | shuf -n 1)
+directory="$HOME/.wallpapers"
+if [[ -d "$directory" ]]; then
+  cd "$directory"
+  find . -maxdepth 1 -type f | shuf -n 1 | xargs -I {} feh --bg-fill {}
 else
   xsetroot -solid black
 fi

@@ -8,7 +8,7 @@ ensure_exists scrot
 ensure_exists xclip
 
 filename=$(date '+screenshot-%m-%d-%Y-%I:%M:%S%P.png')
-path=~/$filename
-scrot -s $path
-xclip -selection clipboard -target image/png -i $path
+path="$HOME/$filename"
+scrot -s "$path"
+xclip -selection clipboard -target image/png -i "$path"
 notify-send screenshot "screenshot captured: $path"

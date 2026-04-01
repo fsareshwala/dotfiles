@@ -7,13 +7,13 @@ if [[ $# -ne 1 ]]; then
   exit 1
 fi
 
-repo=$1
-upstream_url=git@github.com:ucbext/$repo.git
+repo="$1"
+upstream_url="git@github.com:ucbext/$repo.git"
 
 if git ls-remote upstream &> /dev/null; then
-  git remote set-url upstream $upstream_url
+  git remote set-url upstream "$upstream_url"
 else
-  git remote add upstream $upstream_url
+  git remote add upstream "$upstream_url"
 fi
 
 git fetch upstream
