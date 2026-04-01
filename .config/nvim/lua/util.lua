@@ -26,9 +26,7 @@ end
 function util.at_work()
   local hostname = util.get_hostname()
 
-  if string.startswith(hostname, 'fsareshwala-office') then
-    return true
-  elseif string.startswith(hostname, 'fsareshwala-cloudtop') then
+  if string.startswith(hostname, 'fsareshwala-cloudtop') then
     return true
   elseif string.startswith(hostname, 'fsareshwala-macbookpro') then
     return true

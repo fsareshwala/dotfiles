@@ -36,9 +36,7 @@ function remove_extension() {
 
 function at_work() {
   hostname=$(hostname)
-  if [[ $hostname == 'fsareshwala-office'* ]]; then
-    return 0
-  elif [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
+  if [[ $hostname == 'fsareshwala-cloudtop'* ]]; then
     return 0
   elif [[ $hostname == 'fsareshwala-macbookpro'* ]]; then
     return 0
