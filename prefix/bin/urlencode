@@ -1,15 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import sys
-import urllib
+import urllib.parse
 
 if len(sys.argv) == 2:
-    print urllib.quote_plus(sys.argv[1])
+    print(urllib.parse.quote_plus(sys.argv[1]))
     sys.exit(0)
 
-while True:
-    line = sys.stdin.readline()
-    if not line:
-        break
-
-    print urllib.quote_plus(line.strip())
+for line in sys.stdin:
+    print(urllib.parse.quote_plus(line.strip()))
