@@ -328,6 +328,7 @@ if at_work; then
   alias cd-abt='cd ~/code/fuchsia/vendor/google/starnix/android/hal/bluetooth_hidl'
   alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
   alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
+  alias cd-btfidl='cd ~/code/fuchsia/sdk/fidl/fuchsia.bluetooth.le'
   # alias cd-uwb='cd ~/code/fuchsia/vendor/google/connectivity/uwb'
 
   btcmd_args='--config googletest --config asan'
