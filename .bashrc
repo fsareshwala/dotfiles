@@ -365,6 +365,10 @@ if at_work; then
   alias sm_test="m && $sm_test"
   alias sm_debug="m && lldb -o run $sm_test --"
 
+  transport_test="bazel-bin/pw_bluetooth_sapphire/host/transport/transport_test"
+  alias transport_test="m && $transport_test"
+  alias transport_debug="m && lldb -o run $transport_test --"
+
   btcmd_paths=""
   btcmd_paths="$btcmd_paths //pw_bluetooth/..."
   btcmd_paths="$btcmd_paths //pw_bluetooth_hci/..."
