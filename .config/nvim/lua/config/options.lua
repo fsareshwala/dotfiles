@@ -5,6 +5,23 @@ vim.g.mapleader = '\\'
 
 vim.g.snacks_animate = false
 
+-- Use OSC 52 for clipboard when remote (SSH or shpool).
+-- This ensures yanks are sent to the local terminal (iTerm2) even if xclip is broken.
+if vim.env.SSH_CLIENT or vim.env.SHPOOL_SESSION_NAME then
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+    },
+    paste = {
+      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+    },
+  }
+end
+
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.colorcolumn = '+1'
 vim.opt.conceallevel = 1
 vim.opt.exrc = true
