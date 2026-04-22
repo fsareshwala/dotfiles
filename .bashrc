@@ -378,7 +378,7 @@ if at_work; then
   alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
   alias fupdate='pushd third_party/glslang/src && git fetch --tags --force && popd && git pull --rebase && jiri update -gc -rebase-all -rebase-untracked'
-  fx_set='fx set --with //src/connectivity/bluetooth --assembly-override //local:include_ssh_keys'
+  fx_set='fx set  --assembly-override //local:include_ssh_keys'
   fx_asan='--variant host_asan --variant asan'
 
   if on_cloudtop; then
