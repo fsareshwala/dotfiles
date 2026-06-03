@@ -146,13 +146,13 @@ if at_work
     alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
     alias cd-g3='cd ~/code/google3'
     alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
-    alias cd-p='cd ~/code/pigweed && source activate.fish'
+    alias cd-p='cd ~/code/pigweed; and source activate.fish'
     alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
 
-    alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync && pw ide cpp --set pw_strict_host_clang_debug && pw ide cpp --process'
+    alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync ; and pw ide cpp --set pw_strict_host_clang_debug ; and pw ide cpp --process'
     alias btnew='bugged create --format=MARKDOWN 1472729'
     alias embfmt='~/code/emboss/emboss-format ~/code/pigweed/pw_bluetooth/public/pw_bluetooth/hci_*.emb'
-    alias fupdate='pushd third_party/glslang/src && git fetch --tags --force && popd && git pull --rebase && jiri update -gc -rebase-all -rebase-untracked'
+    alias fupdate='pushd third_party/glslang/src ; and git fetch --tags --force ; and popd ; and git pull --rebase ; and jiri update -gc -rebase-all -rebase-untracked'
     alias mdformat='/google/bin/releases/corpeng-engdoc/tools/mdformat'
 
     set -l btcmd_args '--config googletest --config asan'
@@ -164,32 +164,32 @@ if at_work
     alias t="bazelisk test $btcmd_args //pw_bluetooth_sapphire/host/..."
 
     set -l common_test bazel-bin/pw_bluetooth_sapphire/host/common/common_test
-    alias common_test="m && $common_test"
-    alias common_debug="m && lldb -o run $common_test --"
+    alias common_test="m ; and $common_test"
+    alias common_debug="m ; and lldb -o run $common_test --"
 
     set -l hci_test bazel-bin/pw_bluetooth_sapphire/host/hci/hci_test
-    alias hci_test="m && $hci_test"
-    alias hci_debug="m && lldb -o run $hci_test --"
+    alias hci_test="m ; and $hci_test"
+    alias hci_debug="m ; and lldb -o run $hci_test --"
 
     set -l gap_test bazel-bin/pw_bluetooth_sapphire/host/gap/gap_test
-    alias gap_test="m && $gap_test"
-    alias gap_debug="m && lldb -o run $gap_test --"
+    alias gap_test="m ; and $gap_test"
+    alias gap_debug="m ; and lldb -o run $gap_test --"
 
     set -l gatt_test bazel-bin/pw_bluetooth_sapphire/host/gatt/gatt_test
-    alias gatt_test="m && $gatt_test"
-    alias gatt_debug="m && lldb -o run $gatt_test --"
+    alias gatt_test="m ; and $gatt_test"
+    alias gatt_debug="m ; and lldb -o run $gatt_test --"
 
     set -l l2cap_test bazel-bin/pw_bluetooth_sapphire/host/l2cap/l2cap_test
-    alias l2cap_test="m && $l2cap_test"
-    alias l2cap_debug="m && lldb -o run $l2cap_test --"
+    alias l2cap_test="m ; and $l2cap_test"
+    alias l2cap_debug="m ; and lldb -o run $l2cap_test --"
 
     set -l sm_test bazel-bin/pw_bluetooth_sapphire/host/sm/sm_test
-    alias sm_test="m && $sm_test"
-    alias sm_debug="m && lldb -o run $sm_test --"
+    alias sm_test="m ; and $sm_test"
+    alias sm_debug="m ; and lldb -o run $sm_test --"
 
     set -l transport_test bazel-bin/pw_bluetooth_sapphire/host/transport/transport_test
-    alias transport_test="m && $transport_test"
-    alias transport_debug="m && lldb -o run $transport_test --"
+    alias transport_test="m ; and $transport_test"
+    alias transport_debug="m ; and lldb -o run $transport_test --"
 
     set -l btcmd_paths " //pw_bluetooth/... //pw_bluetooth_hci/... //pw_bluetooth_proxy/... //pw_bluetooth_sapphire/..."
     alias btbuild="bazelisk build $btcmd_args $btcmd_paths"
