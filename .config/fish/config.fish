@@ -146,7 +146,7 @@ if at_work
     alias cd-fbt='cd ~/code/fuchsia/src/connectivity/bluetooth'
     alias cd-g3='cd ~/code/google3'
     alias cd-i='cd ~/code/google3/corp/hiring/interview_questions/questions/g3doc/genswe'
-    alias cd-p='cd ~/code/pigweed && source activate.sh'
+    alias cd-p='cd ~/code/pigweed && source activate.fish'
     alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
 
     alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync && pw ide cpp --set pw_strict_host_clang_debug && pw ide cpp --process'
