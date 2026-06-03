@@ -80,6 +80,8 @@ complete -c gm -a "(__fish_complete_directories)"
 
 # --- Work Specific Configs ---
 if at_work
+    gcertstatus --check_remaining=60m >/dev/null 2>&1; or gcert -s
+
     set -gx FX_ENV "$HOME/code/fuchsia/scripts/fx-env.fish"
     test -e $FX_ENV; and source $FX_ENV
 
