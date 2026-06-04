@@ -1,4 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=vim
-Exec=/usr/bin/rxvt-unicode -e /home/fsareshwala/prefix/bin/nvim
