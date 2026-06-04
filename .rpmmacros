@@ -1,3 +1,0 @@
-%_builddir %(pwd)
-%_rpmdir %(pwd)/rpms
-%_topdir /tmp/rpmbuild
