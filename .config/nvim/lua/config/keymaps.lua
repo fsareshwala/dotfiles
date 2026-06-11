@@ -70,3 +70,27 @@ vim.keymap.set('n', '<leader>;', function()
   vim.cmd('tcd ' .. vim.fn.fnamemodify(path, ':h'))
   Snacks.explorer.reveal({ file = path })
 end, { desc = 'Open configuration' })
+
+-- Copy current filename (excluding ~/code prefix) and line number to clipboard
+vim.keymap.set('n', '<leader>fy', function()
+  local filepath = vim.fn.expand('%:p')
+  if filepath == '' then
+    print('No file path to copy')
+    return
+  end
+
+  local home_prefix = vim.fn.expand('~') .. '/'
+  if filepath:find(home_prefix, 1, true) == 1 then
+    filepath = filepath:sub(#home_prefix + 1)
+  end
+
+  if filepath:find('code/', 1, true) == 1 then
+    filepath = filepath:sub(#'code/' + 1)
+  end
+
+  local line = vim.fn.line('.')
+  local result = filepath .. ':' .. line
+  vim.fn.setreg('+', result)
+  vim.fn.setreg('"', result) -- also set default register
+  print('Copied: ' .. result)
+end, { desc = 'Copy file path and line number' })
