@@ -75,7 +75,7 @@
 		<key>0x4a-0x120000-0x26</key>
 		<dict>
 			<key>Action</key>
-			<integer>68</integer>
+			<integer>67</integer>
 			<key>Apply Mode</key>
 			<integer>0</integer>
 			<key>Escaping</key>
@@ -88,7 +88,7 @@
 		<key>0x4b-0x120000-0x28</key>
 		<dict>
 			<key>Action</key>
-			<integer>67</integer>
+			<integer>68</integer>
 			<key>Apply Mode</key>
 			<integer>0</integer>
 			<key>Escaping</key>
@@ -170,7 +170,7 @@
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabNumber</key>
@@ -1161,6 +1161,8 @@
 			<key>Shortcut</key>
 			<string></string>
 			<key>Show Mark Indicators</key>
+			<false/>
+			<key>Show Offscreen Command line</key>
 			<false/>
 			<key>Show Timestamps</key>
 			<integer>0</integer>
