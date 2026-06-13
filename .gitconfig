@@ -101,7 +101,9 @@
   pushInsteadOf = https://fuchsia-review.googlesource.com/
 
 [tig]
-  line-graphics = yes
+  ignore-case = smart-case
+  line-graphics = utf-8
+  main-view-author-display = email-user
+  show-changes = false
   tab-size = 2
-  commit-order = default
-  show-changes = no
+  truncation-delimiter = utf-8
