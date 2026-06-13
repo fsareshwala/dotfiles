@@ -9,7 +9,8 @@ stty werase undef
 # Environment Variables
 set -gx EDITOR nvim
 set -gx GOPATH $HOME/go
-set -gx MANPAGER 'sh -c "col -bx | batcat -l man -p"'
+set -gx MANPAGER "batcat -l man -p"
+set -gx MANROFFOPT -c
 set -gx VISUAL nvim
 
 # FZF Configuration
