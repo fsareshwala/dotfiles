@@ -1219,7 +1219,7 @@
 			<key>Use Selected Text Color (Light)</key>
 			<true/>
 			<key>Use Separate Colors for Light and Dark Mode</key>
-			<true/>
+			<false/>
 			<key>Use Tab Color</key>
 			<false/>
 			<key>Use Tab Color (Dark)</key>
