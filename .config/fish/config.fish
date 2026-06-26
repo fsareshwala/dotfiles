@@ -6,12 +6,20 @@ stty -ixon
 
 stty werase undef
 
+if is_mac_os
+    set -g bat_cmd bat
+    set -g fd_cmd fd
+else
+    set -g bat_cmd batcat
+    set -g fd_cmd fdfind
+end
+
 # Environment Variables
 set -gx EDITOR nvim
 set -gx GOPATH $HOME/go
-set -gx MANPAGER "batcat -l man -p"
-set -gx MANROFFOPT -c
 set -gx VISUAL nvim
+set -gx MANROFFOPT -c
+set -gx MANPAGER "$bat_cmd -l man -p"
 
 # FZF Configuration
 function _fzf_compgen_path
@@ -72,6 +80,8 @@ alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
+alias cat="$bat_cmd"
+alias fd="$fd_cmd"
 alias json='python3 -m json.tool'
 alias lg='lazygit'
 alias ll='ls -l'
@@ -87,13 +97,6 @@ alias vim='nvim -O'
 alias vimf='nvim (fzf)'
 alias watch='watch --color'
 alias which='type -p'
-
-if is_mac_os
-    alias cat='bat'
-else
-    alias cat='batcat'
-    alias fd='fdfind'
-end
 
 alias b='git branch'
 alias ba='git branch -a'
