@@ -60,6 +60,7 @@ function set_path --on-event fish_prompt --description 'Regenerate path complete
 
     if is_mac_os
         set -a target_path /opt/homebrew/bin
+        set -a target_path /Library/TeX/Distributions/Programs/texbin
     end
 
     set -gx PATH $target_path
