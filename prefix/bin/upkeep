@@ -1,25 +1,25 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-source ~/prefix/lib/utilities.sh
+source ~/prefix/lib/utilities.fish
 
-function git_update() {
-  local directory=$1
-  if [[ ! -d "$directory" ]]; then
-    log_warn "$directory doesn't exist, not updating git"
-    return
-  fi
+function git_update
+    set -l directory $argv[1]
+    if not test -d "$directory"
+        log_warn "$directory doesn't exist, not updating git"
+        return
+    end
 
-  cd "$directory"
-  local git_status=$(git status --porcelain)
-  if [[ -z "$git_status" ]]; then
-    # no changes in repository, nothing to do
-    return
-  fi
+    cd "$directory"
+    set -l git_status (git status --porcelain)
+    if test -z "$git_status"
+        # no changes in repository, nothing to do
+        return
+    end
 
-  git add .
-  git commit -m "$(basename "$directory"): automatic update"
-  git pull --rebase
-  git push
-}
+    git add .
+    git commit -m "(basename "$directory"): automatic update"
+    git pull --rebase
+    git push
+end
 
 git_update ~/personal
