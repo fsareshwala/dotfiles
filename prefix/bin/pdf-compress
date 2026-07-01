@@ -1,22 +1,23 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-source ~/prefix/lib/utilities.sh
+source ~/prefix/lib/utilities.fish
 ensure_exists gs
 
 # default compression if user doesn't provide one
-if [[ $# -eq 1 ]]; then
-  compression_type=ebook
-  filename=$1
+if test (count $argv) -eq 1
+    set compression_type ebook
+    set filename $argv[1]
 else
-  compression_type=$1
-  case $compression_type in
-    screen|ebook|printer|prepress|default) ;;
-    *) echo "error: unsupported compression type ($compression_type)" ;;
-  esac
+    set compression_type $argv[1]
+    switch $compression_type
+        case screen ebook printer prepress default
+            # do nothing
+        case '*'
+            echo "error: unsupported compression type ($compression_type)"
+    end
+    set filename $argv[2]
+end
 
-  filename=$2
-fi
-
-output="${filename%.*}-compressed.pdf"
+set output (remove_extension "$filename")"-compressed.pdf"
 gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.6 -dPDFSETTINGS="/$compression_type" -dNOPAUSE -dQUIET \
     -dBATCH -sOutputFile="$output" "$filename"
