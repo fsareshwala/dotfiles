@@ -1,10 +1,6 @@
 *.o
 *.swp
 *.iml
-.idea
-
-tags
-ctags
 .jetskicli
 
 # ignore core files but not directories named core
