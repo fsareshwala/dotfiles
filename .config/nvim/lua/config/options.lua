@@ -23,7 +23,7 @@ end
 
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.colorcolumn = '+1'
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 vim.opt.exrc = true
 vim.opt.formatoptions:append('1p]')
 vim.opt.gdefault = true
