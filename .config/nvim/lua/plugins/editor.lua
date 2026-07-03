@@ -5,6 +5,8 @@ return {
   -- better word motions through long strings
   { 'chaoren/vim-wordmotion' },
 
+  { "folke/flash.nvim", enabled = false },
+
   -- completion
   {
     'saghen/blink.cmp',
