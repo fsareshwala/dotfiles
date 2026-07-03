@@ -1,11 +1,5 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
---
--- Add any additional autocmds here
--- with `vim.api.nvim_create_autocmd`
---
--- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
--- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 local util = require('util')
 local working = util.at_work()
@@ -106,34 +100,4 @@ if working then
       end
     end,
   })
-end
-
--- format code on save
--- use vim-codefmt while working, otherwise lsp formatting
-vim.g.rustfmt_autosave = 1
-if working then
-  vim.cmd([[
-    let g:gn_path = systemlist('source ~/code/fuchsia/tools/devshell/lib/vars.sh && echo $PREBUILT_GN')[0]
-
-    augroup formatting
-    autocmd!
-    autocmd FileType gn ++once execute ':Glaive codefmt gn_executable=' . g:gn_path
-    autocmd FileType bzl AutoFormatBuffer buildifier
-    autocmd FileType c,cpp AutoFormatBuffer clang-format
-    autocmd FileType gn AutoFormatBuffer gn
-    autocmd FileType go AutoFormatBuffer gofmt
-    autocmd FileType markdown AutoFormatBuffer mdformat
-    autocmd FileType proto AutoFormatBuffer protofmt
-    autocmd FileType python AutoFormatBuffer pyformat
-    autocmd FileType rust AutoFormatBuffer rustfmt
-    autocmd FileType sh AutoFormatBuffer shfmt
-    augroup end
-    ]])
-else
-  vim.cmd([[
-    augroup formatting
-    autocmd!
-    autocmd BufWritePre *.h,*.cc,*.go lua conform.format()
-    augroup end
-    ]])
 end
