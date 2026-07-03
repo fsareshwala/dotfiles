@@ -28,7 +28,7 @@
 
   discard = reset --hard
   message = log --format='%B' -n 1
-  undo = reset --soft HEAD~
+  undo = !git reset --soft HEAD~ && git reset
 
 [help]
   autocorrect = 1
