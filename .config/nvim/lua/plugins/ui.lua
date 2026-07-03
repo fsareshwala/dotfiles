@@ -1,6 +1,4 @@
 return {
-  -- colorschemes
-  { 'chriskempson/base16-vim' },
   {
     'folke/tokyonight.nvim',
     opts = {
