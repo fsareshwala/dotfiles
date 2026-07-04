@@ -40,6 +40,9 @@ return {
             command = gn_path ~= '' and gn_path or 'gn',
             args = { 'format', '--stdin' },
           },
+          prettier = {
+            prepend_args = { '--prose-wrap', 'always', '--print-width', '100' },
+          },
         },
 
         default_format_opts = {
