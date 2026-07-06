@@ -75,6 +75,19 @@ vim.cmd([[
   augroup end
   ]])
 
+-- automatically compile writings on save
+local autocompile_writings = vim.api.nvim_create_augroup("AutoCompileWritings", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = autocompile_writings,
+  pattern = {"*.md", "*.yaml"},
+  callback = function()
+    local path = vim.fn.expand('%:p')
+    if string.find(path, 'personal/writings') then
+      vim.fn.jobstart({ "pandoc", "-d", "config.yaml" })
+    end
+  end,
+})
+
 -- add formats for speeddating plugin
 vim.cmd([[
   augroup speeddating
