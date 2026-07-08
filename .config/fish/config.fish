@@ -128,6 +128,7 @@ if at_work
 
     alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
     alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
+    alias jetski=/google/bin/releases/jetski-devs/tools/cli
     alias pw='pw --no-banner'
 
     alias ha='hg add'
