@@ -19,7 +19,7 @@ set -gx EDITOR nvim
 set -gx GOPATH $HOME/go
 set -gx VISUAL nvim
 set -gx MANROFFOPT -c
-set -gx MANPAGER "$bat_cmd -l man -p"
+set -gx MANPAGER "sh -c 'col -bx | $bat_cmd -l man -p'"
 
 # FZF Configuration
 function _fzf_compgen_path
