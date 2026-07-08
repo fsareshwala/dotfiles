@@ -98,6 +98,7 @@ alias vim='nvim -O'
 alias vimf='nvim (fzf)'
 alias watch='watch --color'
 alias which='type -p'
+alias wk='vim ~/personal/career/google.md'
 
 alias b='git branch'
 alias ba='git branch -a'
@@ -128,7 +129,6 @@ if at_work
     alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
     alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
     alias pw='pw --no-banner'
-    alias wk='vim ~/personal/career/google.md'
 
     alias ha='hg add'
     alias hab='hg absorb'
