@@ -1,11 +1,9 @@
 set ignore-case = smart-case
 set line-graphics = utf-8
+set main-view-author-display = email-user
 set show-changes = false
 set tab-size = 2
 set truncation-delimiter = utf-8
-
-# set main-view-author-display = email-user
-set main-view-author-display = full
 
 bind generic L @lazygit
 bind generic <Ctrl-f> :move-page-down
