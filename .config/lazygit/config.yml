@@ -1,4 +1,6 @@
-showFileTree: true
 filterMode: fuzzy
+promptToReturnFromSubprocess: false
+showFileTree: false
+
 git:
   autoFetch: false
