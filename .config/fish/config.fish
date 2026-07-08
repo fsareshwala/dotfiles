@@ -202,14 +202,8 @@ if at_work
     alias btbuild="bazelisk build $btcmd_args $btcmd_paths"
     alias bttest="bazelisk test $btcmd_args $btcmd_paths"
 
-    set -l fx_set 'fx set  --assembly-override //local:include_ssh_keys'
+    set -l fx_set 'fx set --rbe-mode=cloudtop --assembly-override //local:include_ssh_keys'
     set -l fx_asan '--variant host_asan --variant asan'
-
-    if on_cloudtop
-        set fx_set "$fx_set --rbe-mode=cloudtop"
-    else
-        set fx_set "$fx_set --rbe-mode=workstation"
-    end
 
     set -l bluetooth_hidl "--with //vendor/google/starnix/android/hal/bluetooth_hidl:tests --with //vendor/google/starnix/android/hal/uwb_aidl:tests"
 
