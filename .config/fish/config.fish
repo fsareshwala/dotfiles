@@ -76,13 +76,13 @@ alias -- ....='cd ../../..'
 alias -- ...='cd ../..'
 alias -- ..='cd ..'
 alias bc='bc -lq'
+alias cat="$bat_cmd"
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
+alias fd="$fd_cmd"
 alias gdb='cgdb --directory=. -quiet'
 alias grep="rg --color=auto"
-alias cat="$bat_cmd"
-alias fd="$fd_cmd"
 alias json='python3 -m json.tool'
 alias lg='lazygit log --screen-mode half'
 alias ll='ls -l'
