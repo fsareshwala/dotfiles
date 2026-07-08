@@ -33,9 +33,6 @@
 [help]
   autocorrect = 1
 
-; [commit]
-;   verbose = true
-
 [diff]
   tool = vimdiff
   algorithm = histogram
@@ -99,11 +96,3 @@
 [url "sso://fuchsia/"]
   pushInsteadOf = https://fuchsia.googlesource.com/
   pushInsteadOf = https://fuchsia-review.googlesource.com/
-
-[tig]
-  ignore-case = smart-case
-  line-graphics = utf-8
-  main-view-author-display = email-user
-  show-changes = false
-  tab-size = 2
-  truncation-delimiter = utf-8
