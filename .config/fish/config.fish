@@ -161,7 +161,6 @@ if at_work
     alias btnew='bugged create --format=MARKDOWN 1472729'
     alias embfmt='~/code/emboss/emboss-format ~/code/pigweed/pw_bluetooth/public/pw_bluetooth/hci_*.emb'
     alias fupdate='pushd third_party/glslang/src ; and git fetch --tags --force ; and popd ; and git pull --rebase ; and jiri update -gc -rebase-all -rebase-untracked'
-    alias mdformat='/google/bin/releases/corpeng-engdoc/tools/mdformat'
 
     set -l btcmd_args '--config googletest --config asan'
     if on_cloudtop
