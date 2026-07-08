@@ -84,7 +84,7 @@ alias grep="rg --color=auto"
 alias cat="$bat_cmd"
 alias fd="$fd_cmd"
 alias json='python3 -m json.tool'
-alias lg='lazygit'
+alias lg='lazygit log --screen-mode half'
 alias ll='ls -l'
 alias lp='lp -o sides=two-sided-long-edge'
 alias ls='ls --color'
