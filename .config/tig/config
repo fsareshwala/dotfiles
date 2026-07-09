@@ -6,7 +6,5 @@ set tab-size = 2
 set truncation-delimiter = utf-8
 
 bind generic L @lazygit
-bind generic <Ctrl-f> :move-page-down
-bind generic <Ctrl-b> :move-page-up
-bind generic n :search-next
-bind generic N :search-prev
+bind generic <Ctrl-f> move-page-down
+bind generic <Ctrl-b> move-page-up
