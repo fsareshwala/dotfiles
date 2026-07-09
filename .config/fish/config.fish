@@ -111,9 +111,6 @@ alias gcan='git commit --amend --no-edit'
 alias gf='git fx'
 alias gm='git commit -m'
 alias gpr='git pull --rebase'
-alias gri='git rebase -i'
-alias griom='git rebase -i origin/master'
-alias grom='git rebase origin/master'
 complete -c gm -a "(__fish_complete_directories)"
 
 # --- Work Specific Configs ---
