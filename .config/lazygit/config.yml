@@ -4,3 +4,5 @@ showFileTree: false
 
 git:
   autoFetch: false
+  log:
+    order: default # Options: topo-order | date-order | author-date-order | default
