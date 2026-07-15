@@ -21,7 +21,6 @@ set -gx VISUAL nvim
 set -gx MANROFFOPT -c
 set -gx MANPAGER "sh -c 'col -bx | $bat_cmd -l man -p'"
 
-# FZF Configuration
 function _fzf_compgen_path
     fd --hidden --follow --exclude ".git" . "$argv[1]"
 end
@@ -30,7 +29,8 @@ function _fzf_compgen_dir
     fd --type d --hidden --follow --exclude ".git" . "$argv[1]"
 end
 
-set -gx FZF_DEFAULT_COMMAND "rg --files --no-ignore-vcs --hidden --color=never *"
+set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
+set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -gx FZF_DEFAULT_OPTS '--height 20% --reverse'
 
 # Path building -- whenever I stop working on fuchsia/pigweed, this can return to the standard
