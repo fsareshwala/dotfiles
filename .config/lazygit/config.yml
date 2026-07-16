@@ -1,6 +1,8 @@
 filterMode: fuzzy
 promptToReturnFromSubprocess: false
-showFileTree: false
+
+gui:
+  showFileTree: false
 
 git:
   autoFetch: false
