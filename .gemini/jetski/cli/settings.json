@@ -1,0 +1,45 @@
+{
+  "altScreenMode": "always",
+  "artifactReviewPolicy": "agent-decides",
+  "colorScheme": "dark",
+  "permissions": {
+    "allow": [
+      "command(bazelisk build)",
+      "command(bazelisk test)",
+      "command(cat)",
+      "command(cipd)",
+      "command(fx build)",
+      "command(git diff)",
+      "command(git diff-tree)",
+      "command(git grep)",
+      "command(git log)",
+      "command(git rev-parse)",
+      "command(git show)",
+      "command(git status)",
+      "command(gn)",
+      "command(grep)",
+      "command(jq)",
+      "command(ls)",
+      "command(luci-auth)",
+      "command(ninja)",
+      "command(ps)",
+      "command(pw)",
+      "command(realpath)",
+      "command(tail)",
+      "command(touch)"
+    ]
+  },
+  "runningLightSpeed": "fast",
+  "statusLine": {
+    "type": "",
+    "command": "",
+    "enabled": true
+  },
+  "toolPermission": "always-proceed",
+  "trustedWorkspaces": [
+    "/usr/local/google/home/fsareshwala/code/pigweed",
+    "/usr/local/google/home/fsareshwala/code/fuchsia",
+    "/usr/local/google/home/fsareshwala/.config/nvim"
+  ],
+  "verbosity": "low"
+}
