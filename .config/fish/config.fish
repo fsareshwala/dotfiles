@@ -29,7 +29,6 @@ function _fzf_compgen_dir
     fd --type d --hidden --follow --exclude ".git" . "$argv[1]"
 end
 
-set -gx RIPGREP_CONFIG_PATH ~/.config/ripgrep/ripgreprc
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 set -gx FZF_DEFAULT_OPTS '--height 20% --reverse'
 
