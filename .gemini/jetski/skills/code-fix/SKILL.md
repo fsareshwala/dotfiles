@@ -1,6 +1,9 @@
 ---
 name: code-fix
-description: Multi-agent automated remediation and code quality audit loop. Analyzes commit diffs or uncommitted working tree changes, edits source code to fix defects and nits, runs test builds, and spawns independent subagents to rigorously verify code health until convergence.
+description: >-
+  Multi-agent automated remediation and code quality audit loop. Analyzes commit diffs or
+  uncommitted working tree changes, edits source code to fix defects and nits, runs test builds,
+  and spawns independent subagents to rigorously verify code health until convergence.
 ---
 
 # Overview

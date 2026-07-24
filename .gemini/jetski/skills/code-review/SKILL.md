@@ -1,6 +1,9 @@
 ---
 name: code-review
-description: Comprehensive, senior-engineer read-only code review workflow combining granular engineering standards (correctness, efficiency, embedded error handling, testability) with automated Git commit and Gerrit CL inspection workflows.
+description: >-
+  Comprehensive, senior-engineer read-only code review workflow combining granular engineering
+  standards (correctness, efficiency, embedded error handling, testability) with automated Git
+  commit and Gerrit CL inspection workflows.
 ---
 
 # Overview
