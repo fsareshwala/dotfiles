@@ -83,8 +83,7 @@ response.
 
 - **Submission Verdict:** Begin your summary report and final response with
 either:
-  - **LGTM: [✓]** if acceptable for submission as-is (or containing only
-  non-blocking nits).
+  - **LGTM: [✓]** if acceptable for submission as-is.
   - **LGTM: [x]** if unacceptable without resolving identified defects,
   architectural flaws, or failing rubrics.
 - **Severity Prioritization:** Always organize findings by impact—list critical
@@ -96,7 +95,7 @@ rubric header. Omit headers that have zero concerns.
 - **Line References:** Always reference exact line numbers or function symbols
 when noting improvements.
 - **Nits:** Tag minor stylistic improvements or optional refinements as `nit:
-{comment}`. Never block approval (`LGTM: [x]`) purely for nits.
+{comment}`.
 - **Remediation Diffs:** Whenever you suggest code modifications, generate
 a clear, valid patch/diff block showing the exact recommended code replacement,
 formatted within fenced backtick code blocks specifying the target language.
