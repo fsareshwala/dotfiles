@@ -20,11 +20,11 @@ Before implementing fixes or running audits, inspect the canonical engineering p
 evaluation criteria using `view_file`:
 
 1. **Core Engineering Philosophy:**
-   [core_philosophy.md](~/.gemini/jetski/skills/code-review/references/core_philosophy.md) (Note:
-   Supplement these principles with an **Active Remediation Focus**—do not merely report issues;
-   edit source files directly to apply bug fixes and best practice cleanups).
+   [core_philosophy.md](~/.gemini/jetski/skills/code-fix/references/core_philosophy.md). Note:
+   Supplement these principles with an **Active Remediation Focus**. Do not merely report issues;
+   edit source files directly to apply bug fixes and best practice cleanups.
 2. **Unified Review Rubrics & Evaluation Criteria:**
-   [unified_review_rubrics.md](~/.gemini/jetski/skills/code-review/references/unified_review_rubrics.md)
+   [unified_review_rubrics.md](~/.gemini/jetski/skills/code-fix/references/unified_review_rubrics.md)
 
 # Tool and Artifact Procedures
 
@@ -35,25 +35,32 @@ the conversation's artifact directory:
    conversational metadata).
 2. **Tooling:** Use `write_to_file` with descriptive `ArtifactMetadata` for reporting. Do not flood
    interactive chat with verbose build logs or diffs.
-3. **Build & Test Verification:** When executing builds or unit tests (such as `bazelisk test`),
+3. **Build & Test Verification:** When executing builds or unit tests (i.e. `bazelisk test`),
    pass flags like `--noshow_progress --noshow_loading_progress` to keep command outputs clean and
-   concise. You can check user shell configuration in the home directory at
-   ~/.config/fish/config.fish for aliases on how the user runs tests.
+   concise. You can check user shell configuration in the home directory for aliases on how the user
+   runs tests (~/.config/fish/config.fish).
 
 # Automated Remediation and Subagent Verification Loop
 
-When invoked on a target commit, uncommitted workspace changes, or a Gerrit CL, execute the
-following strict protocol:
+When invoked on a target commit or uncommitted workspace changes, execute the following strict
+protocol:
 
-1. **Perform Initial Audit & Target Discovery:**
+1. **Perform Deep Contextual Audit & Target Discovery:**
    - Check workspace status via `git status -s`, `git diff`, or targeted commit inspection (`git
      show HEAD`).
-   - Create a `tasks.md` tracking matrix listing the Unified Review Rubrics as checkboxes.
-   - Document initial audit findings in `review_initial.md`.
+   - **Mistakes or Unintended Changes**: Check the change for mistakes or unintended changes.
+   - **Contextual Expansion:** Do NOT evaluate diff lines in isolation. Read surrounding
+     switch/case blocks, sibling subclass implementations, and public header declarations to verify
+     symmetric pattern completeness.
+   - **Adversarial & Boundary Scrutiny:** Analyze all boundary inequalities (< vs <=) against type
+     limits and verify that malformed or malicious untrusted inputs cannot trigger fatal assertions.
+   - Create a `tasks.md` tracking matrix listing all ten Unified Review Rubrics as checkboxes.
+   - Document initial comprehensive findings in `review_initial.md`.
 
 2. **Implement Remediation Edits:**
    - Actively edit relevant codebase source and unit test files using file edit tools to resolve all
-     identified defects, architectural flaws, and non-blocking nits.
+     identified defects, structural asymmetries, algorithmic duplication (DRY violations across
+     sibling classes), and non-blocking nits.
    - Run applicable builds, unit test suites, and formatting tools to verify local sanity and
      confirm test passage.
    - Leave all code modifications unstaged in Git so they can be inspected cleanly by verification
@@ -64,9 +71,12 @@ following strict protocol:
      validation. ALWAYS delegate verification to an independent subagent using `invoke_subagent`
      (specifying Type: `self`, Role: `Independent Code Auditor`).
    - **Subagent Instructions:** Command the subagent to read `tasks.md`, inspect the active working
-     tree diff (`git --no-pager diff`), and run relevant test suites, rigorously verifying that all
-     initial concerns have been fully resolved without introducing new regressions across the
-     rubrics.
+     tree diff (`git --no-pager diff`), inspect full target files for structural symmetry, and run
+     relevant test suites. Instruct the subagent to rigorously verify that all concerns have been
+     addressed without introducing new regressions against the unified review rubrics. Instruct the
+     subagent to assume an adversarial mindset, checking whether untrusted peer inputs can induce
+     DoS loops or fatal assertions, and verifying that no sibling protocol cases or methods were
+     omitted from newly applied defensive or caching patterns.
 
 4. **Iterate to Convergence:**
    - If the verification subagent reports remaining flaws, regressions, or unaddressed nits, address
