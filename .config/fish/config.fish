@@ -127,21 +127,6 @@ if at_work
     alias jetski=/google/bin/releases/jetski-devs/tools/cli
     alias pw='pw --no-banner'
 
-    alias ha='hg add'
-    alias hab='hg absorb'
-    alias hai='hg amend -i'
-    alias ham='hg amend'
-    alias hb='hg blame -udcw'
-    alias hca='hg commit --amend'
-    alias hci='hg commit -i'
-    alias he='hg histedit'
-    alias hm='hg commit -m'
-    alias hrm='hg resolve --mark'
-    alias hs='hg export'
-    alias hst='hg diff -r .^:. --stat'
-    alias rdrop='hg cls-drop -p --skip-confirmation -c'
-    alias rsubmit='hg submit'
-
     alias cd-abt='cd ~/code/fuchsia/vendor/google/starnix/android/hal/bluetooth_hidl'
     alias cd-bt='cd ~/code/pigweed/pw_bluetooth_sapphire'
     alias cd-btfidl='cd ~/code/fuchsia/sdk/fidl/fuchsia.bluetooth.le'

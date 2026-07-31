@@ -1,6 +1,6 @@
 function st
   if in_google3
-    hg status $argv
+    jj status $argv
   else
     git status $argv
   end
