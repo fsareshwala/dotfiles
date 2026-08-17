@@ -34,7 +34,6 @@ vim.opt.shell = '/bin/bash'
 vim.opt.shortmess:append('S')
 vim.opt.signcolumn = 'number'
 vim.opt.spellfile:append(vim.fn.glob('~/.config/nvim/spell/en.utf-8.add'))
-vim.opt.spellfile:append(vim.fn.glob('~/personal/vim/en.utf-8.add'))
 vim.opt.swapfile = false
 vim.opt.textwidth = 100
 vim.opt.title = true
