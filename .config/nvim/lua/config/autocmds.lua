@@ -88,14 +88,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
--- add formats for speeddating plugin
-vim.cmd([[
-  augroup speeddating
-  autocmd!
-  autocmd VimEnter * SpeedDatingFormat %A, %B %d, %Y
-  autocmd VimEnter * SpeedDatingFormat %B %d, %Y
-  augroup end
-  ]])
 
 if working then
   local work_settings = vim.api.nvim_create_augroup('work_settings', { clear = true })

@@ -1,11 +1,24 @@
 return {
-  -- ctrl+a and ctrl+x on dates
-  { 'tpope/vim-speeddating' },
+  -- extended increment and decrement
+  {
+    'monaqa/dial.nvim',
+    opts = function(_, opts)
+      local augend = require('dial.augend')
+      opts.groups = opts.groups or {}
+      opts.groups.default = opts.groups.default or {}
+      table.insert(opts.groups.default, augend.date.new({
+        pattern = '%A, %B %d, %Y',
+        default_kind = 'day',
+      }))
+      table.insert(opts.groups.default, augend.date.new({
+        pattern = '%B %d, %Y',
+        default_kind = 'day',
+      }))
+    end,
+  },
 
   -- better word motions through long strings
   { 'chaoren/vim-wordmotion' },
-
-  { "folke/flash.nvim", enabled = false },
 
   -- completion
   {
