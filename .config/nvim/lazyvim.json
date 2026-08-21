@@ -1,9 +1,5 @@
 {
-  "extras": [
-    "lazyvim.plugins.extras.editor.dial",
-    "lazyvim.plugins.extras.lang.clangd",
-    "lazyvim.plugins.extras.lang.toml"
-  ],
+  "extras": [],
   "install_version": 8,
   "news": {
     "NEWS.md": "11866"
