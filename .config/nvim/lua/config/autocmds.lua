@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = {"*.md", "*.yaml"},
   callback = function()
     local path = vim.fn.expand('%:p')
-    if string.find(path, 'personal/writings') then
+    if string.find(path, 'writings') then
       vim.fn.jobstart({ "pandoc", "-d", "config.yaml" })
     end
   end,
