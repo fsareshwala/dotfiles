@@ -52,6 +52,8 @@
 	<true/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<true/>
+	<key>EnableAPIServer</key>
+	<false/>
 	<key>EnableDivisionView</key>
 	<true/>
 	<key>EnableProxyIcon</key>
@@ -1138,6 +1140,8 @@
 			<string>/Users/fsareshwala</string>
 		</dict>
 	</array>
+	<key>PMPrintingPanelSize</key>
+	<string>{780, 941}</string>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
