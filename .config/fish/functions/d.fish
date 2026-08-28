@@ -1,6 +1,6 @@
 function d
   if in_google3
-    jj diff $argv
+    hg diff $argv
   else
     git diff $argv
   end

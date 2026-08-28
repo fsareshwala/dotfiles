@@ -1,6 +1,6 @@
 function rpost
   if in_google3
-    jj upload
+    hg upload
   else if in_fuchsia
     jiri upload
   else if in_pigweed
