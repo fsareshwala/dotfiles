@@ -64,6 +64,7 @@ function set_path --on-event fish_prompt --description 'Regenerate path complete
 
     set -gx PATH $target_path
 end
+set_path
 
 # Aliases
 alias -- .........='cd ../../../../../../../..'
@@ -81,8 +82,14 @@ alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
 alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
 alias fd="$fd_cmd"
 alias gdb='cgdb --directory=. -quiet'
-alias grep="rg --color=auto"
 alias json='python3 -m json.tool'
+
+# Delay aliasing grep to rg until the first prompt so startup integrations
+# (such as iTerm2 shell integration) complete using standard grep.
+function __enable_grep_alias --on-event fish_prompt
+    functions --erase __enable_grep_alias
+    alias grep="rg --color=auto"
+end
 alias lg='lazygit log --screen-mode half'
 alias ll='ls -l'
 alias lp='lp -o sides=two-sided-long-edge'
