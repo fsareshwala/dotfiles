@@ -42,6 +42,7 @@ function set_path --on-event fish_prompt --description 'Regenerate path complete
 
     set -l target_path \
         $HOME/prefix/bin \
+        $HOME/.cargo/bin \
         $GOPATH/bin \
         /usr/local/sbin \
         /usr/local/bin \
