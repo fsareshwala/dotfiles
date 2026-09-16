@@ -29,6 +29,7 @@
     ]
   },
   "runningLightSpeed": "fast",
+  "showFeedbackSurvey": false,
   "statusLine": {
     "type": "",
     "command": "",
