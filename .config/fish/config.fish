@@ -80,7 +80,7 @@ alias bc='bc -lq'
 alias cat="$bat_cmd"
 alias diff="diff --color=auto"
 alias dlmp3='yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail'
-alias dlvid='yt-dlp --recode-video mp4 --add-metadata'
+alias dlvid='yt-dlp --embed-metadata --downloader ffmpeg --downloader-args "ffmpeg:-c:v libx264 -pix_fmt yuv420p -c:a aac -movflags +faststart" --recode-video mp4'
 alias fd="$fd_cmd"
 alias gdb='cgdb --directory=. -quiet'
 alias json='python3 -m json.tool'
