@@ -41,7 +41,11 @@ return {
             args = { 'format', '--stdin' },
           },
           prettier = {
-            prepend_args = { '--prose-wrap', 'always', '--print-width', '100' },
+            prepend_args = {
+              '--ignore-path', '/dev/null',
+              '--prose-wrap', 'always',
+              '--print-width', '100'
+            },
           },
         },
 
