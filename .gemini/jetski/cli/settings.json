@@ -28,6 +28,7 @@
       "command(touch)"
     ]
   },
+  "pickerGrouping": "none",
   "runningLightSpeed": "fast",
   "showFeedbackSurvey": false,
   "statusLine": {
