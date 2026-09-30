@@ -105,7 +105,7 @@ alias vim='nvim -O'
 alias vimf='nvim (fzf)'
 alias watch='watch --color'
 alias which='type -p'
-alias wk='vim ~/personal/career/google.md'
+alias wk='vim ~/personal/google.md'
 
 alias b='git branch'
 alias ba='git branch -a'
