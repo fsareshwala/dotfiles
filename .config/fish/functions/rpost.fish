@@ -4,6 +4,11 @@ function rpost
   else if in_fuchsia
     jiri upload
   else if in_pigweed
-    git push origin HEAD:refs/for/main
+    set -l branch (git branch --show-current)
+    set -l remote (git config --get branch.$branch.remote)
+    if test -z "$remote"
+      set remote origin
+    end
+    git push $remote HEAD:refs/for/main
   end
 end
