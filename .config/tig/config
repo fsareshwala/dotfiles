@@ -1,3 +1,6 @@
+set commit-order = default
+set main-options = -n 300
+set show-notes = false
 set ignore-case = smart-case
 set line-graphics = utf-8
 set main-view-author-display = email-user
