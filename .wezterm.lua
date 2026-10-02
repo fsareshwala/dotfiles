@@ -1,4 +1,38 @@
 local wezterm = require('wezterm')
+
+local function file_exists(path)
+  local f = io.open(path, 'r')
+
+  if f then
+    f:close()
+    return true
+  end
+
+  return false
+end
+
+-- restore wezterm icon on start if it is missing (e.g. after upgrade)
+wezterm.on('gui-startup', function(cmd)
+  -- Required when hooking gui-startup so WezTerm still opens the default window
+  wezterm.mux.spawn_window(cmd or {})
+
+  local app_path = '/Applications/WezTerm.app'
+  local icon_path = wezterm.home_dir .. '/prefix/usr/local/icons/terminal.icns'
+  local fileicon_bin = '/opt/homebrew/bin/fileicon'
+
+  -- fileicon creates 'Icon\r' inside the .app bundle when a custom icon is set
+  if file_exists(app_path .. '/Icon\r') then
+    return
+  end
+
+  if not file_exists(fileicon_bin) then
+    wezterm.run_child_process({ '/opt/homebrew/bin/brew', 'install', 'fileicon' })
+  end
+
+  wezterm.run_child_process({ '/opt/homebrew/bin/fileicon', 'set', app_path, icon_path })
+  wezterm.run_child_process({ 'killall', 'Dock' })
+end)
+
 local config = wezterm.config_builder()
 
 config.color_scheme = 'Tokyo Night'
