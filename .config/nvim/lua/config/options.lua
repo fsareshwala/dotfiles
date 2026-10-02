@@ -5,9 +5,16 @@ vim.g.mapleader = '\\'
 
 vim.g.snacks_animate = false
 
--- Use OSC 52 for clipboard when remote (SSH or shpool).
--- This ensures yanks are sent to the local terminal (iTerm2) even if xclip is broken.
+-- Use OSC 52 for copying when remote (SSH or shpool).
+-- WezTerm supports OSC 52 writes (copy), but does not respond to OSC 52 reads (paste).
 if vim.env.SSH_CLIENT or vim.env.SHPOOL_SESSION_NAME then
+  local function paste()
+    return {
+      vim.fn.getreg('', 1, true),
+      vim.fn.getregtype(''),
+    }
+  end
+
   vim.g.clipboard = {
     name = 'OSC 52',
     copy = {
@@ -15,8 +22,8 @@ if vim.env.SSH_CLIENT or vim.env.SHPOOL_SESSION_NAME then
       ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
     },
     paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = paste,
+      ['*'] = paste,
     },
   }
 end
