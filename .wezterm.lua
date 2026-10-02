@@ -93,4 +93,47 @@ config.keys = {
   },
 }
 
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(go/[a-zA-Z0-9-_./]+)]],
+  format = 'https://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(b/[0-9]+)]],
+  format = 'http://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(doc/[a-zA-Z0-9-_]+)]],
+  format = 'https://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(fxbug\.dev/[0-9]+)]],
+  format = 'https://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(pwbug\.dev/[0-9]+)]],
+  format = 'https://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(fxrev\.dev/[0-9]+)]],
+  format = 'https://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(fxr/[0-9]+)]],
+  format = 'http://$1',
+})
+
+table.insert(config.hyperlink_rules, {
+  regex = [[\b(pwrev\.dev/[0-9]+)]],
+  format = 'https://$1',
+})
+
+
 return config
