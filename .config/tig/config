@@ -4,6 +4,7 @@ set main-view-author-display = email-user
 set show-changes = false
 set tab-size = 2
 set truncation-delimiter = utf-8
+set main-view-commit-title-graph = no
 
 bind generic L @lazygit
 bind generic <Ctrl-f> move-page-down
