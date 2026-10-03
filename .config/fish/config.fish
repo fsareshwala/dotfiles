@@ -128,6 +128,12 @@ if at_work
     set -gx NINJA_PERSISTENT_MODE 1
     set -gx FX_BUILD_WITH_LABELS 1
 
+    if on_cloudtop
+      alias gcert='/usr/bin/gcert --lifetime=168h --nocorpssh --noprodssh; and /usr/bin/gcert --reuse_sso_cookie --noloas2'
+    end
+    alias gcert_refresh='gcertstatus --nocheck_ssh --check_remaining=18h --quiet; or gcert'
+    gcert_refresh
+
     alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
     alias gssh='ssh fsareshwala-cloudtop.c.googlers.com'
     alias jetski=/google/bin/releases/jetski-devs/tools/cli
