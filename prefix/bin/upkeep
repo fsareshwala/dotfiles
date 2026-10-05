@@ -1,7 +1,5 @@
 #!/usr/bin/env fish
 
-source ~/prefix/lib/utilities.fish
-
 function git_update
     set -l directory $argv[1]
     if not test -d "$directory"
