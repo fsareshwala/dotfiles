@@ -26,19 +26,28 @@ The user may invoke this skill with:
 For each target week:
 
 1. Compute the Monday (`Monday, Month DD, YYYY`) and Friday (`Friday, Month DD, YYYY`) dates using
-   zero-padded two-digit days (`01`–`31`).
-2. When querying Gerrit and Buganizer, widen the query window to cover Sunday (`YYYY-MM-DD`) through
-   Saturday (`YYYY-MM-DD`) in UTC so that late Friday afternoon/evening PDT changes (which have
-   Saturday UTC timestamps) and Sunday evening prep are never missed, then filter individual event
-   timestamps to the target week in `America/Los_Angeles` time.
+   zero-padded two-digit days (`01`–`31`). These Monday–Friday dates are used for the output header.
+2. Define the activity window for the target week as the full 7 day span from Monday through the
+   following Sunday (`Monday 00:00:00` through `Sunday 23:59:59` in `America/Los_Angeles` time) so
+   that weekend work on Saturday and Sunday is always included.
+   - When invoked with `/worklog last week` (e.g. on Monday morning), the target week is the
+     previous Monday through the just completed Sunday.
+   - Even if the user specifies a Monday–Friday range (e.g., `/worklog 2026-07-13 to 2026-07-17`),
+     include the Saturday and Sunday immediately following that Friday in the activity window.
+3. When querying Gerrit and Buganizer, widen the UTC query window to cover the preceding Sunday
+   (`<PREV_SUN>`, `YYYY-MM-DD`) through the Tuesday after the target Sunday (`<NEXT_TUE>`,
+   `YYYY-MM-DD`) in UTC so that late Sunday afternoon/evening PDT/PST changes (which have Monday UTC
+   timestamps) are never missed, then filter individual event timestamps to the target Monday–Sunday
+   week in `America/Los_Angeles` time.
 
 ## 2. Subagent Delegation (Mandatory)
 
 Do not run Gerrit/Buganizer/Docs queries in the main agent context. Instead, call `invoke_subagent`
 with `TypeName: "self"` and `Role: "Work Log Generator (<Mon DD>-<Fri DD>)"` for each requested
-week, passing the full data-gathering and formatting instructions below in the subagent `Prompt`.
+week, passing the full data gathering and formatting instructions below (including both the Monday
+to Sunday activity dates and the Monday–Friday header dates) in the subagent `Prompt`.
 
-## 3. Subagent Primary-Source Data Gathering Protocol
+## 3. Subagent Primary Source Data Gathering Protocol
 
 Inside the subagent, gather all activity directly from primary sources:
 
@@ -67,18 +76,19 @@ Query all four Gerrit instances using `/google/bin/releases/gemini-agents-gerrit
 
 For each Gerrit host:
 
-- Search both authored changes (`owner:fsareshwala@google.com after:<SUN> before:<NEXT_SUN>`) and
-  reviewed/commented changes
-  (`(reviewer:fsareshwala@google.com OR commentby:fsareshwala@google.com) after:<SUN> before:<NEXT_SUN>`).
-  Note: Gerrit's `before:` operator filters on the CL's *final* `updated` timestamp, not when a
-  specific patchset or comment was added. When querying historical weeks, also search `after:<SUN>`
-  without `before:<NEXT_SUN>` (with `--limit=100`) so CLs uploaded or iterated on during the target
-  week that merged in a later week are not missed.
+- Search both authored changes (`owner:fsareshwala@google.com after:<PREV_SUN> before:<NEXT_TUE>`)
+  and reviewed/commented changes
+  (`(reviewer:fsareshwala@google.com OR commentby:fsareshwala@google.com) after:<PREV_SUN> before:<NEXT_TUE>`).
+  Note: Gerrit's `before:` operator filters on the CL's _final_ `updated` timestamp, not when a
+  specific patchset or comment was added. When querying historical weeks, also search
+  `after:<PREV_SUN>` without `before:<NEXT_TUE>` (with `--limit=100`) so CLs uploaded or iterated on
+  during the target Monday–Sunday week that merged in a later week are not missed.
 - Inspect change message timestamps (`gerrit messages list --change=<ID> --host=<HOST>`) to confirm
-  what actually happened during the target Monday–Friday week (e.g., initial upload, addressing
-  review comments, `Code-Review+2` approval, or submission) rather than relying only on the last
-  updated timestamp of the CL.
-- Also check Critique (`cl/`) if any Google3 CLs were authored or reviewed during the window.
+  what actually happened during the target Monday–Sunday week (including Saturday and Sunday—e.g.,
+  initial upload, addressing review comments, `Code-Review+2` approval, or submission) rather than
+  relying only on the last updated timestamp of the CL.
+- Also check Critique (`cl/`) if any Google3 CLs were authored or reviewed during the Monday–Sunday
+  window.
 
 ### Step 3: Query Buganizer (`b/`) Directly
 
@@ -86,12 +96,13 @@ Query Buganizer using `/google/bin/releases/issues-cli/issues`:
 
 - Search for bugs created (`reporter:fsareshwala@google.com`), commented on
   (`commentby:fsareshwala@google.com`), or assigned to (`assignee:fsareshwala@google.com`)
-  `fsareshwala` with activity in the target window.
+  `fsareshwala` with activity in the target Monday to Sunday window.
 - Run `/google/bin/releases/issues-cli/issues readonly list-updates <BUG_ID>` on candidate bugs to
-  verify the exact date and author of comments, investigations, or status changes.
+  verify the exact date and author of comments, investigations, or status changes within the
+  Monday–Sunday span.
 - Filter out noise: Exclude older bugs that only matched the date range because a bot or teammate
   modified `hotlist_ids`, priority, or duplicate links without actual investigation or action by
-  `fsareshwala` during that week.
+  `fsareshwala` during that Monday–Sunday week.
 
 ### Step 4: Check 1:1 Notes & Drive/Calendar for Non-CL Engineering Work
 
@@ -107,7 +118,8 @@ Query Buganizer using `/google/bin/releases/issues-cli/issues`:
 
 Format the output to match `fsareshwala`'s exact weekly work log style:
 
-- Header:
+- Header (always use the Monday to Friday dates, even though the activity queried spans Monday
+  through Sunday):
   ```text
   Monday, <Month> <DD>, <YYYY> to Friday, <Month> <DD>, <YYYY>
   ------------------------------------------------------------
