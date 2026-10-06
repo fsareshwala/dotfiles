@@ -131,7 +131,7 @@ if at_work
     if on_cloudtop
       alias gcert='/usr/bin/gcert --lifetime=168h --nocorpssh --noprodssh; and /usr/bin/gcert --reuse_sso_cookie --noloas2'
     end
-    alias gcert_refresh='gcertstatus --nocheck_ssh --check_remaining=18h --quiet; or gcert'
+    alias gcert_refresh='gcertstatus --nocheck_ssh --check_remaining=1h --quiet; or gcert'
     gcert_refresh
 
     alias gmsh='gmosh fsareshwala-cloudtop.c.googlers.com'
