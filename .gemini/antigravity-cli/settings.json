@@ -5,9 +5,9 @@
   "showFeedbackSurvey": false,
   "toolPermission": "always-proceed",
   "trustedWorkspaces": [
-    "/usr/local/google/home/fsareshwala/code/pigweed",
-    "/usr/local/google/home/fsareshwala/code/fuchsia",
-    "/usr/local/google/home/fsareshwala/.config/nvim"
+    "/Users/fsareshwala/.config/nvim",
+    "/Users/fsareshwala/code/forecash",
+    "/Users/fsareshwala/icloud/writings"
   ],
   "verbosity": "low"
 }
