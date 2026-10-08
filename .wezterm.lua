@@ -38,6 +38,10 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Tokyo Night'
 config.font = wezterm.font('Terminess Nerd Font Mono')
 config.font_size = 12.0
+config.front_end = "WebGpu"
+config.webgpu_power_preference = "HighPerformance"
+config.max_fps = 120
+config.animation_fps = 120
 
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
