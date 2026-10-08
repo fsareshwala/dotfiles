@@ -1,7 +1,7 @@
 {
   "artifactReviewPolicy": "agent-decides",
   "pickerGrouping": "none",
-  "runningLightSpeed": "fast",
+  "runningLightSpeed": "off",
   "showFeedbackSurvey": false,
   "toolPermission": "always-proceed",
   "trustedWorkspaces": [
