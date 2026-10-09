@@ -33,6 +33,71 @@ wezterm.on('gui-startup', function(cmd)
   wezterm.run_child_process({ 'killall', 'Dock' })
 end)
 
+-- WezTerm versions before 2025-02-23 (including stable 20240203-110809-5046fc22)
+-- have an off-by-one bug in get_text_from_semantic_zone (`this_row < last_row`
+-- instead of `<= last_row`, fixed in commit 0f21892b).
+local needs_y_offset_workaround = wezterm.version < '20250223'
+
+local function get_zone_text(pane, start_zone, end_zone)
+  end_zone = end_zone or start_zone
+  local y_offset = needs_y_offset_workaround and 1 or 0
+  local text = pane:get_text_from_region(
+    start_zone.start_x,
+    start_zone.start_y,
+    end_zone.end_x,
+    end_zone.end_y + y_offset
+  )
+  return (text or ''):gsub('%s+$', '')
+end
+
+local function find_last_command_zones(pane, include_prompt)
+  local zones = pane:get_semantic_zones()
+  if not zones or #zones == 0 then
+    return nil, nil, 'No semantic zones found'
+  end
+
+  for i = #zones, 1, -1 do
+    if zones[i].semantic_type == 'Output' and get_zone_text(pane, zones[i]) ~= '' then
+      local output_zone = zones[i]
+      local start_zone = output_zone
+
+      if zones[i - 1] and zones[i - 1].semantic_type == 'Input' then
+        start_zone = zones[i - 1]
+        if include_prompt and zones[i - 2] and zones[i - 2].semantic_type == 'Prompt' then
+          start_zone = zones[i - 2]
+        end
+      end
+
+      return start_zone, output_zone, nil
+    end
+  end
+
+  return nil, nil, 'Output zone is empty'
+end
+
+local function copy_last_command_and_output(window, pane)
+  local include_prompt = true
+  local start_zone, output_zone, err = find_last_command_zones(pane, include_prompt)
+  if err then
+    window:toast_notification('WezTerm', err, nil, 1500)
+    return
+  end
+
+  local text = get_zone_text(pane, start_zone, output_zone)
+  window:copy_to_clipboard(text, 'Clipboard')
+
+  if needs_y_offset_workaround then
+    window:toast_notification('WezTerm', 'Copied command and output!', nil, 1500)
+  else
+    window:toast_notification(
+      'WezTerm',
+      'Copied! (WezTerm upgraded: you can remove the y_offset workaround in ~/.wezterm.lua)',
+      nil,
+      4000
+    )
+  end
+end
+
 local config = wezterm.config_builder()
 
 config.color_scheme = 'Tokyo Night'
@@ -95,33 +160,10 @@ config.keys = {
     mods = 'CTRL',
     action = wezterm.action.ActivateCopyMode,
   },
-    {
+  {
     key = 'i',
     mods = 'CTRL|SHIFT',
-    action = wezterm.action_callback(function(window, pane)
-      local zones = pane:get_semantic_zones('Output')
-
-      if zones and #zones > 0 then
-        local zone_index = #zones
-        local text = pane:get_text_from_semantic_zone(zones[zone_index])
-
-        -- Fish Shell fallback: If the last zone is empty/whitespace only,
-        -- look one zone prior for the actual command output.
-        if (not text or text:match("^%s*$")) and zone_index > 1 then
-          zone_index = zone_index - 1
-          text = pane:get_text_from_semantic_zone(zones[zone_index])
-        end
-
-        if text and not text:match("^%s*$") then
-          window:copy_to_clipboard(text, 'Clipboard')
-          window:toast_notification('WezTerm', 'Copied command output!', nil, 1500)
-        else
-          window:toast_notification('WezTerm', 'Output zone is empty', nil, 1500)
-        end
-      else
-        window:toast_notification('WezTerm', 'No output zones found', nil, 1500)
-      end
-    end),
+    action = wezterm.action_callback(copy_last_command_and_output),
   },
 }
 
