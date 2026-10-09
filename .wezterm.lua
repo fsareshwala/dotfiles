@@ -86,14 +86,42 @@ config.keys = {
     action = wezterm.action.RotatePanes('CounterClockwise'),
   },
   {
-    key = 'i',
+    key = 'u',
     mods = 'CTRL',
     action = wezterm.action.QuickSelect,
   },
   {
     key = 'i',
-    mods = 'CTRL|SHIFT',
+    mods = 'CTRL',
     action = wezterm.action.ActivateCopyMode,
+  },
+    {
+    key = 'i',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action_callback(function(window, pane)
+      local zones = pane:get_semantic_zones('Output')
+
+      if zones and #zones > 0 then
+        local zone_index = #zones
+        local text = pane:get_text_from_semantic_zone(zones[zone_index])
+
+        -- Fish Shell fallback: If the last zone is empty/whitespace only,
+        -- look one zone prior for the actual command output.
+        if (not text or text:match("^%s*$")) and zone_index > 1 then
+          zone_index = zone_index - 1
+          text = pane:get_text_from_semantic_zone(zones[zone_index])
+        end
+
+        if text and not text:match("^%s*$") then
+          window:copy_to_clipboard(text, 'Clipboard')
+          window:toast_notification('WezTerm', 'Copied command output!', nil, 1500)
+        else
+          window:toast_notification('WezTerm', 'Output zone is empty', nil, 1500)
+        end
+      else
+        window:toast_notification('WezTerm', 'No output zones found', nil, 1500)
+      end
+    end),
   },
 }
 
