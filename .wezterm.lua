@@ -86,7 +86,7 @@ config.keys = {
     action = wezterm.action.RotatePanes('CounterClockwise'),
   },
   {
-    key = 'u',
+    key = 'o',
     mods = 'CTRL',
     action = wezterm.action.QuickSelect,
   },
