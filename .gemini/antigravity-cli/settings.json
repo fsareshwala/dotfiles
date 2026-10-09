@@ -1,6 +1,6 @@
 {
   "artifactReviewPolicy": "agent-decides",
-  "model": "Gemini 3.1 Pro (Low)",
+  "model": "Gemini Pro Next",
   "runningLightSpeed": "off",
   "showFeedbackSurvey": false,
   "toolPermission": "always-proceed",
