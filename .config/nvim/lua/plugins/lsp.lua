@@ -1,18 +1,36 @@
-local clangd_cmd = { 'clangd' }
+local util = require('util')
+
+local clangd_cmd = nil
 
 if string.find(vim.fn.getcwd(), 'pigweed') then
   local home = os.getenv('HOME')
-  local clangd = home .. '/code/pigweed/environment/cipd/packages/pigweed/bin/clangd'
+  local pw_root = home .. '/code/pigweed'
+
+  local clangd = pw_root .. '/external/+pw_cxx_toolchain+llvm_toolchain/bin/clangd'
+  if not util.file_exists(clangd) then
+    clangd = pw_root .. '/environment/cipd/packages/pigweed/bin/clangd'
+  end
+
+  local compile_commands_dir = pw_root .. '/.pw_ide/.stable'
+  local candidates =
+    vim.fn.glob(pw_root .. '/.compile_commands/*/compile_commands.json', false, true)
+  local newest_mtime = -1
+  for _, candidate in ipairs(candidates) do
+    local mtime = vim.fn.getftime(candidate)
+    local fsize = vim.fn.getfsize(candidate)
+    if fsize > 10 and mtime > newest_mtime then
+      newest_mtime = mtime
+      compile_commands_dir = vim.fn.fnamemodify(candidate, ':h')
+    end
+  end
+
   clangd_cmd = {
     clangd,
-    '--compile-commands-dir=' .. home .. '/code/pigweed/.pw_ide/.stable',
+    '--compile-commands-dir=' .. compile_commands_dir,
     '--background-index',
     '--clang-tidy',
-    '--query-driver='
-      .. home
-      .. '/code/pigweed/environment/cipd/packages/pigweed/bin/*,'
-      .. home
-      .. '/code/pigweed/environment/cipd/packages/arm/bin/*',
+    '--header-insertion=never',
+    '--query-driver=/*',
   }
 end
 
@@ -25,9 +43,10 @@ return {
       },
       servers = {
         clangd = {
+          mason = false,
           cmd = clangd_cmd,
           keys = {
-            { '<leader>a', '<cmd>ClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
+            { '<leader>a', '<cmd>LspClangdSwitchSourceHeader<cr>', desc = 'Toggle source/header' },
           },
         },
         bashls = {},
