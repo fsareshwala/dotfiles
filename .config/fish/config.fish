@@ -35,11 +35,6 @@ set -gx FZF_DEFAULT_OPTS '--height 20% --reverse'
 # Path building -- whenever I stop working on fuchsia/pigweed, this can return to the standard
 # fish_add_path so that I don't have to build it on every prompt.
 function set_path --on-event fish_prompt --description 'Regenerate path completely dynamically'
-    # Pigweed overrides and handles its own path environments via source activate.sh
-    if in_pigweed
-        return
-    end
-
     set -l target_path \
         $HOME/prefix/bin \
         $HOME/.cargo/bin \
