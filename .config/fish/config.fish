@@ -145,7 +145,7 @@ if at_work
     alias cd-pa='cd ~/code/pigweed; and source activate.fish'
     alias cd-uwb='cd ~/code/fuchsia/vendor/google/starnix/android/hal/uwb_aidl'
 
-    alias btemboss='bazelisk run -c opt //:refresh_compile_commands_for_fuchsia_sdk ; pw ide sync ; and pw ide cpp --set pw_strict_host_clang_debug ; and pw ide cpp --process'
+    alias btgencc='bazelisk run //:refresh_compile_commands_for_fuchsia_sdk'
     alias btnew='bugged create --format=MARKDOWN 1472729'
     alias embfmt='~/code/emboss/emboss-format ~/code/pigweed/pw_bluetooth/public/pw_bluetooth/hci_*.emb'
     alias fupdate='pushd third_party/glslang/src ; and git fetch --tags --force ; and popd ; and git pull --rebase ; and jiri update -gc -rebase-all -rebase-untracked'
