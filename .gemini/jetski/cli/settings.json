@@ -1,4 +1,5 @@
 {
+  "agentMode": "auto",
   "artifactReviewPolicy": "agent-decides",
   "pickerGrouping": "none",
   "runningLightSpeed": "off",
