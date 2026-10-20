@@ -1,3 +1,6 @@
+local font_family = 'Terminess Nerd Font Mono'
+local color_scheme = 'Tokyo Night'
+
 local wezterm = require('wezterm')
 
 local function file_exists(path)
@@ -99,10 +102,23 @@ local function copy_last_command_and_output(window, pane)
 end
 
 local config = wezterm.config_builder()
+config.color_scheme = color_scheme
 
-config.color_scheme = 'Tokyo Night'
-config.font = wezterm.font('Terminess Nerd Font Mono')
 config.font_size = 12.0
+config.font = wezterm.font(font_family)
+config.font_rules = {
+  {
+    intensity = 'Bold',
+    italic = false,
+    font = wezterm.font(font_family, { weight = 'Regular' }),
+  },
+  {
+    intensity = 'Bold',
+    italic = true,
+    font = wezterm.font(font_family, { weight = 'Regular', style = 'Italic' }),
+  },
+}
+
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 config.max_fps = 120
