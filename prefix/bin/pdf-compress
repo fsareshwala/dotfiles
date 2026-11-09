@@ -1,6 +1,5 @@
 #!/usr/bin/env fish
 
-source ~/prefix/lib/utilities.fish
 ensure_exists gs
 
 # default compression if user doesn't provide one
