@@ -39,15 +39,16 @@ graph TD
     FinalAudit --> CleanUp[Main Agent: Present Final Summary & Terminate Reviewer Subagent]
 ```
 
-# Core Engineering Philosophy & Review Rubrics
+# Core Engineering Philosophy, Review Rubrics, & Writing Style
 
-Before auditing or implementing fixes, inspect the canonical engineering principles and evaluation
-criteria:
+Before auditing, explaining findings, or writing commit messages, inspect the canonical engineering
+principles, evaluation criteria, and human writing style guide (expand `~` to the user's home
+directory absolute path when calling `read_file` / `view_file`):
 
-1. **Core Engineering Philosophy:**
-   [core_philosophy.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/core_philosophy.md)
+1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
-   [unified_review_rubrics.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/unified_review_rubrics.md)
+   `~/.gemini/config/references/unified_review_rubrics.md`
+3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
 
 # Tool and Artifact Procedures
 
@@ -73,8 +74,7 @@ strict step-by-step protocol:
    - Inspect the workspace status (`git status -s`, `git diff`) or target commit (`git show HEAD` /
      commit SHA) via `run_command`.
 2. **Invoke the `code-fix-reviewer` Subagent:**
-   - Definition:
-     [`~/.gemini/config/agents/code-fix-reviewer.md`](file:///usr/local/google/home/fsareshwala/.gemini/config/agents/code-fix-reviewer.md)
+   - Definition: `~/.gemini/config/agents/code-fix-reviewer.md`
    - Spawn `code-fix-reviewer` using `invoke_subagent` with `Workspace: "inherit"`:
      ```json
      {

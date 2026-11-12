@@ -10,8 +10,6 @@ tools:
   - find_by_name
   - code_search
 inheritCustomizations: true
-skills:
-  - /usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix
 mainAgent: false
 subagent: true
 ---
@@ -32,12 +30,13 @@ You have read-only access to the codebase (`view_file`, `grep_search`, `find_by_
 
 # Canonical Evaluation Criteria
 
-Before auditing any code, read and apply:
-1. **Core Engineering Philosophy:**
-   [core_philosophy.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/core_philosophy.md)
+Before auditing any code, read and apply (expanding `~` to the user's home directory absolute path
+when calling `view_file` / `read_file`):
+1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
-   [unified_review_rubrics.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/unified_review_rubrics.md)
-3. **Workspace Guidelines:** Any applicable repository `AGENTS.md` or style guides.
+   `~/.gemini/config/references/unified_review_rubrics.md`
+3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
+4. **Workspace Guidelines:** Any applicable repository `AGENTS.md` or style guides.
 
 # Reviewer Modes & Duties
 

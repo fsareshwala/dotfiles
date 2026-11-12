@@ -35,15 +35,16 @@ diff, you must:
      as a draft** on the code review platform (never publishing/submitting it) before moving to the
      next comment.
 
-# Core Engineering Philosophy & Review Rubrics
+# Core Engineering Philosophy, Review Rubrics, & Writing Style
 
-When evaluating reviewer feedback and designing fixes, adhere to the canonical engineering
-principles and rubrics:
+When evaluating reviewer feedback, drafting clarifying replies, and editing commit messages, adhere
+to the canonical engineering principles, rubrics, and human writing style guide (expand `~` to the
+user's home directory absolute path when calling `read_file` / `view_file`):
 
-1. **Core Engineering Philosophy:**
-   [core_philosophy.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/core_philosophy.md)
+1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
-   [unified_review_rubrics.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/unified_review_rubrics.md)
+   `~/.gemini/config/references/unified_review_rubrics.md`
+3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
 
 # Tool and Environment Procedures
 

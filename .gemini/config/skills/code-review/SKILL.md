@@ -32,14 +32,16 @@ graph TD
     Summary --> FollowUp[Interactive Q&A: Explain Code Paths or Update / Delete / Add Drafts on Request]
 ```
 
-# Core Engineering Philosophy & Review Rubrics
+# Core Engineering Philosophy, Review Rubrics, & Writing Style
 
-All reviews are governed by the shared engineering philosophy and rubrics:
+All reviews and drafted comments are governed by the shared engineering philosophy, rubrics, and
+human writing style guide (expand `~` to the user's home directory absolute path when calling
+`read_file` / `view_file`):
 
-1. **Core Engineering Philosophy:**
-   [core_philosophy.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/core_philosophy.md)
+1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
-   [unified_review_rubrics.md](file:///usr/local/google/home/fsareshwala/.gemini/config/skills/code-fix/references/unified_review_rubrics.md)
+   `~/.gemini/config/references/unified_review_rubrics.md`
+3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
 
 # Strict Safety & Gerrit Draft Rules
 
@@ -85,14 +87,14 @@ All reviews are governed by the shared engineering philosophy and rubrics:
 ## 2. Delegate Deep Contextual Audit to `code-reviewer`
 
 1. Spawn the dedicated read-only **`code-reviewer`** subagent
-   ([`~/.gemini/config/agents/code-reviewer.md`](file:///usr/local/google/home/fsareshwala/.gemini/config/agents/code-reviewer.md))
+   (`~/.gemini/config/agents/code-reviewer.md`)
    via `invoke_subagent` with `Workspace: "inherit"`:
    ```json
    {
      "Role": "Code Reviewer",
      "TypeName": "code-reviewer",
      "Workspace": "inherit",
-     "Prompt": "Perform a deep contextual code review of the following target.\n\nTarget:\n- Host: <HOST>\n- Change: <CHANGE_NUM>\n- Revision/Patchset: <PS or current>\n- Active local workspaces (read-only reference for unchanged sibling files/callers if matching repo): <WORKSPACES>\n- User focus / notes: <USER_NOTES_OR_NONE>\n\nFollow your Deep Contextual Audit Protocol: inspect CL metadata, commit message, existing comments & drafts (to avoid duplicates), full remote modified files via `gerrit cat --line-numbers`, and surrounding sibling classes/callers/headers. Evaluate against core_philosophy.md, unified_review_rubrics.md, and target project conventions, self-filter false positives, verify exact 1-indexed new-side line numbers on the target patchset, and return the structured verdict and numbered findings with peer-voice `draft_message` text."
+     "Prompt": "Perform a deep contextual code review of the following target.\n\nTarget:\n- Host: <HOST>\n- Change: <CHANGE_NUM>\n- Revision/Patchset: <PS or current>\n- Active local workspaces (read-only reference for unchanged sibling files/callers if matching repo): <WORKSPACES>\n- User focus / notes: <USER_NOTES_OR_NONE>\n\nFollow your Deep Contextual Audit Protocol: inspect CL metadata, commit message, existing comments & drafts (to avoid duplicates), full remote modified files via `gerrit cat --line-numbers`, and surrounding sibling classes/callers/headers. Evaluate against core_philosophy.md, unified_review_rubrics.md, writing_style.md, and target project conventions, self-filter false positives, verify exact 1-indexed new-side line numbers on the target patchset, and return the structured verdict and numbered findings with human peer-voice `draft_message` text."
    }
    ```
 2. Wait for `code-reviewer` to return its structured audit report, then terminate the subagent via
@@ -135,7 +137,7 @@ When reviewing a **Gerrit CL**:
        --message="<DRAFT_MESSAGE>"
      ```
    - *(Fallback only if `gerrit` CLI cannot authenticate to a Pigweed host: stage drafts via
-     `/usr/local/google/home/fsareshwala/code/pigweed/gh pr comment <ID> --path "<FILE_PATH>" --line <END_LINE> -m "<DRAFT_MESSAGE>" --draft`.)*
+     `~/code/pigweed/gh pr comment <ID> --path "<FILE_PATH>" --line <END_LINE> -m "<DRAFT_MESSAGE>" --draft`.)*
    - Run `gerrit comments list --host="<HOST>" --change="<CHANGE_NUM>" --drafts` once after staging
      to confirm all drafts landed cleanly and capture each draft's `comment-id` in case the user
      asks to edit or delete specific drafts in follow-up turns.
