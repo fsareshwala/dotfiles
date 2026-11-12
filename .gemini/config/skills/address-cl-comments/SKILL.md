@@ -94,8 +94,8 @@ principles and rubrics:
        *(always pass `--patchset <N>` matching the patchset where the reviewer's comment was left,
        and always include `--draft`)*.
      - **Generic Gerrit CLI (`gerrit`):**
-       `/google/bin/releases/gemini-agents-gerrit/gerrit comments reply --change=<ID> --host=<HOST> --comment-id=<COMMENT_ID> --message="<reply>" --is-ai`
-       *(creates an unpublished draft reply; never run `gerrit comments publish`)*.
+       `/google/bin/releases/gemini-agents-gerrit/gerrit comments reply --change=<ID> --host=<HOST> --comment-id=<COMMENT_ID> --message="<reply>" --is-ai=false`
+       *(creates an unpublished peer-voice draft reply without the AI badge; never run `gerrit comments publish`)*.
 
 # Interactive Comment-by-Comment Remediation Workflow
 
@@ -237,7 +237,8 @@ Once your holistic analysis is complete:
    - **If the user chooses a Clarifying Comment on the Code Review Platform:**
      - **Stage the approved reply strictly as an unpublished draft** on the reviewer's thread on the
        code review platform (always passing `--draft` with `./gh pr comment` / `fx gh pr comment`,
-       or using `gerrit comments reply` without publishing—never submit/publish the reply).
+       or using `gerrit comments reply ... --is-ai=false` without publishing—never submit/publish
+       the reply).
      - Confirm the draft reply has been staged, and in the **same turn**, immediately present and
        ask about **Comment `k + 1` of `N`**.
    - **If the user chooses a Code / Documentation Fix:**
