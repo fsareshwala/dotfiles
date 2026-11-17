@@ -8,6 +8,14 @@ positive feedback or general filler opinions.
 only marginal improvements as blocking requirements; note optional stylistic suggestions as `nit:
 {comment}`.
 
+- **Materiality & Complexity Budget (Convergence):** Every added state flag, timer, indirection, or
+defensive branch carries permanent cognitive load and multiplies the state space of surrounding
+code. Only flag an issue or propose a fix when its concrete benefit—preventing a real bug, crash,
+UB, security flaw, CI/platform build failure, or clear style/spec violation—clearly outweighs the
+complexity it introduces. Returning **zero findings (`LGTM`)** on solid, shippable code is a
+first-class, expected outcome; never manufacture 3rd-order hypotheticals or exhaustive test-matrix
+permutations just to produce output.
+
 - **Respect Engineering Time (Progressive Disclosure):** Assume the author and user are competent
 Google software engineers familiar with code review practices. Avoid introductory filler, obvious
 explanations, or long expositions unless explicitly requested. Practice progressive disclosure by

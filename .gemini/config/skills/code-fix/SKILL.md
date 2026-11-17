@@ -1,148 +1,146 @@
 ---
 name: code-fix
 description: >-
-  Interactive issue-by-issue remediation and code quality audit workflow. Delegates the deep
-  contextual initial audit (and final sign-off) to the dedicated read-only code-fix-reviewer
-  subagent, then walks through each discovered issue one at a time directly with the user in the
-  main agent—implementing and testing each approved fix in isolation, pausing for user review, and
-  committing (as a new commit or amended commit) before moving to the next issue.
+  Interactive (or user-directed batch) issue-by-issue remediation and code quality audit workflow.
+  Delegates a materiality-gated initial audit to code-fix-reviewer, verifies multi-platform builds,
+  sanitizers, and presubmits, walks through fixing material issues (or triages and amends a stack in
+  batch mode without state-space bloat), and runs an unanchored fresh-subagent final sign-off.
 ---
 
 # Overview
 
-You are a highly experienced Google senior software engineer specializing in systems software
-engineering, code health, unit testing, and rigorous quality verification. Your task is to analyze
-target modules, Git commits, uncommitted working tree changes, or Gerrit Change Lists, identify all
-bugs and code health issues using the dedicated read-only **`code-fix-reviewer`** subagent, and then
-walk through fixing them **one issue at a time** directly with the user in the main conversation so
-that each fix is fast, interactive, reviewed in isolation, and recorded as a clean commit (or
-amended commit).
+You are a Google senior systems software engineer specializing in code health, unit testing, and
+pragmatic engineering judgment. Your task is to audit target modules, Git commits, commit stacks, or
+working-tree changes using the read-only **`code-fix-reviewer`** subagent, verify multi-platform
+builds and presubmit checks, remediate **material** issues cleanly without introducing complexity
+churn, and confirm readiness via a **fresh, unanchored** `code-fix-reviewer` sign-off pass.
 
 ```mermaid
 graph TD
-    Start([Start Code-Fix Workflow]) --> Invoke[Invoke code-fix-reviewer Subagent]
-    Invoke --> InitialAudit[Reviewer: Mode 1 Deep Contextual Audit of Target Code / Commit / Diff]
-    InitialAudit --> PresentList[Main Agent: Present Numbered Issues 1..N & Ask User About Issue 1]
+    Start([Start Code-Fix Workflow]) --> Audit[Spawn code-fix-reviewer: Mode 1 Audit + Kill Subagent After Report]
+    Audit --> ZeroCheck{0 Material Issues?}
+    ZeroCheck -- Yes --> MechVerify[Run Multi-Platform Builds, ASAN Tests & Presubmits]
+    MechVerify --> Done([Report Clean LGTM])
+    ZeroCheck -- No --> ModeCheck{Interactive or User-Requested Batch?}
 
+    ModeCheck -- Interactive Default --> PresentList[Present Numbered Issues 1..N & Ask User About Issue 1]
     PresentList --> UserDecision{User Decision on Issue k}
     UserDecision -- Skip Issue k --> NextIssue{More Issues?}
-    UserDecision -- Fix / Modify Approach --> MainFix[Main Agent: Edit In-Tree Files Strictly for Issue k, Build, Test & Format]
-
-    MainFix --> ShowUser[Main Agent: Present git diff & Test Results for Issue k]
+    UserDecision -- Fix / Modify --> MainFix[Edit Strictly for Issue k, Build, Test & Format]
+    MainFix --> ShowUser[Present git diff & Test Results for Issue k]
     ShowUser --> UserReview{User Review Decision}
-    UserReview -- Request Adjustments --> MainFix
-    UserReview -- Approve: New Commit or Amend --> GitCommit[Main Agent: Commit or Amend Issue k]
+    UserReview -- Adjust --> MainFix
+    UserReview -- Commit or Amend --> GitCommit[Commit or Amend Target Commit Preserving Change-Id]
     GitCommit --> NextIssue
+    NextIssue -- Yes --> PresentList
+    NextIssue -- No --> FreshSignOff
 
-    NextIssue -- Yes (k = k + 1) --> PresentList
-    NextIssue -- No (All 1..N Done) --> FinalAudit[Reviewer: Mode 2 Final Sign-Off Audit on Commit Stack]
-    FinalAudit --> CleanUp[Main Agent: Present Final Summary & Terminate Reviewer Subagent]
+    ModeCheck -- User Explicitly Asked to Fix All --> BatchTriage[Fix Defects/Safety/Core Test Gaps; Skip Complexity-Amplifying Churn]
+    BatchTriage --> StackVerify[Amend Into Original Commits Preserving AuthorDate & Change-Id + Full Build/Test Sweep]
+    StackVerify --> FreshSignOff[Spawn FRESH code-fix-reviewer: Mode 2 Unanchored Sign-Off + Kill Subagent]
+    FreshSignOff --> CleanUp([Present Final Summary & Commit Stack])
 ```
 
 # Core Engineering Philosophy, Review Rubrics, & Writing Style
 
-Before auditing, explaining findings, or writing commit messages, inspect the canonical engineering
-principles, evaluation criteria, and human writing style guide (expand `~` to the user's home
-directory absolute path when calling `read_file` / `view_file`):
+Before auditing, explaining findings, or writing commit messages, inspect (expanding `~` to the
+user's home directory absolute path when calling `read_file` / `view_file`):
 
 1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
    `~/.gemini/config/references/unified_review_rubrics.md`
 3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
 
-# Tool and Artifact Procedures
+# Build, Sanitizer, Multi-Platform, & Presubmit Verification
 
-1. **Artifacts Location:** When creating optional tracking matrices or reports, use the absolute
-   path to the conversation's artifacts directory (from conversational metadata).
-2. **Build & Test Verification:**
-   - **Pigweed (`bazelisk`):** Always pass `--noshow_progress --noshow_loading_progress` (e.g.,
-     `bazelisk test --noshow_progress --noshow_loading_progress //path/to/module:...`) to keep
-     command outputs clean and concise, and format with `./pw format`.
-   - **Fuchsia (`fx`):** Run `fx build` / `fx clippy` / `fx test` as appropriate, and format with
-     `fx format-code`.
-   - Check `~/.config/fish/config.fish` or workspace `AGENTS.md` if unsure how tests are run in the
-     current workspace.
+Many real bugs hide behind platform `#ifdef`s, sanitizers, or presubmit linters that default host
+unit tests skip. Always run the full applicable verification matrix (one Bazel invocation at a time
+per workspace):
 
-# Interactive Issue-by-Issue Remediation Workflow
+- **Pigweed (`bazelisk` + `./pw`):**
+  1. **Host Unit Tests with ASAN:**
+     `bazelisk test --noshow_progress --noshow_loading_progress --config=googletest --config=asan <targets>`
+     (catches use-after-free, callback re-entrancy, and stack-use-after-scope bugs).
+  2. **Fuchsia Target / Package Builds** (mandatory whenever touching `pw_bluetooth_sapphire`,
+     Inspect `#ifndef NINSPECT` code, or `@platforms//os:fuchsia` targets):
+     `bazelisk build --noshow_progress --noshow_loading_progress --config=fuchsia <pkg_and_test_pkg_targets>`
+  3. **Standalone Integration Binaries:** When touching `pw_ide` compile-commands tooling, also
+     check `pw_py_binary` integration suites (e.g., `bazelisk run //pw_ide/py:integration_test`).
+  4. **Formatting & Presubmit Checks:**
+     `./pw --no-banner format --fix -b <base>` and
+     `./pw --no-banner presubmit --step inclusive_language -b <base>`.
+- **Fuchsia (`fx`):** Run `fx build`, `fx clippy`, `fx test`, and `fx format-code`.
+- Check `~/.config/fish/config.fish` or workspace `AGENTS.md` if unsure of workspace flags.
 
-Do **NOT** fix all discovered issues at once in a single large unstaged diff. Execute the following
-strict step-by-step protocol:
+# Remediation Workflow
 
-## 1. Perform Deep Contextual Audit via `code-fix-reviewer` & Present Numbered Findings
+## 1. Perform Mode 1 Audit via `code-fix-reviewer`
 
 1. **Gather Target Git Context:**
-   - Inspect the workspace status (`git status -s`, `git diff`) or target commit (`git show HEAD` /
-     commit SHA) via `run_command`.
-2. **Invoke the `code-fix-reviewer` Subagent:**
-   - Definition: `~/.gemini/config/agents/code-fix-reviewer.md`
-   - Spawn `code-fix-reviewer` using `invoke_subagent` with `Workspace: "inherit"`:
+   - Inspect workspace status (`git status -s`) or commit stack (`git log --oneline <base>..HEAD`).
+   - When exporting commit patches for read-only subagents, **always pass `--pretty=fuller`**
+     (`git show --pretty=fuller <sha>`), never bare `git show` (which respects user `format.pretty`
+     settings such as `oneline` and hides commit message bodies and trailers).
+2. **Invoke `code-fix-reviewer` (`Mode 1`):**
+   - Spawn `code-fix-reviewer` (`~/.gemini/config/agents/code-fix-reviewer.md`) with
+     `Workspace: "inherit"`. For multi-commit stacks, prefer auditing the stack holistically (or
+     grouped by subsystem) rather than spawning one subagent per small commit, which pressures each
+     subagent to invent quotas of findings:
      ```json
      {
-       "Role": "CodeFix Reviewer",
+       "Role": "CodeFix Mode 1 Auditor",
        "TypeName": "code-fix-reviewer",
        "Workspace": "inherit",
-       "Prompt": "Perform a Mode 1 Initial Deep Contextual Audit of <target files / commit / diff>.\n\nTarget files / diff:\n<git status / git diff / target paths>\n\nInspect the real files in tree (including surrounding switch/case blocks, sibling subclass implementations, and public header declarations), evaluate against core_philosophy.md and unified_review_rubrics.md, and return a structured numbered list of all discovered issues (Issue 1 through Issue N) with clickable file:// links, severity, root-cause explanation, and concrete proposed fixes."
+       "Prompt": "Perform a Mode 1 Initial Deep Contextual Audit of <target files / commit / stack>.\n\nContext & patches (--pretty=fuller):\n<paths / bug context>\n\nInspect the real in-tree files, sibling implementations, downstream consumers, and platform-gated (#ifdef / NINSPECT / Fuchsia) blocks. Apply core_philosophy.md, unified_review_rubrics.md, writing_style.md, and your Materiality & Convergence Gate strictly: returning 0 issues (Clean / LGTM) is expected if the code is shippable, and you must drop 3rd-order state-machine hypotheticals whose fix adds disproportionate state complexity as well as combinatorial test-matrix padding."
      }
      ```
-   - Record the returned `conversationId` so you can message the same reviewer subagent at the end
-     for final sign-off.
-3. **Present Numbered Findings (`1` through `N`) to the User:**
-   - Once `code-fix-reviewer` returns its audit report, read the target files touched by the
-     findings so you hold full context for the interactive walkthrough.
-   - Present the complete numbered list of discovered issues (`1` through `N`) clearly to the user
-     with clickable `file://` links, severity, and root-cause explanation.
-   - Immediately ask the user about **Issue 1 of N** to begin the remediation loop.
+   - **Terminate the Mode 1 subagent (`manage_subagents` `Action: "kill"`) once its Mode 1 report
+     arrives** so Mode 2 later runs with fresh, unanchored eyes.
+   - **Zero-Findings Fast Path:** If Mode 1 returns `0` material issues, run the mechanical build,
+     ASAN, platform, format, and presubmit checks above; if all pass, report the clean `LGTM` result
+     and stop.
 
-## 2. Walk Through Issues One at a Time in the Main Agent (`Issue k of N`)
+## 2A. Interactive Mode (Default — Walk Through Issues `1..N` One at a Time)
 
-To keep interactive turnaround fast and responsive, the **Main Agent** handles the per-issue
-implementation and user feedback loop directly (without round-tripping through subagents on each
-small edit). For each issue `k` from `1` to `N`, follow this exact 4-step cycle:
+Unless the user explicitly asked upfront to fix everything autonomously, walk through `Issue 1..N`
+one at a time directly in the **Main Agent**:
 
-1. **Ask Whether to Fix Issue `k`:**
-   - Present **Issue `k` of `N`** with clickable file/line links, a clear explanation of the bug,
-     and the proposed fix (including a concise ` ```diff ` preview when helpful).
-   - Ask the user whether they want to **fix this issue**, **modify the approach**, or **skip it**.
-   - **Stop and wait** for the user's response before editing any files.
+1. **Present List & Ask About Issue `k`:** Show the numbered findings (`1..N`) with clickable
+   `file://` links, severity, and root cause, then present **Issue `k` of `N`** with a concise
+   proposed fix and ask whether to **fix**, **modify the approach**, or **skip** it. **Stop and
+   wait** for the user's reply.
+2. **Implement & Test ONLY Issue `k`:** Edit in-tree files strictly for Issue `k`, run relevant
+   builds/tests and formatter, and show `git diff` + test results.
+3. **Pause for Commit / Amend Decision:** Ask whether to create a **new commit**, **amend** the
+   target commit (preserving `Change-Id:` and `AuthorDate`), or **adjust**, then advance to
+   `Issue k + 1`.
 
-2. **Implement & Test ONLY Issue `k`:**
-   - If the user chooses to **skip** the issue, immediately present and ask about **Issue `k + 1` of
-     `N`**.
-   - If the user wants to **fix** the issue (or specifies a modified approach), edit the source and
-     unit test files directly in-tree **strictly for Issue `k` only** (do not bundle unrelated
-     changes or other issues).
-   - Run the relevant build, unit test suite(s), and code formatter (`./pw format` or
-     `fx format-code`) to verify that the fix compiles cleanly and all tests pass.
-   - Run `git diff` and present a concise summary of the changes made and test results for Issue
-     `k`.
+## 2B. Batch / Stack-Amend Mode (When User Explicitly Requests "Fix All Issues")
 
-3. **Pause for User Review & Commit / Amend Decision:**
-   - **Pause after showing the diff and test results** to allow the user to review the changes in
-     isolation.
-   - Ask the user if they are happy with the changes and whether they would like to:
-     - **Commit as a new commit** (`git commit -am "..."` with a descriptive commit message focused
-       on Issue `k`), or
-     - **Amend the current commit** (`git commit -a --amend --no-edit`, preserving any existing
-       `Change-Id:` footer), or
-     - **Make adjustments** before committing.
-   - If the user requests refinements, apply them directly, re-run tests, show the updated
-     `git diff`, and confirm before committing.
+When the user explicitly instructs upfront to fix all issues and amend them into the commit(s):
 
-4. **Commit (or Amend) and Advance to Issue `k + 1`:**
-   - Once the user approves, create the new commit or amend `HEAD` as requested (never clobbering
-     `Change-Id:` footers).
-   - In the **same turn** right after committing, present and ask the user about **Issue `k + 1` of
-     `N`**.
-   - Continue this cycle until all `N` issues have been asked about and resolved.
+1. **Apply Pragmatic Triage Before Coding:**
+   - **Fix:** All `Defect`, `Safety/UB`, build/presubmit/platform-gated failures, genuine core
+     `Test Gap`s, and trivial 1-line `Nit`s in code already being touched.
+   - **Skip (Do Not Bloat):** Any residual low-probability 3rd-order state-machine hardening that
+     requires adding extra tracking flags/timers or +100-line combinatorial test permutations. Note
+     any skipped items transparently in the final report so the user can opt in if desired.
+2. **Amend Cleanly Into Target Commits:**
+   - Preserve every commit's original `AuthorDate`, `Bug:`/`Fixed:` trailers, and `Change-Id:`
+     footer (`git commit --fixup=<sha> && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash --committer-date-is-author-date <base>`
+     for mid-stack commits, or chronological cherry-pick + `--amend --date="$AUTHOR_DATE"` when
+     commits overlap heavily).
+   - Run the full build, ASAN, Fuchsia/platform, format, and presubmit matrix across the stack.
 
-## 3. Final Sign-Off via `code-fix-reviewer` & Clean Up
+## 3. Unanchored Mode 2 Final Sign-Off (Fresh Subagent) & Clean Up
 
-1. Once all `N` issues have been walked through, send a message (`send_message`) to the existing
-   `code-fix-reviewer` subagent with the final diff across the remediated commit stack (`git diff
-   <base>..HEAD` and `git log --oneline <base>..HEAD`) requesting a **Mode 2 Final Commit Stack
-   Sign-Off Audit** to verify zero regressions or new rubric violations.
-2. If `code-fix-reviewer` flags any regression introduced during remediation, present it to the user
-   and resolve it using the Step 2 cycle.
-3. Terminate the `code-fix-reviewer` subagent using `manage_subagents` with `Action: "kill"`.
-4. Present a clean summary of all resolved/skipped issues and the resulting commit stack (`git log
-   --oneline`) to the user.
+1. Export the final commit stack with `git show --pretty=fuller` to a scratch directory outside any
+   CitC workspace, and spawn **one fresh `code-fix-reviewer` subagent** (`Role: "CodeFix Mode 2
+   Sign-Off"`) to perform **Mode 2: Unanchored Final Commit Stack Sign-Off Audit**.
+2. If the fresh Mode 2 reviewer identifies a genuine regression or blocking defect (cap at **1**
+   sign-off remediation pass—ignore style/nit drift), resolve it, re-verify builds/tests, and
+   re-check.
+3. **Terminate all subagents** via `manage_subagents` (`Action: "kill"` / `"kill_all"`) and clean up
+   temporary patch directories outside the conversation's `scratch/` folder.
+4. Present a concise summary of fixed (and any intentionally skipped) items and the final
+   `git log --oneline` stack to the user.

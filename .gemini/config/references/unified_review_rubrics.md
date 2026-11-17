@@ -8,14 +8,16 @@ rubrics. If a category has no significant issues during evaluation, omit it from
    corruption? Are edge cases handled? Are there any logical flaws?
 
 2. **DRY and Code Deduplication Across Sibling Classes:** Scrutinize newly added or modified methods
-   across parallel class hierarchies or sibling override implementations for copy-pasted algorithmic
-   logic. Demand immediate refactoring into shared private helpers, anonymous namespace functions, or
-   base class methods when identical calculation or byte-clamping blocks are detected.
+   across parallel class hierarchies or sibling override implementations for substantial copy-pasted
+   algorithmic logic, refactoring into shared helpers or base methods when it genuinely reduces bug
+   surface and improves clarity. Do not force premature helpers for short, self-evident idioms where
+   inline code is easier to read.
 
 3. **Testing and Testability:** Are there sufficient unit tests (positive, negative, adversarial,
    and edge cases) covering the changes? Is the code designed in a modular way that makes it easy to
-   unit test? When caching or state retention mechanisms are introduced, ensure tests verify
-   mid-transaction state changes.
+   unit test? Focus on behavioral invariants, regression paths, platform-gated blocks (e.g.,
+   `#ifndef NINSPECT`), and key boundaries rather than combinatorial sub-state × error-code
+   permutations that bloat test files without catching distinct failure modes.
 
 4. **Readability and Maintainability:** Is the code easy to understand? Are variable, class, struct,
    and function names clear, precise, and descriptive? Is the code well-structured and organized?
@@ -33,15 +35,19 @@ rubrics. If a category has no significant issues during evaluation, omit it from
 
 7. **Symmetric Architecture and Pattern Completeness:** Whenever a defensive design pattern, caching
    mechanism, state tracker, or performance optimization (e.g. DoS mitigation, rate limiting) is
-   introduced, verify that it is applied symmetrically across all sibling handlers, protocol switch
-   cases, and related data structures. Actively query: *If this pattern or defensive feature applies
-   to Cases A and B, why was Case C omitted?*
+   introduced, check whether sibling handlers, protocol switch cases, and consumer/producer
+   counterparts require the same handling. Verify that an omitted case is actually reachable under
+   real protocol and caller invariants before flagging it; do not demand defensive symmetry for
+   impossible states.
 
 8. **Adversarial Input and Boundary Assertions:** Scrutinize all boundary comparisons and maximum
    type checks for mathematical precision (e.g., verifying whether strict `<` vs inclusive `<=`
    should be used against type limits). For system, network, or protocol interfaces, trace untrusted
-   external peer inputs (e.g. length headers, offsets) to prove that a malicious peer cannot trigger
-   fatal assertions or DoS resource starvation loops.
+   external peer inputs (e.g. length headers, offsets, over-the-air frames) to ensure a malicious or
+   non-compliant peer cannot trigger fatal assertions, UB, or DoS loops. Distinguish untrusted
+   external inputs from impossible sequences that would require a violated local hardware/kernel
+   contract or ultra-narrow 3rd-order race windows whose "fix" would add more state complexity than
+   risk removed.
 
 9. **Commit Message & Document Status:** Commit message subjects should start with the affected
    module name followed by a colon (e.g. `foo: add support for bar`). Commit messages should use
