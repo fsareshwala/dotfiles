@@ -1,6 +1,12 @@
 # Check if running interactively
 status is-interactive; or return
 
+# Disable Fish 4.1+ per-prompt terminal queries (\e[6n\e[0c) so delayed replies
+# over SSH / shpool don't get echoed as raw ^[[...R^[[?...c characters.
+if status test-feature query-term 2>/dev/null; and not contains no-query-term $fish_features
+    set -Ua fish_features no-query-term
+end
+
 # Disable software control flow (ctrl-s and ctrl-q)
 stty -ixon
 
