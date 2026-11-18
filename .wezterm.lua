@@ -63,12 +63,17 @@ local function find_last_command_zones(pane, include_prompt)
     if zones[i].semantic_type == 'Output' and get_zone_text(pane, zones[i]) ~= '' then
       local output_zone = zones[i]
       local start_zone = output_zone
+      local prev = i - 1
 
-      if zones[i - 1] and zones[i - 1].semantic_type == 'Input' then
-        start_zone = zones[i - 1]
-        if include_prompt and zones[i - 2] and zones[i - 2].semantic_type == 'Prompt' then
-          start_zone = zones[i - 2]
-        end
+      if zones[prev] and zones[prev].semantic_type == 'Input' then
+        start_zone = zones[prev]
+        prev = prev - 1
+      end
+
+      -- Fish 4+ emits OSC 133;A and 133;C without 133;B, placing both the
+      -- prompt and typed command into a single 'Prompt' zone before 'Output'.
+      if include_prompt and zones[prev] and zones[prev].semantic_type == 'Prompt' then
+        start_zone = zones[prev]
       end
 
       return start_zone, output_zone, nil
