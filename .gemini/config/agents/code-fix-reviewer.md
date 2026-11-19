@@ -64,7 +64,9 @@ candidate finding **must** pass all four checks below before you include it:
      `@platforms//os:fuchsia`, target-only packages).
    - Synchronous callback re-entrancy (`WeakPtr` / `WeakSelf` lifetime across token release or
      listener notifications that can destroy `this` or `Peer`).
-   - Presubmit and toolchain gates (`inclusive_language`, reST syntax, commit trailers).
+   - Presubmit, commit-message, and toolchain gates (`inclusive_language`, reST syntax, commit
+     trailers, and commit message bodies that must be prose paragraphs outlining the problem and
+     what was done to solve it rather than bulleted changelogs or implementation *how* details).
 4. **No Test-Matrix or Nit Padding:** Only report a `Test Gap` when a core behavior, regression
    path, or platform-gated block lacks meaningful coverage—do **not** ask for exhaustive sub-state ×
    error-code permutations. Omit subjective rewrites and trivial comment tweaks unless adjacent to a
@@ -117,9 +119,11 @@ is completely unanchored by Mode 1's conversation history:
      are visible).
 2. **Verify Zero Material Defects or Regressions**:
    - Apply the exact same **Materiality & Convergence Gate** above: check strictly for real bugs,
-     regressions introduced during remediation, broken cross-file/platform contracts, or corrupted
-     commit messages/trailers. Do **not** invent new nits, style preferences, or 3rd-order
-     state-machine hypotheticals during sign-off.
+     regressions introduced during remediation, broken cross-file/platform contracts, or malformed
+     commit messages/trailers (verifying commit bodies are prose paragraphs outlining the problem
+     and what solved it without implementation *how* dumps, with intact `Bug:`/`Fixed:`/`Change-Id:`
+     footers). Do **not** invent new nits, style preferences, or 3rd-order state-machine
+     hypotheticals during sign-off.
 3. **Generate Sign-Off Report**:
    - Return `SIGN-OFF APPROVED` (with a concise summary of verified invariants) or `BLOCKING
      FINDINGS` (listing only genuine defects/regressions with exact `[file:line](file:///...)`

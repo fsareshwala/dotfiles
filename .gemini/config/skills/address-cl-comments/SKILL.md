@@ -80,6 +80,10 @@ user's home directory absolute path when calling `read_file` / `view_file`):
      - If updating the commit message of a mid-stack commit (e.g., for a `/COMMIT_MSG` comment),
        write the updated message (preserving the original `Change-Id:`) to a temporary file and
        amend `TARGET_SHA` via rebase (`git commit --allow-empty --fixup=amend:"$TARGET_SHA" -F <msg_file> && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash "${TARGET_SHA}~1"`).
+   - Whenever writing or updating a commit message, write the body in **paragraph format** (plain
+     prose paragraphs—never bulleted lists or bold section labels), outlining **the problem we are
+     trying to solve** and **what was done to solve it**. Do **not** describe *how* it was done,
+     since the diff already shows the implementation details.
    - Never clobber or remove `Change-Id:` footers.
 3. **Code Review Platform Interactions (Stage Drafts Only — Never Publish):**
    - Do **NOT** push new patchsets to the code review platform unless the user explicitly asks you
@@ -178,6 +182,9 @@ context** so you have a unified mental model of the CL:
        - A reviewer's question reveals that a non-obvious **"why"** invariant is missing from the
          code and future readers would likely have the same confusion—warranting clearer naming or a
          concise in-code `"why"` comment.
+       - A comment targets `/COMMIT_MSG` or shows that the commit message fails to state, in prose
+         paragraphs, the problem we are trying to solve and what was done to solve it (or clutters
+         the body with bulleted changelogs and implementation details of *how* it was done).
 3. **Identify Inter-Related or Coupled Comments:**
    - Check whether multiple reviewer comments are part of a single logical change (e.g., changing a
      method signature in `.h`, updating its implementation in `.cc`, and adding a test in

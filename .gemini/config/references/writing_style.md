@@ -65,8 +65,9 @@ and buries the point:
   symbols, protocol fields (`wLength`), flags, file paths, and commands. Domain terms (`EP0`, `TRB`,
   `D3hot`) are plain words.
 - **Don't repeat what the diff or UI already shows.** An inline Gerrit comment is already anchored
-  to the file and line; don't open by restating the file name, line number, or function name. A
-  commit message sits right above the diff; don't walk through which functions changed.
+  to the file and line, so don't open by restating the file name, line number, or function name. A
+  commit message sits right above the diff, so don't describe how the code implements the change or
+  walk through which files, functions, or state variables changed.
 - **State certainty once and plainly.** Write *"confirmed on device"* or *"likely, but not
   reproduced yet"* when it matters. Don't stamp every sentence *"verified"*.
 
@@ -85,14 +86,15 @@ and buries the point:
 
 ## Choose the Format by the Shape of the Content
 
-- **Prose is the default for explanation.** Connecting words (*because, so, but, which means,
-  instead*) carry the reasoning. Splitting a single argument into bullets deletes those words and
-  forces the reader to reassemble the logic.
+- **Prose is the default for explanation, and mandatory for commit message bodies.** Connecting
+  words (*because, so, but, which means, instead*) carry the reasoning. Splitting an argument or a
+  commit description into bullets deletes those words and turns reasoning into a changelog.
 - **Use a numbered list only for a real sequence** (a timeline of events, steps to reproduce, or a
   numbered index of separate findings in a chat summary).
-- **Use bullets only for parallel, independent items** (unrelated fixes across components or
-  alternatives considered). Introduce the list with a sentence saying what ties the items together,
-  and start each bullet with the component or subject so the reader can scan down the left edge.
+- **Use bullets only for parallel, independent items outside commit messages** (options in a design
+  note or independent items in a chat summary). Introduce the list with a sentence saying what ties
+  the items together, and start each bullet with the subject so the reader can scan down the left
+  edge.
 - **Never put bold section labels or headers inside review comments, replies, bug comments, or
   commit messages.** Do not write `**Issue:**`, `**Root Cause:**`, `**Impact:**`, or
   `**Suggested Fix:**` inside a Gerrit comment or commit description. The first sentence of a short
@@ -108,11 +110,13 @@ and buries the point:
 - **Reply to a reviewer (`address-cl-comments`):** Answer their question or state what you changed
   in the first sentence, then give the reason. If you are pushing back or offering an alternative,
   state the trade-off plainly without defensiveness or filler.
-- **Commit message (`code-fix` / `address-cl-comments`):** Explain why the change exists—the
-  situation, its cause, and the approach at the level of concepts—so a reviewer understands why the
-  CL exists before opening the diff. Mention what a reviewer would otherwise ask about (a
-  non-obvious trade-off, a rejected alternative, a behavior change). Follow the repository's subject
-  and footer conventions.
+- **Commit message (`code-fix` / `code-review` / `address-cl-comments`):** Write the body in
+  paragraph format, outlining the problem we are trying to solve and what was done to solve it.
+  Leave out *how* it was done. The diff already has the implementation details, so do not walk
+  through modified files, helper functions, struct fields, state variables, or supporting edits, and
+  do not use bulleted changelogs. Mention non-obvious trade-offs or behavior changes only when a
+  reviewer would otherwise ask about them. Follow the repository's subject, line-wrapping, and
+  footer conventions.
 - **Longer docs and explainers:** Pick one Diátaxis mode (*tutorial*, *how-to*, *reference*, or
   *explanation*) and don't mix them. Open with the whole thing in miniature, start each section from
   the problem it solves, and use headings that carry the point (*"Pick the mode first"*, not
@@ -127,9 +131,12 @@ draft as someone who wasn't there:
 2. **Read one sentence at a time.** Does each sentence build on what came right before it without
    using something before it is explained?
 3. **Audit every identifier, path, call chain, and number.** Ask what the reader loses without it;
-   if the answer is nothing, cut it or replace it with the concept it stands for.
-4. **Check the structure.** If a bullet list is really one causal argument, turn it back into a
-   paragraph. Strip any `**Root Cause:**` / `**Fix:**` labels from comments and commit messages.
+   if the answer is nothing, cut it or replace it with the concept it stands for. In a commit
+   message, cut anything that explains *how* the diff implements the change instead of the problem
+   being solved and what was done to solve it.
+4. **Check the structure.** Commit message bodies must be plain prose paragraphs with no bullet
+   lists. Elsewhere, if a bullet list is really one causal argument, turn it back into a paragraph.
+   Strip any `**Root Cause:**` / `**Fix:**` labels from comments and commit messages.
 5. **Read it aloud.** Would an engineer say it this way to a colleague? Agent first drafts typically
    run two to three times longer than necessary—cut the scaffolding, keep the mechanism.
 
@@ -162,14 +169,18 @@ draft as someone who wasn't there:
 > avoids re-entering it.
 
 ### Commit Message Body
-**Before (AI investigation transcript):**
+**Before (AI implementation walk-through and bullets):**
 > During teardown in `Bus::~Bus()`, `Bridge::Disable()` calls `Device::DisableLocked()`, which
 > clears the PCI command register and zeroes the bridge memory windows. When the driver rebinds
-> later, `Bridge::Bind()` assumes the BIOS configuration is still intact and does not reprogram the
-> windows, leading to downstream BAR accesses failing with `ZX_ERR_IO`. This CL updates `Bind()` to
-> restore the bridge window registers.
+> later, `Bridge::Bind()` assumes the BIOS configuration is still intact, leading to downstream BAR
+> accesses failing with `ZX_ERR_IO`.
+>
+> Changes:
+> - Add `saved_windows_` to `Bridge` and populate it in `Bridge::SaveWindows()` before teardown.
+> - Update `Bridge::Bind()` to reprogram the window registers from `saved_windows_`.
+> - Add `BridgeRebindRestoresWindows` unit test in `bridge_test.cc`.
 
-**After (Engineer style):**
-> Teardown wipes out the bridge window configuration, and nothing restores it before the next
-> instance of the driver binds. Save the window registers before teardown and restore them in
-> `Bind()` so rebinding devices can still reach downstream BARs.
+**After (Engineer paragraph style):**
+> Unbinding the PCI bus driver clears the bridge memory windows, and nothing restores them when a
+> new driver instance binds, leaving downstream device BARs unreachable. Preserve the bridge window
+> configuration across teardown and restore it on rebind so downstream devices remain accessible.

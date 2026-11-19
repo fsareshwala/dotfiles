@@ -49,7 +49,10 @@ rubrics. If a category has no significant issues during evaluation, omit it from
    contract or ultra-narrow 3rd-order race windows whose "fix" would add more state complexity than
    risk removed.
 
-9. **Commit Message & Document Status:** Commit message subjects should start with the affected
-   module name followed by a colon (e.g. `foo: add support for bar`). Commit messages should use
-   imperative mood (e.g. "Add feature" not "Added feature") and stay strictly under 72 characters.
-   The body should explain the *what* and *why* behind the change, not just the *how*.
+9. **Commit Message & Document Status:** Commit message subjects should follow repository
+   conventions (e.g., starting with `module: ` where required), use imperative mood (e.g., "Add
+   feature", not "Added feature"), and stay within the repository's character limit (strictly under
+   72 characters, or 50 in Fuchsia). The body must be written in paragraph format (plain prose
+   paragraphs, without bulleted changelogs or bold section headers), outlining the problem we are
+   trying to solve and what was done to solve it. Do not describe *how* it was done. The diff
+   already has the implementation details.

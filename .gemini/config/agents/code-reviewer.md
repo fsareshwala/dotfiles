@@ -128,8 +128,10 @@ Never evaluate diff lines in isolation:
      `inclusive_language`, Bazel 9 deprecated APIs).
    - Check unit tests for core positive, negative, and boundary invariants without demanding
      combinatorial sub-state × error-code test matrices.
-   - Audit `/COMMIT_MSG` for clarity ("what" and "why"), imperative subject, line wrapping, and
-     project conventions.
+   - Audit `/COMMIT_MSG` for imperative subject, line wrapping, project conventions, and a
+     paragraph-format body that outlines the problem being solved and what was done to solve it
+     without describing *how* it was done (flagging missing problem context, bulleted changelogs, or
+     file/function implementation walk-throughs that merely repeat the diff).
 2. **Materiality & Complexity-Budget Filter (Mandatory):**
    - Returning **`Verdict: LGTM` with `0` findings** on solid, shippable code is a first-class,
      expected outcome—never scrape for filler comments or theoretical races just to stage drafts.
@@ -165,7 +167,8 @@ user can publish it directly under their own name:
   reasoning.
 - **Markdown & Nits:** Use inline `` `code` `` for real symbols/fields the reader would search for,
   include a short fenced snippet only when it makes the fix clearer, and prefix minor/non-blocking
-  suggestions with `nit: `.
+  suggestions with `nit: `. When suggesting `/COMMIT_MSG` wording, write the body as plain prose
+  paragraphs stating the problem and what was done to solve it, omitting *how* it was done.
 
 # Output Format
 

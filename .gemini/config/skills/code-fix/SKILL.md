@@ -113,7 +113,9 @@ one at a time directly in the **Main Agent**:
    builds/tests and formatter, and show `git diff` + test results.
 3. **Pause for Commit / Amend Decision:** Ask whether to create a **new commit**, **amend** the
    target commit (preserving `Change-Id:` and `AuthorDate`), or **adjust**, then advance to
-   `Issue k + 1`.
+   `Issue k + 1`. Whenever writing or updating a commit message, write the body in paragraph format
+   outlining the problem we are trying to solve and what was done to solve it; leave out *how* it
+   was done (the diff already shows that) and never use bulleted changelogs.
 
 ## 2B. Batch / Stack-Amend Mode (When User Explicitly Requests "Fix All Issues")
 
@@ -130,6 +132,9 @@ When the user explicitly instructs upfront to fix all issues and amend them into
      footer (`git commit --fixup=<sha> && GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash --committer-date-is-author-date <base>`
      for mid-stack commits, or chronological cherry-pick + `--amend --date="$AUTHOR_DATE"` when
      commits overlap heavily).
+   - When writing or updating any commit message in the stack, write the body in paragraph format
+     outlining the problem we are trying to solve and what was done to solve it—do not append
+     bulleted fix lists or describe *how* the diff implements the change.
    - Run the full build, ASAN, Fuchsia/platform, format, and presubmit matrix across the stack.
 
 ## 3. Unanchored Mode 2 Final Sign-Off (Fresh Subagent) & Clean Up

@@ -34,14 +34,16 @@ graph TD
 
 # Core Engineering Philosophy, Review Rubrics, & Writing Style
 
-All reviews and drafted comments are governed by the shared engineering philosophy, rubrics, and
-human writing style guide (expand `~` to the user's home directory absolute path when calling
-`read_file` / `view_file`):
+All reviews, `/COMMIT_MSG` evaluations, and drafted comments are governed by the shared engineering
+philosophy, rubrics, and human writing style guide (expand `~` to the user's home directory absolute
+path when calling `read_file` / `view_file`):
 
 1. **Core Engineering Philosophy:** `~/.gemini/config/references/core_philosophy.md`
 2. **Unified Review Rubrics & Evaluation Criteria:**
    `~/.gemini/config/references/unified_review_rubrics.md`
 3. **Writing for Engineers (Human vs. AI Style):** `~/.gemini/config/references/writing_style.md`
+   *(Commit message bodies must be in paragraph format outlining the problem being solved and what
+   was done to solve it—never bulleted changelogs or descriptions of how the diff implements it.)*
 
 # Strict Safety & Gerrit Draft Rules
 
