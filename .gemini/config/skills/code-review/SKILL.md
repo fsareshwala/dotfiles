@@ -1,18 +1,19 @@
 ---
 name: code-review
 description: >-
-  Read-only code review workflow for Gerrit CLs and local Git diffs. Audits changes via the
-  code-reviewer subagent, stages findings as unpublished peer-voice Gerrit drafts (--is-ai=false),
-  and handles follow-up Q&A or draft edits. Use when the user invokes /code-review or asks to
-  review a CL, patch, or someone else's code.
+  Read-only code review workflow for Gerrit CLs and local Git diffs. Runs separate discovery and
+  adversarial-challenger passes via code-reviewer, stages verified findings as unpublished
+  peer-voice Gerrit drafts (--is-ai=false), and handles follow-up Q&A or draft edits. Use when the
+  user invokes /code-review or asks to review a CL, patch, or someone else's code.
 ---
 
 # Code-Review Workflow
 
-Review Gerrit CLs (typically others' CLs) or local diffs without mutating local workspaces, staging
-unpublished peer-voice drafts on Gerrit so the user can curate and publish them under their own name.
+Review Gerrit CLs (typically others' CLs) or local diffs using separate discovery and
+adversarial-challenger `code-reviewer` passes so false positives are pruned before staging
+unpublished peer-voice drafts on Gerrit.
 
-Read before reviewing or editing drafts:
+Read before explaining findings or editing drafts:
 - [core_philosophy.md](file:///usr/local/google/home/fsareshwala/.gemini/config/references/core_philosophy.md)
 - [unified_review_rubrics.md](file:///usr/local/google/home/fsareshwala/.gemini/config/references/unified_review_rubrics.md)
 - [writing_style.md](file:///usr/local/google/home/fsareshwala/.gemini/config/references/writing_style.md)
@@ -44,19 +45,25 @@ For a **local** uncommitted diff or unpushed commit with no Gerrit CL, inspect `
 `git log -n 1` and run in **Local Review Mode** (skipping Step 3). Ask the user if the target is
 ambiguous.
 
-## 2. Audit via `code-reviewer`
+## 2. Unanchored Discovery & Challenger Passes (`code-reviewer`)
 
-Spawn [code-reviewer.md](file:///usr/local/google/home/fsareshwala/.gemini/config/agents/code-reviewer.md)
-(`TypeName: "code-reviewer"`, `Workspace: "inherit"`), passing `Host`, `Change`, `Revision`, active
-local workspaces (for read-only caller/sibling lookups), and any user focus notes. Kill the subagent
-(`manage_subagents` `Action: "kill"`) once its report arrives unless an immediate follow-up pass is
-needed.
+1. **Mode 1 (Discovery):** Spawn [code-reviewer.md](file:///usr/local/google/home/fsareshwala/.gemini/config/agents/code-reviewer.md)
+   (`TypeName: "code-reviewer"`, `Workspace: "inherit"`) in **Mode 1**, passing neutral target info
+   (`Host`, `Change`, `Revision`, active local workspaces for read-only caller/sibling lookups, and
+   any user focus notes). **Kill the Mode 1 subagent** (`manage_subagents` `Action: "kill"`) once
+   its report arrives. If Mode 1 returns `0` findings, skip to Step 4 (`LGTM`).
+2. **Mode 2 (Adversarial Challenger):** Spawn a **fresh** `code-reviewer` in **Mode 2**, passing
+   *only* the target coordinates and Mode 1's candidate findings (no Mode 1 reasoning history). It
+   actively attempts to disprove each candidate against full post-change files and callers, drops
+   false positives, verifies 1-indexed new-side line numbers, and adds a **Verification** blurb to
+   each survivor. **Kill the Mode 2 subagent** once its report arrives.
 
 ## 3. Stage Unpublished Gerrit Drafts (Gerrit CLs Only)
 
-1. **`0` findings (`LGTM`):** Stage nothing and proceed to Step 4.
-2. **`1..N` findings:** Stage each finding on `--revision="<PS>"` (use `--line=<L>` for a single
-   line or `/COMMIT_MSG`, or `--start-line=<S> --end-line=<E>` for a range):
+1. **`0` surviving findings (`LGTM`):** Stage nothing and proceed to Step 4.
+2. **`1..N` verified findings:** Stage each surviving finding on `--revision="<PS>"` (use
+   `--line=<L>` for a single line or `/COMMIT_MSG`, or `--start-line=<S> --end-line=<E>` for a
+   range):
    ```bash
    /google/bin/releases/gemini-agents-gerrit/gerrit comments post \
      --host="<HOST>" --change="<CHANGE>" --revision="<PS>" \
@@ -72,8 +79,9 @@ needed.
 1. **Chat summary:** State CL title/link, `PS<N>`, **Verdict** (`LGTM`, `LGTM with nits`, or
    `Needs changes`), and confirm **`N` unpublished drafts are staged** (nothing published). For each
    finding `k`, show `[<Severity> | <Category>] <file>:<line>` (clickable `file://` only for local
-   reviews) — **`<Title>`**, a 1–2 sentence explanation, and `> <staged draft>`. Note any skipped
-   duplicate threads in one line at the end (write a full Markdown artifact only if `> 8` findings).
+   reviews) — **`<Title>`**, a 1–2 sentence explanation + Mode 2's **Verification** blurb, and
+   `> <staged draft>`. Note any candidates Mode 2 disproved or skipped duplicate threads in one line
+   at the end (write a full Markdown artifact only if `> 8` findings).
 2. **Follow-ups:** Answer codebase/CL questions directly via `gerrit cat` or `read_file`. Edit or
    delete specific drafts on request via:
    ```bash
