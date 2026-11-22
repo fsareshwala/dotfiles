@@ -6,8 +6,10 @@
   "toolPermission": "always-proceed",
   "trustedWorkspaces": [
     "/Users/fsareshwala/.config/nvim",
+    "/Users/fsareshwala/personal/writings",
     "/Users/fsareshwala/code/forecash",
-    "/Users/fsareshwala/personal/writings"
+    "/Users/fsareshwala/code/montage",
+    "/Users/fsareshwala/code/cleandial"
   ],
   "verbosity": "low"
 }
